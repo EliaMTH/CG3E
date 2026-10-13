@@ -1,0 +1,895 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.uish.org/sensors/ssn/ext/"
+     xml:base="http://www.uish.org/sensors/ssn/ext/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ext="http://www.uish.org/sensors/ssn/ext#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
+     xmlns:schema1="https://schema.org/"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:geosparql="http://www.opengis.net/ont/geosparql#">
+    <owl:Ontology rdf:about="http://www.uish.org/sensors/ssn/ext">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2026-01-16/uo-full.owl"/>
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql/1.1"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/ssn/obs/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#has_UnitOfMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://www.uish.org/sensors/ssn/ext#has_UnitOfMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/actsOnProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#activationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#activationDate">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <skos:definition xml:lang="en">Date and time in which the Platform has been activated. Since the type of this datatype property is xsd:dateTime, the date and the time are separated by a T. Then, the format is YYYY-MM-DDThh:mm:ss</skos:definition>
+        <skos:prefLabel xml:lang="en">activation date</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#deactivationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#deactivationDate">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <skos:definition xml:lang="en">Date and time in which the Platform has been deactivated. Since the type of this datatype property is xsd:dateTime, the date and the time are separated by a T. Then, the format is YYYY-MM-DDThh:mm:ss</skos:definition>
+        <skos:prefLabel xml:lang="en">deactivation date</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasAccuracy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">The closeness of agreement between the Result of an Observation</skos:definition>
+        <skos:prefLabel xml:lang="en">accuracy</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:prefLabel xml:lang="en">code</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasFrequency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasFrequency">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:prefLabel xml:lang="en">frequency</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasName"/>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasRange">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">The interval in which the observed property can be valued</skos:definition>
+        <skos:prefLabel xml:lang="en">range</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasResolution">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">The smallest difference in the value of an observable property being observed that would result in perceptably different values of observation results.</skos:definition>
+        <skos:prefLabel xml:lang="en">resolution</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#hasUoM -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#hasUoM">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">The unit of measure of the observed property</skos:definition>
+        <skos:prefLabel xml:lang="en">unit of measure</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#isMobile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uish.org/sensors/ssn/ext#isMobile">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:definition xml:lang="en">Specifies whether the platform is installed on a moving object or not</skos:definition>
+        <skos:prefLabel xml:lang="en">is mobile</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQCO2Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQCO2Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>10%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>co2</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-2.000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>ppm</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#Non-DispersiveInfraredSensor"/>
+        <rdfs:label xml:lang="en">CO2</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQCOSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQCOSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>10%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>co</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-30</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>0.03</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>mg/m³</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#MOS-type_CO_Sensor"/>
+        <rdfs:label xml:lang="en">CO</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQExtTSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQExtTSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>5%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>extT</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>-40 – 80</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>0.3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>°C</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#SolidState_ExternalTemperature_Sensor"/>
+        <rdfs:label xml:lang="en">Air temp</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQNO2Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQNO2Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>15%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>no2</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-5000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>5.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m³</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#MOS-type_NO2_Sensor"/>
+        <rdfs:label xml:lang="en">NO2</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQNO2_ana_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQNO2_ana_Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>0.15%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>no2_ana</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-5000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>5.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#Electrochemical_NO2_Sensor"/>
+        <rdfs:comment xml:lang="it">Sensore analogico di qualità superiore</rdfs:comment>
+        <rdfs:label xml:lang="it">Biossido di azoto</rdfs:label>
+        <skos:definition xml:lang="it">Sensore analogico di qualità superiore</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQNO_anaSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQNO_anaSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>0.15%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>no_ana</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-5000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>5.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#Electrochemical_NO_Sensor"/>
+        <rdfs:comment xml:lang="it">Sensore analogico di qualità superiore</rdfs:comment>
+        <rdfs:label xml:lang="it">Monossido di azoto</rdfs:label>
+        <skos:definition xml:lang="it">Sensore analogico di qualità superiore</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQO3Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQO3Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>15%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>o3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-1000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m³</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#Semiconductor_O3_Sensor"/>
+        <rdfs:label xml:lang="en">O3</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQPM10Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQPM10Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>10%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>pm10</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-1000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m³</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM10_Sensor"/>
+        <rdfs:label xml:lang="en">PM10</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQPM25Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQPM25Sensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>10%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>pm2.5</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-1000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m³</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM25_Sensor"/>
+        <rdfs:label xml:lang="en">PM10</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQRHSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQRHSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>5%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>rh</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0 – 100</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#SolidState_AirHumidity_Sensor"/>
+        <rdfs:comment xml:lang="en">Air humidity</rdfs:comment>
+        <rdfs:label xml:lang="en">Air Hum</rdfs:label>
+        <skos:definition xml:lang="en">Air humidity</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQSO2_anaSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQSO2_anaSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>0.15%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>so2_ana</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-5000</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>5.0</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>µg/m3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#Electrochemical_SO2_Sensor"/>
+        <rdfs:comment xml:lang="it">Sensore analogico di qualità superiore</rdfs:comment>
+        <rdfs:label xml:lang="it">Biossido di zolfo</rdfs:label>
+        <skos:definition xml:lang="it">Sensore analogico di qualità superiore</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQWindDirectionSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQWindDirectionSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>1%</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>wdir_ana</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-359</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>1</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>degree</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#WindVaneSensor"/>
+        <rdfs:label xml:lang="en">Wind direction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#AirQWinidSpeedSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#AirQWinidSpeedSensor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasAccuracy"/>
+                <owl:hasValue>±0.3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasCode"/>
+                <owl:hasValue>wsp_ana</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasRange"/>
+                <owl:hasValue>0-45</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasResolution"/>
+                <owl:hasValue>0.1</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uish.org/sensors/ssn/ext#hasUoM"/>
+                <owl:hasValue>m/s</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#CupAnemometerSensor"/>
+        <rdfs:label xml:lang="en">Wind speed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#CupAnemometerSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#CupAnemometerSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Electrochemical_CompostiOrganiciVolatili_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Electrochemical_CompostiOrganiciVolatili_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Electrochemical_NO2_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Electrochemical_NO2_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Electrochemical_NO_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Electrochemical_NO_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Electrochemical_SO2_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Electrochemical_SO2_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#ElectrochemicalSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#MOS-typeGasSensors -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#MOS-typeGasSensors">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:comment xml:lang="en">Bla bla</rdfs:comment>
+        <rdfs:label xml:lang="en">MOS-type gas sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#MOS-type_CO_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#MOS-type_CO_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#MOS-typeGasSensors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#MOS-type_NO2_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#MOS-type_NO2_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#MOS-typeGasSensors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Non-DispersiveInfraredSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Non-DispersiveInfraredSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:comment xml:lang="en">A type of optical gas sensor that measures the concentration of specific gases by detecting how much infrared (IR) light they absorb.</rdfs:comment>
+        <rdfs:label xml:lang="en">NDIR</rdfs:label>
+        <rdfs:label xml:lang="en">Non-Dispersive Infrared Sensor</rdfs:label>
+        <skos:definition xml:lang="en">A type of optical gas sensor that measures the concentration of specific gases by detecting how much infrared (IR) light they absorb.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#OpticalParticleCounterSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounterSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM10_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM10_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounterSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM25_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounter_PM25_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#OpticalParticleCounterSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SemiconductorSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#SemiconductorSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#Semiconductor_O3_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#Semiconductor_O3_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#SemiconductorSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SolidStateSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#SolidStateSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SolidState_AirHumidity_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#SolidState_AirHumidity_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#SolidStateSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SolidState_ExternalTemperature_Sensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#SolidState_ExternalTemperature_Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.uish.org/sensors/ssn/ext#SolidStateSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#WindVaneSensor -->
+
+    <owl:Class rdf:about="http://www.uish.org/sensors/ssn/ext#WindVaneSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Platform -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Platform">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SMART729 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uish.org/sensors/ssn/ext#SMART729">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <geosparql:hasGeometry rdf:resource="http://www.uish.org/sensors/ssn/ext#SMART729_Geometry"/>
+        <ext:activationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-10-23T08:26:27</ext:activationDate>
+        <ext:hasFrequency rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">120</ext:hasFrequency>
+        <ext:isMobile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ext:isMobile>
+        <rdfs:label>SMART729</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uish.org/sensors/ssn/ext#SMART729_Geometry -->
+
+    <owl:NamedIndividual rdf:about="http://www.uish.org/sensors/ssn/ext#SMART729_Geometry">
+        <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <geosparql:asWKT rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POINT(15.08592700958252 37.52894973754883)^^&lt;http://www.opengis.net/def/crs/EPSG/0/4326&gt;</geosparql:asWKT>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

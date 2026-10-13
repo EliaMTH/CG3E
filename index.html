@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Esploratore locale dei vocabolari CityGML 3.0, XSD e OWL. Ricerca, proprieta e relazioni con provenienza verificabile.">
+  <title>CityGML Explorer</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="data/catalog.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Vai alla scheda del concetto</a>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" aria-label="Navigazione del vocabolario">
+    <a class="brand" href="#" id="home-link" aria-label="CityGML Explorer, Building">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><strong>CityGML</strong><small>VOCABULARY EXPLORER</small></span>
+      <span class="version">3.0</span>
+    </a>
+    <div class="sidebar-tools">
+      <label class="search-box" for="search"><span aria-hidden="true">&#9906;</span><input id="search" type="search" autocomplete="off" placeholder="Cerca un concetto..." aria-label="Cerca nome, etichetta o identificatore"><kbd>/</kbd></label>
+      <label class="filter-label" for="family">VOCABOLARIO</label>
+      <select id="family"><option value="curated">CityGML + UISH</option value="CityGML">CityGML / XSD</option><option value="UISH">UISH / OWL</option><option value="CityOWL">CityOWL / OWL</option><option value="Supporto">Vocabolari di supporto</option><option value="all">Tutte le sorgenti</option></select>
+      <div class="filter-row"><label for="module" class="sr-only">Modulo</label><select id="module"><option value="">Tutti i moduli</option></select><button class="icon-button" id="filters-btn" aria-expanded="false" aria-controls="extra-filters" title="Altri filtri">&#9776;</button></div>
+      <div id="extra-filters" class="extra-filters" hidden>
+        <label><input type="checkbox" id="technical"> Tipi tecnici e punti ADE</label>
+        <label><input type="checkbox" id="only-concrete"> Solo classi concrete</label>
+        <label><input type="checkbox" id="include-external"> Riferimenti esterni</label>
+      </div>
+    </div>
+    <div class="list-heading"><span>CONCETTI</span><span id="results-count" class="count">0</span></div>
+    <nav id="concept-list" class="concept-list" aria-label="Elenco dei concetti"></nav>
+    <div class="sidebar-footer"><span class="status-dot"></span><span>Catalogo locale &middot; nessun server</span><button id="about-btn" title="Guida e legenda" aria-label="Guida e legenda">?</button></div>
+  </aside>
+  <div class="main-shell">
+    <header class="topbar">
+      <div class="topbar-left"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="Apri elenco concetti" aria-expanded="false">&#9776;</button><button class="icon-button" id="back-btn" title="Indietro" aria-label="Indietro">&#8592;</button><button class="icon-button" id="forward-btn" title="Avanti" aria-label="Avanti">&#8594;</button><div id="breadcrumb" class="breadcrumb"></div></div>
+      <div class="topbar-right"><span class="local-badge"><span class="status-dot"></span><span id="catalog-mode">Catalogo locale</span></span><button class="text-button" id="sources-btn">Sorgenti <span id="file-count"></span></button></div>
+    </header>
+    <main id="content" tabindex="-1"><div class="loading">Caricamento del catalogo locale...</div></main>
+    <noscript>Per navigare il catalogo occorre abilitare JavaScript. I file originali restano disponibili nella cartella sources.</noscript>
+  </div>
+</div>
+<dialog id="modal"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="close-modal" aria-label="Chiudi">&#215;</button></div><div id="modal-body"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

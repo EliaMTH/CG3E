@@ -1,0 +1,131 @@
+{
+  "originalArchive": "voc.zip",
+  "archiveSha256": "8bf0acda84f4eb446df610bd2829e958f71d20f1ebae54fcde4fae82cf241905",
+  "files": [
+    {
+      "path": "sources/original-voc/CityGML.xsd",
+      "bytes": 3449,
+      "sha256": "6e86dfac4ab47dc250e45f78fc26fb8396795959db89cca617a66afccc644088"
+    },
+    {
+      "path": "sources/original-voc/CommonTypes.xsd",
+      "bytes": 4550,
+      "sha256": "3879347fa12a93aeacff0fc0a9c7f6247762d3689a84d36d6303e874ea339b04"
+    },
+    {
+      "path": "sources/original-voc/appearance.xsd",
+      "bytes": 25549,
+      "sha256": "a955f7f1b4dac4dfec5a4f44b3dc34a1c0380d900d4bce75eb545b39fc4ecc5b"
+    },
+    {
+      "path": "sources/original-voc/bridge.xsd",
+      "bytes": 22366,
+      "sha256": "2861490df35859281ab0805e64b0b3bdfa3cbdc1ad74d73418a48d41e880fa89"
+    },
+    {
+      "path": "sources/original-voc/building.xsd",
+      "bytes": 35990,
+      "sha256": "38d613dfcfeac9bf4148d77185e334446ce6078a66ce2adaf6b2ea4beb029d57"
+    },
+    {
+      "path": "sources/original-voc/cityFurniture.xsd",
+      "bytes": 3516,
+      "sha256": "084776f6544a7e10ba98f841c15c3fc66cb7a75c39dd57b86493579ebb84d985"
+    },
+    {
+      "path": "sources/original-voc/cityObjectGroup.xsd",
+      "bytes": 5827,
+      "sha256": "0aac0962260d6d536dc7b13f505a878c635b1387513c41a3cde067b06e04fcb3"
+    },
+    {
+      "path": "sources/original-voc/codeListMetaData.xsd",
+      "bytes": 1041,
+      "sha256": "dc31b4e58a78f39b76774f99e0bf2f17af482de554cfb9ae87fa6f931df7f628"
+    },
+    {
+      "path": "sources/original-voc/construction.xsd",
+      "bytes": 49372,
+      "sha256": "b25d853838b3188328855145638101f77b09923186ebc05979d632734016b33d"
+    },
+    {
+      "path": "sources/original-voc/core.xsd",
+      "bytes": 66219,
+      "sha256": "1a40612766a069e33c213c1ac3a75cc392d3cae9538c4ff538f256ec138570ba"
+    },
+    {
+      "path": "sources/original-voc/dynamizer.xsd",
+      "bytes": 33963,
+      "sha256": "d8874e233dd4867c491a77171f9c0d785438258d6615cb4b7b66513a3cd64295"
+    },
+    {
+      "path": "sources/original-voc/generics.xsd",
+      "bytes": 20214,
+      "sha256": "a5f71da583f9eedd7948eb08c87d632795efe8bc836f1816db2ad4bfce2ed684"
+    },
+    {
+      "path": "sources/original-voc/landUse.xsd",
+      "bytes": 3250,
+      "sha256": "e6a8b6d32c81d6b929430fadfc0370a613c3f7ce527ac719e1bd50b1789c97ef"
+    },
+    {
+      "path": "sources/original-voc/pointCloud.xsd",
+      "bytes": 3494,
+      "sha256": "218ae12de39935a80f365810b66a115a45d483a5168ce404e9549a4dae4520ca"
+    },
+    {
+      "path": "sources/original-voc/relief.xsd",
+      "bytes": 14747,
+      "sha256": "e07afafa959e7e4c5e02c63bf96b21683639972af0731676413e307c4c0a8c64"
+    },
+    {
+      "path": "sources/original-voc/transportation.xsd",
+      "bytes": 48967,
+      "sha256": "ce6621639f1263c8596d73553da87bce7f6d48e0dd3ea0b45b68c8d762961a7d"
+    },
+    {
+      "path": "sources/original-voc/tunnel.xsd",
+      "bytes": 21707,
+      "sha256": "f0e09e070a7792d6f61b689e2cc8de95ca512d0552405598b881c524f092fd15"
+    },
+    {
+      "path": "sources/original-voc/uish_ontology_building.owl",
+      "bytes": 12681,
+      "sha256": "b9bd70cd04fc475b913244986653a47140ff60e4cdee1379ee7c7100f91d9f97"
+    },
+    {
+      "path": "sources/original-voc/uish_ontology_sensors.owl",
+      "bytes": 37930,
+      "sha256": "b40e650949eb2d9b373e8deb246a2299c26a3119c45b91bb60a6cfd65485c479"
+    },
+    {
+      "path": "sources/original-voc/uo-full.owl",
+      "bytes": 647651,
+      "sha256": "11bcd825989096412412948dedf2d2200c860d02125df847b5e0259e9ac0153e"
+    },
+    {
+      "path": "sources/original-voc/vegetation.xsd",
+      "bytes": 10106,
+      "sha256": "a9af1bfef03ef62068c59353ccaf7610bbcdc2c098d2bcf0131918c0b872a114"
+    },
+    {
+      "path": "sources/original-voc/versioning.xsd",
+      "bytes": 12682,
+      "sha256": "d6b54a639f0bbb9dd560259a4afae3b0369d7fc8cba446821e2ecb7468a8bcd0"
+    },
+    {
+      "path": "sources/original-voc/waterBody.xsd",
+      "bytes": 8821,
+      "sha256": "c75bb6ed94c4ad7b457e60dc0de11b7c85a1053dc8856f2ad350707476edb59e"
+    },
+    {
+      "path": "sources/original-voc/xAL-types.xsd",
+      "bytes": 21132,
+      "sha256": "4f6e64be70c0df3386741d6b9f6f7563d8a8a8ed766ded7ccc1fffa688b1c25a"
+    },
+    {
+      "path": "sources/original-voc/xAL.xsd",
+      "bytes": 33090,
+      "sha256": "49398e78548a88bdada41510e616d9ac9673938a4abefc817e1144346f8dfbac"
+    }
+  ]
+}

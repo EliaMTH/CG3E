@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd" uri="original-voc/appearance.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd" uri="original-voc/bridge.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/building/3.0/building.xsd" uri="original-voc/building.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" uri="original-voc/cityFurniture.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" uri="original-voc/cityObjectGroup.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" uri="original-voc/construction.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" uri="original-voc/dynamizer.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" uri="original-voc/generics.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" uri="original-voc/landUse.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" uri="original-voc/pointCloud.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" uri="original-voc/relief.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" uri="original-voc/transportation.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" uri="original-voc/tunnel.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" uri="original-voc/vegetation.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" uri="original-voc/versioning.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" uri="original-voc/waterBody.xsd"/>
+  <uri name="http://schemas.opengis.net/citygml/3.0/core.xsd" uri="original-voc/core.xsd"/>
+  <uri name="http://schemas.opengis.net/gml/3.2.1/gml.xsd" uri="dependencies/citygml/schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <uri name="http://www.w3.org/1999/xlink.xsd" uri="dependencies/citygml/www.w3.org/1999/xlink.xsd"/>
+  <uri name="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd" uri="dependencies/citygml/schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+  <uri name="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd" uri="dependencies/citygml/schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <uri name="http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd" uri="dependencies/citygml/schemas.opengis.net/iso/19139/20070417/gss/gss.xsd"/>
+  <uri name="http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd" uri="dependencies/citygml/schemas.opengis.net/iso/19139/20070417/gts/gts.xsd"/>
+  <uri name="http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd" uri="dependencies/citygml/schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd"/>
+  <uri name="http://www.w3.org/2001/xml.xsd" uri="dependencies/citygml/www.w3.org/2001/xml.xsd"/>
+</catalog>
