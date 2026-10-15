@@ -20,6 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-SCOPE: This license covers only newly written application code, configuration,
-and documentation. It does not relicense user-provided XSD/OWL files or
-third-party standards and ontologies. Those retain their original terms.
+SCOPE: This license covers only the application code, configuration, and
+documentation. It does not relicense the XSD schemas and notices in sources/
+(OGC, ISO/TC 211, OASIS, W3C). Those retain their original terms.

@@ -1,102 +1,140 @@
-"""Regression and isolation tests; run: python -m unittest discover -s tests -v"""
+"""Catalog and sources tests; run: python -m unittest discover -s tests -v"""
 import hashlib
 import json
-import shutil
-import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'scripts'))
-from build_catalog import Builder,xid,oid,XS,GML
-from download_dependencies import cache_path
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'scripts'))
+from build_catalog import Builder, xid
+
+BLDG = 'http://www.opengis.net/citygml/building/3.0'
+CON = 'http://www.opengis.net/citygml/construction/3.0'
+CORE = 'http://www.opengis.net/citygml/3.0'
+TRAN = 'http://www.opengis.net/citygml/transportation/3.0'
 
 
-class ModeTests(unittest.TestCase):
+class CatalogTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.xsd=json.loads((ROOT/'data/catalog-citygml.json').read_text())
-        cls.full=json.loads((ROOT/'data/catalog-full.json').read_text())
-        cls.building=xid('http://www.opengis.net/citygml/building/3.0','Building')
+        cls.data = json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
+        cls.manifest = json.loads((ROOT/'sources/manifest.json').read_text(encoding='utf-8'))
 
-    def test_originals_unmodified(self):
-        import zipfile
-        with zipfile.ZipFile('/mnt/data/voc.zip') if Path('/mnt/data/voc.zip').exists() else DummyZip() as orig:
-            manifest=json.loads((ROOT/'sources/original-manifest.json').read_text())
-            self.assertEqual(len(manifest['files']),25)
-            for record in manifest['files']:
-                path=ROOT/record['path']
-                self.assertTrue(path.exists())
-                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),record['sha256'])
-                if isinstance(orig,zipfile.ZipFile):self.assertEqual(path.read_bytes(),orig.read(path.name))
+    def test_all_citygml_modules_present(self):
+        citygml = [f for f in self.data['files'] if f['citygml']]
+        self.assertEqual(len(citygml), 22)
+        self.assertEqual({f['schemaVersion'] for f in citygml if 'opengis.net/citygml' in f['namespace']}, {'3.0.0'})
 
-    def test_cgml_only_has_no_owl(self):
-        self.assertEqual(self.xsd['mode'],'citygml')
-        self.assertTrue(all(n['format'] == 'XSD' for n in self.xsd['nodes'].values()))
-        self.assertTrue(all(f['format'] == 'XSD' for f in self.xsd['files']))
-        self.assertTrue(all(d['kind'].startswith('xsd:') for d in self.xsd['dependencies']))
-        self.assertTrue(all(not n['bridges'] for n in self.xsd['nodes'].values()))
-        self.assertEqual(len(self.xsd['files']),22)
-        self.assertEqual(self.xsd['stats']['missingDependencies'],2)
+    def test_every_import_is_local(self):
+        self.assertEqual(self.data['stats']['missingDependencies'], 0)
+        self.assertEqual(self.data['stats']['external'], 0)
+        self.assertTrue(all(d['status'] == 'local' for d in self.data['dependencies']))
 
-    def test_full_has_owl_and_bridges(self):
-        self.assertEqual(self.full['mode'],'full')
-        self.assertEqual(len(self.full['files']),25)
-        self.assertIn(oid('http://uish/ontology#BuildingQuality'),self.full['nodes'])
-        self.assertTrue(self.full['nodes'][xid('http://www.opengis.net/citygml/building/3.0','ADEOfBuilding')]['bridges'])
-        self.assertFalse(self.xsd['nodes'][xid('http://www.opengis.net/citygml/building/3.0','ADEOfBuilding')]['bridges'])
+    def test_files_match_manifest(self):
+        records = {f['path']: f for f in self.manifest['files']}
+        for f in self.data['files']:
+            self.assertIn(f['path'], records)
+            self.assertEqual(f['sha256'], records[f['path']]['sha256'])
+            self.assertEqual(f['sha256'], hashlib.sha256((ROOT/f['path']).read_bytes()).hexdigest())
+            self.assertTrue(f['url'].startswith('http://'))
+            self.assertTrue(f['retrievedAt'])
 
-    def test_building_in_both(self):
-        for data in (self.xsd,self.full):
-            b=data['nodes'][self.building]
-            self.assertEqual(b['parents'],[xid('http://www.opengis.net/citygml/building/3.0','AbstractBuilding')])
-            self.assertEqual({p['name'] for p in b['properties']},{'buildingPart','adeOfBuilding'})
-            p=next(p for p in b['properties'] if p['name']=='buildingPart')
-            self.assertEqual(p['multiplicity'],'0..*')
-            self.assertIn(xid('http://www.opengis.net/citygml/building/3.0','BuildingPart'),p['targets'])
+    def test_building(self):
+        b = self.data['nodes'][xid(BLDG, 'Building')]
+        self.assertEqual(b['parents'], [xid(BLDG, 'AbstractBuilding')])
+        self.assertEqual({p['name'] for p in b['properties']}, {'buildingPart', 'adeOfBuilding'})
+        p = next(p for p in b['properties'] if p['name'] == 'buildingPart')
+        self.assertEqual(p['multiplicity'], '0..*')
+        self.assertIn(xid(BLDG, 'BuildingPart'), p['targets'])
+
+    def inherited(self, node_id):
+        nodes, result = self.data['nodes'], {}
+        for id_ in [node_id] + nodes[node_id]['ancestors']:
+            for p in nodes[id_]['properties']:
+                result.setdefault(p['name'], p)
+        return result
+
+    def test_categories_from_hierarchy(self):
+        nodes = self.data['nodes']
+        expected = {xid(BLDG, 'Building'): 'feature', xid(CORE, 'Address'): 'feature',
+                    xid(CORE, 'ImplicitGeometry'): 'object', xid(CORE, 'CityObjectRelation'): 'object',
+                    xid(CON, 'Height'): 'datatype', xid(CORE, 'Occupancy'): 'datatype',
+                    xid('http://www.opengis.net/gml/3.2', 'name'): 'datatype'}
+        for id_, kind in expected.items():
+            self.assertEqual(nodes[id_]['kind'], kind, id_)
+        citygml = [n for n in nodes.values() if n['family'] == 'CityGML']
+        self.assertEqual(sum(n['kind'] == 'feature' for n in citygml), 114)
+        self.assertEqual(sum(n['kind'] == 'object' for n in citygml), 4)
+        self.assertEqual(sum(n['kind'] == 'enumeration' for n in citygml), 13)
+
+    def test_spaces_and_boundaries(self):
+        nodes = self.data['nodes']
+        concrete = [n for n in nodes.values() if n['cityObject'] and not n['abstract']]
+        self.assertEqual(len(concrete), 66)
+        self.assertEqual(sum(n['spaceRole'] == 'space' for n in concrete), 42)
+        self.assertEqual(sum(n['spaceRole'] == 'boundary' for n in concrete), 24)
+        self.assertEqual(nodes[xid(BLDG, 'Building')]['spaceRole'], 'space')
+        self.assertEqual(nodes[xid(CON, 'RoofSurface')]['spaceRole'], 'boundary')
+        self.assertFalse(nodes[xid(CORE, 'Address')]['cityObject'])
+
+    def test_relations_and_link_forms(self):
+        props = self.inherited(xid(BLDG, 'Building'))
+        relations = {name for name, p in props.items() if p['kind'] == 'association'}
+        self.assertEqual(relations, {'buildingPart', 'buildingConstructiveElement', 'buildingInstallation',
+                                     'buildingRoom', 'buildingFurniture', 'buildingSubdivision', 'address',
+                                     'pointCloud', 'boundary', 'generalizesTo', 'relatedTo', 'appearance', 'dynamizer'})
+        for name in ('height', 'occupancy', 'area', 'externalReference', 'genericAttribute', 'name', 'boundedBy'):
+            self.assertEqual(props[name]['kind'], 'attribute', name)
+            self.assertIsNone(props[name]['link'], name)
+        self.assertEqual(props['buildingPart']['link'], 'aggregation')
+        self.assertEqual(props['boundary']['link'], 'association')
+        self.assertEqual(props['generalizesTo']['link'], 'reference')
+        traffic = self.inherited(xid(TRAN, 'TrafficSpace'))
+        self.assertEqual(traffic['predecessor']['link'], 'reference')
+        self.assertEqual(traffic['clearanceSpace']['link'], 'aggregation')
 
     def test_all_references_resolved_as_nodes(self):
-        for data in (self.xsd,self.full):
-            nodes=data['nodes']
-            for node in nodes.values():
-                for ref in node['parents']+node['children']+node['ancestors']:
-                    self.assertIn(ref,nodes)
-                for prop in node['properties']:
-                    self.assertIn(prop['declaredIn'],nodes)
-                    for ref in prop['targets']:self.assertIn(ref,nodes)
-                for bridge in node['bridges']:self.assertIn(bridge['target'],nodes)
+        nodes = self.data['nodes']
+        for node in nodes.values():
+            for ref in node['parents']+node['children']+node['ancestors']:
+                self.assertIn(ref, nodes)
+            for prop in node['properties']:
+                self.assertIn(prop['declaredIn'], nodes)
+                for ref in prop['targets']:
+                    self.assertIn(ref, nodes)
 
-    def test_modes_written_to_distinct_download_folders(self):
-        a=cache_path(ROOT,'https://schemas.opengis.net/gml/3.2.1/gml.xsd','.xsd',kind='XSD')
-        b=cache_path(ROOT,'https://www.w3.org/ns/ssn/obs/','.ttl',kind='OWL')
-        self.assertTrue(a.is_relative_to(ROOT/'sources/dependencies/citygml'))
-        self.assertTrue(b.is_relative_to(ROOT/'sources/dependencies/owl'))
+    def test_catalog_js_matches_json(self):
+        js = (ROOT/'data/catalog.js').read_text(encoding='utf-8')
+        payload = js.split('window.CITYGML_CATALOG = ', 1)[1].rstrip().rstrip(';')
+        self.assertEqual(json.loads(payload), self.data)
 
 
-class DummyZip:
-    def __enter__(self):return self
-    def __exit__(self,*args):pass
-
-class SyntheticModeTests(unittest.TestCase):
-    def test_loader_isolation_with_both_dependency_directories_populated(self):
+class SyntheticBuildTests(unittest.TestCase):
+    def test_import_resolution_uses_manifest_urls(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp)
-            orig=root/'sources/original-voc';orig.mkdir(parents=True)
-            xc=root/'sources/dependencies/citygml';xc.mkdir(parents=True)
-            ow=root/'sources/dependencies/owl';ow.mkdir(parents=True)
-            (orig/'sample.xsd').write_text('''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:city"><xs:element name="Building" type="xs:string"/></xs:schema>''')
-            (xc/'tech.xsd').write_text('''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:technical"><xs:element name="Point" type="xs:string"/></xs:schema>''')
-            (orig/'test.owl').write_text('''<?xml version="1.0"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#"><owl:Ontology rdf:about="urn:base"/><owl:Class rdf:about="urn:base#Quality"/></rdf:RDF>''')
-            (ow/'other.ttl').write_text('@prefix owl: <http://www.w3.org/2002/07/owl#> . <urn:extra> a owl:Ontology . <urn:extra#M> a owl:Class .')
-            (root/'config').mkdir();(root/'config/navigation-bridges.json').write_text('{"bridges":[]}')
-            only=Builder(root,mode='citygml').build()
-            self.assertEqual(len(only['files']),2)
-            self.assertTrue(all(n['format']=='XSD' for n in only['nodes'].values()))
-            full=Builder(root,mode='full').build()
-            self.assertEqual(len(full['files']),4)
-            self.assertIn(oid('urn:extra#M'),full['nodes'])
-            self.assertEqual(json.loads((root/'data/catalog.json').read_text())['mode'],'full')
+            root = Path(tmp)
+            folder = root/'sources/example.org/schema'
+            folder.mkdir(parents=True)
+            main = folder/'main.xsd'
+            main.write_text('<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:city">'
+                            '<xs:import namespace="urn:part" schemaLocation="part.xsd"/>'
+                            '<xs:import namespace="urn:absent" schemaLocation="http://example.org/absent.xsd"/>'
+                            '<xs:element name="Building" type="xs:string"/></xs:schema>')
+            part = folder/'part.xsd'
+            part.write_text('<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:part">'
+                            '<xs:element name="Part" type="xs:string"/></xs:schema>')
+            records = [{'path': p.relative_to(root).as_posix(), 'url': 'http://example.org/schema/'+p.name,
+                        'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'retrievedAt': '2026-01-01T00:00:00+00:00'}
+                       for p in (main, part)]
+            (root/'sources/manifest.json').write_text(json.dumps({'files': records}))
+            data = Builder(root).build()
+            status = {d['url']: d['status'] for d in data['dependencies']}
+            self.assertEqual(status['http://example.org/schema/part.xsd'], 'local')
+            self.assertEqual(status['http://example.org/absent.xsd'], 'missing')
+            self.assertEqual(data['stats']['missingDependencies'], 1)
+            self.assertEqual(data['warnings'], [])
 
 
-if __name__=='__main__':unittest.main()
+if __name__ == '__main__':
+    unittest.main()

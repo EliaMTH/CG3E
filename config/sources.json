@@ -1,0 +1,37 @@
+{
+  "description": "Fonti ufficiali del catalogo. scripts/fetch_sources.py scarica questi URL e, ricorsivamente, ogni xs:import, xs:include e xs:redefine che contengono.",
+  "allowedHosts": [
+    "schemas.opengis.net",
+    "www.w3.org"
+  ],
+  "schemas": [
+    "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
+    "http://schemas.opengis.net/citygml/3.0/core.xsd",
+    "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+    "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+    "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+    "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+    "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+    "http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
+    "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+    "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+    "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+    "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+    "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+    "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+    "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+    "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+    "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+    "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+    "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
+    "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd"
+  ],
+  "documents": [
+    "http://schemas.opengis.net/citygml/ReadMe.txt",
+    "http://schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt",
+    "http://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
+    "http://schemas.opengis.net/gml/ReadMe.txt",
+    "http://schemas.opengis.net/iso/19139/ReadMe.txt",
+    "http://schemas.opengis.net/iso/19139/20070417/ReadMe.txt"
+  ]
+}

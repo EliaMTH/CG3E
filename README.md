@@ -1,176 +1,142 @@
-# CityGML 3.0 Explorer – due cataloghi indipendenti
+# CityGML 3.0 Explorer
 
-Esploratore statico del vocabolario CityGML 3.0: cerca una classe a sinistra,
-consulta a destra definizioni, attributi, proprietà geometriche, cardinalità,
-ereditarietà, associazioni e sorgente. Nessun backend, database o CDN.
+Esploratore statico del vocabolario CityGML 3.0, costruito dagli schemi XSD
+ufficiali OGC (CityGML 3.0 Part 2: GML Encoding, OGC 21-006r2). Si cerca una
+classe a sinistra e si consultano a destra definizioni, attributi, proprietà
+geometriche, cardinalità, ereditarietà, associazioni e sorgente XML.
 
-**La sorgente iniziale è esattamente il tuo `voc.zip`: 22 file XSD + 3 file OWL.**
-I file sono copiati invariati in `sources/original-voc/`. Lo script
-`python scripts/verify_sources.py` verifica i loro SHA-256.
+Funziona offline: nessun backend, database o CDN. Tutti gli schemi necessari,
+compresi quelli importati (GML, ISO 19139, XLink), sono nella cartella `sources/`.
 
-## Due comandi, un'interfaccia
+![Scheda di Building](docs/screenshot-desktop.png)
 
-Dopo l'estrazione dello ZIP, apri un terminale nella cartella con `index.html`.
-Installa i requisiti Python una volta sola (es. nel tuo `.venv`):
+## Aprire il catalogo
 
-```bash
-python -m pip install -r requirements.txt
-```
+Aprire `index.html` con doppio clic. La pagina legge `data/catalog.js`, generato
+dagli schemi in `sources/`; non servono server né connessione.
 
-### A. Solo CityGML 3.0 (senza alcuna ontologia)
+## Sorgenti
 
-```bash
-python scripts/build_citygml.py
-```
+Ogni file è scaricato dall'URL ufficiale indicato negli schemi e salvato in
+`sources/<host>/<percorso>`, con la stessa struttura dell'URL. Tutti i file sono
+stati scaricati il **15 ottobre 2026**.
 
-- Usa **solo i 22 XSD originali** e gli eventuali XSD in
-  `sources/dependencies/citygml/`.
-- Cerca e scarica gli **XSD tecnici mancanti** (GML 3.2.1, XLink,
-  ISO 19139, ecc.) e i loro import transitivi; non scarica OWL.
-- Rigenera `data/catalog.js` e `data/catalog.json` e rende **attivo**
-  il profilo **Solo CityGML**.
-- Non legge neppure gli OWL originali, anche se rimangono nella cartella.
+| Schemi | File | Versione | Origine | Pubblicazione |
+|---|---|---|---|---|
+| CityGML 3.0: 17 moduli, profilo `CityGML.xsd`, `codeListMetaData.xsd` | 19 | 3.0.0 (`xs:schema/@version`) | `http://schemas.opengis.net/citygml/` | 2023-08-02, OGC 21-006r2 |
+| xAL 3.0 (indirizzi): `xAL.xsd`, `xAL-types.xsd`, `CommonTypes.xsd` | 3 | OASIS CIQ v3.0 cs02, con import di W3C XLink | `http://schemas.opengis.net/citygml/xAL/3.0/` | 2023-08-04 |
+| GML 3.2.1 (`gml.xsd` e componenti) | 28 | 3.2.2 (`xs:schema/@version`, correzione OGC CR 12-092) | `http://schemas.opengis.net/gml/3.2.1/` | 2016-12-02 |
+| ISO/TS 19139:2007 (`gco`, `gmd`, `gsr`, `gss`, `gts`) | 26 | 2012-07-13 | `http://schemas.opengis.net/iso/19139/20070417/` | 2012-07-13 |
+| W3C XLink | 1 | — | `http://www.w3.org/1999/xlink.xsd` | 2008-12-03 (`Last-Modified`) |
+| W3C namespace XML | 1 | — | `http://www.w3.org/2001/xml.xsd` | 2009-01-21 (`Last-Modified`) |
 
-### B. CityGML 3.0 + OWL
+Le date di pubblicazione OGC provengono dai file `ReadMe.txt` del repository
+degli schemi; il server `schemas.opengis.net` riporta per tutti i file OGC
+`Last-Modified: 2025-04-09`. I 22 file CityGML e xAL coincidono con il
+pacchetto ufficiale `http://schemas.opengis.net/citygml/citygml-3_0_0.zip`.
 
-```bash
-python scripts/build_citygml_owl.py
-```
-
-- Usa gli stessi 22 XSD **e** i 3 OWL originali.
-- Cerca e scarica le dipendenze XSD nella cartella `citygml/` e gli import
-  delle ontologie (CityOWL LIRIS, SOSA/SSN, GeoSPARQL e altri)
-  in `sources/dependencies/owl/`.
-- Attiva il profilo **CityGML + OWL**: potrai navigare anche i concetti
-  UISH e i collegamenti espliciti verso CityOWL. Non esegue reasoning OWL.
-
-In entrambi i casi, **l'ultimo comando eseguito sceglie cosa la webapp mostra**.
-Se `index.html` era aperto, **ricarica la pagina** (su file locale, `Ctrl+F5` se
-il browser mantiene una copia in cache). Apri `index.html` con doppio clic:
-usa direttamente il `data/catalog.js` generato, senza server.
-
-### Se vuoi rigenerare senza rete
-
-```bash
-python scripts/build_citygml.py --offline
-python scripts/build_citygml_owl.py --offline
-```
-
-I due script fanno comunque il build **anche quando un download fallisce** e
-segnalano le dipendenze non risolte. Gli import mancanti non implicano che il
-catalogo sia inutilizzabile: restano visibili come riferimenti esterni.
-
-Per motivi di riproducibilità la versione scaricata è verificata per namespace
-(XSD) oppure per IRI/versionIRI dichiarato (OWL). Il downloader non inserisce
-automaticamente una versione ontologica diversa da quella richiesta.
-
-Opzioni utili: `--verbose`, `--timeout 5`, `--max-files 180`; per il profilo
-completo puoi **scegliere esplicitamente** `--w3c-editor-draft` (moduli SSN W3C
-in sviluppo) e fissarne la revisione con `--w3c-ref COMMIT`.
-
-## Struttura della cartella `sources/`
+Accanto agli schemi sono conservati i file di avvertenze pubblicati con essi:
+`citygml/ReadMe.txt`, `citygml/xAL/3.0/ReadMe-xAL-3_0.txt`,
+`citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt`, `gml/ReadMe.txt`,
+`iso/19139/ReadMe.txt` e `iso/19139/20070417/ReadMe.txt`.
 
 ```text
 sources/
-  original-voc/                   25 file identici al tuo voc.zip
-    *.xsd                        22 schemi CityGML e ausiliari
-    *.owl                         3 ontologie originali UISH / unità
-  dependencies/
-    citygml/                     SOLO XSD tecnici scaricati
-    owl/                         SOLO ontologie TTL/OWL/RDF scaricate
-  original-manifest.json         inventario SHA-256 dei 25 originali
-  download-lock.json            creato al primo download riuscito
-  download-report.json          risultato dell'ultimo download
-  dependency-manifest-citygml.json  import del profilo CityGML
-  dependency-manifest-full.json     import del profilo CityGML + OWL
-  dependency-manifest.json      copia del manifest del profilo attivo
-  xml-catalog-citygml.xml       catalogo URI XML del profilo CityGML
-  xml-catalog-full.xml          catalogo URI XML del profilo completo
+  schemas.opengis.net/
+    citygml/        CityGML 3.0, profilo base, codeListMetaData, xAL 3.0
+    gml/3.2.1/      GML
+    iso/19139/      ISO/TS 19139:2007
+  www.w3.org/       XLink e namespace XML
+  manifest.json     per ogni file: URL, data di download, Last-Modified,
+                    versione dichiarata, namespace, SHA-256, import
+  xml-catalog.xml   catalogo OASIS XML che reindirizza gli URL ufficiali
+                    alle cartelle locali
 ```
 
-I file in `sources/dependencies/` **non erano nel tuo ZIP**: vengono
-acquisiti dagli script da fonti esterne e salvati con host e percorso di origine,
-con i controlli di hash in `download-lock.json`. In questo archivio le due
-cartelle partono vuote (a parte un README), perché qui non è possibile
-scaricare dalla rete i documenti ufficiali. Non devi copiare a mano XSD già
-presenti in `original-voc`: il downloader li riconosce tramite namespace e nome.
+`sources/xml-catalog.xml` permette di usare gli schemi offline anche con
+validatori XML che supportano i cataloghi OASIS.
 
-Se hai già scaricato i file nella tua vecchia installazione puoi conservarli e
-riutilizzarli copiando **solo i file XSD** nella nuova
-`sources/dependencies/citygml/` e **solo i file TTL/OWL/RDF** in
-`sources/dependencies/owl/`, preferibilmente mantenendo la struttura relativa
-degli URL. Dopo averli copiati esegui il relativo comando con `--offline`.
+## Aggiornare o estendere il catalogo
 
-## File `data/` e attivazione
-
-```text
-data/catalog-citygml.json    snapshot dell'ultimo build CityGML
-    /catalog-full.json       snapshot dell'ultimo build CityGML + OWL
-    /catalog.json            catalogo ATTIVO (sovrascritto a ogni esecuzione)
-    /catalog.js              catalogo ATTIVO per apertura via file://
-    /active-mode.json        nome del profilo ATTIVO
-```
-
-I due snapshot sono inclusi nell'archivio così puoi già aprire la pagina
-in modalità **Solo CityGML** senza prima eseguire alcuno script. Gli snapshot
-sono stati generati dai 25 originali **senza dipendenze scaricate**: i riferimenti
-GML e alcuni termini esterni potranno essere incompleti fino a quando
-eseguirai i comandi collegato alla rete.
-
-Nell'interfaccia il profilo attivo compare in alto a destra. I due profili
-**non si mescolano**: quello solo XSD non contiene nodi OWL, non contiene
-ponti XSD–OWL e non consulta la cartella `sources/dependencies/owl/`.
-
-## Che cosa era già presente e cosa abbiamo aggiunto
-
-**Originali, invariati:** 25 file in `voc.zip`, verificabili con
-`python scripts/verify_sources.py`. Tra gli XSD: `core.xsd`, `building.xsd`,
-`construction.xsd`, `transportation.xsd`, `xAL.xsd` e gli altri moduli CityGML.
-Tra gli OWL: `uish_ontology_building.owl`, `uish_ontology_sensors.owl`,
-`uo-full.owl`.
-
-**Aggiunto dall'applicazione:** interfaccia HTML/CSS/JS, generatore
-`scripts/build_catalog.py`, downloader `scripts/download_dependencies.py`,
-configurazione dei soli ponti di navigazione XSD–CityOWL,
-`scripts/build_citygml.py` e `scripts/build_citygml_owl.py`, cartelle
-`dependencies/citygml/` e `dependencies/owl/`, cataloghi JSON e test.
-Non sono state aggiunte classi CityGML inventate né modificate le sorgenti.
-
-**Aggiunte esterne opzionali:** i documenti scaricati dagli script non fanno
-parte dei 25 originali e restano segregati nelle due cartelle di dipendenze.
-Per una lista completa di URL e import leggi i due file
-`dependency-manifest-*.json` oppure la scheda “Sorgenti” nell'interfaccia.
-
-## Verifica e test
+Requisiti: Python 3.10 o successivo.
 
 ```bash
-python scripts/verify_sources.py
+python -m venv .venv
+.venv/Scripts/python -m pip install -r requirements.txt   # Windows
+.venv/bin/python -m pip install -r requirements.txt       # Linux / macOS
+```
+
+I comandi seguenti vanno eseguiti con il Python dell'ambiente virtuale.
+
+| Comando | Rete | Effetto |
+|---|---|---|
+| `python scripts/fetch_sources.py` | sì | Scarica gli URL di `config/sources.json` e, ricorsivamente, ogni `xs:import`, `xs:include` e `xs:redefine`; riscrive `sources/`, `sources/manifest.json` e `sources/xml-catalog.xml` |
+| `python scripts/build_catalog.py` | no | Rigenera `data/catalog.json` e `data/catalog.js` dagli XSD in `sources/` |
+| `python scripts/verify_sources.py` | no | Verifica gli hash di `sources/manifest.json`, l'assenza di XSD non registrati e la presenza locale di ogni import |
+
+`fetch_sources.py` accetta solo host elencati in `allowedHosts`, scarica in
+HTTPS, verifica che ogni file sia uno `xs:schema` con il namespace atteso e
+registra nel manifest l'URL `http://` usato negli schemi. La verifica TLS usa il
+bundle di certificati `certifi`.
+
+Per aggiungere schemi (per esempio una ADE) si aggiunge l'URL all'elenco
+`schemas` di `config/sources.json`, e l'host ad `allowedHosts` se necessario; poi
+si eseguono `fetch_sources.py` e `build_catalog.py`. Lo stesso procedimento
+aggiorna gli schemi esistenti quando le fonti ufficiali cambiano: il manifest
+registra nuove date e hash.
+
+## Struttura del repository
+
+```text
+index.html             pagina dell'esploratore
+assets/                JavaScript e CSS, senza dipendenze esterne
+data/catalog.js        catalogo caricato dalla pagina (window.CITYGML_CATALOG)
+data/catalog.json      stesso catalogo in JSON
+sources/               schemi XSD ufficiali e manifest
+config/sources.json    URL di partenza e host ammessi per fetch_sources.py
+scripts/               download, generazione e verifica
+tests/                 test automatici
+docs/                  modello dati del catalogo, test, schermate
+```
+
+Il formato di `data/catalog.json` è descritto in [docs/DATA_MODEL.md](docs/DATA_MODEL.md).
+
+## Test
+
+```bash
 python -m unittest discover -s tests -v
 ```
 
-Se installati Chromium e Playwright, per uno smoke test del browser (HTML, CSS e JS caricati in memoria, senza verificare la policy `file://` del browser):
+Il test nel browser richiede Playwright e Chromium
+(`pip install playwright` e `python -m playwright install chromium`):
 
 ```bash
-python tests/browser_modes.py
+python tests/browser_smoke.py
 ```
 
-## Limiti e trasparenza
+Dettagli in [docs/TESTING.md](docs/TESTING.md).
 
-- Gli XSD descrivono la codifica GML/XML, **non il modello UML originario**.
-  Si possono esplorare molti attributi e relazioni, ma non ogni sfumatura UML.
-- Tipi GML, tipi di supporto e attributi XML possono comparire come concetti
-  tecnici; si possono filtrare nella UI.
-- La distinzione fra attributi, relazioni e geometrie nella UI è una
-  classificazione di navigazione derivata dai tipi e nomi XML.
-- L'ereditarietà deriva da `xs:extension` in XSD e da `rdfs:subClassOf`
-  dichiarati esplicitamente in OWL, **non da associazioni padre-figlio**.
-- La modalità completa presenta affermazioni OWL esplicite senza inferenze;
-  per i collegamenti tra XSD e CityOWL si usano ponti di navigazione
-  dichiarati in `config/navigation-bridges.json`, **non equivalenze OWL**.
-- Se un import manca, non viene sostituito da un file diverso per nasconderlo.
-  Il build termina comunque e la UI segnala il riferimento esterno.
-- Non è un parser di file CityGML `.gml`, né un sistema per validare XML,
-  né un triplestore RDF.
+## Limiti
 
-Licenze: consulta `LICENSE-app.txt` per l'interfaccia e le intestazioni e i
-termini originali delle singole sorgenti per gli schemi e vocabolari esterni.
+- Gli XSD descrivono la codifica GML/XML, non il modello concettuale UML
+  (OGC 20-010). Stereotipi UML, nomi delle code list e requisiti del modello
+  concettuale non compaiono negli schemi.
+- I valori delle code list (`class`, `function`, `usage`…) non fanno parte degli
+  schemi: gli attributi corrispondenti hanno tipo `gml:CodeType` e i valori sono
+  definiti da dizionari esterni.
+- Le categorie (feature, oggetto, tipo di dato, spazio, superficie di confine)
+  e i tipi di collegamento (aggregazione, associazione, solo riferimento)
+  derivano dalla gerarchia `xs:extension` e dalla forma XML delle proprietà;
+  [docs/DATA_MODEL.md](docs/DATA_MODEL.md) descrive le regole. Approssimano gli
+  stereotipi e le aggregazioni del modello UML, che negli schemi non sono
+  dichiarati in modo esplicito.
+- L'ereditarietà deriva da `xs:extension`; `substitutionGroup` e associazioni
+  non trasferiscono proprietà.
+- Non è un parser di file CityGML `.gml` né un validatore XML.
+
+## Licenze
+
+`LICENSE-app.txt` copre il codice, la configurazione e la documentazione
+dell'applicazione. Gli schemi in `sources/` mantengono i termini dei rispettivi
+autori: OGC (https://www.ogc.org/legal/), ISO/TC 211, OASIS
+(`OASIS_COPYRIGHT_NOTICE.txt`) e W3C (avvertenze nei file).

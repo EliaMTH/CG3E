@@ -1,78 +1,107 @@
 # Catalogo di navigazione, versione 1
 
 `data/catalog.json` e `data/catalog.js` contengono gli stessi dati. Il secondo
-espone `window.CITYGML_CATALOG` per permettere il caricamento locale senza fetch.
-Il frontend non modifica le sorgenti.
+espone `window.CITYGML_CATALOG` per il caricamento locale senza fetch. Entrambi
+sono generati da `scripts/build_catalog.py` a partire dagli XSD in `sources/`;
+il frontend non modifica le sorgenti.
 
-## Oggetti principali
+## Campi principali
 
-`nodes` e un dizionario per identificatore. Ogni nodo conserva nome, etichetta,
-modulo, famiglia di vocabolario, formato, categoria, definizione e provenienza.
-Le categorie visive sono aiuti di lettura, non stereotipi UML attestati.
+| Campo | Contenuto |
+|---|---|
+| `schemaVersion` | versione di questo formato (1) |
+| `title`, `sourceVersion` | titolo e versione degli schemi (`CityGML 3.0.0 (OGC 21-006r2)`) |
+| `nodes` | dizionario dei concetti per identificatore |
+| `files` | schemi letti, con provenienza |
+| `dependencies` | `xs:import`, `xs:include` e `xs:redefine` di ogni schema |
+| `warnings` | problemi di lettura, cicli o file non registrati nel manifest |
+| `stats` | conteggi di nodi, file, proprietà e import non risolti |
+| `initialId` | concetto aperto all'avvio (`Building`) |
 
-Esempi di identificatore:
+## Identificatori dei nodi
 
 ```text
 xsd:{http://www.opengis.net/citygml/building/3.0}element:Building
 xsd:{http://www.opengis.net/gml/3.2}type:SolidPropertyType
-owl:http://uish/ontology#BuildingQuality
 ```
 
-Un elemento XSD e il suo tipo convenzionale `NomeType` vengono normalizzati nella
-stessa scheda soltanto se il collegamento e esplicito e il tipo ha un unico
-utilizzatore fra gli elementi globali. Il QName originale del tipo e conservato.
-Le IRI OWL non vengono mai unite a XSD per una somiglianza di nome.
+Un elemento XSD e il suo tipo convenzionale `NomeType` sono uniti nella stessa
+scheda soltanto se il collegamento è esplicito e il tipo ha un unico
+utilizzatore fra gli elementi globali. Il QName originale del tipo è conservato
+in `xmlType`.
 
 ## Campi dei nodi
 
-- `properties`: dichiarazioni direttamente associate alla risorsa. Ogni
-  proprieta ha `declaredIn`, `source`, nome, tipo e destinazioni. Le XSD hanno
-  `min`, `max`, `multiplicity`, `choices`, `xmlKind` e sorgente XML. Per OWL,
-  `multiplicity` e null: i vincoli ontologici non diventano regole di un form.
-- `parents`, `ancestors`, `children`: gerarchia nominale, separata da
-  `substitution`, `restrictedBase`, `superProperties` e `bridges`.
-- `incoming`: riferimenti alla destinazione esatta, non tutte le possibili
-  applicazioni ottenibili mediante inferenze.
-- `constraints`: faccette XSD, choice, liste, unioni di tipi, wildcard e gruppi
-  non risolti.
-- `axioms`: strutture OWL, comprese le espressioni anonime. `ref` punta a un nodo;
-  `literal` conserva un valore; `expression` conserva le coppie predicato/valore.
-- `source`, `line`, `xml`: origine ed estratto. Per RDF `xml` contiene una
-  serializzazione Turtle della risorsa e dei blank node collegati, non il file
-  XML originario. Gli originali restano in `sources/`.
-- `external`: true quando e noto un riferimento ma manca una definizione locale.
-- `incompleteInheritance`: true se la gerarchia nota raggiunge un nodo esterno.
-- `builtin`: tipo XML Schema predefinito riconosciuto, senza fingere una copia
-  locale della definizione normativa.
+- `name`, `qname`, `namespace`, `module`: nome locale, QName con prefisso,
+  namespace e modulo (per CityGML il modulo deriva dal namespace).
+- `family`: `CityGML` per i namespace CityGML 3.0, `Supporto` per GML,
+  ISO 19139, xAL, XLink e XML Schema.
+- `kind`: categoria derivata dalla gerarchia `xs:extension`, mai dai nomi:
+  - `feature`: discende da `gml:AbstractFeature`;
+  - `object`: discende da `gml:AbstractGML` ma non da `gml:AbstractFeature`;
+  - `datatype`: nessuna delle due, oppure tipo semplice o tipo `…PropertyType`;
+  - `enumeration`: tipo semplice con valori elencati;
+  - `ade`: agganci `ADEOf…`;
+  - `external`: riferimento senza definizione locale.
+- `cityObject`: true per le feature che discendono da `core:AbstractCityObject`.
+- `spaceRole`: per gli oggetti di città, `space` se discendono da
+  `core:AbstractSpace`, `boundary` se discendono da
+  `core:AbstractSpaceBoundary`, altrimenti null.
+- `abstract`, `technical` (tipi `…PropertyType` e strutture anonime),
+  `external` (riferimento senza definizione locale), `builtin` (tipo
+  predefinito di XML Schema).
+- `description`: testo di `xs:annotation/xs:documentation`.
+- `properties`: dichiarazioni dirette del tipo. Ogni proprietà ha nome, QName,
+  `kind`, `link`, `typeId`/`typeName`, `targets`, `min`, `max`,
+  `multiplicity`, `choices`, `nillable`, `default`, `fixed`, `declaredIn`,
+  `source`, `line`, `targetEvidence` (come è stata risolta la destinazione) e
+  l'estratto `xml`.
+  - `kind`: `association` se una destinazione è una `feature` o un `object`;
+    `attribute` se le destinazioni sono tipi di dato; `geometry` per le
+    proprietà `lod…` e i tipi geometrici GML; `ade` per `adeOf…`;
+    `xmlAttribute` per `xs:attribute`.
+  - `link`, solo per le associazioni: `aggregation` se il tipo della
+    proprietà estende `gml:AbstractFeatureMemberType` o
+    `gml:AbstractMemberType`; `reference` se è `gml:ReferenceType`;
+    `association` negli altri casi.
+- `parents`, `ancestors`, `children`: gerarchia da `xs:extension`.
+  `derivation` indica `xs:extension` o `xs:restriction`; `restrictedBase` è la
+  base di una restrizione e non è un arco di ereditarietà.
+- `substitution`: testa del `substitutionGroup`, separata dall'ereditarietà.
+- `incoming`: proprietà che hanno questo nodo come destinazione esatta, con
+  `kind` e `link` della proprietà.
+- `constraints`: faccette, `xs:choice`, liste, unioni, wildcard e gruppi non
+  risolti.
+- `source`, `line`, `xml`: file, riga ed estratto della dichiarazione.
+- `incompleteInheritance`: true se la gerarchia raggiunge un nodo esterno.
 
-L'interfaccia calcola la vista ereditata senza sovrascrivere `properties`.
-Conserva l'origine anche quando una proprieta e mostrata su una sottoclasse.
-I ponti configurati non sono mai usati come archi di ereditarieta.
+L'interfaccia calcola la vista ereditata senza sovrascrivere `properties` e
+conserva l'origine di ogni proprietà mostrata su una sottoclasse.
 
-## Import e tracciabilita
+## File e import
 
-`files` riporta formato, namespace/IRI, dimensione e SHA-256; `dependencies`
-conserva gli import originari, la provenienza, lo stato e gli eventuali percorsi
-locali. `warnings` segnala problemi di parsing o cicli, non equivale a un report
-di validazione formale.
+Ogni voce di `files` riporta `path`, `name`, `namespace`, `citygml` (true per
+gli schemi sotto `schemas.opengis.net/citygml/`), `url` ufficiale,
+`retrievedAt`, `lastModified`, `schemaVersion`, `sha256` e `bytes`. I valori di
+provenienza provengono da `sources/manifest.json`.
 
-Il parser delle sorgenti e strettamente locale e disabilita la risoluzione di
-entita XML esterne. L'acquisizione di rete e isolata in uno script separato,
-con limiti e controlli di identita.
+Ogni voce di `dependencies` riporta `from`, `kind`, `namespace`, l'URL assoluto
+dello schema importato, `status` (`local` o `missing`) e `localPath`. Un import
+è locale quando il suo URL è un file registrato nel manifest.
 
-## Aggiungere una vista a grafo
+Il parser è strettamente locale e disabilita la risoluzione di entità esterne;
+lo scaricamento è separato in `scripts/fetch_sources.py`.
 
-Usare gli ID esistenti come chiavi dei nodi e mantenere distinti:
+## Vista a grafo
+
+Usando gli ID come chiavi dei nodi, gli archi vanno tenuti distinti:
 
 ```text
-parents          ereditarieta nominale
+parents          ereditarieta da xs:extension
 properties       collegamento tramite proprieta (con ruolo e provenienza)
 substitution     sostituzione XML
 restrictedBase   derivazione per restrizione
-bridges          ponte editoriale XSD / OWL, non equivalenza
-axioms           espressione ontologica, non generico arco is-a
 ```
 
-Un'espansione deve evitare di trasformare un `unionOf` in piu superclassi o una
-composizione in ereditarieta. Lo stesso principio vale per le proprieta
-provenienti da domain OWL: non sono una whitelist di relazioni possibili.
+Una composizione non va trasformata in ereditarietà, né una restrizione in
+un'estensione.

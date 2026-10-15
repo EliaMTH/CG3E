@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Esploratore locale dei vocabolari CityGML 3.0, XSD e OWL. Ricerca, proprieta e relazioni con provenienza verificabile.">
+  <meta name="description" content="Esploratore locale del vocabolario CityGML 3.0 dagli schemi XSD ufficiali OGC. Ricerca, proprieta e relazioni con provenienza verificabile.">
   <title>CityGML Explorer</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="data/catalog.js"></script>
@@ -21,12 +21,14 @@
     </a>
     <div class="sidebar-tools">
       <label class="search-box" for="search"><span aria-hidden="true">&#9906;</span><input id="search" type="search" autocomplete="off" placeholder="Cerca un concetto..." aria-label="Cerca nome, etichetta o identificatore"><kbd>/</kbd></label>
-      <label class="filter-label" for="family">VOCABOLARIO</label>
-      <select id="family"><option value="curated">CityGML + UISH</option value="CityGML">CityGML / XSD</option><option value="UISH">UISH / OWL</option><option value="CityOWL">CityOWL / OWL</option><option value="Supporto">Vocabolari di supporto</option><option value="all">Tutte le sorgenti</option></select>
+      <label class="filter-label" for="family">SCHEMI</label>
+      <select id="family"><option value="CityGML">CityGML 3.0</option><option value="Supporto">Schemi importati (GML, ISO 19139, xAL, XLink)</option><option value="all">Tutti gli schemi</option></select>
       <div class="filter-row"><label for="module" class="sr-only">Modulo</label><select id="module"><option value="">Tutti i moduli</option></select><button class="icon-button" id="filters-btn" aria-expanded="false" aria-controls="extra-filters" title="Altri filtri">&#9776;</button></div>
       <div id="extra-filters" class="extra-filters" hidden>
+        <label for="category" class="sr-only">Categoria</label>
+        <select id="category"><option value="">Tutte le categorie</option><option value="cityObject">Oggetti di citt&agrave;</option><option value="space">Oggetti di citt&agrave;: spazi</option><option value="boundary">Oggetti di citt&agrave;: superfici di confine</option><option value="feature">Feature</option><option value="object">Oggetti (non feature)</option><option value="datatype">Tipi di dato</option><option value="enumeration">Enumerazioni</option></select>
         <label><input type="checkbox" id="technical"> Tipi tecnici e punti ADE</label>
-        <label><input type="checkbox" id="only-concrete"> Solo classi concrete</label>
+        <label><input type="checkbox" id="only-concrete"> Solo concreti (istanziabili)</label>
         <label><input type="checkbox" id="include-external"> Riferimenti esterni</label>
       </div>
     </div>
@@ -37,10 +39,10 @@
   <div class="main-shell">
     <header class="topbar">
       <div class="topbar-left"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="Apri elenco concetti" aria-expanded="false">&#9776;</button><button class="icon-button" id="back-btn" title="Indietro" aria-label="Indietro">&#8592;</button><button class="icon-button" id="forward-btn" title="Avanti" aria-label="Avanti">&#8594;</button><div id="breadcrumb" class="breadcrumb"></div></div>
-      <div class="topbar-right"><span class="local-badge"><span class="status-dot"></span><span id="catalog-mode">Catalogo locale</span></span><button class="text-button" id="sources-btn">Sorgenti <span id="file-count"></span></button></div>
+      <div class="topbar-right"><span class="local-badge"><span class="status-dot"></span><span id="catalog-version">Catalogo locale</span></span><button class="text-button" id="sources-btn">Sorgenti <span id="file-count"></span></button></div>
     </header>
     <main id="content" tabindex="-1"><div class="loading">Caricamento del catalogo locale...</div></main>
-    <noscript>Per navigare il catalogo occorre abilitare JavaScript. I file originali restano disponibili nella cartella sources.</noscript>
+    <noscript>Per navigare il catalogo occorre abilitare JavaScript. Gli schemi XSD sono disponibili nella cartella sources.</noscript>
   </div>
 </div>
 <dialog id="modal"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="close-modal" aria-label="Chiudi">&#215;</button></div><div id="modal-body"></div></dialog>

@@ -1,0 +1,2731 @@
+{
+  "generatedBy": "scripts/fetch_sources.py",
+  "config": "config/sources.json",
+  "retrievedAt": "2026-10-15T13:37:05+00:00",
+  "files": [
+    {
+      "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/3.0/core.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"102ab-6324eaaf4a8ee\"",
+      "sha256": "1a40612766a069e33c213c1ac3a75cc392d3cae9538c4ff538f256ec138570ba",
+      "bytes": 66219,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+        "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+        "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+        "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+        "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+        "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+        "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+        "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+        "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+        "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+        "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+        "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+        "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+        "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+        "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+        "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
+          "kind": "xsd:import",
+          "namespace": "urn:oasis:names:tc:ciq:xal:3"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/3.0/core.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/ReadMe.txt",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/ReadMe.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"891-6324eaaf4a8ee\"",
+      "sha256": "f4fc86c2c2e154781cc95c5d11f0a585d5f4c9a330a00dd18e7287493f7e38bf",
+      "bytes": 2193,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/citygml/ReadMe.txt"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"63cd-6324eaaf4a8ee\"",
+      "sha256": "a955f7f1b4dac4dfec5a4f44b3dc34a1c0380d900d4bce75eb545b39fc4ecc5b",
+      "bytes": 25549,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/appearance/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/appearance/3.0/appearance.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"575e-6324eaaf4a8ee\"",
+      "sha256": "2861490df35859281ab0805e64b0b3bdfa3cbdc1ad74d73418a48d41e880fa89",
+      "bytes": 22366,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/bridge/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/construction/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/bridge/3.0/bridge.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/building/3.0/building.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"8c96-6324eaaf4a8ee\"",
+      "sha256": "38d613dfcfeac9bf4148d77185e334446ce6078a66ce2adaf6b2ea4beb029d57",
+      "bytes": 35990,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/building/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/construction/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/building/3.0/building.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"dbc-6324eaaf4b88e\"",
+      "sha256": "084776f6544a7e10ba98f841c15c3fc66cb7a75c39dd57b86493579ebb84d985",
+      "bytes": 3516,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/cityfurniture/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:53+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"16c3-6324eaaf4b88e\"",
+      "sha256": "0aac0962260d6d536dc7b13f505a878c635b1387513c41a3cde067b06e04fcb3",
+      "bytes": 5827,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/cityobjectgroup/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:53+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"411-6324eaaf4b88e\"",
+      "sha256": "dc31b4e58a78f39b76774f99e0bf2f17af482de554cfb9ae87fa6f931df7f628",
+      "bytes": 1041,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:53+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"c0dc-6324eaaf4c82e\"",
+      "sha256": "b25d853838b3188328855145638101f77b09923186ebc05979d632734016b33d",
+      "bytes": 49372,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
+        "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+        "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+        "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/construction/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/construction/3.0/construction.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:53+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"84ab-6324eaaf4c82e\"",
+      "sha256": "d8874e233dd4867c491a77171f9c0d785438258d6615cb4b7b66513a3cd64295",
+      "bytes": 33963,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/dynamizer/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:53+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"4ef6-6324eaaf4e76e\"",
+      "sha256": "a5f71da583f9eedd7948eb08c87d632795efe8bc836f1816db2ad4bfce2ed684",
+      "bytes": 20214,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/generics/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/generics/3.0/generics.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"cb2-6324eaaf4e76e\"",
+      "sha256": "e6a8b6d32c81d6b929430fadfc0370a613c3f7ce527ac719e1bd50b1789c97ef",
+      "bytes": 3250,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/landuse/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/landuse/3.0/landUse.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"da6-6324eaaf4e76e\"",
+      "sha256": "218ae12de39935a80f365810b66a115a45d483a5168ce404e9549a4dae4520ca",
+      "bytes": 3494,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/pointcloud/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:52+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"d79-6324eaaf4e76e\"",
+      "sha256": "6e86dfac4ab47dc250e45f78fc26fb8396795959db89cca617a66afccc644088",
+      "bytes": 3449,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/profiles/base/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/appearance/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/bridge/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/building/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/cityfurniture/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/cityobjectgroup/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/construction/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/dynamizer/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/generics/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/landuse/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/pointcloud/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/relief/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/transportation/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/tunnel/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/vegetation/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/versioning/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/waterbody/3.0"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"399b-6324eaaf4e76e\"",
+      "sha256": "e07afafa959e7e4c5e02c63bf96b21683639972af0731676413e307c4c0a8c64",
+      "bytes": 14747,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/relief/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/relief/3.0/relief.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"bf47-6324eaaf4e76e\"",
+      "sha256": "ce6621639f1263c8596d73553da87bce7f6d48e0dd3ea0b45b68c8d762961a7d",
+      "bytes": 48967,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/transportation/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/transportation/3.0/transportation.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"54cb-6324eaaf4e76e\"",
+      "sha256": "f0e09e070a7792d6f61b689e2cc8de95ca512d0552405598b881c524f092fd15",
+      "bytes": 21707,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/tunnel/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/construction/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:54+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"277a-6324eaaf4e76e\"",
+      "sha256": "a9af1bfef03ef62068c59353ccaf7610bbcdc2c098d2bcf0131918c0b872a114",
+      "bytes": 10106,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/vegetation/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"318a-6324eaaf4e76e\"",
+      "sha256": "d6b54a639f0bbb9dd560259a4afae3b0369d7fc8cba446821e2ecb7468a8bcd0",
+      "bytes": 12682,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/versioning/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/versioning/3.0/versioning.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2275-6324eaaf4f70e\"",
+      "sha256": "c75bb6ed94c4ad7b457e60dc0de11b7c85a1053dc8856f2ad350707476edb59e",
+      "bytes": 8821,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/citygml/waterbody/3.0",
+      "schemaVersion": "3.0.0",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/citygml/3.0"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"11c6-6324eaaf4f70e\"",
+      "sha256": "3879347fa12a93aeacff0fc0a9c7f6247762d3689a84d36d6303e874ea339b04",
+      "bytes": 4550,
+      "requestedBy": [
+        "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd"
+      ],
+      "targetNamespace": "urn:oasis:names:tc:ciq:ct:3",
+      "schemaVersion": null,
+      "references": [],
+      "path": "sources/schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1030-6324eaaf4f70e\"",
+      "sha256": "ce41e3cff64363c34fcfdaacf83fc28450e90a40d75a7536df5583f96e0c428a",
+      "bytes": 4144,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"4f6-6324eaaf4f70e\"",
+      "sha256": "a8884cae685ed1e9069c6b505fabf0dc3c981ee12bdcdcd24e3f5b429b068bdd",
+      "bytes": 1270,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"528c-6324eaaf4f70e\"",
+      "sha256": "4f6e64be70c0df3386741d6b9f6f7563d8a8a8ed766ded7ccc1fffa688b1c25a",
+      "bytes": 21132,
+      "requestedBy": [
+        "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd"
+      ],
+      "targetNamespace": "urn:oasis:names:tc:ciq:xal:3",
+      "schemaVersion": null,
+      "references": [],
+      "path": "sources/schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:55+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"8142-6324eaaf4f70e\"",
+      "sha256": "49398e78548a88bdada41510e616d9ac9673938a4abefc817e1144346f8dfbac",
+      "bytes": 33090,
+      "requestedBy": [
+        "config/sources.json",
+        "http://schemas.opengis.net/citygml/3.0/core.xsd"
+      ],
+      "targetNamespace": "urn:oasis:names:tc:ciq:xal:3",
+      "schemaVersion": null,
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd",
+          "kind": "xsd:include",
+          "namespace": "urn:oasis:names:tc:ciq:xal:3"
+        },
+        {
+          "url": "http://schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd",
+          "kind": "xsd:import",
+          "namespace": "urn:oasis:names:tc:ciq:ct:3"
+        },
+        {
+          "url": "http://www.w3.org/1999/xlink.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.w3.org/1999/xlink"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/citygml/xAL/3.0/xAL.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3a39-6324eaaf5e16e\"",
+      "sha256": "2e37d858bd5be1307892add40826632e4e16d5c44b032ba668c510f09588da5c",
+      "bytes": 14905,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/basicTypes.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"8240-6324eaaf5e16e\"",
+      "sha256": "d9a96671453711b98301d8f796ba1bb47990b7ab4ea83e8a1803c27110bbc434",
+      "bytes": 33344,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:57+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"47f4-6324eaaf5e16e\"",
+      "sha256": "0b38a6d9a82b698307215be446cfbec18682f1edcdbdf531d0e9fadb88e3017e",
+      "bytes": 18420,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"490d-6324eaaf5e16e\"",
+      "sha256": "50658a9b0cd0e8887dab3a54d0e66ea9d74e7737ac15b87fb3a88f6d578c884b",
+      "bytes": 18701,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:57+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"515b-6324eaaf5e16e\"",
+      "sha256": "8861ca287202f3da462b3d78c71065dc78b3d24ac37304297601bd6599e8362f",
+      "bytes": 20827,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/grids.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/coverage.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/datums.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3e33-6324eaaf5e16e\"",
+      "sha256": "a5ac13d8015f8d9c0947e5ad614c482a0f2c632d168f87c631d953273bdeb30d",
+      "bytes": 15923,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/datums.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"8772-6324eaaf5e16e\"",
+      "sha256": "cd02f14a1f83be529cb5d7ba8ce6a4089ebf26dcb3e287e4b81488cb6bf6dd5b",
+      "bytes": 34674,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1be1-6324eaaf5e16e\"",
+      "sha256": "fb5f633e6b441ed19bd17433e28efedfb7a335bdbde04b4e5383582a763beae5",
+      "bytes": 7137,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/units.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/dictionary.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/direction.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1041-6324eaaf5e16e\"",
+      "sha256": "fed7bb5e0fcc13b78add0bdb4b603a278452b70617a207ee084d2427daa17011",
+      "bytes": 4161,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/observation.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/direction.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:57+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1a97-6324eaaf5e16e\"",
+      "sha256": "457e07361d175c8c344d20fbed203f051b07dc13f7c637576247872fcf294c43",
+      "bytes": 6807,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/feature.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"15d0-6324eaaf5e16e\"",
+      "sha256": "aa8434aa6b38fe00ab9dd1a1e84c9288b4828484c783c04c8caf4ea5650ecb07",
+      "bytes": 5584,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/observation.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/feature.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2d03-6324eaaf5e16e\"",
+      "sha256": "d1cb25b4e923d06c44d6930ced39848ea0e938e197f95a8794e73692d0ff425b",
+      "bytes": 11523,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"49f1-6324eaaf5e16e\"",
+      "sha256": "b1f9e4c1714546cd1df6f03f459926c3714f6b4346bba58de7950eddedcc7d6c",
+      "bytes": 18929,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/grids.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"19e1-6324eaaf5f10e\"",
+      "sha256": "2fc0914ecd7ca02d41ec090d8202e754d67e40890d8846382e7e25446bf4b181",
+      "bytes": 6625,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"16c0-6324eaaf5f10e\"",
+      "sha256": "26e936aa53efe6e56bbcadd5528967c2b9ac2b08b869252703c757e7ffb9711c",
+      "bytes": 5824,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/topology.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"a699-6324eaaf5f10e\"",
+      "sha256": "ddde612ddaa13fe8313ac5e0d70090d52459c83777e394b3d3917a205469b2af",
+      "bytes": 42649,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/gml.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"434-6324eaaf5f10e\"",
+      "sha256": "eb1e652fdc10fa70352c3fc554cd3bfacc5a863e964a4e64c76f25c762b80a3f",
+      "bytes": 1076,
+      "requestedBy": [
+        "http://schemas.opengis.net/citygml/3.0/core.xsd",
+        "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
+        "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
+        "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
+        "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
+        "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
+        "http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
+        "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
+        "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
+        "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
+        "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
+        "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
+        "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
+        "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
+        "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
+        "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
+        "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
+        "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/topology.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/observation.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/grids.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/units.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/topology.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/observation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/gml.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"31d4-6324eaaf5f10e\"",
+      "sha256": "36825875b089ee8f69f42103d31ce52f6eb9489d2f40e11516495f7c152cc79d",
+      "bytes": 12756,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/temporal.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://www.w3.org/1999/xlink.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.w3.org/1999/xlink"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/gmlBase.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/grids.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/grids.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1024-6324eaaf5f10e\"",
+      "sha256": "c317678414da9a28e0be87bb1544b875875746bc219aa0b7f6c31f32efd0c5f0",
+      "bytes": 4132,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coverage.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/grids.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/measures.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"c20-6324eaaf5f10e\"",
+      "sha256": "3faae40533a200b6999278678ef43c90a508fd7f8ded474f50475b4c3f19f152",
+      "bytes": 3104,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/units.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/measures.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/observation.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/observation.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:57+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"159a-6324eaaf5f10e\"",
+      "sha256": "514b7489b2aeaf58303e24c0180cba92654f2201e87a6aa7c2fe8e1c73ceff99",
+      "bytes": 5530,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/observation.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1248-6324eaaf5f10e\"",
+      "sha256": "5bbeb1210ead8b6fba6516c4a5b9e80c1b811b48ec9f3293bbaaa5346aeec0e8",
+      "bytes": 4680,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/referenceSystems.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3cee-6324eaaf5f10e\"",
+      "sha256": "e6336faf79732dd8cc79b4f18595a4ccf93ab9d7c55e9f6517b79f4f44572fdd",
+      "bytes": 15598,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/temporal.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3187-6324eaaf5f10e\"",
+      "sha256": "f7671997af4fbd098ff53db1f025df3d1a678f707560a9bca83ca54d4ef61e7c",
+      "bytes": 12679,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:59+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1e73-6324eaaf5f10e\"",
+      "sha256": "ee8fd1e816cb41746c16443e47a0206f71ab77a621d49778dc565a9d6eff4352",
+      "bytes": 7795,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/temporalTopology.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/topology.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/topology.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:57+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"5906-6324eaaf5f10e\"",
+      "sha256": "aa4e2db656a1dfad2fe50c23cccf5ab0f3bba5894087dca75e7bd25faf31ba12",
+      "bytes": 22790,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/topology.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/units.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/units.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2ffb-6324eaaf5f10e\"",
+      "sha256": "b3e2b8f364b9b844dccc0d8314f9c6c952db5155bccfe7316a1742a63dcc29fe",
+      "bytes": 12283,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/measures.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/units.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2cae-6324eaaf5f10e\"",
+      "sha256": "ddf0c234b66363f596492f59b92e307d2d7d864a122c28abc32bcdf87ce7485e",
+      "bytes": 11438,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/observation.xsd"
+      ],
+      "targetNamespace": "http://www.opengis.net/gml/3.2",
+      "schemaVersion": "3.2.2",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/gml/3.2.1/valueObjects.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/gml/ReadMe.txt",
+      "downloadedFrom": "https://schemas.opengis.net/gml/ReadMe.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"180f-6324eaaf5f10e\"",
+      "sha256": "e40438b69b6591409c40acad076baf07508d4c4ae97eeed6653dcbe29b970f8c",
+      "bytes": 6159,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/gml/ReadMe.txt"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/ReadMe.txt",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/ReadMe.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"585-6324eaaf7298e\"",
+      "sha256": "0940a8fd58a5e5763d8ae2039b0d69a26534c7593744072203e74b80020a3c07",
+      "bytes": 1413,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/ReadMe.txt"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"5622-6324eaaf7298e\"",
+      "sha256": "5ac7545eedc0ebea9ee2788197ffc54eb32797cfde015239f33400f8527ff7f4",
+      "bytes": 22050,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gco",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://www.w3.org/1999/xlink.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.w3.org/1999/xlink"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"487-6324eaaf7298e\"",
+      "sha256": "bc3ea300204f6b99e696976aeb32207d604295f8e4c1d397cf5bb7b9e59bdabf",
+      "bytes": 1159,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gco",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:03+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"ff7-6324eaaf7298e\"",
+      "sha256": "bc6ef613238a37d0cfcdcbb43df751de7c81ebe46e67b185bae477f530b3f9ab",
+      "bytes": 4087,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gco",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://www.w3.org/1999/xlink.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.w3.org/1999/xlink"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"c74-6324eaaf7298e\"",
+      "sha256": "bd5b9f294f42dbe0d78e7f760fae008fb061c8a23d6c45b34bef0bf1427b1ed5",
+      "bytes": 3188,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:03+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3ca1-6324eaaf7298e\"",
+      "sha256": "dfdef7355c21e8780cb3d50b28dd6d4c556ef83a1082c3059fffe41e357ba97d",
+      "bytes": 15521,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"199b-6324eaaf7298e\"",
+      "sha256": "b1f9c2971bbd1bf641f23a82ec87c0728bc19446b86ad490b5d3e917b096193e",
+      "bytes": 6555,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2c9f-6324eaaf7298e\"",
+      "sha256": "e2c31ad9e56c6682f137b200db430b11ea89ee667379615c6498c4267c129eda",
+      "bytes": 11423,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/content.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:03+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"78d8-6324eaaf7298e\"",
+      "sha256": "a1c97293e7966bf67ad4635894a5479c3e3f7044ad6253d3e87b74b3c34739cb",
+      "bytes": 30936,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2dd8-6324eaaf7298e\"",
+      "sha256": "1759a0d820644e07ed442b8385a87585cf62c68a7a257dcff109fb469109bb28",
+      "bytes": 11736,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2c6c-6324eaaf7298e\"",
+      "sha256": "a1e35e7730774fd7c4229699ade5cd29a8449997452d6a017f8a797f2a0a8c41",
+      "bytes": 11372,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gss"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gts"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gsr"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:03+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"1bf8-6324eaaf7298e\"",
+      "sha256": "79fcacb8fe5d0000fce05bef5e6430c61af9c151edf50542de4f4d90f4d1d306",
+      "bytes": 7160,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:00+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"492-6324eaaf7298e\"",
+      "sha256": "62c01b7ac3a6d283a2ea4ac72891bc1b912ff43016367b8df30ec7a8dfa583b1",
+      "bytes": 1170,
+      "requestedBy": [
+        "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"4d27-6324eaaf7298e\"",
+      "sha256": "a9cbc54f0774b804a7e49e0713502d49ed051e2ad43d138b7ba840b7868ea937",
+      "bytes": 19751,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"178a-6324eaaf7298e\"",
+      "sha256": "49e16597d6ce1bf039db46ac6d4c0069b2c6297bfc8da3fdb28a4d2e717766f9",
+      "bytes": 6026,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gts"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:01+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"2474-6324eaaf7298e\"",
+      "sha256": "215e4f0e39b73c98c30e2c799b3c47448b420b481bed91087f983faf42074b6c",
+      "bytes": 9332,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"16f5-6324eaaf7298e\"",
+      "sha256": "e780e56e534c58140df94625293f535827b966a662b01014802288c349f31a3a",
+      "bytes": 5877,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"191d-6324eaaf7298e\"",
+      "sha256": "2a59d200fbd0cf1229f908fa5ddfee71c7b2be273d6f2d9402e386390e2d1012",
+      "bytes": 6429,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"a68-6324eaaf7298e\"",
+      "sha256": "e8b1086c78ef4474be9091839d3fa9aee3d9481c465fe5aa4372e2e2d3c2090a",
+      "bytes": 2664,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"165b-6324eaaf7298e\"",
+      "sha256": "320bf5301f0fc40fc028a5428133ee66ed2b5b99ea5b74544ebf0642a1083f06",
+      "bytes": 5723,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:02+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"3666-6324eaaf7298e\"",
+      "sha256": "3e4d2886b7816e1bc67fa23d82201e473162c5110aa6e6bd34478ad606c0b73c",
+      "bytes": 13926,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gmd",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gss"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gmd"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:05+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"49c-6324eaaf7298e\"",
+      "sha256": "5066cfe4d0488b89cf7a15a990cd2e05f3dcdbb11c95df1ec73a1e714101161d",
+      "bytes": 1180,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gsr",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gsr"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:05+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"876-6324eaaf7298e\"",
+      "sha256": "19dcdbf1fcc296598dd5def55338bdf604e2ddd62358f7a3a9caa62bd7a6833b",
+      "bytes": 2166,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gsr",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gsr"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:04+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"a8c-6324eaaf7298e\"",
+      "sha256": "fabf3df4d5d7098944494e4932426e4bfd7d56d73ac535edfcf5ef67292ad767",
+      "bytes": 2700,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gss",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gss"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:03+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"48e-6324eaaf7298e\"",
+      "sha256": "1cb5492d7cb110ced0d46e8bc858dc3b340e1350b0b16f99772318c7df4d3906",
+      "bytes": 1166,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gss",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gss"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gss/gss.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:05+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"495-6324eaaf7298e\"",
+      "sha256": "bef7c0ed6e63cd2be4b54defe994125783491a4a750c675cd28ca01382c9b273",
+      "bytes": 1173,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gts",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gts"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gts/gts.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:37:05+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"ae3-6324eaaf7298e\"",
+      "sha256": "22d2c593d31cd6c91e245bebd44240bd89046cc45c8e7f3a79b22442d9ee2595",
+      "bytes": 2787,
+      "requestedBy": [
+        "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd"
+      ],
+      "targetNamespace": "http://www.isotc211.org/2005/gts",
+      "schemaVersion": "2012-07-13",
+      "references": [
+        {
+          "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.opengis.net/gml/3.2"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.isotc211.org/2005/gco"
+        },
+        {
+          "url": "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
+          "kind": "xsd:include",
+          "namespace": "http://www.isotc211.org/2005/gts"
+        }
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd"
+    },
+    {
+      "url": "http://schemas.opengis.net/iso/19139/ReadMe.txt",
+      "downloadedFrom": "https://schemas.opengis.net/iso/19139/ReadMe.txt",
+      "kind": "document",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
+      "etag": "\"380-6324eaaf7392e\"",
+      "sha256": "08768d30675f7f2f507f4c2088a2623dd1c3ef70a2201bf7555e9f95a13441b9",
+      "bytes": 896,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "path": "sources/schemas.opengis.net/iso/19139/ReadMe.txt"
+    },
+    {
+      "url": "http://www.w3.org/1999/xlink.xsd",
+      "downloadedFrom": "https://www.w3.org/1999/xlink.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:56+00:00",
+      "lastModified": "Wed, 03 Dec 2008 15:40:18 GMT",
+      "etag": "W/\"2082-45d2642d15c80-gzip\"",
+      "sha256": "c3dbbaa28b884377ecd4a6c49d1f12566d8227cb0dce8ced10c0f66f8fa266e3",
+      "bytes": 8322,
+      "requestedBy": [
+        "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
+        "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
+        "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd"
+      ],
+      "targetNamespace": "http://www.w3.org/1999/xlink",
+      "schemaVersion": null,
+      "references": [
+        {
+          "url": "http://www.w3.org/2001/xml.xsd",
+          "kind": "xsd:import",
+          "namespace": "http://www.w3.org/XML/1998/namespace"
+        }
+      ],
+      "path": "sources/www.w3.org/1999/xlink.xsd"
+    },
+    {
+      "url": "http://www.w3.org/2001/xml.xsd",
+      "downloadedFrom": "https://www.w3.org/2001/xml.xsd",
+      "kind": "xsd",
+      "retrievedAt": "2026-10-15T13:36:58+00:00",
+      "lastModified": "Wed, 21 Jan 2009 22:06:40 GMT",
+      "etag": "W/\"2284-461055ecbfc00-gzip\"",
+      "sha256": "61960fb3131e38022caad5360e2f33a3382578ab3c80cd58bd74320ede61b20c",
+      "bytes": 8836,
+      "requestedBy": [
+        "http://www.w3.org/1999/xlink.xsd"
+      ],
+      "targetNamespace": "http://www.w3.org/XML/1998/namespace",
+      "schemaVersion": null,
+      "references": [],
+      "path": "sources/www.w3.org/2001/xml.xsd"
+    }
+  ],
+  "failures": []
+}
