@@ -1,0 +1,17852 @@
+/* Local code list dictionary, edited by the interface (Save) and restored by Reset. Values are not part of the CityGML standard. */
+window.CITYGML_CODELISTS = {
+ "format": 1,
+ "source": {
+  "title": "OGC CityGML 3.0 code list examples",
+  "version": "3.0.0",
+  "reference": "OGC 21-006r2, Annex E (informative)",
+  "baseUrl": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/",
+  "host": "data.ogc.org",
+  "retrievedAt": "2026-10-16T13:26:33+00:00"
+ },
+ "codeLists": {
+  "BridgeClassValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:12+00:00",
+   "sha256": "66f8fd69da86d1b1f421ca2d848a812250baeda4a88ed63e4f4c58783b9598e3",
+   "identifier": "BridgeClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BridgeClassValue",
+    "namespace": "http://www.opengis.net/citygml/bridge/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "arced bridge",
+     "description": "arced bridge"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "cable-stayed bridge",
+     "description": "cable-stayed bridge"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "deck bridge",
+     "description": "deck bridge"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "cable-stayed overpass",
+     "description": "cable-stayed overpass"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "truss bridge",
+     "description": "truss bridge"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "pontoon bridge",
+     "description": "pontoon bridge"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeClassValue",
+     "name": "suspension bridge",
+     "description": "suspension bridge"
+    }
+   ],
+   "placeholder": false
+  },
+  "BridgeConstructiveElementClassValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:12+00:00",
+   "sha256": "fb359d65d6f0dc60e6450c916ee9212d4c001268c2cb319e80559e175ec342e3",
+   "identifier": "Bridge.BridgeConstructiveElementClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeconstructiveelementclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeconstructiveelementclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeConstructiveElementClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeConstructiveElementFunctionValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "9df52d0f90682433f858e8d89e4403f650101dc2ef7e8af77641203440cd5ca5",
+   "identifier": "Bridge.BridgeConstructiveElementFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeconstructiveelementfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeconstructiveelementfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeConstructiveElementFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeConstructiveElementUsageValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "6471cfb4bbad41c629806a4eed65bca63949f668fb4a2a3316bdc4016761ecf2",
+   "identifier": "Bridge.BridgeConstructiveElementUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeconstructiveelementusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeconstructiveelementusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeConstructiveElementUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeFunctionValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "891492251deb4032a6b89fd0dced40ca28e5a337bbc01d5aa601599997ed294e",
+   "identifier": "BridgeFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BridgeFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/bridge/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "railway bridge",
+     "description": "railway bridge"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "roadway bridge",
+     "description": "roadway bridge"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "cable link",
+     "description": "cable link"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "canal bridge",
+     "description": "canal bridge"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "aqueduct",
+     "description": "aqueduct"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeFunctionValue",
+     "name": "foot bridge",
+     "description": "foot bridge"
+    }
+   ],
+   "placeholder": false
+  },
+  "BridgeFurnitureClassValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "0d9b6dd8321c24182809dc5caf5d14220c8308edcbbb665b00f9d9b281e7f9c3",
+   "identifier": "Bridge.BridgeFurnitureClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgefurnitureclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgefurnitureclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeFurnitureClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeFurnitureFunctionValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "5e2d8ef8d65dab964761f56bba81241ec591c7d289ae09598b0fd93c60c52e65",
+   "identifier": "Bridge.BridgeFurnitureFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgefurniturefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgefurniturefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeFurnitureFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeFurnitureUsageValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "8a7c072126611c2a1f676f88b6d5b858b3271db763958250c671879e82d9d57e",
+   "identifier": "Bridge.BridgeFurnitureUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgefurnitureusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgefurnitureusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeFurnitureUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeInstallationClassValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:13+00:00",
+   "sha256": "1d92247df0eedc7af92cf578abd4ee07169f40606e89ab6cebe5b3e02b7ef53a",
+   "identifier": "Bridge.BridgeInstallationClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeinstallationclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeinstallationclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeInstallationClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeInstallationFunctionValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "615ffbbb0bca9f9378d5543e8aef4ddba675cf581d320317dbf4d5ef7902c3fb",
+   "identifier": "Bridge.BridgeInstallationFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeinstallationfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeinstallationfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeInstallationFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeInstallationUsageValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "384177efd74f9574e6832e893c52c5f78d915a34a748669b166ae2dc9426beb0",
+   "identifier": "Bridge.BridgeInstallationUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeinstallationusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeinstallationusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeInstallationUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeRoomClassValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "ac328b97db7522cabd26d9742ffc036809c67411e89cdf6faf09ec3dfbe0c0de",
+   "identifier": "Bridge.BridgeRoomClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeroomclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeroomclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeRoomClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeRoomFunctionValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "05be7df6985b119d18b93eba311c0204629cb5b9c4201a847ac4308a307a2d3d",
+   "identifier": "Bridge.BridgeRoomFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeroomfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeroomfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeRoomFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeRoomUsageValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "a05a40f4e1a747ee49863fc1928ec702bea585b5c79ac82d012b2cf5fb52a750",
+   "identifier": "Bridge.BridgeRoomUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bridgeroomusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "bridgeroomusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Bridge.BridgeRoomUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BridgeUsageValue": {
+   "module": "Bridge",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "2d2b5fa9948c53d45ade96ed819ccd52e500468750b442c27b57d39f9937f8ac",
+   "identifier": "BridgeUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BridgeUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/bridge/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "railway bridge",
+     "description": "railway bridge"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "roadway bridge",
+     "description": "roadway bridge"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "cable link",
+     "description": "cable link"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "canal bridge",
+     "description": "canal bridge"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "aqueduct",
+     "description": "aqueduct"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/bridge/3.0/BridgeUsageValue",
+     "name": "foot bridge",
+     "description": "foot bridge"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:14+00:00",
+   "sha256": "4b53c622bf9aaa9aeba2c32bafe0b45af5bb39181cc53bd3cfafb61b1482b655",
+   "identifier": "BuildingClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingClassValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "habitation",
+     "description": "habitation"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "sanitation",
+     "description": "sanitation"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "administration",
+     "description": "administration"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "business, trade",
+     "description": "business, trade"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "catering",
+     "description": "catering"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "recreation",
+     "description": "recreation"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "sport",
+     "description": "sport"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "culture",
+     "description": "culture"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "church institution",
+     "description": "church institution"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "agriculture, forestry",
+     "description": "agriculture, forestry"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "schools, education, research",
+     "description": "schools, education, research"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "maintainence and waste management",
+     "description": "maintainence and waste management"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "healthcare",
+     "description": "healthcare"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "communicating",
+     "description": "communicating"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "security",
+     "description": "security"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "storage",
+     "description": "storage"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "industry",
+     "description": "industry"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "traffic",
+     "description": "traffic"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingClassValue",
+     "name": "function",
+     "description": "function"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingConstructiveElementClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "fd1b3644daed6b587e4a74eccb4cc83cf917ff566c668d33404b30f8f2d2ae09",
+   "identifier": "Building.BuildingConstructiveElementClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingconstructiveelementclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingconstructiveelementclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingConstructiveElementClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingConstructiveElementFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "07e461d80174098abb9256e8681193cd0769a2e10a66a8cc2a39d0f7c1255ae0",
+   "identifier": "Building.BuildingConstructiveElementFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingconstructiveelementfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingconstructiveelementfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingConstructiveElementFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingConstructiveElementUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "c8fadec4f5be375d8a35ed2e3f4983eef43114ad31af19259030a58e7eb7b5dc",
+   "identifier": "Building.BuildingConstructiveElementUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingconstructiveelementusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingconstructiveelementusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingConstructiveElementUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "29bdc2b078aa841dbc18dfa8df97f1c3a32ea6c5e93d838a61a2ff49173b810b",
+   "identifier": "BuildingFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential building",
+     "description": "residential building"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "tenement",
+     "description": "tenement"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "hostel",
+     "description": "hostel"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential- and administration building",
+     "description": "residential- and administration building"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential- and office building",
+     "description": "residential- and office building"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential- and business building",
+     "description": "residential- and business building"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential- and plant building",
+     "description": "residential- and plant building"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "agrarian- and forestry building",
+     "description": "agrarian- and forestry building"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "residential- and commercial building",
+     "description": "residential- and commercial building"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "forester's lodge",
+     "description": "forester's lodge"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "holiday house",
+     "description": "holiday house"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "summer house",
+     "description": "summer house"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "office building",
+     "description": "office building"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "credit institution",
+     "description": "credit institution"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "insurance",
+     "description": "insurance"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "business building",
+     "description": "business building"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "department store",
+     "description": "department store"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "shopping centre",
+     "description": "shopping centre"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "kiosk",
+     "description": "kiosk"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "pharmacy",
+     "description": "pharmacy"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "pavilion",
+     "description": "pavilion"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "hotel",
+     "description": "hotel"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "youth hostel",
+     "description": "youth hostel"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "campsite building",
+     "description": "campsite building"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "restaurant",
+     "description": "restaurant"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "cantine",
+     "description": "cantine"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "recreational site",
+     "description": "recreational site"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "function room",
+     "description": "function room"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "cinema",
+     "description": "cinema"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "bowling alley",
+     "description": "bowling alley"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "casino",
+     "description": "casino"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "industrial building",
+     "description": "industrial building"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "factory",
+     "description": "factory"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "workshop",
+     "description": "workshop"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "petrol / gas station",
+     "description": "petrol / gas station"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "washing plant",
+     "description": "washing plant"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "cold store",
+     "description": "cold store"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "depot",
+     "description": "depot"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for research purposes",
+     "description": "building for research purposes"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "quarry",
+     "description": "quarry"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "salt works",
+     "description": "salt works"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "miscellaneous industrial building",
+     "description": "miscellaneous industrial building"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "mill",
+     "description": "mill"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "windmill",
+     "description": "windmill"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "water mill",
+     "description": "water mill"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "bucket elevator",
+     "description": "bucket elevator"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "weather station",
+     "description": "weather station"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "traffic assets office",
+     "description": "traffic assets office"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "street maintenance",
+     "description": "street maintenance"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "waiting hall",
+     "description": "waiting hall"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "signal control box",
+     "description": "signal control box"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "engine shed",
+     "description": "engine shed"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "signal box or stop signal",
+     "description": "signal box or stop signal"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "plant building for air traffic",
+     "description": "plant building for air traffic"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "hangar",
+     "description": "hangar"
+    },
+    {
+     "code": "1550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "plant building for shipping",
+     "description": "plant building for shipping"
+    },
+    {
+     "code": "1560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "shipyard",
+     "description": "shipyard"
+    },
+    {
+     "code": "1570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "dock",
+     "description": "dock"
+    },
+    {
+     "code": "1580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "plant building for canal lock",
+     "description": "plant building for canal lock"
+    },
+    {
+     "code": "1590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "boathouse",
+     "description": "boathouse"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "plant building for cablecar",
+     "description": "plant building for cablecar"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "multi-storey car park",
+     "description": "multi-storey car park"
+    },
+    {
+     "code": "1620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "parking level",
+     "description": "parking level"
+    },
+    {
+     "code": "1630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "garage",
+     "description": "garage"
+    },
+    {
+     "code": "1640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "vehicle hall",
+     "description": "vehicle hall"
+    },
+    {
+     "code": "1650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "underground garage",
+     "description": "underground garage"
+    },
+    {
+     "code": "1660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for supply",
+     "description": "building for supply"
+    },
+    {
+     "code": "1670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "waterworks",
+     "description": "waterworks"
+    },
+    {
+     "code": "1680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "pump station",
+     "description": "pump station"
+    },
+    {
+     "code": "1690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "water basin",
+     "description": "water basin"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "electric power station",
+     "description": "electric power station"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "transformer station",
+     "description": "transformer station"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "converter",
+     "description": "converter"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "reactor",
+     "description": "reactor"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "turbine house",
+     "description": "turbine house"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "boiler house",
+     "description": "boiler house"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for telecommunications",
+     "description": "building for telecommunications"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "gas works",
+     "description": "gas works"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "heat plant",
+     "description": "heat plant"
+    },
+    {
+     "code": "1790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "pumping station",
+     "description": "pumping station"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for disposal",
+     "description": "building for disposal"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for effluent disposal",
+     "description": "building for effluent disposal"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for filter plant",
+     "description": "building for filter plant"
+    },
+    {
+     "code": "1830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "toilet",
+     "description": "toilet"
+    },
+    {
+     "code": "1840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "rubbish bunker",
+     "description": "rubbish bunker"
+    },
+    {
+     "code": "1850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for rubbish incineration",
+     "description": "building for rubbish incineration"
+    },
+    {
+     "code": "1860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for rubbish disposal",
+     "description": "building for rubbish disposal"
+    },
+    {
+     "code": "1870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for agrarian and forestry",
+     "description": "building for agrarian and forestry"
+    },
+    {
+     "code": "1880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "barn",
+     "description": "barn"
+    },
+    {
+     "code": "1890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "stall",
+     "description": "stall"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "equestrian hall",
+     "description": "equestrian hall"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "alpine cabin",
+     "description": "alpine cabin"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "hunting lodge",
+     "description": "hunting lodge"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "arboretum",
+     "description": "arboretum"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "glass house",
+     "description": "glass house"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "moveable glass house",
+     "description": "moveable glass house"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "public building",
+     "description": "public building"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "administration building",
+     "description": "administration building"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "parliament",
+     "description": "parliament"
+    },
+    {
+     "code": "1990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "guildhall",
+     "description": "guildhall"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "post office",
+     "description": "post office"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "customs office",
+     "description": "customs office"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "court",
+     "description": "court"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "embassy or consulate",
+     "description": "embassy or consulate"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "district administration",
+     "description": "district administration"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "district government",
+     "description": "district government"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "tax office",
+     "description": "tax office"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for education and research",
+     "description": "building for education and research"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "comprehensive school",
+     "description": "comprehensive school"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "vocational school",
+     "description": "vocational school"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "college or university",
+     "description": "college or university"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "research establishment",
+     "description": "research establishment"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for cultural purposes",
+     "description": "building for cultural purposes"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "castle",
+     "description": "castle"
+    },
+    {
+     "code": "2140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "theatre or opera",
+     "description": "theatre or opera"
+    },
+    {
+     "code": "2150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "concert building",
+     "description": "concert building"
+    },
+    {
+     "code": "2160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "museum",
+     "description": "museum"
+    },
+    {
+     "code": "2170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "broadcasting building",
+     "description": "broadcasting building"
+    },
+    {
+     "code": "2180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "activity building",
+     "description": "activity building"
+    },
+    {
+     "code": "2190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "library",
+     "description": "library"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "fort",
+     "description": "fort"
+    },
+    {
+     "code": "2210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "religious building",
+     "description": "religious building"
+    },
+    {
+     "code": "2220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "church",
+     "description": "church"
+    },
+    {
+     "code": "2230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "synagogue",
+     "description": "synagogue"
+    },
+    {
+     "code": "2240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "chapel",
+     "description": "chapel"
+    },
+    {
+     "code": "2250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "community center",
+     "description": "community center"
+    },
+    {
+     "code": "2260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "place of worship",
+     "description": "place of worship"
+    },
+    {
+     "code": "2270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "mosque",
+     "description": "mosque"
+    },
+    {
+     "code": "2280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "temple",
+     "description": "temple"
+    },
+    {
+     "code": "2290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "convent",
+     "description": "convent"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for health care",
+     "description": "building for health care"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "hospital",
+     "description": "hospital"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "healing centre or care home",
+     "description": "healing centre or care home"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "health centre or outpatients clinic",
+     "description": "health centre or outpatients clinic"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for social purposes",
+     "description": "building for social purposes"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "youth centre",
+     "description": "youth centre"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "seniors centre",
+     "description": "seniors centre"
+    },
+    {
+     "code": "2370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "homeless shelter",
+     "description": "homeless shelter"
+    },
+    {
+     "code": "2380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "kindergarten or nursery",
+     "description": "kindergarten or nursery"
+    },
+    {
+     "code": "2390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "asylum seekers home",
+     "description": "asylum seekers home"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "police station",
+     "description": "police station"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "fire station",
+     "description": "fire station"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "barracks",
+     "description": "barracks"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "bunker",
+     "description": "bunker"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "penitentiary or prison",
+     "description": "penitentiary or prison"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "cemetery building",
+     "description": "cemetery building"
+    },
+    {
+     "code": "2460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "funeral parlor",
+     "description": "funeral parlor"
+    },
+    {
+     "code": "2470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "crematorium",
+     "description": "crematorium"
+    },
+    {
+     "code": "2480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "train station",
+     "description": "train station"
+    },
+    {
+     "code": "2490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "airport building",
+     "description": "airport building"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for underground station",
+     "description": "building for underground station"
+    },
+    {
+     "code": "2510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for tramway",
+     "description": "building for tramway"
+    },
+    {
+     "code": "2520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for bus station",
+     "description": "building for bus station"
+    },
+    {
+     "code": "2530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "shipping terminal",
+     "description": "shipping terminal"
+    },
+    {
+     "code": "2540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for recuperation purposes",
+     "description": "building for recuperation purposes"
+    },
+    {
+     "code": "2550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for sport purposes",
+     "description": "building for sport purposes"
+    },
+    {
+     "code": "2560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "sports hall",
+     "description": "sports hall"
+    },
+    {
+     "code": "2570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "building for sports field",
+     "description": "building for sports field"
+    },
+    {
+     "code": "2580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "swimming baths",
+     "description": "swimming baths"
+    },
+    {
+     "code": "2590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "indoor swimming pool",
+     "description": "indoor swimming pool"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "sanatorium",
+     "description": "sanatorium"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "zoo building",
+     "description": "zoo building"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "green house",
+     "description": "green house"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "botanical show house",
+     "description": "botanical show house"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "bothy",
+     "description": "bothy"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "tourist information centre",
+     "description": "tourist information centre"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFunctionValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingFurnitureClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "78f06a1a5c03c2aca0764c2dfe044a9099d87f36f5a25f05d87e1a88a96675f2",
+   "identifier": "BuildingFurnitureClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingFurnitureClassValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "habitation",
+     "description": "habitation"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "sanitation",
+     "description": "sanitation"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "administration",
+     "description": "administration"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "business, trade",
+     "description": "business, trade"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "catering",
+     "description": "catering"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "recreation",
+     "description": "recreation"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "sport",
+     "description": "sport"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "culture",
+     "description": "culture"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "church institution",
+     "description": "church institution"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "agriculture, forestry",
+     "description": "agriculture, forestry"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "schools, education, research",
+     "description": "schools, education, research"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "maintenance, waste management",
+     "description": "maintenance, waste management"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "healthcare",
+     "description": "healthcare"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "communicating",
+     "description": "communicating"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "security",
+     "description": "security"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "storage",
+     "description": "storage"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "industry",
+     "description": "industry"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "traffic",
+     "description": "traffic"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureClassValue",
+     "name": "function",
+     "description": "function"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingFurnitureFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:15+00:00",
+   "sha256": "0b0d79026fc9d72d082bd7517d0a5d2f0a24c4229b8c20c184fd9f5672c24c83",
+   "identifier": "BuildingFurnitureFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingFurnitureFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cupboard",
+     "description": "cupboard"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "wardrobe",
+     "description": "wardrobe"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cabinet",
+     "description": "cabinet"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sideboard",
+     "description": "sideboard"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "locker",
+     "description": "locker"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "tool cabinet",
+     "description": "tool cabinet"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "shelf",
+     "description": "shelf"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "rack",
+     "description": "rack"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "coat stand",
+     "description": "coat stand"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "table",
+     "description": "table"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "dining table",
+     "description": "dining table"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "coffee table",
+     "description": "coffee table"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "desk",
+     "description": "desk"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bedside cabinet",
+     "description": "bedside cabinet"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "baby changing table",
+     "description": "baby changing table"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bar",
+     "description": "bar"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "pool table",
+     "description": "pool table"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "snooker table",
+     "description": "snooker table"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "roulette table",
+     "description": "roulette table"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "work bench",
+     "description": "work bench"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "chair",
+     "description": "chair"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bench",
+     "description": "bench"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "office chair",
+     "description": "office chair"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sofa",
+     "description": "sofa"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "rocking chair",
+     "description": "rocking chair"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bar stool",
+     "description": "bar stool"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "armchair",
+     "description": "armchair"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bed",
+     "description": "bed"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "crib",
+     "description": "crib"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bunk bed",
+     "description": "bunk bed"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cradle",
+     "description": "cradle"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cot",
+     "description": "cot"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "stretcher",
+     "description": "stretcher"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "lighting",
+     "description": "lighting"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "standard lamp",
+     "description": "standard lamp"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "ceiling light",
+     "description": "ceiling light"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "spotlight",
+     "description": "spotlight"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "electric appliances",
+     "description": "electric appliances"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "television set",
+     "description": "television set"
+    },
+    {
+     "code": "1620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "video recorder",
+     "description": "video recorder"
+    },
+    {
+     "code": "1630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "stereo unit",
+     "description": "stereo unit"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "kitchen appliances",
+     "description": "kitchen appliances"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cooker",
+     "description": "cooker"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "oven",
+     "description": "oven"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "refrigerator",
+     "description": "refrigerator"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "coffee machine",
+     "description": "coffee machine"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "toaster",
+     "description": "toaster"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "kettle",
+     "description": "kettle"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "microwave",
+     "description": "microwave"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "dish washer",
+     "description": "dish washer"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "laundry equipment",
+     "description": "laundry equipment"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "washing machine",
+     "description": "washing machine"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "ironing machine",
+     "description": "ironing machine"
+    },
+    {
+     "code": "1830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "rotary iron (mangle)",
+     "description": "rotary iron (mangle)"
+    },
+    {
+     "code": "1840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "laundry tumble drier",
+     "description": "laundry tumble drier"
+    },
+    {
+     "code": "1850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "spin drier",
+     "description": "spin drier"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "technical office equipment",
+     "description": "technical office equipment"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "copy machine",
+     "description": "copy machine"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "scanner",
+     "description": "scanner"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "plotter",
+     "description": "plotter"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "printer",
+     "description": "printer"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "screen",
+     "description": "screen"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "computer",
+     "description": "computer"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "overhead projector",
+     "description": "overhead projector"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "video projector",
+     "description": "video projector"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sanitation equipment",
+     "description": "sanitation equipment"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sink, hand-basin",
+     "description": "sink, hand-basin"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "water tap",
+     "description": "water tap"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "toilet bowl",
+     "description": "toilet bowl"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bathtub",
+     "description": "bathtub"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "shower",
+     "description": "shower"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "bidet",
+     "description": "bidet"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "animal park",
+     "description": "animal park"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "aquarium",
+     "description": "aquarium"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cage",
+     "description": "cage"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "birdcage",
+     "description": "birdcage"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "religious equipment",
+     "description": "religious equipment"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "shop fittings",
+     "description": "shop fittings"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sales counter",
+     "description": "sales counter"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "glass cabinet",
+     "description": "glass cabinet"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "changing cubicle",
+     "description": "changing cubicle"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "refrigerated counter",
+     "description": "refrigerated counter"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cash desk or till or counter",
+     "description": "cash desk or till or counter"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "box-office",
+     "description": "box-office"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "machines",
+     "description": "machines"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "ticket machine",
+     "description": "ticket machine"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cigarette machine",
+     "description": "cigarette machine"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "cash machine or ATM",
+     "description": "cash machine or ATM"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "vending machine",
+     "description": "vending machine"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "gambling machine",
+     "description": "gambling machine"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "technical furniture",
+     "description": "technical furniture"
+    },
+    {
+     "code": "2510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "heating installation",
+     "description": "heating installation"
+    },
+    {
+     "code": "2520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "tank",
+     "description": "tank"
+    },
+    {
+     "code": "2521",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "oil tank",
+     "description": "oil tank"
+    },
+    {
+     "code": "2522",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "water tank",
+     "description": "water tank"
+    },
+    {
+     "code": "2523",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "gas tank",
+     "description": "gas tank"
+    },
+    {
+     "code": "2524",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "fuel tank",
+     "description": "fuel tank"
+    },
+    {
+     "code": "2525",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "milk tank",
+     "description": "milk tank"
+    },
+    {
+     "code": "2526",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "steel tank",
+     "description": "steel tank"
+    },
+    {
+     "code": "2530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "fire protection appliance",
+     "description": "fire protection appliance"
+    },
+    {
+     "code": "2531",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "fire extinguishing system",
+     "description": "fire extinguishing system"
+    },
+    {
+     "code": "2532",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "fire alarm",
+     "description": "fire alarm"
+    },
+    {
+     "code": "2533",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "fire extinguisher",
+     "description": "fire extinguisher"
+    },
+    {
+     "code": "2540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "switch board",
+     "description": "switch board"
+    },
+    {
+     "code": "2550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "lifting platform",
+     "description": "lifting platform"
+    },
+    {
+     "code": "2560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "compressed air system",
+     "description": "compressed air system"
+    },
+    {
+     "code": "2570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "loud-speaker",
+     "description": "loud-speaker"
+    },
+    {
+     "code": "2580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "microphone",
+     "description": "microphone"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sports equipment",
+     "description": "sports equipment"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "goal posts",
+     "description": "goal posts"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "basketball basket",
+     "description": "basketball basket"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "volleyball net",
+     "description": "volleyball net"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "gymnastic apparatus",
+     "description": "gymnastic apparatus"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "diving platform",
+     "description": "diving platform"
+    },
+    {
+     "code": "2660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "swimming pool",
+     "description": "swimming pool"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sales promotion furniture",
+     "description": "sales promotion furniture"
+    },
+    {
+     "code": "2710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "display panel",
+     "description": "display panel"
+    },
+    {
+     "code": "2720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "billboard",
+     "description": "billboard"
+    },
+    {
+     "code": "2730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "display cabinet",
+     "description": "display cabinet"
+    },
+    {
+     "code": "2800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "functional furniture",
+     "description": "functional furniture"
+    },
+    {
+     "code": "2805",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "ashtray",
+     "description": "ashtray"
+    },
+    {
+     "code": "2810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "lectern",
+     "description": "lectern"
+    },
+    {
+     "code": "2815",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "stage",
+     "description": "stage"
+    },
+    {
+     "code": "2820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "blackboard",
+     "description": "blackboard"
+    },
+    {
+     "code": "2825",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "screen",
+     "description": "screen"
+    },
+    {
+     "code": "2830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "mapstand",
+     "description": "mapstand"
+    },
+    {
+     "code": "2835",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "rubbish bin",
+     "description": "rubbish bin"
+    },
+    {
+     "code": "2840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "sauna",
+     "description": "sauna"
+    },
+    {
+     "code": "2845",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "carpet",
+     "description": "carpet"
+    },
+    {
+     "code": "2850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "wall clock",
+     "description": "wall clock"
+    },
+    {
+     "code": "2855",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "curtain",
+     "description": "curtain"
+    },
+    {
+     "code": "2860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureFunctionValue",
+     "name": "mirror",
+     "description": "mirror"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingFurnitureUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "5cd469600385328054787a588c1942b6855167edb322ebbf70068e35a9c32776",
+   "identifier": "BuildingFurnitureUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingFurnitureUsageValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cupboard",
+     "description": "cupboard"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "wardrobe",
+     "description": "wardrobe"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cabinet",
+     "description": "cabinet"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sideboard",
+     "description": "sideboard"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "locker",
+     "description": "locker"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "tool cabinet",
+     "description": "tool cabinet"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "shelf",
+     "description": "shelf"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "rack",
+     "description": "rack"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "coat stand",
+     "description": "coat stand"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "table",
+     "description": "table"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "dining table",
+     "description": "dining table"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "coffee table",
+     "description": "coffee table"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "desk",
+     "description": "desk"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bedside cabinet",
+     "description": "bedside cabinet"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "baby changing table",
+     "description": "baby changing table"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bar",
+     "description": "bar"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "pool table",
+     "description": "pool table"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "snooker table",
+     "description": "snooker table"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "roulette table",
+     "description": "roulette table"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "work bench",
+     "description": "work bench"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "chair",
+     "description": "chair"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bench",
+     "description": "bench"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "office chair",
+     "description": "office chair"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sofa",
+     "description": "sofa"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "rocking chair",
+     "description": "rocking chair"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bar stool",
+     "description": "bar stool"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "armchair",
+     "description": "armchair"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bed",
+     "description": "bed"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "crib",
+     "description": "crib"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bunk bed",
+     "description": "bunk bed"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cradle",
+     "description": "cradle"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cot",
+     "description": "cot"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "stretcher",
+     "description": "stretcher"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "lighting",
+     "description": "lighting"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "standard lamp",
+     "description": "standard lamp"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "ceiling light",
+     "description": "ceiling light"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "spotlight",
+     "description": "spotlight"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "electric appliances",
+     "description": "electric appliances"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "television set",
+     "description": "television set"
+    },
+    {
+     "code": "1620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "video recorder",
+     "description": "video recorder"
+    },
+    {
+     "code": "1630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "stereo unit",
+     "description": "stereo unit"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "kitchen appliances",
+     "description": "kitchen appliances"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cooker",
+     "description": "cooker"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "oven",
+     "description": "oven"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "refrigerator",
+     "description": "refrigerator"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "coffee machine",
+     "description": "coffee machine"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "toaster",
+     "description": "toaster"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "kettle",
+     "description": "kettle"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "microwave",
+     "description": "microwave"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "dish washer",
+     "description": "dish washer"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "laundry equipment",
+     "description": "laundry equipment"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "washing machine",
+     "description": "washing machine"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "ironing machine",
+     "description": "ironing machine"
+    },
+    {
+     "code": "1830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "rotary iron (mangle)",
+     "description": "rotary iron (mangle)"
+    },
+    {
+     "code": "1840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "laundry tumble drier",
+     "description": "laundry tumble drier"
+    },
+    {
+     "code": "1850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "spin drier",
+     "description": "spin drier"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "technical office equipment",
+     "description": "technical office equipment"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "copy machine",
+     "description": "copy machine"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "scanner",
+     "description": "scanner"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "plotter",
+     "description": "plotter"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "printer",
+     "description": "printer"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "screen",
+     "description": "screen"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "computer",
+     "description": "computer"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "overhead projector",
+     "description": "overhead projector"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "video projector",
+     "description": "video projector"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sanitation equipment",
+     "description": "sanitation equipment"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sink, hand-basin",
+     "description": "sink, hand-basin"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "water tap",
+     "description": "water tap"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "toilet bowl",
+     "description": "toilet bowl"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bathtub",
+     "description": "bathtub"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "shower",
+     "description": "shower"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "bidet",
+     "description": "bidet"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "animal park",
+     "description": "animal park"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "aquarium",
+     "description": "aquarium"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cage",
+     "description": "cage"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "birdcage",
+     "description": "birdcage"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "religious equipment",
+     "description": "religious equipment"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "shop fittings",
+     "description": "shop fittings"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sales counter",
+     "description": "sales counter"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "glass cabinet",
+     "description": "glass cabinet"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "changing cubicle",
+     "description": "changing cubicle"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "refrigerated counter",
+     "description": "refrigerated counter"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cash desk or till or counter",
+     "description": "cash desk or till or counter"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "box-office",
+     "description": "box-office"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "machines",
+     "description": "machines"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "ticket machine",
+     "description": "ticket machine"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cigarette machine",
+     "description": "cigarette machine"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "cash machine or ATM",
+     "description": "cash machine or ATM"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "vending machine",
+     "description": "vending machine"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "gambling machine",
+     "description": "gambling machine"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "technical furniture",
+     "description": "technical furniture"
+    },
+    {
+     "code": "2510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "heating installation",
+     "description": "heating installation"
+    },
+    {
+     "code": "2520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "tank",
+     "description": "tank"
+    },
+    {
+     "code": "2521",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "oil tank",
+     "description": "oil tank"
+    },
+    {
+     "code": "2522",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "water tank",
+     "description": "water tank"
+    },
+    {
+     "code": "2523",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "gas tank",
+     "description": "gas tank"
+    },
+    {
+     "code": "2524",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "fuel tank",
+     "description": "fuel tank"
+    },
+    {
+     "code": "2525",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "milk tank",
+     "description": "milk tank"
+    },
+    {
+     "code": "2526",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "steel tank",
+     "description": "steel tank"
+    },
+    {
+     "code": "2530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "fire protection appliance",
+     "description": "fire protection appliance"
+    },
+    {
+     "code": "2531",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "fire extinguishing system",
+     "description": "fire extinguishing system"
+    },
+    {
+     "code": "2532",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "fire alarm",
+     "description": "fire alarm"
+    },
+    {
+     "code": "2533",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "fire extinguisher",
+     "description": "fire extinguisher"
+    },
+    {
+     "code": "2540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "switch board",
+     "description": "switch board"
+    },
+    {
+     "code": "2550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "lifting platform",
+     "description": "lifting platform"
+    },
+    {
+     "code": "2560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "compressed air system",
+     "description": "compressed air system"
+    },
+    {
+     "code": "2570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "loud-speaker",
+     "description": "loud-speaker"
+    },
+    {
+     "code": "2580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "microphone",
+     "description": "microphone"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sports equipment",
+     "description": "sports equipment"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "goal posts",
+     "description": "goal posts"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "basketball basket",
+     "description": "basketball basket"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "volleyball net",
+     "description": "volleyball net"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "gymnastic apparatus",
+     "description": "gymnastic apparatus"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "diving platform",
+     "description": "diving platform"
+    },
+    {
+     "code": "2660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "swimming pool",
+     "description": "swimming pool"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sales promotion furniture",
+     "description": "sales promotion furniture"
+    },
+    {
+     "code": "2710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "display panel",
+     "description": "display panel"
+    },
+    {
+     "code": "2720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "billboard",
+     "description": "billboard"
+    },
+    {
+     "code": "2730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "display cabinet",
+     "description": "display cabinet"
+    },
+    {
+     "code": "2800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "functional furniture",
+     "description": "functional furniture"
+    },
+    {
+     "code": "2805",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "ashtray",
+     "description": "ashtray"
+    },
+    {
+     "code": "2810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "lectern",
+     "description": "lectern"
+    },
+    {
+     "code": "2815",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "stage",
+     "description": "stage"
+    },
+    {
+     "code": "2820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "blackboard",
+     "description": "blackboard"
+    },
+    {
+     "code": "2825",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "screen",
+     "description": "screen"
+    },
+    {
+     "code": "2830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "mapstand",
+     "description": "mapstand"
+    },
+    {
+     "code": "2835",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "rubbish bin",
+     "description": "rubbish bin"
+    },
+    {
+     "code": "2840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "sauna",
+     "description": "sauna"
+    },
+    {
+     "code": "2845",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "carpet",
+     "description": "carpet"
+    },
+    {
+     "code": "2850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "wall clock",
+     "description": "wall clock"
+    },
+    {
+     "code": "2855",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "curtain",
+     "description": "curtain"
+    },
+    {
+     "code": "2860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingFurnitureUsageValue",
+     "name": "mirror",
+     "description": "mirror"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingInstallationClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "8edcb2faf6938fda831cc191e1a4d3b2481b771cd5e6bc5df7a8ac7873aeaa39",
+   "identifier": "BuildingInstallationClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingInstallationClassValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "outer characteristics",
+     "description": "outer characteristics"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "inner characteristics",
+     "description": "inner characteristics"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "waste management",
+     "description": "waste management"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "maintenance",
+     "description": "maintenance"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "communicating",
+     "description": "communicating"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "security",
+     "description": "security"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "others",
+     "description": "others"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Heating, Ventilation, Climate",
+     "description": "Heating, Ventilation, Climate"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Safety",
+     "description": "Safety"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Illumination",
+     "description": "Illumination"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Communication",
+     "description": "Communication"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Supply and Disposal",
+     "description": "Supply and Disposal"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Statics",
+     "description": "Statics"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Entertainmant",
+     "description": "Entertainmant"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Miscellaneous",
+     "description": "Miscellaneous"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationClassValue",
+     "name": "Unknown",
+     "description": "Unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingInstallationFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "babd28d13d633f316f78746d6eb267b93e0522d1903abbfcc1c77c7920fdcee8",
+   "identifier": "BuildingInstallationFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingInstallationFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "balcony",
+     "description": "balcony"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "winter garden",
+     "description": "winter garden"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "arcade",
+     "description": "arcade"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "chimney (part of a building)",
+     "description": "chimney (part of a building)"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "tower (part of a building)",
+     "description": "tower (part of a building)"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "column",
+     "description": "column"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "stairs",
+     "description": "stairs"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "others",
+     "description": "others"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Radiator",
+     "description": "Radiator"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Oven",
+     "description": "Oven"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Fireside",
+     "description": "Fireside"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Ventilator",
+     "description": "Ventilator"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Air Conditioning",
+     "description": "Air Conditioning"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Pipe",
+     "description": "Pipe"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Lamp",
+     "description": "Lamp"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Light switch",
+     "description": "Light switch"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Power point",
+     "description": "Power point"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Cable",
+     "description": "Cable"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Rafter",
+     "description": "Rafter"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Column",
+     "description": "Column"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Railing",
+     "description": "Railing"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationFunctionValue",
+     "name": "Stair",
+     "description": "Stair"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingInstallationUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "ae9f78952226b663e51f7578b02ece8de581e8c618b0fdce1926f579eb8e26f0",
+   "identifier": "BuildingInstallationUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingInstallationUsageValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "balcony",
+     "description": "balcony"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "winter garden",
+     "description": "winter garden"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "arcade",
+     "description": "arcade"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "chimney (part of a building)",
+     "description": "chimney (part of a building)"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "tower (part of a building)",
+     "description": "tower (part of a building)"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "column",
+     "description": "column"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "stairs",
+     "description": "stairs"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "others",
+     "description": "others"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Radiator",
+     "description": "Radiator"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Oven",
+     "description": "Oven"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Fireside",
+     "description": "Fireside"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Ventilator",
+     "description": "Ventilator"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Air Conditioning",
+     "description": "Air Conditioning"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Pipe",
+     "description": "Pipe"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Lamp",
+     "description": "Lamp"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Light switch",
+     "description": "Light switch"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Power point",
+     "description": "Power point"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Cable",
+     "description": "Cable"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Rafter",
+     "description": "Rafter"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Column",
+     "description": "Column"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Railing",
+     "description": "Railing"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingInstallationUsageValue",
+     "name": "Stair",
+     "description": "Stair"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingRoomClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "aec0f2ae546662df78902d8e5f66adadeabbfd3b63c9a2e82a1a2210b6b34327",
+   "identifier": "BuildingRoomClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingRoomClassValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "habitation",
+     "description": "habitation"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "administration",
+     "description": "administration"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "business, trade",
+     "description": "business, trade"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "catering",
+     "description": "catering"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "recreation",
+     "description": "recreation"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "church institution",
+     "description": "church institution"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "agriculture, forestry",
+     "description": "agriculture, forestry"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "schools, education, research",
+     "description": "schools, education, research"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "accommodation, waste management",
+     "description": "accommodation, waste management"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "healthcare",
+     "description": "healthcare"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "communicating",
+     "description": "communicating"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "security",
+     "description": "security"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "store",
+     "description": "store"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "industry",
+     "description": "industry"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "traffic",
+     "description": "traffic"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomClassValue",
+     "name": "function",
+     "description": "function"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingRoomFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:16+00:00",
+   "sha256": "6abbbdce31950ac54b0e2756d330fd21d9fdd789a7bb1f03093a9af8b0d25293",
+   "identifier": "BuildingRoomFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingRoomFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "living room",
+     "description": "living room"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "bedroom",
+     "description": "bedroom"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "kitchen",
+     "description": "kitchen"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "hall",
+     "description": "hall"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "bath, washroom",
+     "description": "bath, washroom"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "toilet",
+     "description": "toilet"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "stairs",
+     "description": "stairs"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "home office",
+     "description": "home office"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "utility room",
+     "description": "utility room"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "dining room",
+     "description": "dining room"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "common room",
+     "description": "common room"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "party room",
+     "description": "party room"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "nursery",
+     "description": "nursery"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "store room",
+     "description": "store room"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "canteen, common kitchen",
+     "description": "canteen, common kitchen"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "storeroom",
+     "description": "storeroom"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "balcony, gallery",
+     "description": "balcony, gallery"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "terrace",
+     "description": "terrace"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "drying room",
+     "description": "drying room"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "heatingroom",
+     "description": "heatingroom"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "fuel depot",
+     "description": "fuel depot"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "hobby room",
+     "description": "hobby room"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "stable, hovel",
+     "description": "stable, hovel"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "cash office",
+     "description": "cash office"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "conference room",
+     "description": "conference room"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "reception",
+     "description": "reception"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sales room",
+     "description": "sales room"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "store room",
+     "description": "store room"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "delivery",
+     "description": "delivery"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "lounge, common room",
+     "description": "lounge, common room"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "escalato",
+     "description": "escalato"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "guest toilet",
+     "description": "guest toilet"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "strong room",
+     "description": "strong room"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "office",
+     "description": "office"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "entrance hall",
+     "description": "entrance hall"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "elevator",
+     "description": "elevator"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "canteen",
+     "description": "canteen"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "tea kitchen / Coffee kitchen",
+     "description": "tea kitchen / Coffee kitchen"
+    },
+    {
+     "code": "1550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "archive",
+     "description": "archive"
+    },
+    {
+     "code": "1560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "citizen office",
+     "description": "citizen office"
+    },
+    {
+     "code": "1570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "conference hall",
+     "description": "conference hall"
+    },
+    {
+     "code": "1580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "copier room / blueprint room",
+     "description": "copier room / blueprint room"
+    },
+    {
+     "code": "1590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "information",
+     "description": "information"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "computer room",
+     "description": "computer room"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "printer / plotter room",
+     "description": "printer / plotter room"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "reception",
+     "description": "reception"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "guest room",
+     "description": "guest room"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "bar",
+     "description": "bar"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "breakfast room",
+     "description": "breakfast room"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "dining room",
+     "description": "dining room"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "celebration room",
+     "description": "celebration room"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "pub",
+     "description": "pub"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "beer garden",
+     "description": "beer garden"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "restaurant",
+     "description": "restaurant"
+    },
+    {
+     "code": "1790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "cool store",
+     "description": "cool store"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "bowling alley, shoot alley",
+     "description": "bowling alley, shoot alley"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "lounge",
+     "description": "lounge"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "canteen kitchen",
+     "description": "canteen kitchen"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "stage",
+     "description": "stage"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "auditorium",
+     "description": "auditorium"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "VIP box",
+     "description": "VIP box"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "projection room",
+     "description": "projection room"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "dressing room",
+     "description": "dressing room"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "cabin",
+     "description": "cabin"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "showroom",
+     "description": "showroom"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "equipment or props",
+     "description": "equipment or props"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "make-up room",
+     "description": "make-up room"
+    },
+    {
+     "code": "1990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "recording studio",
+     "description": "recording studio"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sound studio",
+     "description": "sound studio"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "music archive",
+     "description": "music archive"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "administration",
+     "description": "administration"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "library",
+     "description": "library"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "media room",
+     "description": "media room"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "dressing room",
+     "description": "dressing room"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sport room",
+     "description": "sport room"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "equipment room",
+     "description": "equipment room"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "platform",
+     "description": "platform"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "swimming-pool",
+     "description": "swimming-pool"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "slide",
+     "description": "slide"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "relaxation room",
+     "description": "relaxation room"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sauna",
+     "description": "sauna"
+    },
+    {
+     "code": "2140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "fitness room",
+     "description": "fitness room"
+    },
+    {
+     "code": "2150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "solarium",
+     "description": "solarium"
+    },
+    {
+     "code": "2160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "catering",
+     "description": "catering"
+    },
+    {
+     "code": "2170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "showers",
+     "description": "showers"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "tribune",
+     "description": "tribune"
+    },
+    {
+     "code": "2210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "seating / standing capacity",
+     "description": "seating / standing capacity"
+    },
+    {
+     "code": "2220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "cash point",
+     "description": "cash point"
+    },
+    {
+     "code": "2230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "vivarium",
+     "description": "vivarium"
+    },
+    {
+     "code": "2240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "enclosure",
+     "description": "enclosure"
+    },
+    {
+     "code": "2250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "aquarium",
+     "description": "aquarium"
+    },
+    {
+     "code": "2260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "terrarium",
+     "description": "terrarium"
+    },
+    {
+     "code": "2270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "aviary",
+     "description": "aviary"
+    },
+    {
+     "code": "2280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "menagerie",
+     "description": "menagerie"
+    },
+    {
+     "code": "2290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "stables",
+     "description": "stables"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "greenhouse",
+     "description": "greenhouse"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "food silo",
+     "description": "food silo"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "hayloft",
+     "description": "hayloft"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "motor pool",
+     "description": "motor pool"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "barn",
+     "description": "barn"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "riding hall",
+     "description": "riding hall"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "horse box",
+     "description": "horse box"
+    },
+    {
+     "code": "2370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "hunting lodge",
+     "description": "hunting lodge"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "waste container",
+     "description": "waste container"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "motor pool",
+     "description": "motor pool"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "washing-bay",
+     "description": "washing-bay"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "installations room",
+     "description": "installations room"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "monitoring room",
+     "description": "monitoring room"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "heating system",
+     "description": "heating system"
+    },
+    {
+     "code": "2460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "public utility use",
+     "description": "public utility use"
+    },
+    {
+     "code": "2470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "pump room",
+     "description": "pump room"
+    },
+    {
+     "code": "2480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "effluent treatment",
+     "description": "effluent treatment"
+    },
+    {
+     "code": "2490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "treatment installation",
+     "description": "treatment installation"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "recycling installation",
+     "description": "recycling installation"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "chancel",
+     "description": "chancel"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sacristy",
+     "description": "sacristy"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "bell tower",
+     "description": "bell tower"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "baptism room",
+     "description": "baptism room"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "confessional",
+     "description": "confessional"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "benches",
+     "description": "benches"
+    },
+    {
+     "code": "2660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "pulpit",
+     "description": "pulpit"
+    },
+    {
+     "code": "2670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "lobby",
+     "description": "lobby"
+    },
+    {
+     "code": "2680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "parish",
+     "description": "parish"
+    },
+    {
+     "code": "2690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "chapel",
+     "description": "chapel"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "police station",
+     "description": "police station"
+    },
+    {
+     "code": "2710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "headquarters",
+     "description": "headquarters"
+    },
+    {
+     "code": "2720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "prison cell",
+     "description": "prison cell"
+    },
+    {
+     "code": "2730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "motor pool hall",
+     "description": "motor pool hall"
+    },
+    {
+     "code": "2740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "fire brigade, emergency vehicle",
+     "description": "fire brigade, emergency vehicle"
+    },
+    {
+     "code": "2750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "relaxation room",
+     "description": "relaxation room"
+    },
+    {
+     "code": "2760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "tool / pipe store",
+     "description": "tool / pipe store"
+    },
+    {
+     "code": "2770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "emergency call center",
+     "description": "emergency call center"
+    },
+    {
+     "code": "2780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "arms depot",
+     "description": "arms depot"
+    },
+    {
+     "code": "2790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "ammunition dump",
+     "description": "ammunition dump"
+    },
+    {
+     "code": "2800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "vehicle hall",
+     "description": "vehicle hall"
+    },
+    {
+     "code": "2810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "panic room",
+     "description": "panic room"
+    },
+    {
+     "code": "2900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "satellite receiver",
+     "description": "satellite receiver"
+    },
+    {
+     "code": "2910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "communication room",
+     "description": "communication room"
+    },
+    {
+     "code": "3000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "industrial building",
+     "description": "industrial building"
+    },
+    {
+     "code": "3010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "production building",
+     "description": "production building"
+    },
+    {
+     "code": "3020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "factory building",
+     "description": "factory building"
+    },
+    {
+     "code": "3030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "workshop",
+     "description": "workshop"
+    },
+    {
+     "code": "3040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "storage depot",
+     "description": "storage depot"
+    },
+    {
+     "code": "3050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "cold storage",
+     "description": "cold storage"
+    },
+    {
+     "code": "3060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "store",
+     "description": "store"
+    },
+    {
+     "code": "3100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "station concourse",
+     "description": "station concourse"
+    },
+    {
+     "code": "3110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "track",
+     "description": "track"
+    },
+    {
+     "code": "3120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "3130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "waiting hall",
+     "description": "waiting hall"
+    },
+    {
+     "code": "3140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "engine shed",
+     "description": "engine shed"
+    },
+    {
+     "code": "3150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "signal box",
+     "description": "signal box"
+    },
+    {
+     "code": "3160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "departure terminal",
+     "description": "departure terminal"
+    },
+    {
+     "code": "3170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "check-out counter",
+     "description": "check-out counter"
+    },
+    {
+     "code": "3180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "check-in counter",
+     "description": "check-in counter"
+    },
+    {
+     "code": "3190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "check",
+     "description": "check"
+    },
+    {
+     "code": "3200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "baggage carousel",
+     "description": "baggage carousel"
+    },
+    {
+     "code": "3210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "security check",
+     "description": "security check"
+    },
+    {
+     "code": "3300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "classroom",
+     "description": "classroom"
+    },
+    {
+     "code": "3310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "staff room",
+     "description": "staff room"
+    },
+    {
+     "code": "3320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "break or recess hall",
+     "description": "break or recess hall"
+    },
+    {
+     "code": "3330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "laboratory",
+     "description": "laboratory"
+    },
+    {
+     "code": "3340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "utility room",
+     "description": "utility room"
+    },
+    {
+     "code": "3350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "media room",
+     "description": "media room"
+    },
+    {
+     "code": "3360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "science laboratory",
+     "description": "science laboratory"
+    },
+    {
+     "code": "3370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "sports hall",
+     "description": "sports hall"
+    },
+    {
+     "code": "3380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "school library",
+     "description": "school library"
+    },
+    {
+     "code": "3390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "office",
+     "description": "office"
+    },
+    {
+     "code": "3400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "lecture theatre",
+     "description": "lecture theatre"
+    },
+    {
+     "code": "3410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "refectory",
+     "description": "refectory"
+    },
+    {
+     "code": "3420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomFunctionValue",
+     "name": "function room",
+     "description": "function room"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingRoomUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "07d5a7aa058b8c54fd8740e4101905f78e819b06017061ccfad3eb2755ae66e1",
+   "identifier": "BuildingRoomUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingRoomUsageValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "living room",
+     "description": "living room"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "bedroom",
+     "description": "bedroom"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "kitchen",
+     "description": "kitchen"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "hall",
+     "description": "hall"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "bath, washroom",
+     "description": "bath, washroom"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "toilet",
+     "description": "toilet"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "stairs",
+     "description": "stairs"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "home office",
+     "description": "home office"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "utility room",
+     "description": "utility room"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "dining room",
+     "description": "dining room"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "common room",
+     "description": "common room"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "party room",
+     "description": "party room"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "nursery",
+     "description": "nursery"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "store room",
+     "description": "store room"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "canteen, common kitchen",
+     "description": "canteen, common kitchen"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "storeroom",
+     "description": "storeroom"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "balcony, gallery",
+     "description": "balcony, gallery"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "terrace",
+     "description": "terrace"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "drying room",
+     "description": "drying room"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "heatingroom",
+     "description": "heatingroom"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "fuel depot",
+     "description": "fuel depot"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "hobby room",
+     "description": "hobby room"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "stable, hovel",
+     "description": "stable, hovel"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "cash office",
+     "description": "cash office"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "conference room",
+     "description": "conference room"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "reception",
+     "description": "reception"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sales room",
+     "description": "sales room"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "store room",
+     "description": "store room"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "delivery",
+     "description": "delivery"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "lounge, common room",
+     "description": "lounge, common room"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "escalato",
+     "description": "escalato"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "guest toilet",
+     "description": "guest toilet"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "strong room",
+     "description": "strong room"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "office",
+     "description": "office"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "entrance hall",
+     "description": "entrance hall"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "elevator",
+     "description": "elevator"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "canteen",
+     "description": "canteen"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "tea kitchen / Coffee kitchen",
+     "description": "tea kitchen / Coffee kitchen"
+    },
+    {
+     "code": "1550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "archive",
+     "description": "archive"
+    },
+    {
+     "code": "1560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "citizen office",
+     "description": "citizen office"
+    },
+    {
+     "code": "1570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "conference hall",
+     "description": "conference hall"
+    },
+    {
+     "code": "1580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "copier room / blueprint room",
+     "description": "copier room / blueprint room"
+    },
+    {
+     "code": "1590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "information",
+     "description": "information"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "computer room",
+     "description": "computer room"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "printer / plotter room",
+     "description": "printer / plotter room"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "reception",
+     "description": "reception"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "guest room",
+     "description": "guest room"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "bar",
+     "description": "bar"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "breakfast room",
+     "description": "breakfast room"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "dining room",
+     "description": "dining room"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "celebration room",
+     "description": "celebration room"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "pub",
+     "description": "pub"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "beer garden",
+     "description": "beer garden"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "restaurant",
+     "description": "restaurant"
+    },
+    {
+     "code": "1790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "cool store",
+     "description": "cool store"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "bowling alley, shoot alley",
+     "description": "bowling alley, shoot alley"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "lounge",
+     "description": "lounge"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "canteen kitchen",
+     "description": "canteen kitchen"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "stage",
+     "description": "stage"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "auditorium",
+     "description": "auditorium"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "VIP box",
+     "description": "VIP box"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "projection room",
+     "description": "projection room"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "dressing room",
+     "description": "dressing room"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "cabin",
+     "description": "cabin"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "showroom",
+     "description": "showroom"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "equipment or props",
+     "description": "equipment or props"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "make-up room",
+     "description": "make-up room"
+    },
+    {
+     "code": "1990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "recording studio",
+     "description": "recording studio"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sound studio",
+     "description": "sound studio"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "music archive",
+     "description": "music archive"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "administration",
+     "description": "administration"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "library",
+     "description": "library"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "media room",
+     "description": "media room"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "dressing room",
+     "description": "dressing room"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sport room",
+     "description": "sport room"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "equipment room",
+     "description": "equipment room"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "platform",
+     "description": "platform"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "swimming-pool",
+     "description": "swimming-pool"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "slide",
+     "description": "slide"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "relaxation room",
+     "description": "relaxation room"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sauna",
+     "description": "sauna"
+    },
+    {
+     "code": "2140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "fitness room",
+     "description": "fitness room"
+    },
+    {
+     "code": "2150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "solarium",
+     "description": "solarium"
+    },
+    {
+     "code": "2160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "catering",
+     "description": "catering"
+    },
+    {
+     "code": "2170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "showers",
+     "description": "showers"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "tribune",
+     "description": "tribune"
+    },
+    {
+     "code": "2210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "seating / standing capacity",
+     "description": "seating / standing capacity"
+    },
+    {
+     "code": "2220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "cash point",
+     "description": "cash point"
+    },
+    {
+     "code": "2230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "vivarium",
+     "description": "vivarium"
+    },
+    {
+     "code": "2240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "enclosure",
+     "description": "enclosure"
+    },
+    {
+     "code": "2250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "aquarium",
+     "description": "aquarium"
+    },
+    {
+     "code": "2260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "terrarium",
+     "description": "terrarium"
+    },
+    {
+     "code": "2270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "aviary",
+     "description": "aviary"
+    },
+    {
+     "code": "2280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "menagerie",
+     "description": "menagerie"
+    },
+    {
+     "code": "2290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "stables",
+     "description": "stables"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "greenhouse",
+     "description": "greenhouse"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "food silo",
+     "description": "food silo"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "hayloft",
+     "description": "hayloft"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "motor pool",
+     "description": "motor pool"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "barn",
+     "description": "barn"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "riding hall",
+     "description": "riding hall"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "horse box",
+     "description": "horse box"
+    },
+    {
+     "code": "2370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "hunting lodge",
+     "description": "hunting lodge"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "waste container",
+     "description": "waste container"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "motor pool",
+     "description": "motor pool"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "washing-bay",
+     "description": "washing-bay"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "installations room",
+     "description": "installations room"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "monitoring room",
+     "description": "monitoring room"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "heating system",
+     "description": "heating system"
+    },
+    {
+     "code": "2460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "public utility use",
+     "description": "public utility use"
+    },
+    {
+     "code": "2470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "pump room",
+     "description": "pump room"
+    },
+    {
+     "code": "2480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "effluent treatment",
+     "description": "effluent treatment"
+    },
+    {
+     "code": "2490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "treatment installation",
+     "description": "treatment installation"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "recycling installation",
+     "description": "recycling installation"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "chancel",
+     "description": "chancel"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sacristy",
+     "description": "sacristy"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "bell tower",
+     "description": "bell tower"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "baptism room",
+     "description": "baptism room"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "confessional",
+     "description": "confessional"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "benches",
+     "description": "benches"
+    },
+    {
+     "code": "2660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "pulpit",
+     "description": "pulpit"
+    },
+    {
+     "code": "2670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "lobby",
+     "description": "lobby"
+    },
+    {
+     "code": "2680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "parish",
+     "description": "parish"
+    },
+    {
+     "code": "2690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "chapel",
+     "description": "chapel"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "police station",
+     "description": "police station"
+    },
+    {
+     "code": "2710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "headquarters",
+     "description": "headquarters"
+    },
+    {
+     "code": "2720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "prison cell",
+     "description": "prison cell"
+    },
+    {
+     "code": "2730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "motor pool hall",
+     "description": "motor pool hall"
+    },
+    {
+     "code": "2740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "fire brigade, emergency vehicle",
+     "description": "fire brigade, emergency vehicle"
+    },
+    {
+     "code": "2750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "relaxation room",
+     "description": "relaxation room"
+    },
+    {
+     "code": "2760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "tool / pipe store",
+     "description": "tool / pipe store"
+    },
+    {
+     "code": "2770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "emergency call center",
+     "description": "emergency call center"
+    },
+    {
+     "code": "2780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "arms depot",
+     "description": "arms depot"
+    },
+    {
+     "code": "2790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "ammunition dump",
+     "description": "ammunition dump"
+    },
+    {
+     "code": "2800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "vehicle hall",
+     "description": "vehicle hall"
+    },
+    {
+     "code": "2810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "panic room",
+     "description": "panic room"
+    },
+    {
+     "code": "2900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "satellite receiver",
+     "description": "satellite receiver"
+    },
+    {
+     "code": "2910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "communication room",
+     "description": "communication room"
+    },
+    {
+     "code": "3000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "industrial building",
+     "description": "industrial building"
+    },
+    {
+     "code": "3010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "production building",
+     "description": "production building"
+    },
+    {
+     "code": "3020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "factory building",
+     "description": "factory building"
+    },
+    {
+     "code": "3030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "workshop",
+     "description": "workshop"
+    },
+    {
+     "code": "3040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "storage depot",
+     "description": "storage depot"
+    },
+    {
+     "code": "3050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "cold storage",
+     "description": "cold storage"
+    },
+    {
+     "code": "3060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "store",
+     "description": "store"
+    },
+    {
+     "code": "3100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "station concourse",
+     "description": "station concourse"
+    },
+    {
+     "code": "3110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "track",
+     "description": "track"
+    },
+    {
+     "code": "3120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "ticket office",
+     "description": "ticket office"
+    },
+    {
+     "code": "3130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "waiting hall",
+     "description": "waiting hall"
+    },
+    {
+     "code": "3140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "engine shed",
+     "description": "engine shed"
+    },
+    {
+     "code": "3150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "signal box",
+     "description": "signal box"
+    },
+    {
+     "code": "3160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "departure terminal",
+     "description": "departure terminal"
+    },
+    {
+     "code": "3170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "check-out counter",
+     "description": "check-out counter"
+    },
+    {
+     "code": "3180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "check-in counter",
+     "description": "check-in counter"
+    },
+    {
+     "code": "3190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "check",
+     "description": "check"
+    },
+    {
+     "code": "3200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "baggage carousel",
+     "description": "baggage carousel"
+    },
+    {
+     "code": "3210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "security check",
+     "description": "security check"
+    },
+    {
+     "code": "3300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "classroom",
+     "description": "classroom"
+    },
+    {
+     "code": "3310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "staff room",
+     "description": "staff room"
+    },
+    {
+     "code": "3320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "break or recess hall",
+     "description": "break or recess hall"
+    },
+    {
+     "code": "3330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "laboratory",
+     "description": "laboratory"
+    },
+    {
+     "code": "3340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "utility room",
+     "description": "utility room"
+    },
+    {
+     "code": "3350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "media room",
+     "description": "media room"
+    },
+    {
+     "code": "3360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "science laboratory",
+     "description": "science laboratory"
+    },
+    {
+     "code": "3370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "sports hall",
+     "description": "sports hall"
+    },
+    {
+     "code": "3380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "school library",
+     "description": "school library"
+    },
+    {
+     "code": "3390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "office",
+     "description": "office"
+    },
+    {
+     "code": "3400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "lecture theatre",
+     "description": "lecture theatre"
+    },
+    {
+     "code": "3410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "refectory",
+     "description": "refectory"
+    },
+    {
+     "code": "3420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingRoomUsageValue",
+     "name": "function room",
+     "description": "function room"
+    }
+   ],
+   "placeholder": false
+  },
+  "BuildingSubdivisionClassValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "ed812fa5ee148773edc0f14f2a1862eb8b146e81a5f759681d4f9cf7fe3ec1bc",
+   "identifier": "Building.BuildingSubdivisionClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingsubdivisionclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingsubdivisionclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingSubdivisionClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingSubdivisionFunctionValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "0d965db5ea1230a03de0fc020b27d5b56b8d39bef50112fbe5e1cdf517e51994",
+   "identifier": "Building.BuildingSubdivisionFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingsubdivisionfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingsubdivisionfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingSubdivisionFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingSubdivisionUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "b8b7dee3adfa690249ce100c1177e560bc7887b05d671f1ac67a7a43ebf7f461",
+   "identifier": "Building.BuildingSubdivisionUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/buildingsubdivisionusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "buildingsubdivisionusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Building.BuildingSubdivisionUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "BuildingUsageValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "21a1fb0efa8511ccadf9342c8ee7387a263e5b921d4a07c134bd59ac76957834",
+   "identifier": "BuildingUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "BuildingUsageValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential building",
+     "description": "residential building"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "tenement",
+     "description": "tenement"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "hostel",
+     "description": "hostel"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential- and administration building",
+     "description": "residential- and administration building"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential- and office building",
+     "description": "residential- and office building"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential- and business building",
+     "description": "residential- and business building"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential- and plant building",
+     "description": "residential- and plant building"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "agrarian- and forestry building",
+     "description": "agrarian- and forestry building"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "residential- and commercial building",
+     "description": "residential- and commercial building"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "forester's lodge",
+     "description": "forester's lodge"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "holiday house",
+     "description": "holiday house"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "summer house",
+     "description": "summer house"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "office building",
+     "description": "office building"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "credit institution",
+     "description": "credit institution"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "insurance",
+     "description": "insurance"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "business building",
+     "description": "business building"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "department store",
+     "description": "department store"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "shopping centre",
+     "description": "shopping centre"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "kiosk",
+     "description": "kiosk"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "pharmacy",
+     "description": "pharmacy"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "pavilion",
+     "description": "pavilion"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "hotel",
+     "description": "hotel"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "youth hostel",
+     "description": "youth hostel"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "campsite building",
+     "description": "campsite building"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "restaurant",
+     "description": "restaurant"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "cantine",
+     "description": "cantine"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "recreational site",
+     "description": "recreational site"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "function room",
+     "description": "function room"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "cinema",
+     "description": "cinema"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "bowling alley",
+     "description": "bowling alley"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "casino",
+     "description": "casino"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "industrial building",
+     "description": "industrial building"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "factory",
+     "description": "factory"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "workshop",
+     "description": "workshop"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "petrol / gas station",
+     "description": "petrol / gas station"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "washing plant",
+     "description": "washing plant"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "cold store",
+     "description": "cold store"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "depot",
+     "description": "depot"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for research purposes",
+     "description": "building for research purposes"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "quarry",
+     "description": "quarry"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "salt works",
+     "description": "salt works"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "miscellaneous industrial building",
+     "description": "miscellaneous industrial building"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "mill",
+     "description": "mill"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "windmill",
+     "description": "windmill"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "water mill",
+     "description": "water mill"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "bucket elevator",
+     "description": "bucket elevator"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "weather station",
+     "description": "weather station"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "traffic assets office",
+     "description": "traffic assets office"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "street maintenance",
+     "description": "street maintenance"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "waiting hall",
+     "description": "waiting hall"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "signal control box",
+     "description": "signal control box"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "engine shed",
+     "description": "engine shed"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "signal box or stop signal",
+     "description": "signal box or stop signal"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "plant building for air traffic",
+     "description": "plant building for air traffic"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "hangar",
+     "description": "hangar"
+    },
+    {
+     "code": "1550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "plant building for shipping",
+     "description": "plant building for shipping"
+    },
+    {
+     "code": "1560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "shipyard",
+     "description": "shipyard"
+    },
+    {
+     "code": "1570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "dock",
+     "description": "dock"
+    },
+    {
+     "code": "1580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "plant building for canal lock",
+     "description": "plant building for canal lock"
+    },
+    {
+     "code": "1590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "boathouse",
+     "description": "boathouse"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "plant building for cablecar",
+     "description": "plant building for cablecar"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "multi-storey car park",
+     "description": "multi-storey car park"
+    },
+    {
+     "code": "1620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "parking level",
+     "description": "parking level"
+    },
+    {
+     "code": "1630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "garage",
+     "description": "garage"
+    },
+    {
+     "code": "1640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "vehicle hall",
+     "description": "vehicle hall"
+    },
+    {
+     "code": "1650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "underground garage",
+     "description": "underground garage"
+    },
+    {
+     "code": "1660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for supply",
+     "description": "building for supply"
+    },
+    {
+     "code": "1670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "waterworks",
+     "description": "waterworks"
+    },
+    {
+     "code": "1680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "pump station",
+     "description": "pump station"
+    },
+    {
+     "code": "1690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "water basin",
+     "description": "water basin"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "electric power station",
+     "description": "electric power station"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "transformer station",
+     "description": "transformer station"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "converter",
+     "description": "converter"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "reactor",
+     "description": "reactor"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "turbine house",
+     "description": "turbine house"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "boiler house",
+     "description": "boiler house"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for telecommunications",
+     "description": "building for telecommunications"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "gas works",
+     "description": "gas works"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "heat plant",
+     "description": "heat plant"
+    },
+    {
+     "code": "1790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "pumping station",
+     "description": "pumping station"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for disposal",
+     "description": "building for disposal"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for effluent disposal",
+     "description": "building for effluent disposal"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for filter plant",
+     "description": "building for filter plant"
+    },
+    {
+     "code": "1830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "toilet",
+     "description": "toilet"
+    },
+    {
+     "code": "1840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "rubbish bunker",
+     "description": "rubbish bunker"
+    },
+    {
+     "code": "1850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for rubbish incineration",
+     "description": "building for rubbish incineration"
+    },
+    {
+     "code": "1860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for rubbish disposal",
+     "description": "building for rubbish disposal"
+    },
+    {
+     "code": "1870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for agrarian and forestry",
+     "description": "building for agrarian and forestry"
+    },
+    {
+     "code": "1880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "barn",
+     "description": "barn"
+    },
+    {
+     "code": "1890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "stall",
+     "description": "stall"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "equestrian hall",
+     "description": "equestrian hall"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "alpine cabin",
+     "description": "alpine cabin"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "hunting lodge",
+     "description": "hunting lodge"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "arboretum",
+     "description": "arboretum"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "glass house",
+     "description": "glass house"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "moveable glass house",
+     "description": "moveable glass house"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "public building",
+     "description": "public building"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "administration building",
+     "description": "administration building"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "parliament",
+     "description": "parliament"
+    },
+    {
+     "code": "1990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "guildhall",
+     "description": "guildhall"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "post office",
+     "description": "post office"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "customs office",
+     "description": "customs office"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "court",
+     "description": "court"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "embassy or consulate",
+     "description": "embassy or consulate"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "district administration",
+     "description": "district administration"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "district government",
+     "description": "district government"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "tax office",
+     "description": "tax office"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for education and research",
+     "description": "building for education and research"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "comprehensive school",
+     "description": "comprehensive school"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "vocational school",
+     "description": "vocational school"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "college or university",
+     "description": "college or university"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "research establishment",
+     "description": "research establishment"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for cultural purposes",
+     "description": "building for cultural purposes"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "castle",
+     "description": "castle"
+    },
+    {
+     "code": "2140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "theatre or opera",
+     "description": "theatre or opera"
+    },
+    {
+     "code": "2150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "concert building",
+     "description": "concert building"
+    },
+    {
+     "code": "2160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "museum",
+     "description": "museum"
+    },
+    {
+     "code": "2170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "broadcasting building",
+     "description": "broadcasting building"
+    },
+    {
+     "code": "2180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "activity building",
+     "description": "activity building"
+    },
+    {
+     "code": "2190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "library",
+     "description": "library"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "fort",
+     "description": "fort"
+    },
+    {
+     "code": "2210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "religious building",
+     "description": "religious building"
+    },
+    {
+     "code": "2220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "church",
+     "description": "church"
+    },
+    {
+     "code": "2230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "synagogue",
+     "description": "synagogue"
+    },
+    {
+     "code": "2240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "chapel",
+     "description": "chapel"
+    },
+    {
+     "code": "2250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "community center",
+     "description": "community center"
+    },
+    {
+     "code": "2260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "place of worship",
+     "description": "place of worship"
+    },
+    {
+     "code": "2270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "mosque",
+     "description": "mosque"
+    },
+    {
+     "code": "2280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "temple",
+     "description": "temple"
+    },
+    {
+     "code": "2290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "convent",
+     "description": "convent"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for health care",
+     "description": "building for health care"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "hospital",
+     "description": "hospital"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "healing centre or care home",
+     "description": "healing centre or care home"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "health centre or outpatients clinic",
+     "description": "health centre or outpatients clinic"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for social purposes",
+     "description": "building for social purposes"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "youth centre",
+     "description": "youth centre"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "seniors centre",
+     "description": "seniors centre"
+    },
+    {
+     "code": "2370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "homeless shelter",
+     "description": "homeless shelter"
+    },
+    {
+     "code": "2380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "kindergarten or nursery",
+     "description": "kindergarten or nursery"
+    },
+    {
+     "code": "2390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "asylum seekers home",
+     "description": "asylum seekers home"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "police station",
+     "description": "police station"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "fire station",
+     "description": "fire station"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "barracks",
+     "description": "barracks"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "bunker",
+     "description": "bunker"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "penitentiary or prison",
+     "description": "penitentiary or prison"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "cemetery building",
+     "description": "cemetery building"
+    },
+    {
+     "code": "2460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "funeral parlor",
+     "description": "funeral parlor"
+    },
+    {
+     "code": "2470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "crematorium",
+     "description": "crematorium"
+    },
+    {
+     "code": "2480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "train station",
+     "description": "train station"
+    },
+    {
+     "code": "2490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "airport building",
+     "description": "airport building"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for underground station",
+     "description": "building for underground station"
+    },
+    {
+     "code": "2510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for tramway",
+     "description": "building for tramway"
+    },
+    {
+     "code": "2520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for bus station",
+     "description": "building for bus station"
+    },
+    {
+     "code": "2530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "shipping terminal",
+     "description": "shipping terminal"
+    },
+    {
+     "code": "2540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for recuperation purposes",
+     "description": "building for recuperation purposes"
+    },
+    {
+     "code": "2550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for sport purposes",
+     "description": "building for sport purposes"
+    },
+    {
+     "code": "2560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "sports hall",
+     "description": "sports hall"
+    },
+    {
+     "code": "2570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "building for sports field",
+     "description": "building for sports field"
+    },
+    {
+     "code": "2580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "swimming baths",
+     "description": "swimming baths"
+    },
+    {
+     "code": "2590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "indoor swimming pool",
+     "description": "indoor swimming pool"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "sanatorium",
+     "description": "sanatorium"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "zoo building",
+     "description": "zoo building"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "green house",
+     "description": "green house"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "botanical show house",
+     "description": "botanical show house"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "bothy",
+     "description": "bothy"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "tourist information centre",
+     "description": "tourist information centre"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/BuildingUsageValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "RoofTypeValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoofTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoofTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:17+00:00",
+   "sha256": "c0bc2695071f3055048a84b14d22d650904ae1a5305b1f4f25c972117a21ae3e",
+   "identifier": "RoofTypeValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+   "description": "",
+   "metadata": {
+    "dataType": "RoofTypeValue",
+    "namespace": "http://www.opengis.net/citygml/building/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "flat roof",
+     "description": "flat roof"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "monopitch roof",
+     "description": "monopitch roof"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "dual pent roof",
+     "description": "dual pent roof"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "gabled roof",
+     "description": "gabled roof"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "hipped roof",
+     "description": "hipped roof"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "half-hipped roof",
+     "description": "half-hipped roof"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "mansard roof",
+     "description": "mansard roof"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "pavilion roof",
+     "description": "pavilion roof"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "cone roof",
+     "description": "cone roof"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "copula roof",
+     "description": "copula roof"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "sawtooth roof",
+     "description": "sawtooth roof"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "arch roof",
+     "description": "arch roof"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "pyramidal broach roof",
+     "description": "pyramidal broach roof"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue",
+     "name": "combination of roof forms",
+     "description": "combination of roof forms"
+    }
+   ],
+   "placeholder": false
+  },
+  "RoomElevationReferenceValue": {
+   "module": "Building",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoomElevationReferenceValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoomElevationReferenceValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "e58b19c4f2282a4b69025e7c91620fe1c217ff5ce005be77868ada4be6f05644",
+   "identifier": "Building.RoomElevationReferenceValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/roomelevationreferencevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "roomelevationreferencevalue",
+    "namespace": "http://www.opengis.net/citygml/Building.RoomElevationReferenceValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "CityFurnitureClassValue": {
+   "module": "CityFurniture",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "9bde3e00c47a3fb50fc5facaa9c685b35b29ad3e25128c0d70f171a32a3186ec",
+   "identifier": "CityFurnitureClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityFurnitureClassValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureClassValue",
+     "name": "traffic",
+     "description": "traffic"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureClassValue",
+     "name": "communication",
+     "description": "communication"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureClassValue",
+     "name": "security",
+     "description": "security"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureClassValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "CityFurnitureFunctionValue": {
+   "module": "CityFurniture",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "8de4c67887c4eb4349515b5fb9e79c380867dd498e9e63391a52e4c26a40ea9a",
+   "identifier": "CityFurnitureFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityFurnitureFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "communication fixture",
+     "description": "communication fixture"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "telephone box",
+     "description": "telephone box"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "postbox",
+     "description": "postbox"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "emergency call fixture",
+     "description": "emergency call fixture"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "fire detector",
+     "description": "fire detector"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "police call post",
+     "description": "police call post"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "switching unit",
+     "description": "switching unit"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "road sign",
+     "description": "road sign"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "traffic light",
+     "description": "traffic light"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "free-standing sign",
+     "description": "free-standing sign"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "free-standing warning sign",
+     "description": "free-standing warning sign"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "bus stop",
+     "description": "bus stop"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "milestone",
+     "description": "milestone"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "rail level crossing",
+     "description": "rail level crossing"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "gate",
+     "description": "gate"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "streetlamp, latern or candelabra",
+     "description": "streetlamp, latern or candelabra"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "column",
+     "description": "column"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "lamp post",
+     "description": "lamp post"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "flagpole",
+     "description": "flagpole"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "street sink box",
+     "description": "street sink box"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "rubbish bin",
+     "description": "rubbish bin"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "clock",
+     "description": "clock"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "directional spot light",
+     "description": "directional spot light"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "floodlight mast",
+     "description": "floodlight mast"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "windmill",
+     "description": "windmill"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "solar cell",
+     "description": "solar cell"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "water wheel",
+     "description": "water wheel"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "pole",
+     "description": "pole"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "radio mast",
+     "description": "radio mast"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "aerial",
+     "description": "aerial"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "radio telescope",
+     "description": "radio telescope"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "chimney",
+     "description": "chimney"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "marker",
+     "description": "marker"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "hydrant",
+     "description": "hydrant"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "upper corridor fire-hydrant",
+     "description": "upper corridor fire-hydrant"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "lower floor panel fire-hydrant",
+     "description": "lower floor panel fire-hydrant"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "slidegate valve cap",
+     "description": "slidegate valve cap"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "entrance shaft",
+     "description": "entrance shaft"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "converter",
+     "description": "converter"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "stair",
+     "description": "stair"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "outside staircase",
+     "description": "outside staircase"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "escalator",
+     "description": "escalator"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "ramp",
+     "description": "ramp"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "patio",
+     "description": "patio"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "fence",
+     "description": "fence"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "memorial/monument",
+     "description": "memorial/monument"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "wayside shrine",
+     "description": "wayside shrine"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "crossroads",
+     "description": "crossroads"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "cross on the summit of a mountain",
+     "description": "cross on the summit of a mountain"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "fountain",
+     "description": "fountain"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "block mark",
+     "description": "block mark"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "boundary post",
+     "description": "boundary post"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "bench",
+     "description": "bench"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureFunctionValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "CityFurnitureUsageValue": {
+   "module": "CityFurniture",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "8634f4336278183188e302d7b0a8307d0667646b8853978582f0d7d57bf9fdd6",
+   "identifier": "CityFurnitureUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityFurnitureUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "communication fixture",
+     "description": "communication fixture"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "telephone box",
+     "description": "telephone box"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "postbox",
+     "description": "postbox"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "emergency call fixture",
+     "description": "emergency call fixture"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "fire detector",
+     "description": "fire detector"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "police call post",
+     "description": "police call post"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "switching unit",
+     "description": "switching unit"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "road sign",
+     "description": "road sign"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "traffic light",
+     "description": "traffic light"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "free-standing sign",
+     "description": "free-standing sign"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "free-standing warning sign",
+     "description": "free-standing warning sign"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "bus stop",
+     "description": "bus stop"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "milestone",
+     "description": "milestone"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "rail level crossing",
+     "description": "rail level crossing"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "gate",
+     "description": "gate"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "streetlamp, latern or candelabra",
+     "description": "streetlamp, latern or candelabra"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "column",
+     "description": "column"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "lamp post",
+     "description": "lamp post"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "flagpole",
+     "description": "flagpole"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "street sink box",
+     "description": "street sink box"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "rubbish bin",
+     "description": "rubbish bin"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "clock",
+     "description": "clock"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "directional spot light",
+     "description": "directional spot light"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "floodlight mast",
+     "description": "floodlight mast"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "windmill",
+     "description": "windmill"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "solar cell",
+     "description": "solar cell"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "water wheel",
+     "description": "water wheel"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "pole",
+     "description": "pole"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "radio mast",
+     "description": "radio mast"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "aerial",
+     "description": "aerial"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "radio telescope",
+     "description": "radio telescope"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "chimney",
+     "description": "chimney"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "marker",
+     "description": "marker"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "hydrant",
+     "description": "hydrant"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "upper corridor fire-hydrant",
+     "description": "upper corridor fire-hydrant"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "lower floor panel fire-hydrant",
+     "description": "lower floor panel fire-hydrant"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "slidegate valve cap",
+     "description": "slidegate valve cap"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "entrance shaft",
+     "description": "entrance shaft"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "converter",
+     "description": "converter"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "stair",
+     "description": "stair"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "outside staircase",
+     "description": "outside staircase"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "escalator",
+     "description": "escalator"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "ramp",
+     "description": "ramp"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "patio",
+     "description": "patio"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "fence",
+     "description": "fence"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "memorial/monument",
+     "description": "memorial/monument"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "wayside shrine",
+     "description": "wayside shrine"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "crossroads",
+     "description": "crossroads"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "cross on the summit of a mountain",
+     "description": "cross on the summit of a mountain"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "fountain",
+     "description": "fountain"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "block mark",
+     "description": "block mark"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "boundary post",
+     "description": "boundary post"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "bench",
+     "description": "bench"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityfurniture/3.0/CityFurnitureUsageValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "CityObjectGroupClassValue": {
+   "module": "CityObjectGroup",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "71b5e97e2deb51926908901ad02dffe0dee8136a8d72ff2ff05707aadc10ee6c",
+   "identifier": "CityObjectGroupClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityObjectGroupClassValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupClassValue",
+     "name": "building separation",
+     "description": "building separation"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupClassValue",
+     "name": "assembly",
+     "description": "assembly"
+    }
+   ],
+   "placeholder": false
+  },
+  "CityObjectGroupFunctionValue": {
+   "module": "CityObjectGroup",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "a8d1f280b9b34dbbbca6684f12801ca9a6cc92fa4636f39d8497021b48d97aa0",
+   "identifier": "CityObjectGroupFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityObjectGroupFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupFunctionValue",
+     "name": "lod1Storey",
+     "description": "lod1Storey"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupFunctionValue",
+     "name": "lod2Storey",
+     "description": "lod2Storey"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupFunctionValue",
+     "name": "lod3Storey",
+     "description": "lod3Storey"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupFunctionValue",
+     "name": "lod4Storey",
+     "description": "lod4Storey"
+    }
+   ],
+   "placeholder": false
+  },
+  "CityObjectGroupUsageValue": {
+   "module": "CityObjectGroup",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:18+00:00",
+   "sha256": "3066e1573eb45a8157410ab2c5a3ee468eee10d9a0846352f948624eb6fbd244",
+   "identifier": "CityObjectGroupUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "CityObjectGroupUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupUsageValue",
+     "name": "lod1Storey",
+     "description": "lod1Storey"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupUsageValue",
+     "name": "lod2Storey",
+     "description": "lod2Storey"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupUsageValue",
+     "name": "lod3Storey",
+     "description": "lod3Storey"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/cityobjectgroup/3.0/CityObjectGroupUsageValue",
+     "name": "lod4Storey",
+     "description": "lod4Storey"
+    }
+   ],
+   "placeholder": false
+  },
+  "DoorClassValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "5c68d23329b66c62a51f430b0e28d633de4f8f5d01d9305b0c702253b87b3c87",
+   "identifier": "Construction.DoorClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/doorclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "doorclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.DoorClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "DoorFunctionValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "ff3373ec434978a9dafd1aec903b9ac13c795fd2ca8455439ca471d7f2389127",
+   "identifier": "Construction.DoorFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/doorfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "doorfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.DoorFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "DoorUsageValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "cd02fd4116622f3fc2cd463f1ad781da816f4c4204b7c9c94151b83564864ffb",
+   "identifier": "Construction.DoorUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/doorusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "doorusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.DoorUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "ElevationReferenceValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.ElevationReferenceValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.ElevationReferenceValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "8e7500fcc6b6f1264f0eba986d003c026e7ae0d78491ad1cb313059ebc25cf4b",
+   "identifier": "Construction.ElevationReferenceValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/elevationreferencevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "elevationreferencevalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.ElevationReferenceValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "EventValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.EventValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.EventValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "9a81cd37dce6fb04cd68720ae641550211198ff91e396122b3aed32c1c44c6db",
+   "identifier": "Construction.EventValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/eventvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "eventvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.EventValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "OtherConstructionClassValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "1cdfc5eed24c11e87def34cfa6e543e78530b334de9e71c726bed694ab2c50be",
+   "identifier": "Construction.OtherConstructionClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/otherconstructionclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "otherconstructionclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.OtherConstructionClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "OtherConstructionFunctionValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:19+00:00",
+   "sha256": "3ecfffc5552eb39b5c3d242ba40fbd26bdc4ff946f180b871299a3340f41aae2",
+   "identifier": "Construction.OtherConstructionFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/otherconstructionfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "otherconstructionfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.OtherConstructionFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "OtherConstructionUsageValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "3e5a014a147dbaba757556be09931cf3ce3a20fe7144d4129b78dae8a64e6d43",
+   "identifier": "Construction.OtherConstructionUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/otherconstructionusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "otherconstructionusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.OtherConstructionUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WindowClassValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "ad3831f17736f02e37b55a0d16a12a004c3cb1cd10bfd39da4ca0e60616e1fe6",
+   "identifier": "Construction.WindowClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/windowclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "windowclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.WindowClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WindowFunctionValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "340dbc3b8325e0b54701969aaac53c2dd577197cf1e277e75e59fe2b40c04fcb",
+   "identifier": "Construction.WindowFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/windowfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "windowfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.WindowFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WindowUsageValue": {
+   "module": "Construction",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "a270e042f4ac8e6727060ca55aa5c44dbdec14f9f9dd4ba3879caa85bbc185b2",
+   "identifier": "Construction.WindowUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/windowusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "windowusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Construction.WindowUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "IntervalValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.IntervalValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.IntervalValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "a8be6877d62a0dffe971b44e36cc444f9e85c4aed57b2fc8922b98405606e031",
+   "identifier": "Core.IntervalValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/intervalvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "intervalvalue",
+    "namespace": "http://www.opengis.net/citygml/Core.IntervalValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "MimeTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.MimeTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.MimeTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "b1764df5b6e1415ea5880a0dbf0d72076085729b5199d17a484b114d14d94fa9",
+   "identifier": "MimeTypeValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+   "description": "",
+   "metadata": {
+    "dataType": "MimeTypeValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "model/vrml",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "VRML97",
+     "description": "VRML97"
+    },
+    {
+     "code": "application/x-3ds",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "3ds max",
+     "description": "3ds max"
+    },
+    {
+     "code": "application/dxf",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "AutoCad DXF",
+     "description": "AutoCad DXF"
+    },
+    {
+     "code": "application/x-autocad",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "AutoCad DXF",
+     "description": "AutoCad DXF"
+    },
+    {
+     "code": "application/x-dxf",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "AutoCad DXF",
+     "description": "AutoCad DXF"
+    },
+    {
+     "code": "application/acad",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "AutoCad DWG",
+     "description": "AutoCad DWG"
+    },
+    {
+     "code": "application/x-shockwave-flash",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "Shockwave 3D",
+     "description": "Shockwave 3D"
+    },
+    {
+     "code": "model/x3d+vrml",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "X3D",
+     "description": "X3D"
+    },
+    {
+     "code": "model/x3d+xml",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "X3D",
+     "description": "X3D"
+    },
+    {
+     "code": "model/x3d+binary",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "X3D",
+     "description": "X3D"
+    },
+    {
+     "code": "image/gif",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "*.gif images",
+     "description": "*.gif images"
+    },
+    {
+     "code": "image/jpeg",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "*.jpeg, *.jpg images",
+     "description": "*.jpeg, *.jpg images"
+    },
+    {
+     "code": "image/png",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "*.png images",
+     "description": "*.png images"
+    },
+    {
+     "code": "image/tiff",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "*.tiff, *.tif images",
+     "description": "*.tiff, *.tif images"
+    },
+    {
+     "code": "image/bmp",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/core/3.0/MimeTypeValue",
+     "name": "*.bmp images",
+     "description": "*.bmp images"
+    }
+   ],
+   "placeholder": false
+  },
+  "NilReasonEnumeration": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.NilReasonEnumeration.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.NilReasonEnumeration.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "4b1c6e33b8a9cecc6afcd98eb4485938dc4965b983108fa0e0a1b950c7dda10d",
+   "identifier": "Core.NilReasonEnumeration",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/nilreasonenumeration",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "nilreasonenumeration",
+    "namespace": "http://www.opengis.net/citygml/Core.NilReasonEnumeration/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "OccupantTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OccupantTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OccupantTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:20+00:00",
+   "sha256": "31682fb28af3c1c1dc6014970cd29fea7a88baa0bb202dacee2064c78f10d976",
+   "identifier": "Core.OccupantTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/occupanttypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "occupanttypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.OccupantTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "OtherRelationTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OtherRelationTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OtherRelationTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "3838ccaae656664dc4a488ab55deefe94e386cd28fb72621ba028da3e3c85250",
+   "identifier": "Core.OtherRelationTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/otherrelationtypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "otherrelationtypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.OtherRelationTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "QualifiedAreaTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedAreaTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedAreaTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "5ff20f66954d7c3d1c95ae665cfa7b42f06de602b2863079ecc511ce7b8392d1",
+   "identifier": "Core.QualifiedAreaTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/qualifiedareatypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "qualifiedareatypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.QualifiedAreaTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "QualifiedVolumeTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedVolumeTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedVolumeTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "f85bc897d4af2f4be2c64d75d84fa270e59b989d7af97bf5bdec03ca4c559abe",
+   "identifier": "Core.QualifiedVolumeTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/qualifiedvolumetypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "qualifiedvolumetypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.QualifiedVolumeTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RelationTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.RelationTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.RelationTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "2dbc41f0aed2c71ba52a73b28e00c611d38fd64544473a6637a1bce1276eb453",
+   "identifier": "Core.RelationTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/relationtypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "relationtypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.RelationTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TemporalRelationTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TemporalRelationTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TemporalRelationTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "96e42af754adc0682426f17ac6b837d5f66de18a147615551f67868145745953",
+   "identifier": "Core.TemporalRelationTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/temporalrelationtypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "temporalrelationtypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.TemporalRelationTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TopologicalRelationTypeValue": {
+   "module": "Core",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TopologicalRelationTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TopologicalRelationTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "a2ac106e4f30a1e3e130964d44603554d618bf1a4abd1af3e30b693bcf0386bd",
+   "identifier": "Core.TopologicalRelationTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/topologicalrelationtypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "topologicalrelationtypevalue",
+    "namespace": "http://www.opengis.net/citygml/Core.TopologicalRelationTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "AuthenticationTypeValue": {
+   "module": "Dynamizer",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.AuthenticationTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.AuthenticationTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:21+00:00",
+   "sha256": "a8b90758070979d50ceb0c173abce2a15ba1a6cf4c08092c40f3d628bb50d1a1",
+   "identifier": "Dynamizer.AuthenticationTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/authenticationtypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "authenticationtypevalue",
+    "namespace": "http://www.opengis.net/citygml/Dynamizer.AuthenticationTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SensorConnectionTypeValue": {
+   "module": "Dynamizer",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.SensorConnectionTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.SensorConnectionTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "26896c3ebc904722c328f306f86b31848f9a3003679148bafc3dce2d29773dec",
+   "identifier": "Dynamizer.SensorConnectionTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/sensorconnectiontypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "sensorconnectiontypevalue",
+    "namespace": "http://www.opengis.net/citygml/Dynamizer.SensorConnectionTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "StandardFileTypeValue": {
+   "module": "Dynamizer",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.StandardFileTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.StandardFileTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "741ee321e72dbd06fb47e9d6508d918cebe5b4e58f681f2b861f067485cacb04",
+   "identifier": "Dynamizer.StandardFileTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/standardfiletypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "standardfiletypevalue",
+    "namespace": "http://www.opengis.net/citygml/Dynamizer.StandardFileTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TabulatedFileTypeValue": {
+   "module": "Dynamizer",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.TabulatedFileTypeValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.TabulatedFileTypeValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "847811f33936d9c6e92131397822b8f221126f9c84c431bfb686622b5e2df2c5",
+   "identifier": "Dynamizer.TabulatedFileTypeValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tabulatedfiletypevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tabulatedfiletypevalue",
+    "namespace": "http://www.opengis.net/citygml/Dynamizer.TabulatedFileTypeValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericLogicalSpaceClassValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "ddad6c086bf5cd40a9f794639da58685b37c0d9a768eab0dfa1607218ac67519",
+   "identifier": "Generics.GenericLogicalSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericlogicalspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericlogicalspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericLogicalSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericLogicalSpaceFunctionValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "9edb6750bd4320025a1f5a78a17e27271d2715a54da21159ed8e02656b4dec74",
+   "identifier": "Generics.GenericLogicalSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericlogicalspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericlogicalspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericLogicalSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericLogicalSpaceUsageValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "e46d2d5c6b0409653a3653d106b13061269c3250953da85edd509766fb3d7dc5",
+   "identifier": "Generics.GenericLogicalSpaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericlogicalspaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericlogicalspaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericLogicalSpaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericOccupiedSpaceClassValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:22+00:00",
+   "sha256": "ae21a43c23af2baa53b4b47143836c12ef915a64a1213bae341051254027a043",
+   "identifier": "Generics.GenericOccupiedSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericoccupiedspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericoccupiedspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericOccupiedSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericOccupiedSpaceFunctionValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "fcb0cae7d706732be074a619f71aaeb31a10ca48a19e7560d8c45e9af26acb7f",
+   "identifier": "Generics.GenericOccupiedSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericoccupiedspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericoccupiedspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericOccupiedSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericOccupiedSpaceUsageValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "ae43bb4b6f1122832ef96ab72b629c7ce651e92ea7b7f1b3f3718b736e4b6d85",
+   "identifier": "Generics.GenericOccupiedSpaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericoccupiedspaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericoccupiedspaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericOccupiedSpaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericThematicSurfaceClassValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "ada620b7c8ae563e0a01ab4c07ecb0f318733f146a091998c8e234f522edab43",
+   "identifier": "Generics.GenericThematicSurfaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericthematicsurfaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericthematicsurfaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericThematicSurfaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericThematicSurfaceFunctionValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "66df6486d05ade6d434f87ce38f945ef3421fd7e2acf1c1781be89624f7bbe1f",
+   "identifier": "Generics.GenericThematicSurfaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericthematicsurfacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericthematicsurfacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericThematicSurfaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericThematicSurfaceUsageValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "ede458b9e4ea86b59b6b795808d200df34f2c645332155b0afb08690cb82fec4",
+   "identifier": "Generics.GenericThematicSurfaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericthematicsurfaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericthematicsurfaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericThematicSurfaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericUnoccupiedSpaceClassValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "3eacefd81198e306129ca15492cf6308fe7b67bf81d9f589fdd5448e0d375db1",
+   "identifier": "Generics.GenericUnoccupiedSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericunoccupiedspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericunoccupiedspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericUnoccupiedSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericUnoccupiedSpaceFunctionValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:23+00:00",
+   "sha256": "75b33ac3540b63fd0d67a8b72d2c9f01249d83d014f4b60a56eebbce52da81dd",
+   "identifier": "Generics.GenericUnoccupiedSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericunoccupiedspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericunoccupiedspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericUnoccupiedSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "GenericUnoccupiedSpaceUsageValue": {
+   "module": "Generics",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "f89de8efb6ab3bcb644fdf1109b498914e9bc02c7737428ad9a75330d29a1486",
+   "identifier": "Generics.GenericUnoccupiedSpaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/genericunoccupiedspaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "genericunoccupiedspaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Generics.GenericUnoccupiedSpaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "LandUseClassValue": {
+   "module": "LandUse",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "839a9ccdf92c125645d26a8cd1258c187cccf3e07ed344a96abbd9def6ce7777",
+   "identifier": "LandUseClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "LandUseClassValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/landuse/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+     "name": "Settlement Area",
+     "description": "Settlement Area"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+     "name": "Undeveloped Area",
+     "description": "Undeveloped Area"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+     "name": "Traffic",
+     "description": "Traffic"
+    },
+    {
+     "code": "3000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+     "name": "Vegetation",
+     "description": "Vegetation"
+    },
+    {
+     "code": "4000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseClassValue",
+     "name": "Water",
+     "description": "Water"
+    }
+   ],
+   "placeholder": false
+  },
+  "LandUseFunctionValue": {
+   "module": "LandUse",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "1b46100bc4a67f7e1a77b823086d1d50d54529b2e757c5eaca140c96de06484f",
+   "identifier": "LandUseFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "LandUseFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/landuse/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Residential",
+     "description": "Residential"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Industry and Business",
+     "description": "Industry and Business"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Mixed use",
+     "description": "Mixed use"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Special Function Area",
+     "description": "Special Function Area"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Monument",
+     "description": "Monument"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Dump",
+     "description": "Dump"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Mining",
+     "description": "Mining"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Park",
+     "description": "Park"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Cemetary",
+     "description": "Cemetary"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Sports, leisure and recreation",
+     "description": "Sports, leisure and recreation"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Open pit, quarry",
+     "description": "Open pit, quarry"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Road",
+     "description": "Road"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Railway",
+     "description": "Railway"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Airfield",
+     "description": "Airfield"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Shipping",
+     "description": "Shipping"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Track",
+     "description": "Track"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Square",
+     "description": "Square"
+    },
+    {
+     "code": "3010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Grassland",
+     "description": "Grassland"
+    },
+    {
+     "code": "3020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Agriculture",
+     "description": "Agriculture"
+    },
+    {
+     "code": "3030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Forest",
+     "description": "Forest"
+    },
+    {
+     "code": "3040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Grove",
+     "description": "Grove"
+    },
+    {
+     "code": "3050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Heath",
+     "description": "Heath"
+    },
+    {
+     "code": "3060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Moor",
+     "description": "Moor"
+    },
+    {
+     "code": "3070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Marsh",
+     "description": "Marsh"
+    },
+    {
+     "code": "3080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Untilled land",
+     "description": "Untilled land"
+    },
+    {
+     "code": "4010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "River",
+     "description": "River"
+    },
+    {
+     "code": "4020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Standing Waterbody",
+     "description": "Standing Waterbody"
+    },
+    {
+     "code": "4030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Harbour",
+     "description": "Harbour"
+    },
+    {
+     "code": "4040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseFunctionValue",
+     "name": "Sea",
+     "description": "Sea"
+    }
+   ],
+   "placeholder": false
+  },
+  "LandUseUsageValue": {
+   "module": "LandUse",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "7d80053515d13227bc101f658edf8b8d25bed613e316be4d05a049fe5e6fb1dc",
+   "identifier": "LandUseUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "LandUseUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/landuse/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Residential",
+     "description": "Residential"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Industry and Business",
+     "description": "Industry and Business"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Mixed use",
+     "description": "Mixed use"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Special Function Area",
+     "description": "Special Function Area"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Monument",
+     "description": "Monument"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Dump",
+     "description": "Dump"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Mining",
+     "description": "Mining"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Park",
+     "description": "Park"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Cemetary",
+     "description": "Cemetary"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Sports, leisure and recreation",
+     "description": "Sports, leisure and recreation"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Open pit, quarry",
+     "description": "Open pit, quarry"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Road",
+     "description": "Road"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Railway",
+     "description": "Railway"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Airfield",
+     "description": "Airfield"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Shipping",
+     "description": "Shipping"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Track",
+     "description": "Track"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Square",
+     "description": "Square"
+    },
+    {
+     "code": "3010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Grassland",
+     "description": "Grassland"
+    },
+    {
+     "code": "3020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Agriculture",
+     "description": "Agriculture"
+    },
+    {
+     "code": "3030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Forest",
+     "description": "Forest"
+    },
+    {
+     "code": "3040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Grove",
+     "description": "Grove"
+    },
+    {
+     "code": "3050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Heath",
+     "description": "Heath"
+    },
+    {
+     "code": "3060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Moor",
+     "description": "Moor"
+    },
+    {
+     "code": "3070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Marsh",
+     "description": "Marsh"
+    },
+    {
+     "code": "3080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Untilled land",
+     "description": "Untilled land"
+    },
+    {
+     "code": "4010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "River",
+     "description": "River"
+    },
+    {
+     "code": "4020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Standing Waterbody",
+     "description": "Standing Waterbody"
+    },
+    {
+     "code": "4030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Harbour",
+     "description": "Harbour"
+    },
+    {
+     "code": "4040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/landuse/3.0/LandUseUsageValue",
+     "name": "Sea",
+     "description": "Sea"
+    }
+   ],
+   "placeholder": false
+  },
+  "AuxiliaryTrafficAreaClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "16706a9f784794d5a576c80aa2035a8872ca19abda29560050b3c05ac58f8367",
+   "identifier": "Transportation.AuxiliaryTrafficAreaClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficareaclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "auxiliarytrafficareaclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficAreaClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "AuxiliaryTrafficAreaFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:24+00:00",
+   "sha256": "333831b0bb0c059448c355a6af569907295fc9d34977067c5a4ad455dc7326e4",
+   "identifier": "Transportation.AuxiliaryTrafficAreaFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficareafunctionvalue",
+   "description": "",
+   "metadata": {
+    "dataType": "auxiliarytrafficareafunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficAreaFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9e5b5a4a-0732-4049-b6ce-ca8c2cef2332",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/soft-shoulder",
+     "name": "soft-shoulder",
+     "description": "soft shoulder"
+    },
+    {
+     "code": "1cacc016-32ab-4509-9d21-a2b79bfa3ad1",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/hard-shoulder",
+     "name": "hard-shoulder",
+     "description": "hard shoulder"
+    },
+    {
+     "code": "951e756f-70ef-4928-8646-66378478f951",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/green-area",
+     "name": "green-area",
+     "description": "green area"
+    },
+    {
+     "code": "e612af4e-0cde-408c-addb-ff6cfd8115e9",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/middle-lane",
+     "name": "middle-lane",
+     "description": "middle lane"
+    },
+    {
+     "code": "49133b73-8e75-4667-a13c-1d35eca8beb7",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/lay-by",
+     "name": "lay-by",
+     "description": "lay by"
+    },
+    {
+     "code": "82413fc7-c2c9-4a1a-9de1-d8b0213fff70",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/parking-bay",
+     "name": "parking-bay",
+     "description": "parking bay"
+    },
+    {
+     "code": "a867a0ff-2f78-4461-8bf9-2f53505f982a",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/ditch",
+     "name": "ditch",
+     "description": "ditch"
+    },
+    {
+     "code": "d55851e6-f3f9-4102-8d07-3a237ea76cbc",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/drainage",
+     "name": "drainage",
+     "description": "drainage"
+    },
+    {
+     "code": "190f8c34-8b4d-4a8f-b6e0-5e6b3a2e00f4",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/kerbstone",
+     "name": "kerbstone",
+     "description": "kerbstone"
+    },
+    {
+     "code": "e4e1d457-a360-49e1-9ac4-96ff45b43a9f",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/flower-tub",
+     "name": "flower-tub",
+     "description": "flower tub"
+    },
+    {
+     "code": "4ab9e134-c6a7-4bb0-b5b5-752464e8aec9",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/traffic-island",
+     "name": "traffic-island",
+     "description": "traffic island"
+    },
+    {
+     "code": "d6f611e5-011e-4472-94c3-8c626414bb50",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bank",
+     "name": "bank",
+     "description": "bank"
+    },
+    {
+     "code": "d02e5e9d-e565-4d23-a74c-9d9dc90417ab",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/embankment-dike",
+     "name": "embankment-dike",
+     "description": "embankment, dike"
+    },
+    {
+     "code": "260fc476-e459-4466-a1d8-15e4601f1b3e",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/railroad-embankment",
+     "name": "railroad-embankment",
+     "description": "railroad embankment"
+    },
+    {
+     "code": "dd1c9385-9545-4018-bb36-c345965e4ef5",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/noise-protection",
+     "name": "noise-protection",
+     "description": "noise protection"
+    },
+    {
+     "code": "ed1bf5df-b9e9-437d-beca-9e39b959f03c",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/noise-protection-wall",
+     "name": "noise-protection-wall",
+     "description": "noise protection wall"
+    },
+    {
+     "code": "06c74c4e-92c8-4128-8d7a-09696715a072",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/noise-guard-bar",
+     "name": "noise-guard-bar",
+     "description": "noise guard bar"
+    },
+    {
+     "code": "18529702-3df1-4054-a67a-9dff05fe0afd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/towpath",
+     "name": "towpath",
+     "description": "towpath"
+    },
+    {
+     "code": "ee8525e2-c07c-44e9-966e-a0d2ccf1df4f",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/others",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "AuxiliaryTrafficAreaUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "9147042a23d6a870419324e65e95bcf2c05789df9465a63c15b16f4d90719e4f",
+   "identifier": "Transportation.AuxiliaryTrafficAreaUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficareausagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "auxiliarytrafficareausagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficAreaUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "AuxiliaryTrafficSpaceClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "f07a5c6d1bd87926c82326d2620c1e0f2f85fae1863c76ed43f1201a749559a3",
+   "identifier": "Transportation.AuxiliaryTrafficSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "auxiliarytrafficspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "AuxiliaryTrafficSpaceFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "11024602acd2ed2dbdc0160213d8d1976a01a71e6b789dd7c15f949cc4908efd",
+   "identifier": "Transportation.AuxiliaryTrafficSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "auxiliarytrafficspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "AuxiliaryTrafficSpaceUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "aede5fdf3c0ac6d25dcc57d7bdfda1946352eb61f41ddaa8d56bf9ffabf3759b",
+   "identifier": "Transportation.AuxiliaryTrafficSpaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/auxiliarytrafficspaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "auxiliarytrafficspaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.AuxiliaryTrafficSpaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "ClearanceSpaceClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.ClearanceSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.ClearanceSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "600a8fedd272ee73c4a3072dd44901244cd432bd10b4172aca5ed2bd1737a15d",
+   "identifier": "Transportation.ClearanceSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/clearancespaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "clearancespaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.ClearanceSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "HoleClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.HoleClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.HoleClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "1fb8d6fbf4ef84ca4a1453256071e658082726003d6339a6fcfef3a6ed87373e",
+   "identifier": "Transportation.HoleClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/holeclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "holeclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.HoleClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "IntersectionClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.IntersectionClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.IntersectionClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "929551a8b61e7afb5df5b4f5a668a821bfaf650e11cfce22d24d9c4acdea3d99",
+   "identifier": "Transportation.IntersectionClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/intersectionclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "intersectionclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.IntersectionClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "MarkingClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.MarkingClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.MarkingClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:25+00:00",
+   "sha256": "4655b1b220f74928eb6c4bbf4a2388f19c8f1fc0bbbd135b246133b220d32dfc",
+   "identifier": "Transportation.MarkingClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/markingclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "markingclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.MarkingClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RailwayClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "6ba5405e048fc701ba3f6178a634e93abad71c7109276dfa930ef9bd7f81c9f7",
+   "identifier": "Transportation.RailwayClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/railwayclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "railwayclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RailwayClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RailwayFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "db07d4c89fafef28bf13e35603847947199cc22bab489d23b897dbaeb88552c7",
+   "identifier": "Transportation.RailwayFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/railwayfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "railwayfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RailwayFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RailwayUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "087754cbdabe592177b2f2465cd365fddceb1db62fe1adb5102a22ffc57534be",
+   "identifier": "Transportation.RailwayUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/railwayusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "railwayusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RailwayUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RoadClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "ce8d6844f5c98d8c447b24cbdfeae02bcde6e7f63bd806b4278bedb414ab5c01",
+   "identifier": "Transportation.RoadClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/roadclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "roadclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RoadClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RoadFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "8b632e70c5205c3833006f18822872f8189aa66343176a86e25f184505c1792e",
+   "identifier": "Transportation.RoadFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/roadfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "roadfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RoadFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "RoadUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "af215242d9ab3b2b63e79c061fbdbb5d87b758a690d151b3f222e86a6118cdd0",
+   "identifier": "Transportation.RoadUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/roadusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "roadusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.RoadUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SectionClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SectionClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SectionClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:26+00:00",
+   "sha256": "32b5846199b504080c17c46e984018c3952f81a7b3a1eb57819b743a31e810bb",
+   "identifier": "Transportation.SectionClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/sectionclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "sectionclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.SectionClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SquareClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "c3d309b2c90dcfc4292334e85e9721acf9db45318431f2fbfca0096d76155c37",
+   "identifier": "Transportation.SquareClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/squareclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "squareclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.SquareClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SquareFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "deae3382a5d8e4520ddb70d5499286173dac4477c994442fec1fde60b5c6fe6c",
+   "identifier": "Transportation.SquareFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/squarefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "squarefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.SquareFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SquareUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "1eb66a84a1649ded534d4ac1b8b7b4cacff04ecb05268d1f11ad50be4fae9e0a",
+   "identifier": "Transportation.SquareUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/squareusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "squareusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.SquareUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "SurfaceMaterialValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SurfaceMaterialValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SurfaceMaterialValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "2de8d0e4f5455d05d4f3a7efe71d4cded1459557caa28e818adcc609cc195016",
+   "identifier": "SurfaceMaterialValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+   "description": "",
+   "metadata": {
+    "dataType": "SurfaceMaterialValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/transportation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "asphalt",
+     "description": "asphalt"
+    },
+    {
+     "code": "2",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "concrete",
+     "description": "concrete"
+    },
+    {
+     "code": "3",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "pavement",
+     "description": "pavement"
+    },
+    {
+     "code": "4",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "cobblestone",
+     "description": "cobblestone"
+    },
+    {
+     "code": "5",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "gravel",
+     "description": "gravel"
+    },
+    {
+     "code": "6",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "rail_with_bed",
+     "description": "rail_with_bed"
+    },
+    {
+     "code": "7",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "rail_without_bed",
+     "description": "rail_without_bed"
+    },
+    {
+     "code": "8",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "soil",
+     "description": "soil"
+    },
+    {
+     "code": "9",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "sand",
+     "description": "sand"
+    },
+    {
+     "code": "10",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "grass",
+     "description": "grass"
+    },
+    {
+     "code": "11",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "wood",
+     "description": "wood"
+    },
+    {
+     "code": "12",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "steel",
+     "description": "steel"
+    },
+    {
+     "code": "13",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "marble",
+     "description": "marble"
+    },
+    {
+     "code": "99990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/transportation/3.0/SurfaceMaterialValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "TrackClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "5e3521f80e4a3480766ce3fb1b6c50d382a68630bb63d0cda9259859e0dd4f27",
+   "identifier": "Transportation.TrackClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trackclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trackclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrackClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrackFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "478be56f4b476619772e233c700ba2868c9f552cc1cde0277ea8c1cbe0300916",
+   "identifier": "Transportation.TrackFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trackfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trackfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrackFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrackUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:27+00:00",
+   "sha256": "a7de4b98df25c78db895e63c175d2aa6c0f2d811823bc1133979389fbf6aeb08",
+   "identifier": "Transportation.TrackUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trackusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trackusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrackUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrafficAreaClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "e4996f9fe4c0e5f1946ca477d9c32d6a5557cc00c16651813dacaf7130242432",
+   "identifier": "Transportation.TrafficAreaClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficareaclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trafficareaclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficAreaClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrafficAreaFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "6033c70804b4ef2b777b487e61bdd0cc215b8d3a2e9f0bab7e8d78c35fae70ec",
+   "identifier": "Transportation.TrafficAreaFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficareafunctionvalue",
+   "description": "",
+   "metadata": {
+    "dataType": "trafficareafunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficAreaFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "f2f2f287-b1c4-4c41-a27d-9887b85475b9",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/driving_lane",
+     "name": "driving_lane",
+     "description": "driving_lane"
+    },
+    {
+     "code": "71f80820-e350-48f9-860b-986fb92b99de",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/footpath",
+     "name": "footpath",
+     "description": "footpath"
+    },
+    {
+     "code": "73596629-58e6-4b03-9441-5e31fb1496b0",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/cyclepath",
+     "name": "cyclepath",
+     "description": "cyclepath"
+    },
+    {
+     "code": "b9efee37-3b68-45be-9a1b-63b81ed83ff8",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/combined-foot-/cyclepath",
+     "name": "combined-foot-/cyclepath",
+     "description": "combined foot-/cyclepath"
+    },
+    {
+     "code": "70642051-3509-4734-bf9b-2497fa3897f6",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/square",
+     "name": "square",
+     "description": "square"
+    },
+    {
+     "code": "b78a4c89-a905-4657-9859-6c7e44c0c5fa",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/car_park",
+     "name": "car_park",
+     "description": "car_park"
+    },
+    {
+     "code": "e70f0245-b73b-41eb-86e9-70cb56347af0",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/parking_lay_by",
+     "name": "parking_lay_by",
+     "description": "parking_lay_by"
+    },
+    {
+     "code": "5cd6605d-5fea-4cce-aaff-ca2df4dc4d52",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/rail",
+     "name": "rail",
+     "description": "rail"
+    },
+    {
+     "code": "6caece34-6b8b-4761-b26b-4eafada368c7",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/rail_road_combined",
+     "name": "rail_road_combined",
+     "description": "rail_road_combined"
+    },
+    {
+     "code": "29a3aea5-028f-4d4a-8ad1-151a7a5af437",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/drainage",
+     "name": "drainage",
+     "description": "drainage"
+    },
+    {
+     "code": "0d1e9ce2-745f-46ae-b9a8-aa86174eb4f8",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road-marking",
+     "name": "road-marking",
+     "description": "road marking"
+    },
+    {
+     "code": "39d146af-2866-46e2-9511-a325b8b15102",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_direction",
+     "name": "road_marking_direction",
+     "description": "road_marking_direction"
+    },
+    {
+     "code": "af33ee5e-d37b-4875-9846-2a0d8be6f53f",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_lane",
+     "name": "road_marking_lane",
+     "description": "road_marking_lane"
+    },
+    {
+     "code": "6f134f8b-2e4c-4025-9576-3abc9825dad9",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_restricted",
+     "name": "road_marking_restricted",
+     "description": "road_marking_restricted"
+    },
+    {
+     "code": "990dbbad-69b7-4e95-9f98-172ba3ec4fab",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_crosswalk",
+     "name": "road_marking_crosswalk",
+     "description": "road_marking_crosswalk"
+    },
+    {
+     "code": "92c08056-d816-4c99-acfe-bcb08c58284d",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_stop",
+     "name": "road_marking_stop",
+     "description": "road_marking_stop"
+    },
+    {
+     "code": "74033799-833a-45fa-a570-ee7347a2c10b",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/road_marking_other",
+     "name": "road_marking_other",
+     "description": "road_marking_other"
+    },
+    {
+     "code": "80f5ad83-9531-4dcc-a1c3-b205cf89eabd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/overhead-wire-(trolley)",
+     "name": "overhead-wire-(trolley)",
+     "description": "overhead wire (trolley)"
+    },
+    {
+     "code": "6e618d00-be31-4fa4-b6c1-3df812a91953",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/train-platform",
+     "name": "train-platform",
+     "description": "train platform"
+    },
+    {
+     "code": "f72025e4-31ca-492d-9214-bbea168248fd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/crosswalk",
+     "name": "crosswalk",
+     "description": "crosswalk"
+    },
+    {
+     "code": "42e05dde-5a06-49f3-a07b-0f6e0c21f4dd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/barrier",
+     "name": "barrier",
+     "description": "barrier"
+    },
+    {
+     "code": "5d1dbf1b-51f4-4334-965a-1e55ed7006aa",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/stairs",
+     "name": "stairs",
+     "description": "stairs"
+    },
+    {
+     "code": "a97ded14-cf15-4cc3-af55-38df66626b4a",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/escalator",
+     "name": "escalator",
+     "description": "escalator"
+    },
+    {
+     "code": "04453ebd-cf4f-455d-87f9-67e57e070aa0",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/filtering-lane",
+     "name": "filtering-lane",
+     "description": "filtering lane"
+    },
+    {
+     "code": "8457addd-691c-405b-aba2-3a4c5cb8c3cb",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/airport_runway",
+     "name": "airport_runway",
+     "description": "airport_runway"
+    },
+    {
+     "code": "3055a39b-2e19-4319-8ab2-b2e9882bd831",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/airport_taxiway",
+     "name": "airport_taxiway",
+     "description": "airport_taxiway"
+    },
+    {
+     "code": "bc6260ed-a213-46a3-86fb-cebf67cfbd44",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/airport_apron",
+     "name": "airport_apron",
+     "description": "airport_apron"
+    },
+    {
+     "code": "a0745b88-c564-475d-a55d-92749e23c5ee",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/airport_heliport",
+     "name": "airport_heliport",
+     "description": "airport_heliport"
+    },
+    {
+     "code": "e8a75578-e5aa-4f3c-97b0-78014abcd9fd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/airport_runway_marking",
+     "name": "airport_runway_marking",
+     "description": "airport_runway_marking"
+    },
+    {
+     "code": "fd69fa08-4b2a-443c-823c-e6362f95bd51",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/green-spaces",
+     "name": "green-spaces",
+     "description": "green spaces"
+    },
+    {
+     "code": "c6b5815c-df53-4a44-99ee-f677377b1308",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/recreation",
+     "name": "recreation",
+     "description": "recreation"
+    },
+    {
+     "code": "fac03878-efc9-47d9-8d68-d810c9f909e1",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bus_lay_by",
+     "name": "bus_lay_by",
+     "description": "bus_lay_by"
+    },
+    {
+     "code": "5ceb3770-7d08-4c88-bd65-203b34555fb9",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/motorway",
+     "name": "motorway",
+     "description": "motorway"
+    },
+    {
+     "code": "a78f0220-75c9-4ed0-8a73-c256eb3219fe",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/motorway_entry",
+     "name": "motorway_entry",
+     "description": "motorway_entry"
+    },
+    {
+     "code": "30b6ea7b-5362-4b67-bd83-4ee532e12612",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/motorway_exit",
+     "name": "motorway_exit",
+     "description": "motorway_exit"
+    },
+    {
+     "code": "0333f88b-be65-420a-86ff-19cadbe87440",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/motorway_emergency-lane",
+     "name": "motorway_emergency-lane",
+     "description": "motorway_emergency lane"
+    },
+    {
+     "code": "f5683c21-8449-4e36-b914-b67cb5296182",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/private_area",
+     "name": "private_area",
+     "description": "private_area"
+    },
+    {
+     "code": "39f0e2f3-c556-4963-835d-4334df6ced26",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/unknown",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "TrafficAreaUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "757aa3f009e63aa1928e709c813d22a333ee79d8fd2179020dcc0a14f53f2eff",
+   "identifier": "Transportation.TrafficAreaUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficareausagevalue",
+   "description": "",
+   "metadata": {
+    "dataType": "trafficareausagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficAreaUsageValue/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "62975b74-ccb3-4beb-bdcc-f44123b94814",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/pedestrian",
+     "name": "pedestrian",
+     "description": "pedestrian"
+    },
+    {
+     "code": "dea14d21-43db-4914-8acf-3a56b64c7080",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/car",
+     "name": "car",
+     "description": "car"
+    },
+    {
+     "code": "be5ae600-1048-478a-bd16-c13ffb52efea",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/truck",
+     "name": "truck",
+     "description": "truck"
+    },
+    {
+     "code": "ea299af2-7435-42b2-82b8-828d9a0856b2",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bus-taxi",
+     "name": "bus-taxi",
+     "description": "bus, taxi"
+    },
+    {
+     "code": "33d7cfcc-7434-42e1-af5f-d5fe18a2ccee",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/train",
+     "name": "train",
+     "description": "train"
+    },
+    {
+     "code": "f68494f9-0b0a-480d-b744-c6ecc4105a24",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/bicycle",
+     "name": "bicycle",
+     "description": "bicycle"
+    },
+    {
+     "code": "0d12cf0b-5f90-4b25-9127-3198b8a53b56",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/motorcycle",
+     "name": "motorcycle",
+     "description": "motorcycle"
+    },
+    {
+     "code": "f36fab33-9c3e-40cb-aa01-1c3cf802918b",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tram-streetcar",
+     "name": "tram-streetcar",
+     "description": "tram, streetcar"
+    },
+    {
+     "code": "c76a1e2d-e5e5-44bf-9fb7-c7f31c7dc3b5",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/boat-ferry-ship",
+     "name": "boat-ferry-ship",
+     "description": "boat, ferry, ship"
+    },
+    {
+     "code": "8efca3f4-792d-47f9-9f1b-51a2e386bc48",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/teleferic",
+     "name": "teleferic",
+     "description": "teleferic"
+    },
+    {
+     "code": "d5c23423-7a6f-4803-8ff7-92ae268b1a6c",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/aeroplane",
+     "name": "aeroplane",
+     "description": "aeroplane"
+    },
+    {
+     "code": "0785a133-1c2f-435c-9c2c-0e09029048dd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/helicopter",
+     "name": "helicopter",
+     "description": "helicopter"
+    },
+    {
+     "code": "a57373c6-9e3f-4ca7-931b-7a7ade8468d7",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/taxi",
+     "name": "taxi",
+     "description": "taxi"
+    },
+    {
+     "code": "8c6c68b3-44b2-4323-a13a-7cd2b83a4dbd",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/horse",
+     "name": "horse",
+     "description": "horse"
+    },
+    {
+     "code": "c4cda19e-8b1b-4bcd-bc37-c04e902043f5",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/unknown",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "TrafficSpaceClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "246c68628a79d72d35a4377a4e78e5a6033fafe9e6e0527dd94aedd6bacddb38",
+   "identifier": "Transportation.TrafficSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trafficspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrafficSpaceFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "e9e6e8f65dc934d26ef5e336779e4268b3aad80e7e0df74ea5c7ca18644ea143",
+   "identifier": "Transportation.TrafficSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trafficspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TrafficSpaceUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:28+00:00",
+   "sha256": "e58256d2270bf8b0639fa3738ba852c340eafa39d530bcd2031e62cc957d5d93",
+   "identifier": "Transportation.TrafficSpaceUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/trafficspaceusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "trafficspaceusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.TrafficSpaceUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WaterwayClassValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "c522fcd9a7fe14bab335dea844d352ae0c68ba401ed880862ef7baa70199eae8",
+   "identifier": "Transportation.WaterwayClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/waterwayclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "waterwayclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.WaterwayClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WaterwayFunctionValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "dd0985c2492fffd71c758ff91520f32918beaca03d4fc77e4cdeed7905bc96f6",
+   "identifier": "Transportation.WaterwayFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/waterwayfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "waterwayfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.WaterwayFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "WaterwayUsageValue": {
+   "module": "Transportation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "1e1b4f15290478932b89921532c4a766d06f2db6db753c3bfd613cac2ded4d9c",
+   "identifier": "Transportation.WaterwayUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/waterwayusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "waterwayusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Transportation.WaterwayUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "HollowSpaceClassValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "b3e5380b871b44ce9e5cc30273a0d82ca62fbc862f30778b482b57d30c64d6db",
+   "identifier": "Tunnel.HollowSpaceClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/hollowspaceclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "hollowspaceclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.HollowSpaceClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "HollowSpaceFunctionValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "4751ca2a7c6f76f54f74a09ae929155e19d40ccf35c89c19e8ec60a0ca8a6867",
+   "identifier": "Tunnel.HollowSpaceFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/hollowspacefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "hollowspacefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.HollowSpaceFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "HollowSpaceUsageValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceUsageValue.xml",
+   "unavailable": true,
+   "availableAtSource": false,
+   "values": [],
+   "placeholder": false
+  },
+  "TunnelClassValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "d77e0f5367de1ecd7f42d4e3ef6b83d98083dcfecbfb5683894d368dbbeede4e",
+   "identifier": "TunnelClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "TunnelClassValue",
+    "namespace": "http://www.opengis.net/citygml/tunnel/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelClassValue",
+     "name": "traffic",
+     "description": "traffic"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelClassValue",
+     "name": "supply",
+     "description": "supply"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelClassValue",
+     "name": "historical",
+     "description": "historical"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelClassValue",
+     "name": "others",
+     "description": "others"
+    }
+   ],
+   "placeholder": false
+  },
+  "TunnelConstructiveElementClassValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:29+00:00",
+   "sha256": "a2fa123e1f21b56107cd3e6133aa6f228322a794cda488880d60a1781f578f1d",
+   "identifier": "Tunnel.TunnelConstructiveElementClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelconstructiveelementclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelconstructiveelementclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelConstructiveElementClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelConstructiveElementFunctionValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "7ed865e4f1ce2b6aeccd4346c1e4640ec0627740b55a1c743e2ec053f5389367",
+   "identifier": "Tunnel.TunnelConstructiveElementFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelconstructiveelementfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelconstructiveelementfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelConstructiveElementFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelConstructiveElementUsageValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "acc66a1ce16e3572c635e01ab13e10b5a4bef793552675cb484129b30423772a",
+   "identifier": "Tunnel.TunnelConstructiveElementUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelconstructiveelementusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelconstructiveelementusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelConstructiveElementUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelFunctionValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "1d92c88b629a309212125cc926da1fa117f0c437f2ff462dfe6df9977bd6fb90",
+   "identifier": "TunnelFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "TunnelFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/tunnel/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelFunctionValue",
+     "name": "railway tunnel",
+     "description": "railway tunnel"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelFunctionValue",
+     "name": "roadway tunnel",
+     "description": "roadway tunnel"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelFunctionValue",
+     "name": "canal tunnel",
+     "description": "canal tunnel"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelFunctionValue",
+     "name": "pedestrian tunnel",
+     "description": "pedestrian tunnel"
+    }
+   ],
+   "placeholder": false
+  },
+  "TunnelFurnitureClassValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "7e2f3cf9fbc9eeec992a19d21d2a2762b7d428515633ac15d754a229188348bb",
+   "identifier": "Tunnel.TunnelFurnitureClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelfurnitureclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelfurnitureclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelFurnitureClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelFurnitureFunctionValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "632a59424309a121274c51f499148283510273ada04bda0e7324a931b786aa41",
+   "identifier": "Tunnel.TunnelFurnitureFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelfurniturefunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelfurniturefunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelFurnitureFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelFurnitureUsageValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "d7f8c712774d899cb746bfab1f069a6608f29eace66dcca54f53aa91359d6dfc",
+   "identifier": "Tunnel.TunnelFurnitureUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelfurnitureusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelfurnitureusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelFurnitureUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelInstallationClassValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:30+00:00",
+   "sha256": "c2ca578a2b70aed93c8c476281dd2aa058210802628ed8a3dad6323366235dba",
+   "identifier": "Tunnel.TunnelInstallationClassValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelinstallationclassvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelinstallationclassvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelInstallationClassValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelInstallationFunctionValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "b9c51fcd6c8f2551cc8ad3e61602e31e1809efd5b535b11c2f1d0066c179f71f",
+   "identifier": "Tunnel.TunnelInstallationFunctionValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelinstallationfunctionvalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelinstallationfunctionvalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelInstallationFunctionValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelInstallationUsageValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "fa6340b2f3509c49f1987c7d2d8317d53cbcb6551e5f8d4c14b838f932c6da9b",
+   "identifier": "Tunnel.TunnelInstallationUsageValue",
+   "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/tunnelinstallationusagevalue",
+   "description": "Automatically generated examples",
+   "metadata": {
+    "dataType": "tunnelinstallationusagevalue",
+    "namespace": "http://www.opengis.net/citygml/Tunnel.TunnelInstallationUsageValue/3.0",
+    "language": "en-US",
+    "authority": "TBD",
+    "version": "3.0.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelist-metadata"
+   },
+   "values": [
+    {
+     "code": "9991",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-1}",
+     "name": "{example-1}",
+     "description": "{example 1}"
+    },
+    {
+     "code": "9992",
+     "codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/{example-2}",
+     "name": "{example-2}",
+     "description": "{example 2}"
+    }
+   ],
+   "placeholder": true
+  },
+  "TunnelUsageValue": {
+   "module": "Tunnel",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "03c700fd667d7272651488f34e93681d843536eabe056063c29ca41a21b32141",
+   "identifier": "TunnelUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "TunnelUsageValue",
+    "namespace": "http://www.opengis.net/citygml/tunnel/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelUsageValue",
+     "name": "railway tunnel",
+     "description": "railway tunnel"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelUsageValue",
+     "name": "roadway tunnel",
+     "description": "roadway tunnel"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelUsageValue",
+     "name": "canal tunnel",
+     "description": "canal tunnel"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/tunnel/3.0/TunnelUsageValue",
+     "name": "pedestrian tunnel",
+     "description": "pedestrian tunnel"
+    }
+   ],
+   "placeholder": false
+  },
+  "PlantCoverClassValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "f2f67a5e6d09a47ed24542291d3656c628959fd1cb131972193ef3435762f1e2",
+   "identifier": "PlantCoverClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "PlantCoverClassValue",
+    "namespace": "http://www.opengis.net/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Lemnetea",
+     "description": "Lemnetea"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Asplenietea rupestris",
+     "description": "Asplenietea rupestris"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Adiantetea",
+     "description": "Adiantetea"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Thlaspietea rotundifolii",
+     "description": "Thlaspietea rotundifolii"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Crithmo-Limonietea",
+     "description": "Crithmo-Limonietea"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Ammophietea",
+     "description": "Ammophietea"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Cakiletea maritimae halophile",
+     "description": "Cakiletea maritimae halophile"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Secalinetea",
+     "description": "Secalinetea"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Chenopodietea",
+     "description": "Chenopodietea"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Onopordetea",
+     "description": "Onopordetea"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Epilobietea angustifolii",
+     "description": "Epilobietea angustifolii"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Bidentetea tripartiti",
+     "description": "Bidentetea tripartiti"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Zoosteretea marinae halophile",
+     "description": "Zoosteretea marinae halophile"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Ruppietea maritimae",
+     "description": "Ruppietea maritimae"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Potametea haftende",
+     "description": "Potametea haftende"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Litorelletea",
+     "description": "Litorelletea"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Plantaginetea majoris",
+     "description": "Plantaginetea majoris"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Isoeto-Nanojuncetea",
+     "description": "Isoeto-Nanojuncetea"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Montino-Cardaminetea",
+     "description": "Montino-Cardaminetea"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Corynephoretea",
+     "description": "Corynephoretea"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Asteretea tripolium",
+     "description": "Asteretea tripolium"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Salicornietea",
+     "description": "Salicornietea"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Juncetea maritimi",
+     "description": "Juncetea maritimi"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Phragmitetea",
+     "description": "Phragmitetea"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Spartinetea",
+     "description": "Spartinetea"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Sedo-Scleranthetea",
+     "description": "Sedo-Scleranthetea"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Salicetea herbaceae",
+     "description": "Salicetea herbaceae"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Arrhenatheretea",
+     "description": "Arrhenatheretea"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Molinio-Juncetea",
+     "description": "Molinio-Juncetea"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Scheuchzerio-Caricetea fuscae azidophile",
+     "description": "Scheuchzerio-Caricetea fuscae azidophile"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Festuco-Brometea",
+     "description": "Festuco-Brometea"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Elyno-Seslerietea",
+     "description": "Elyno-Seslerietea"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Caricetea curvulae azidophile",
+     "description": "Caricetea curvulae azidophile"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Calluno-Ulicetea",
+     "description": "Calluno-Ulicetea"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Oxycocco-Sphagnetea",
+     "description": "Oxycocco-Sphagnetea"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Salicetea purpureae",
+     "description": "Salicetea purpureae"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Betulo-Adenostyletea",
+     "description": "Betulo-Adenostyletea"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Alnetea glutinosae",
+     "description": "Alnetea glutinosae"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Erico-Pinetea",
+     "description": "Erico-Pinetea"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Vaccinio-Piceetea",
+     "description": "Vaccinio-Piceetea"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Quercetea robori-petraeae",
+     "description": "Quercetea robori-petraeae"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Querco-Fagetea",
+     "description": "Querco-Fagetea"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Crithmo-Staticetea",
+     "description": "Crithmo-Staticetea"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Tuberarietea guttati",
+     "description": "Tuberarietea guttati"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Juncetea maritimae",
+     "description": "Juncetea maritimae"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Thero-Brachypodietea",
+     "description": "Thero-Brachypodietea"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Ononido-Rosmarinetea",
+     "description": "Ononido-Rosmarinetea"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Nerio-Tamaricetea",
+     "description": "Nerio-Tamaricetea"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Pegano-Salsoletea",
+     "description": "Pegano-Salsoletea"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Cisto-Lavanduletea",
+     "description": "Cisto-Lavanduletea"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Quercetea ilicis",
+     "description": "Quercetea ilicis"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "Populetea albae",
+     "description": "Populetea albae"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverClassValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "PlantCoverFunctionValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "e0691f12862365e470f827636084dc057fa8e05aa9c54a26c8422907c8cb3550",
+   "identifier": "PlantCoverFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "PlantCoverFunctionValue",
+    "namespace": "http://www.opengis.net/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Lemnetea",
+     "description": "Lemnetea"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Asplenietea rupestris",
+     "description": "Asplenietea rupestris"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Adiantetea",
+     "description": "Adiantetea"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Thlaspietea rotundifolii",
+     "description": "Thlaspietea rotundifolii"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Crithmo-Limonietea",
+     "description": "Crithmo-Limonietea"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Ammophietea",
+     "description": "Ammophietea"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Cakiletea maritimae halophile",
+     "description": "Cakiletea maritimae halophile"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Secalinetea",
+     "description": "Secalinetea"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Chenopodietea",
+     "description": "Chenopodietea"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Onopordetea",
+     "description": "Onopordetea"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Epilobietea angustifolii",
+     "description": "Epilobietea angustifolii"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Bidentetea tripartiti",
+     "description": "Bidentetea tripartiti"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Zoosteretea marinae halophile",
+     "description": "Zoosteretea marinae halophile"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Ruppietea maritimae",
+     "description": "Ruppietea maritimae"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Potametea haftende",
+     "description": "Potametea haftende"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Litorelletea",
+     "description": "Litorelletea"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Plantaginetea majoris",
+     "description": "Plantaginetea majoris"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Isoeto-Nanojuncetea",
+     "description": "Isoeto-Nanojuncetea"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Montino-Cardaminetea",
+     "description": "Montino-Cardaminetea"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Corynephoretea",
+     "description": "Corynephoretea"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Asteretea tripolium",
+     "description": "Asteretea tripolium"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Salicornietea",
+     "description": "Salicornietea"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Juncetea maritimi",
+     "description": "Juncetea maritimi"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Phragmitetea",
+     "description": "Phragmitetea"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Spartinetea",
+     "description": "Spartinetea"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Sedo-Scleranthetea",
+     "description": "Sedo-Scleranthetea"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Salicetea herbaceae",
+     "description": "Salicetea herbaceae"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Arrhenatheretea",
+     "description": "Arrhenatheretea"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Molinio-Juncetea",
+     "description": "Molinio-Juncetea"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Scheuchzerio-Caricetea fuscae azidophile",
+     "description": "Scheuchzerio-Caricetea fuscae azidophile"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Festuco-Brometea",
+     "description": "Festuco-Brometea"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Elyno-Seslerietea",
+     "description": "Elyno-Seslerietea"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Caricetea curvulae azidophile",
+     "description": "Caricetea curvulae azidophile"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Calluno-Ulicetea",
+     "description": "Calluno-Ulicetea"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Oxycocco-Sphagnetea",
+     "description": "Oxycocco-Sphagnetea"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Salicetea purpureae",
+     "description": "Salicetea purpureae"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Betulo-Adenostyletea",
+     "description": "Betulo-Adenostyletea"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Alnetea glutinosae",
+     "description": "Alnetea glutinosae"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Erico-Pinetea",
+     "description": "Erico-Pinetea"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Vaccinio-Piceetea",
+     "description": "Vaccinio-Piceetea"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Quercetea robori-petraeae",
+     "description": "Quercetea robori-petraeae"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Querco-Fagetea",
+     "description": "Querco-Fagetea"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Crithmo-Staticetea",
+     "description": "Crithmo-Staticetea"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Tuberarietea guttati",
+     "description": "Tuberarietea guttati"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Juncetea maritimae",
+     "description": "Juncetea maritimae"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Thero-Brachypodietea",
+     "description": "Thero-Brachypodietea"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Ononido-Rosmarinetea",
+     "description": "Ononido-Rosmarinetea"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Nerio-Tamaricetea",
+     "description": "Nerio-Tamaricetea"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Pegano-Salsoletea",
+     "description": "Pegano-Salsoletea"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Cisto-Lavanduletea",
+     "description": "Cisto-Lavanduletea"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Quercetea ilicis",
+     "description": "Quercetea ilicis"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "Populetea albae",
+     "description": "Populetea albae"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverFunctionValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "PlantCoverUsageValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:31+00:00",
+   "sha256": "14a9e7ff9374f587d6609ee12489eda6fd55c40003a9b383782af3826e012d20",
+   "identifier": "PlantCoverUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "PlantCoverUsageValue",
+    "namespace": "http://www.opengis.net/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Lemnetea",
+     "description": "Lemnetea"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Asplenietea rupestris",
+     "description": "Asplenietea rupestris"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Adiantetea",
+     "description": "Adiantetea"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Thlaspietea rotundifolii",
+     "description": "Thlaspietea rotundifolii"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Crithmo-Limonietea",
+     "description": "Crithmo-Limonietea"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Ammophietea",
+     "description": "Ammophietea"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Cakiletea maritimae halophile",
+     "description": "Cakiletea maritimae halophile"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Secalinetea",
+     "description": "Secalinetea"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Chenopodietea",
+     "description": "Chenopodietea"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Onopordetea",
+     "description": "Onopordetea"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Epilobietea angustifolii",
+     "description": "Epilobietea angustifolii"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Bidentetea tripartiti",
+     "description": "Bidentetea tripartiti"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Zoosteretea marinae halophile",
+     "description": "Zoosteretea marinae halophile"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Ruppietea maritimae",
+     "description": "Ruppietea maritimae"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Potametea haftende",
+     "description": "Potametea haftende"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Litorelletea",
+     "description": "Litorelletea"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Plantaginetea majoris",
+     "description": "Plantaginetea majoris"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Isoeto-Nanojuncetea",
+     "description": "Isoeto-Nanojuncetea"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Montino-Cardaminetea",
+     "description": "Montino-Cardaminetea"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Corynephoretea",
+     "description": "Corynephoretea"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Asteretea tripolium",
+     "description": "Asteretea tripolium"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Salicornietea",
+     "description": "Salicornietea"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Juncetea maritimi",
+     "description": "Juncetea maritimi"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Phragmitetea",
+     "description": "Phragmitetea"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Spartinetea",
+     "description": "Spartinetea"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Sedo-Scleranthetea",
+     "description": "Sedo-Scleranthetea"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Salicetea herbaceae",
+     "description": "Salicetea herbaceae"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Arrhenatheretea",
+     "description": "Arrhenatheretea"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Molinio-Juncetea",
+     "description": "Molinio-Juncetea"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Scheuchzerio-Caricetea fuscae azidophile",
+     "description": "Scheuchzerio-Caricetea fuscae azidophile"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Festuco-Brometea",
+     "description": "Festuco-Brometea"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Elyno-Seslerietea",
+     "description": "Elyno-Seslerietea"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Caricetea curvulae azidophile",
+     "description": "Caricetea curvulae azidophile"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Calluno-Ulicetea",
+     "description": "Calluno-Ulicetea"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Oxycocco-Sphagnetea",
+     "description": "Oxycocco-Sphagnetea"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Salicetea purpureae",
+     "description": "Salicetea purpureae"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Betulo-Adenostyletea",
+     "description": "Betulo-Adenostyletea"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Alnetea glutinosae",
+     "description": "Alnetea glutinosae"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Erico-Pinetea",
+     "description": "Erico-Pinetea"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Vaccinio-Piceetea",
+     "description": "Vaccinio-Piceetea"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Quercetea robori-petraeae",
+     "description": "Quercetea robori-petraeae"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Querco-Fagetea",
+     "description": "Querco-Fagetea"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Crithmo-Staticetea",
+     "description": "Crithmo-Staticetea"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Tuberarietea guttati",
+     "description": "Tuberarietea guttati"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Juncetea maritimae",
+     "description": "Juncetea maritimae"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Thero-Brachypodietea",
+     "description": "Thero-Brachypodietea"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Ononido-Rosmarinetea",
+     "description": "Ononido-Rosmarinetea"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Nerio-Tamaricetea",
+     "description": "Nerio-Tamaricetea"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Pegano-Salsoletea",
+     "description": "Pegano-Salsoletea"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Cisto-Lavanduletea",
+     "description": "Cisto-Lavanduletea"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Quercetea ilicis",
+     "description": "Quercetea ilicis"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "Populetea albae",
+     "description": "Populetea albae"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/PlantCoverUsageValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "SolitaryVegetationObjectClassValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "20e83df41d5dc4938bf55b4dd838b51608bd3809531eda3143de8dba8cdf3f0e",
+   "identifier": "SolitaryVegetationObjectClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "SolitaryVegetationObjectClassValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "shrub",
+     "description": "shrub"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "low plants",
+     "description": "low plants"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "medium high plants",
+     "description": "medium high plants"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "high plants",
+     "description": "high plants"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "grasses",
+     "description": "grasses"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "ferns",
+     "description": "ferns"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "coniferous tree",
+     "description": "coniferous tree"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "decidous tree",
+     "description": "decidous tree"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "bushes",
+     "description": "bushes"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "aquatic plants",
+     "description": "aquatic plants"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "climber",
+     "description": "climber"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectClassValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "SolitaryVegetationObjectFunctionValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "e791e550ea25e03c5db00e22ba7dfa05dcedc25b6fad08f025168160fcf392de",
+   "identifier": "SolitaryVegetationObjectFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "SolitaryVegetationObjectFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "shrub",
+     "description": "shrub"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "low plants",
+     "description": "low plants"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "medium high plants",
+     "description": "medium high plants"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "high plants",
+     "description": "high plants"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "grasses",
+     "description": "grasses"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "ferns",
+     "description": "ferns"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "coniferous tree",
+     "description": "coniferous tree"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "decidous tree",
+     "description": "decidous tree"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "bushes",
+     "description": "bushes"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "aquatic plants",
+     "description": "aquatic plants"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "climber",
+     "description": "climber"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectFunctionValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "SolitaryVegetationObjectUsageValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "f0e80c5989053affc5a05180e82ce37947415edfe59ae15f47103a868f9d571e",
+   "identifier": "SolitaryVegetationObjectUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "SolitaryVegetationObjectUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "shrub",
+     "description": "shrub"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "low plants",
+     "description": "low plants"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "medium high plants",
+     "description": "medium high plants"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "high plants",
+     "description": "high plants"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "grasses",
+     "description": "grasses"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "ferns",
+     "description": "ferns"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "coniferous tree",
+     "description": "coniferous tree"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "decidous tree",
+     "description": "decidous tree"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "bushes",
+     "description": "bushes"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "aquatic plants",
+     "description": "aquatic plants"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "climber",
+     "description": "climber"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SolitaryVegetationObjectUsageValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "SpeciesValue": {
+   "module": "Vegetation",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SpeciesValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SpeciesValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "f1d585dd5a5c5ae69cd2431b9788ce78e8e45ca91ecb9ab2a9afb342fa6af248",
+   "identifier": "SpeciesValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+   "description": "",
+   "metadata": {
+    "dataType": "SpeciesValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea",
+     "description": "Picea"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus",
+     "description": "Pinus"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Larix",
+     "description": "Larix"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus",
+     "description": "Quercus"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fagus",
+     "description": "Fagus"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula",
+     "description": "Betula"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alnus",
+     "description": "Alnus"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus",
+     "description": "Populus"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix",
+     "description": "Salix"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer",
+     "description": "Acer"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fraxinus",
+     "description": "Fraxinus"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Arabis",
+     "description": "Arabis"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Galeobdolon luteum",
+     "description": "Galeobdolon luteum"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Campanula poscharskyana",
+     "description": "Campanula poscharskyana"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Galium odoratum",
+     "description": "Galium odoratum"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Allium ursinum",
+     "description": "Allium ursinum"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Helleborus",
+     "description": "Helleborus"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alchemilla",
+     "description": "Alchemilla"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Iris",
+     "description": "Iris"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Begonia",
+     "description": "Begonia"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ranunculus asiaticus",
+     "description": "Ranunculus asiaticus"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Geranium Macrorrhizum Ingwersen",
+     "description": "Geranium Macrorrhizum Ingwersen"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pelargonie Burc Double",
+     "description": "Pelargonie Burc Double"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euphorbia",
+     "description": "Euphorbia"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aqulilegia",
+     "description": "Aqulilegia"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Symphytum officinale",
+     "description": "Symphytum officinale"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sedum spectabile und Sedum telphium",
+     "description": "Sedum spectabile und Sedum telphium"
+    },
+    {
+     "code": "1270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Centaurea",
+     "description": "Centaurea"
+    },
+    {
+     "code": "1280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Centaurea cysanus",
+     "description": "Centaurea cysanus"
+    },
+    {
+     "code": "1290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lychnis coronaria",
+     "description": "Lychnis coronaria"
+    },
+    {
+     "code": "1300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Physalis",
+     "description": "Physalis"
+    },
+    {
+     "code": "1310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Coreopsis verticillata",
+     "description": "Coreopsis verticillata"
+    },
+    {
+     "code": "1320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calendula",
+     "description": "Calendula"
+    },
+    {
+     "code": "1330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phlox paniculata",
+     "description": "Phlox paniculata"
+    },
+    {
+     "code": "1340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dianthus barbatus",
+     "description": "Dianthus barbatus"
+    },
+    {
+     "code": "1350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hemerocallis",
+     "description": "Hemerocallis"
+    },
+    {
+     "code": "1360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hemerocallis flava",
+     "description": "Hemerocallis flava"
+    },
+    {
+     "code": "1370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lythrum",
+     "description": "Lythrum"
+    },
+    {
+     "code": "1380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lysmachia",
+     "description": "Lysmachia"
+    },
+    {
+     "code": "1390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aster novae",
+     "description": "Aster novae"
+    },
+    {
+     "code": "1400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cardiocrinum giganteum",
+     "description": "Cardiocrinum giganteum"
+    },
+    {
+     "code": "1410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Delphinium",
+     "description": "Delphinium"
+    },
+    {
+     "code": "1420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pteridium",
+     "description": "Pteridium"
+    },
+    {
+     "code": "1430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gymnocarpium dryopteris",
+     "description": "Gymnocarpium dryopteris"
+    },
+    {
+     "code": "1440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Matteuccia struthiopteris",
+     "description": "Matteuccia struthiopteris"
+    },
+    {
+     "code": "1450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Magnolia Elisabeth",
+     "description": "Magnolia Elisabeth"
+    },
+    {
+     "code": "1460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hibiskus",
+     "description": "Hibiskus"
+    },
+    {
+     "code": "1470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hydrangea",
+     "description": "Hydrangea"
+    },
+    {
+     "code": "1480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cotinus coggygria",
+     "description": "Cotinus coggygria"
+    },
+    {
+     "code": "1490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euonymus europea",
+     "description": "Euonymus europea"
+    },
+    {
+     "code": "1500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhododendron",
+     "description": "Rhododendron"
+    },
+    {
+     "code": "1510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pontederia",
+     "description": "Pontederia"
+    },
+    {
+     "code": "1520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Clematis",
+     "description": "Clematis"
+    },
+    {
+     "code": "1530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tropaeolum",
+     "description": "Tropaeolum"
+    },
+    {
+     "code": "1540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vicia, Lathyrus",
+     "description": "Vicia, Lathyrus"
+    },
+    {
+     "code": "1550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Plumbago",
+     "description": "Plumbago"
+    },
+    {
+     "code": "1560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Zantedeschia",
+     "description": "Zantedeschia"
+    },
+    {
+     "code": "1570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fuchsia",
+     "description": "Fuchsia"
+    },
+    {
+     "code": "1580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gerbera",
+     "description": "Gerbera"
+    },
+    {
+     "code": "1590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Nopalxochia",
+     "description": "Nopalxochia"
+    },
+    {
+     "code": "1600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hydrangea",
+     "description": "Hydrangea"
+    },
+    {
+     "code": "1610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cassia",
+     "description": "Cassia"
+    },
+    {
+     "code": "1620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cistus",
+     "description": "Cistus"
+    },
+    {
+     "code": "1630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abienus festuschristus",
+     "description": "Abienus festuschristus"
+    },
+    {
+     "code": "1640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies alba",
+     "description": "Abies alba"
+    },
+    {
+     "code": "1650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies cephalonica",
+     "description": "Abies cephalonica"
+    },
+    {
+     "code": "1660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies concolor",
+     "description": "Abies concolor"
+    },
+    {
+     "code": "1670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies grandis",
+     "description": "Abies grandis"
+    },
+    {
+     "code": "1680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies homolepsis",
+     "description": "Abies homolepsis"
+    },
+    {
+     "code": "1690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies koreana",
+     "description": "Abies koreana"
+    },
+    {
+     "code": "1700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies lasiocarpa",
+     "description": "Abies lasiocarpa"
+    },
+    {
+     "code": "1710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies nordmanniana",
+     "description": "Abies nordmanniana"
+    },
+    {
+     "code": "1720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies pinsapo",
+     "description": "Abies pinsapo"
+    },
+    {
+     "code": "1730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies procera",
+     "description": "Abies procera"
+    },
+    {
+     "code": "1740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies procera 'Glauca'",
+     "description": "Abies procera 'Glauca'"
+    },
+    {
+     "code": "1750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Abies veitchii",
+     "description": "Abies veitchii"
+    },
+    {
+     "code": "1760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer campéstre",
+     "description": "Acer campéstre"
+    },
+    {
+     "code": "1770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer capillipes",
+     "description": "Acer capillipes"
+    },
+    {
+     "code": "1780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer cappadocicum",
+     "description": "Acer cappadocicum"
+    },
+    {
+     "code": "1790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer circinatum",
+     "description": "Acer circinatum"
+    },
+    {
+     "code": "1800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer Davidii",
+     "description": "Acer Davidii"
+    },
+    {
+     "code": "1810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer ginnala Maxim",
+     "description": "Acer ginnala Maxim"
+    },
+    {
+     "code": "1820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer grosserii",
+     "description": "Acer grosserii"
+    },
+    {
+     "code": "1830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer monspessulanum",
+     "description": "Acer monspessulanum"
+    },
+    {
+     "code": "1840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer negundo",
+     "description": "Acer negundo"
+    },
+    {
+     "code": "1850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer palmatum",
+     "description": "Acer palmatum"
+    },
+    {
+     "code": "1860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer platanoides",
+     "description": "Acer platanoides"
+    },
+    {
+     "code": "1870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer platanoides 'Crimson King'",
+     "description": "Acer platanoides 'Crimson King'"
+    },
+    {
+     "code": "1880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer pseudoplatanus",
+     "description": "Acer pseudoplatanus"
+    },
+    {
+     "code": "1890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer rubrum",
+     "description": "Acer rubrum"
+    },
+    {
+     "code": "1900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer saccharinum",
+     "description": "Acer saccharinum"
+    },
+    {
+     "code": "1910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer saccharum Marsch",
+     "description": "Acer saccharum Marsch"
+    },
+    {
+     "code": "1920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer tartaricum",
+     "description": "Acer tartaricum"
+    },
+    {
+     "code": "1930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aesculus hippocástanum",
+     "description": "Aesculus hippocástanum"
+    },
+    {
+     "code": "1940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aesculus x carnea",
+     "description": "Aesculus x carnea"
+    },
+    {
+     "code": "1950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Afzelia africana",
+     "description": "Afzelia africana"
+    },
+    {
+     "code": "1960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ailanthus altissima",
+     "description": "Ailanthus altissima"
+    },
+    {
+     "code": "1970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alnus cordata",
+     "description": "Alnus cordata"
+    },
+    {
+     "code": "1980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alnus glutinosa",
+     "description": "Alnus glutinosa"
+    },
+    {
+     "code": "1990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alnus incána",
+     "description": "Alnus incána"
+    },
+    {
+     "code": "2000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alnus viridis",
+     "description": "Alnus viridis"
+    },
+    {
+     "code": "2010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Amelánchier ovális",
+     "description": "Amelánchier ovális"
+    },
+    {
+     "code": "2020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Anacardium occidentale",
+     "description": "Anacardium occidentale"
+    },
+    {
+     "code": "2030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aralia elata",
+     "description": "Aralia elata"
+    },
+    {
+     "code": "2040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Araucaria araucana",
+     "description": "Araucaria araucana"
+    },
+    {
+     "code": "2050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aucuba japonica",
+     "description": "Aucuba japonica"
+    },
+    {
+     "code": "2060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Berberis julianae",
+     "description": "Berberis julianae"
+    },
+    {
+     "code": "2070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Berberis thunbergii",
+     "description": "Berberis thunbergii"
+    },
+    {
+     "code": "2080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula alnoides",
+     "description": "Betula alnoides"
+    },
+    {
+     "code": "2090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula costata",
+     "description": "Betula costata"
+    },
+    {
+     "code": "2100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula davurica",
+     "description": "Betula davurica"
+    },
+    {
+     "code": "2110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula ermanii",
+     "description": "Betula ermanii"
+    },
+    {
+     "code": "2120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula papyrifera",
+     "description": "Betula papyrifera"
+    },
+    {
+     "code": "2130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Bétula péndula",
+     "description": "Bétula péndula"
+    },
+    {
+     "code": "2140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Betula pubescens",
+     "description": "Betula pubescens"
+    },
+    {
+     "code": "2150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Broussonetia papyrifera",
+     "description": "Broussonetia papyrifera"
+    },
+    {
+     "code": "2160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Buddleja davidii",
+     "description": "Buddleja davidii"
+    },
+    {
+     "code": "2170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Butyrospermum parkii",
+     "description": "Butyrospermum parkii"
+    },
+    {
+     "code": "2180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Buxus sempervirens",
+     "description": "Buxus sempervirens"
+    },
+    {
+     "code": "2190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calocedrus decurrens",
+     "description": "Calocedrus decurrens"
+    },
+    {
+     "code": "2200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calocedrus decurrens 'Aureovariegata'",
+     "description": "Calocedrus decurrens 'Aureovariegata'"
+    },
+    {
+     "code": "2210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calycanthus floridus",
+     "description": "Calycanthus floridus"
+    },
+    {
+     "code": "2220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Campsis radicans",
+     "description": "Campsis radicans"
+    },
+    {
+     "code": "2230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Caragana arborescens",
+     "description": "Caragana arborescens"
+    },
+    {
+     "code": "2240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Carpínus bétulus",
+     "description": "Carpínus bétulus"
+    },
+    {
+     "code": "2250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cassia siberiana",
+     "description": "Cassia siberiana"
+    },
+    {
+     "code": "2260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Castanéa satíva",
+     "description": "Castanéa satíva"
+    },
+    {
+     "code": "2270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Catalpa bignonioides",
+     "description": "Catalpa bignonioides"
+    },
+    {
+     "code": "2280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrela sinensis",
+     "description": "Cedrela sinensis"
+    },
+    {
+     "code": "2290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrus atlantica",
+     "description": "Cedrus atlantica"
+    },
+    {
+     "code": "2300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrus atlantica 'Glauca'",
+     "description": "Cedrus atlantica 'Glauca'"
+    },
+    {
+     "code": "2310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrus deodara",
+     "description": "Cedrus deodara"
+    },
+    {
+     "code": "2320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrus deodara var paktia",
+     "description": "Cedrus deodara var paktia"
+    },
+    {
+     "code": "2330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cedrus libani",
+     "description": "Cedrus libani"
+    },
+    {
+     "code": "2340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Celtis occidentalis",
+     "description": "Celtis occidentalis"
+    },
+    {
+     "code": "2350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cercis siliquastrum",
+     "description": "Cercis siliquastrum"
+    },
+    {
+     "code": "2360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Chaenomeles japonica",
+     "description": "Chaenomeles japonica"
+    },
+    {
+     "code": "2370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Chamaecyparis lawsonia",
+     "description": "Chamaecyparis lawsonia"
+    },
+    {
+     "code": "2380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Chamaecyparis nootkatensis",
+     "description": "Chamaecyparis nootkatensis"
+    },
+    {
+     "code": "2390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Chionanthus virginicus",
+     "description": "Chionanthus virginicus"
+    },
+    {
+     "code": "2400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cladrastis lutea",
+     "description": "Cladrastis lutea"
+    },
+    {
+     "code": "2410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Clematis montana",
+     "description": "Clematis montana"
+    },
+    {
+     "code": "2420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Clematis vitalba",
+     "description": "Clematis vitalba"
+    },
+    {
+     "code": "2430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Colutea arborescens",
+     "description": "Colutea arborescens"
+    },
+    {
+     "code": "2440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cornus alba",
+     "description": "Cornus alba"
+    },
+    {
+     "code": "2450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cornus florida",
+     "description": "Cornus florida"
+    },
+    {
+     "code": "2460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cornus mas",
+     "description": "Cornus mas"
+    },
+    {
+     "code": "2470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cornus sanguinea",
+     "description": "Cornus sanguinea"
+    },
+    {
+     "code": "2480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Córylus avellána",
+     "description": "Córylus avellána"
+    },
+    {
+     "code": "2490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Corylus avellana 'Contorta'",
+     "description": "Corylus avellana 'Contorta'"
+    },
+    {
+     "code": "2500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Córylus colúrna",
+     "description": "Córylus colúrna"
+    },
+    {
+     "code": "2510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Corylus maxima",
+     "description": "Corylus maxima"
+    },
+    {
+     "code": "2520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cotinus coggygria",
+     "description": "Cotinus coggygria"
+    },
+    {
+     "code": "2530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cotoneaster frigidus",
+     "description": "Cotoneaster frigidus"
+    },
+    {
+     "code": "2540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Crataegus laevigata",
+     "description": "Crataegus laevigata"
+    },
+    {
+     "code": "2550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Crataegus laevigata 'Paul's Scarlet'",
+     "description": "Crataegus laevigata 'Paul's Scarlet'"
+    },
+    {
+     "code": "2560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Crataegus lavallei 'Carrierei'",
+     "description": "Crataegus lavallei 'Carrierei'"
+    },
+    {
+     "code": "2570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Crataegus monogyna",
+     "description": "Crataegus monogyna"
+    },
+    {
+     "code": "2580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cryptomeria japonica",
+     "description": "Cryptomeria japonica"
+    },
+    {
+     "code": "2590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cupressus arizonica",
+     "description": "Cupressus arizonica"
+    },
+    {
+     "code": "2600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cupressus sempervirens",
+     "description": "Cupressus sempervirens"
+    },
+    {
+     "code": "2610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Davidia involucrata",
+     "description": "Davidia involucrata"
+    },
+    {
+     "code": "2620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Delonix regia",
+     "description": "Delonix regia"
+    },
+    {
+     "code": "2630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Deutzia scabra",
+     "description": "Deutzia scabra"
+    },
+    {
+     "code": "2640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dracaena draco",
+     "description": "Dracaena draco"
+    },
+    {
+     "code": "2650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Elaeagnus angustifolia",
+     "description": "Elaeagnus angustifolia"
+    },
+    {
+     "code": "2660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Elaeagnus umbellata",
+     "description": "Elaeagnus umbellata"
+    },
+    {
+     "code": "2670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euonymus alatus",
+     "description": "Euonymus alatus"
+    },
+    {
+     "code": "2680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euonymus europaeus",
+     "description": "Euonymus europaeus"
+    },
+    {
+     "code": "2690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euonymus planipes",
+     "description": "Euonymus planipes"
+    },
+    {
+     "code": "2700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fagus orientalis",
+     "description": "Fagus orientalis"
+    },
+    {
+     "code": "2710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fagus sylvatica",
+     "description": "Fagus sylvatica"
+    },
+    {
+     "code": "2720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fagus sylvatica 'Pendula'",
+     "description": "Fagus sylvatica 'Pendula'"
+    },
+    {
+     "code": "2730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fágus sylvática purpuréa",
+     "description": "Fágus sylvática purpuréa"
+    },
+    {
+     "code": "2740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ficus carica",
+     "description": "Ficus carica"
+    },
+    {
+     "code": "2750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Forsythia x intermedia",
+     "description": "Forsythia x intermedia"
+    },
+    {
+     "code": "2760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Frangula alnus",
+     "description": "Frangula alnus"
+    },
+    {
+     "code": "2770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fraxínus excélsior",
+     "description": "Fraxínus excélsior"
+    },
+    {
+     "code": "2780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fraxinus latifolia",
+     "description": "Fraxinus latifolia"
+    },
+    {
+     "code": "2790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fraxinus ornus",
+     "description": "Fraxinus ornus"
+    },
+    {
+     "code": "2800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fraxinus paxiana",
+     "description": "Fraxinus paxiana"
+    },
+    {
+     "code": "2810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ginkgo biloba L",
+     "description": "Ginkgo biloba L"
+    },
+    {
+     "code": "2820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gleditsia triacanthos",
+     "description": "Gleditsia triacanthos"
+    },
+    {
+     "code": "2830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Halesia carolina",
+     "description": "Halesia carolina"
+    },
+    {
+     "code": "2840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hamamelis virginiana",
+     "description": "Hamamelis virginiana"
+    },
+    {
+     "code": "2850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hamamelis x intermedia",
+     "description": "Hamamelis x intermedia"
+    },
+    {
+     "code": "2860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hedera helix",
+     "description": "Hedera helix"
+    },
+    {
+     "code": "2870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hibiscus syriacus",
+     "description": "Hibiscus syriacus"
+    },
+    {
+     "code": "2880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hippophae rhamnoides",
+     "description": "Hippophae rhamnoides"
+    },
+    {
+     "code": "2890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ilex aquifolium",
+     "description": "Ilex aquifolium"
+    },
+    {
+     "code": "2900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Jasminum nudiflorum",
+     "description": "Jasminum nudiflorum"
+    },
+    {
+     "code": "2910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Juglans nigra",
+     "description": "Juglans nigra"
+    },
+    {
+     "code": "2920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Juglans regia",
+     "description": "Juglans regia"
+    },
+    {
+     "code": "2930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Juniperus communis",
+     "description": "Juniperus communis"
+    },
+    {
+     "code": "2940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Juniperus sabina",
+     "description": "Juniperus sabina"
+    },
+    {
+     "code": "2950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Kerria japonica 'Pleniflora'",
+     "description": "Kerria japonica 'Pleniflora'"
+    },
+    {
+     "code": "2960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Khaya senegalensis",
+     "description": "Khaya senegalensis"
+    },
+    {
+     "code": "2970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Koelreuteria paniculata",
+     "description": "Koelreuteria paniculata"
+    },
+    {
+     "code": "2980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Kolkwitzia amabilis",
+     "description": "Kolkwitzia amabilis"
+    },
+    {
+     "code": "2990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Laburnum alpinum",
+     "description": "Laburnum alpinum"
+    },
+    {
+     "code": "3000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Laburnum anagyroides",
+     "description": "Laburnum anagyroides"
+    },
+    {
+     "code": "3010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Larix decidua",
+     "description": "Larix decidua"
+    },
+    {
+     "code": "3020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Larix kaempferi",
+     "description": "Larix kaempferi"
+    },
+    {
+     "code": "3030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ligustrum vulgare",
+     "description": "Ligustrum vulgare"
+    },
+    {
+     "code": "3040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Liquidambar orientalis",
+     "description": "Liquidambar orientalis"
+    },
+    {
+     "code": "3050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Liquidambar styraciflua",
+     "description": "Liquidambar styraciflua"
+    },
+    {
+     "code": "3060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Liriodendron tulipifera",
+     "description": "Liriodendron tulipifera"
+    },
+    {
+     "code": "3070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lonicera maackii",
+     "description": "Lonicera maackii"
+    },
+    {
+     "code": "3080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lonicera tartarica",
+     "description": "Lonicera tartarica"
+    },
+    {
+     "code": "3090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lonicera x heckrottii",
+     "description": "Lonicera x heckrottii"
+    },
+    {
+     "code": "3100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lonicera xylosteum",
+     "description": "Lonicera xylosteum"
+    },
+    {
+     "code": "3110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Magnolia x soulangiana",
+     "description": "Magnolia x soulangiana"
+    },
+    {
+     "code": "3120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Mahonia aquifolium",
+     "description": "Mahonia aquifolium"
+    },
+    {
+     "code": "3130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malus floribunda",
+     "description": "Malus floribunda"
+    },
+    {
+     "code": "3140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Málus sylvéstris",
+     "description": "Málus sylvéstris"
+    },
+    {
+     "code": "3150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malus toringoides",
+     "description": "Malus toringoides"
+    },
+    {
+     "code": "3160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Mespilus germanica",
+     "description": "Mespilus germanica"
+    },
+    {
+     "code": "3170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Metasequoia glyptostroboides",
+     "description": "Metasequoia glyptostroboides"
+    },
+    {
+     "code": "3180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ostrya carpinifolia",
+     "description": "Ostrya carpinifolia"
+    },
+    {
+     "code": "3190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Parrotia persica",
+     "description": "Parrotia persica"
+    },
+    {
+     "code": "3200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Parthenocissus quinquefolia",
+     "description": "Parthenocissus quinquefolia"
+    },
+    {
+     "code": "3210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Parthenocissus tricuspidata",
+     "description": "Parthenocissus tricuspidata"
+    },
+    {
+     "code": "3220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Paulownia tomentosa",
+     "description": "Paulownia tomentosa"
+    },
+    {
+     "code": "3230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Philadelphus coronarius",
+     "description": "Philadelphus coronarius"
+    },
+    {
+     "code": "3240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea abies",
+     "description": "Picea abies"
+    },
+    {
+     "code": "3250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea abies 'Inversa'",
+     "description": "Picea abies 'Inversa'"
+    },
+    {
+     "code": "3260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea asperata",
+     "description": "Picea asperata"
+    },
+    {
+     "code": "3270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea engelmanii",
+     "description": "Picea engelmanii"
+    },
+    {
+     "code": "3280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea glauca",
+     "description": "Picea glauca"
+    },
+    {
+     "code": "3290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea glauca 'Conica'",
+     "description": "Picea glauca 'Conica'"
+    },
+    {
+     "code": "3300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea omorika",
+     "description": "Picea omorika"
+    },
+    {
+     "code": "3310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea orientalis",
+     "description": "Picea orientalis"
+    },
+    {
+     "code": "3320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea polita",
+     "description": "Picea polita"
+    },
+    {
+     "code": "3330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea pungens 'Glauca'",
+     "description": "Picea pungens 'Glauca'"
+    },
+    {
+     "code": "3340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea sitchensis",
+     "description": "Picea sitchensis"
+    },
+    {
+     "code": "3350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus aristata",
+     "description": "Pinus aristata"
+    },
+    {
+     "code": "3360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus armandii",
+     "description": "Pinus armandii"
+    },
+    {
+     "code": "3370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus cembra",
+     "description": "Pinus cembra"
+    },
+    {
+     "code": "3380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus contorta",
+     "description": "Pinus contorta"
+    },
+    {
+     "code": "3390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus heldreichii",
+     "description": "Pinus heldreichii"
+    },
+    {
+     "code": "3400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus jeffreyi",
+     "description": "Pinus jeffreyi"
+    },
+    {
+     "code": "3410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus koraiensis",
+     "description": "Pinus koraiensis"
+    },
+    {
+     "code": "3420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus leucodermis",
+     "description": "Pinus leucodermis"
+    },
+    {
+     "code": "3430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus mugo",
+     "description": "Pinus mugo"
+    },
+    {
+     "code": "3440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus nigra",
+     "description": "Pinus nigra"
+    },
+    {
+     "code": "3450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus nigra var",
+     "description": "Pinus nigra var"
+    },
+    {
+     "code": "3460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus nigra var",
+     "description": "Pinus nigra var"
+    },
+    {
+     "code": "3470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus parviflora",
+     "description": "Pinus parviflora"
+    },
+    {
+     "code": "3480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus peuce",
+     "description": "Pinus peuce"
+    },
+    {
+     "code": "3490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus ponderosa",
+     "description": "Pinus ponderosa"
+    },
+    {
+     "code": "3500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus strobus",
+     "description": "Pinus strobus"
+    },
+    {
+     "code": "3510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus sylvestris",
+     "description": "Pinus sylvestris"
+    },
+    {
+     "code": "3520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus thunbergii",
+     "description": "Pinus thunbergii"
+    },
+    {
+     "code": "3530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus wallichiana",
+     "description": "Pinus wallichiana"
+    },
+    {
+     "code": "3540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Platanus acerifolia",
+     "description": "Platanus acerifolia"
+    },
+    {
+     "code": "3550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Platanus orientalis",
+     "description": "Platanus orientalis"
+    },
+    {
+     "code": "3560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Platycladus orientalis",
+     "description": "Platycladus orientalis"
+    },
+    {
+     "code": "3570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus alba",
+     "description": "Populus alba"
+    },
+    {
+     "code": "3580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus nigra",
+     "description": "Populus nigra"
+    },
+    {
+     "code": "3590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus simonii",
+     "description": "Populus simonii"
+    },
+    {
+     "code": "3600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus tremula",
+     "description": "Populus tremula"
+    },
+    {
+     "code": "3610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus x canadensis",
+     "description": "Populus x canadensis"
+    },
+    {
+     "code": "3620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus x canescens",
+     "description": "Populus x canescens"
+    },
+    {
+     "code": "3630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus avium",
+     "description": "Prunus avium"
+    },
+    {
+     "code": "3640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus cerasifera 'Nigra'",
+     "description": "Prunus cerasifera 'Nigra'"
+    },
+    {
+     "code": "3650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus domestica",
+     "description": "Prunus domestica"
+    },
+    {
+     "code": "3660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus domestica ssp",
+     "description": "Prunus domestica ssp"
+    },
+    {
+     "code": "3670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus dulcis",
+     "description": "Prunus dulcis"
+    },
+    {
+     "code": "3680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus laurocerasus",
+     "description": "Prunus laurocerasus"
+    },
+    {
+     "code": "3690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prúnus pádus",
+     "description": "Prúnus pádus"
+    },
+    {
+     "code": "3700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus sargentii",
+     "description": "Prunus sargentii"
+    },
+    {
+     "code": "3710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus serotina",
+     "description": "Prunus serotina"
+    },
+    {
+     "code": "3720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus serrulata",
+     "description": "Prunus serrulata"
+    },
+    {
+     "code": "3730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus spinosa",
+     "description": "Prunus spinosa"
+    },
+    {
+     "code": "3740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus subhirtella",
+     "description": "Prunus subhirtella"
+    },
+    {
+     "code": "3750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pseudotsuga menziesii",
+     "description": "Pseudotsuga menziesii"
+    },
+    {
+     "code": "3760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ptelea trifoliata",
+     "description": "Ptelea trifoliata"
+    },
+    {
+     "code": "3770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pterocarya fraxinifolia",
+     "description": "Pterocarya fraxinifolia"
+    },
+    {
+     "code": "3780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pterocarya stenoptera",
+     "description": "Pterocarya stenoptera"
+    },
+    {
+     "code": "3790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pyracantha coccinea",
+     "description": "Pyracantha coccinea"
+    },
+    {
+     "code": "3800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pýrus pyráster",
+     "description": "Pýrus pyráster"
+    },
+    {
+     "code": "3810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus acutissima",
+     "description": "Quercus acutissima"
+    },
+    {
+     "code": "3820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus cerris",
+     "description": "Quercus cerris"
+    },
+    {
+     "code": "3830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus coccinea",
+     "description": "Quercus coccinea"
+    },
+    {
+     "code": "3840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus frainetto",
+     "description": "Quercus frainetto"
+    },
+    {
+     "code": "3850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus ilex",
+     "description": "Quercus ilex"
+    },
+    {
+     "code": "3860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus libani",
+     "description": "Quercus libani"
+    },
+    {
+     "code": "3870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus palustris",
+     "description": "Quercus palustris"
+    },
+    {
+     "code": "3880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus petraea",
+     "description": "Quercus petraea"
+    },
+    {
+     "code": "3890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus prinus",
+     "description": "Quercus prinus"
+    },
+    {
+     "code": "3900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus pubescens",
+     "description": "Quercus pubescens"
+    },
+    {
+     "code": "3910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus robur",
+     "description": "Quercus robur"
+    },
+    {
+     "code": "3920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus rubra",
+     "description": "Quercus rubra"
+    },
+    {
+     "code": "3930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus suber",
+     "description": "Quercus suber"
+    },
+    {
+     "code": "3940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus x hispanica 'Lucombeana'",
+     "description": "Quercus x hispanica 'Lucombeana'"
+    },
+    {
+     "code": "3950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus x turneri",
+     "description": "Quercus x turneri"
+    },
+    {
+     "code": "3960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhamnus cathartica",
+     "description": "Rhamnus cathartica"
+    },
+    {
+     "code": "3970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhamnus imeretinus",
+     "description": "Rhamnus imeretinus"
+    },
+    {
+     "code": "3980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhodotypos scandens",
+     "description": "Rhodotypos scandens"
+    },
+    {
+     "code": "3990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhus hirta",
+     "description": "Rhus hirta"
+    },
+    {
+     "code": "4000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes aureum",
+     "description": "Ribes aureum"
+    },
+    {
+     "code": "4010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes sanguineum",
+     "description": "Ribes sanguineum"
+    },
+    {
+     "code": "4020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Robinia pseudoacacia",
+     "description": "Robinia pseudoacacia"
+    },
+    {
+     "code": "4030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rosa canina",
+     "description": "Rosa canina"
+    },
+    {
+     "code": "4040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rosa spinosissima",
+     "description": "Rosa spinosissima"
+    },
+    {
+     "code": "4050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rubus fruticosus",
+     "description": "Rubus fruticosus"
+    },
+    {
+     "code": "4060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix alba",
+     "description": "Salix alba"
+    },
+    {
+     "code": "4070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix alba 'Tristis'",
+     "description": "Salix alba 'Tristis'"
+    },
+    {
+     "code": "4080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix aurita",
+     "description": "Salix aurita"
+    },
+    {
+     "code": "4090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix babylonica",
+     "description": "Salix babylonica"
+    },
+    {
+     "code": "4100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix caprea",
+     "description": "Salix caprea"
+    },
+    {
+     "code": "4110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix caprea 'Kilmarnock'",
+     "description": "Salix caprea 'Kilmarnock'"
+    },
+    {
+     "code": "4120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix cinerea",
+     "description": "Salix cinerea"
+    },
+    {
+     "code": "4130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix fragilis",
+     "description": "Salix fragilis"
+    },
+    {
+     "code": "4140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix matsudana 'Tortuosa'",
+     "description": "Salix matsudana 'Tortuosa'"
+    },
+    {
+     "code": "4150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix viminalis",
+     "description": "Salix viminalis"
+    },
+    {
+     "code": "4160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sambucus nigra",
+     "description": "Sambucus nigra"
+    },
+    {
+     "code": "4170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sambucus racemosa",
+     "description": "Sambucus racemosa"
+    },
+    {
+     "code": "4180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sciadopitys verticillata",
+     "description": "Sciadopitys verticillata"
+    },
+    {
+     "code": "4190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sequoia sempervirens",
+     "description": "Sequoia sempervirens"
+    },
+    {
+     "code": "4200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sequoiadendron giganteum",
+     "description": "Sequoiadendron giganteum"
+    },
+    {
+     "code": "4210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Shepherdia argentea",
+     "description": "Shepherdia argentea"
+    },
+    {
+     "code": "4220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sophora japonica",
+     "description": "Sophora japonica"
+    },
+    {
+     "code": "4230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sorbus aria",
+     "description": "Sorbus aria"
+    },
+    {
+     "code": "4240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sórbus aucupária",
+     "description": "Sórbus aucupária"
+    },
+    {
+     "code": "4250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sorbus domestica",
+     "description": "Sorbus domestica"
+    },
+    {
+     "code": "4260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sorbus intermedia",
+     "description": "Sorbus intermedia"
+    },
+    {
+     "code": "4270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sorbus torminalis",
+     "description": "Sorbus torminalis"
+    },
+    {
+     "code": "4280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Spiraea x billardii",
+     "description": "Spiraea x billardii"
+    },
+    {
+     "code": "4290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Spiraea x vanhouttei",
+     "description": "Spiraea x vanhouttei"
+    },
+    {
+     "code": "4300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Staphylea pinnata",
+     "description": "Staphylea pinnata"
+    },
+    {
+     "code": "4310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Stranvaesia davidiana",
+     "description": "Stranvaesia davidiana"
+    },
+    {
+     "code": "4320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Symphoricarpos albus",
+     "description": "Symphoricarpos albus"
+    },
+    {
+     "code": "4330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Syringa reflexa",
+     "description": "Syringa reflexa"
+    },
+    {
+     "code": "4340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Syringa vulgaris",
+     "description": "Syringa vulgaris"
+    },
+    {
+     "code": "4350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tamarix parviflora",
+     "description": "Tamarix parviflora"
+    },
+    {
+     "code": "4360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Taxodium distichum",
+     "description": "Taxodium distichum"
+    },
+    {
+     "code": "4370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Taxus baccata",
+     "description": "Taxus baccata"
+    },
+    {
+     "code": "4380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Thuja occidentalis",
+     "description": "Thuja occidentalis"
+    },
+    {
+     "code": "4390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Thuja plicata",
+     "description": "Thuja plicata"
+    },
+    {
+     "code": "4400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Thujopsis dolabrata",
+     "description": "Thujopsis dolabrata"
+    },
+    {
+     "code": "4410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tília cordáta",
+     "description": "Tília cordáta"
+    },
+    {
+     "code": "4420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tilia platyphyllos",
+     "description": "Tilia platyphyllos"
+    },
+    {
+     "code": "4430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tilia tomentosa",
+     "description": "Tilia tomentosa"
+    },
+    {
+     "code": "4440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tsuga canadensis",
+     "description": "Tsuga canadensis"
+    },
+    {
+     "code": "4450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ulex europaeus",
+     "description": "Ulex europaeus"
+    },
+    {
+     "code": "4460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Úlmus glábra",
+     "description": "Úlmus glábra"
+    },
+    {
+     "code": "4470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ulmus laevis",
+     "description": "Ulmus laevis"
+    },
+    {
+     "code": "4480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Úlmus mínor",
+     "description": "Úlmus mínor"
+    },
+    {
+     "code": "4490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ulmus pumila",
+     "description": "Ulmus pumila"
+    },
+    {
+     "code": "4500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum farreri",
+     "description": "Viburnum farreri"
+    },
+    {
+     "code": "4510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum lantana",
+     "description": "Viburnum lantana"
+    },
+    {
+     "code": "4520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum lentago",
+     "description": "Viburnum lentago"
+    },
+    {
+     "code": "4530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum opulus",
+     "description": "Viburnum opulus"
+    },
+    {
+     "code": "4540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum rhytidophyllum",
+     "description": "Viburnum rhytidophyllum"
+    },
+    {
+     "code": "4550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum tinus",
+     "description": "Viburnum tinus"
+    },
+    {
+     "code": "4560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viburnum x bodnantense",
+     "description": "Viburnum x bodnantense"
+    },
+    {
+     "code": "4570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Viscum album",
+     "description": "Viscum album"
+    },
+    {
+     "code": "4580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vitis coignetiae",
+     "description": "Vitis coignetiae"
+    },
+    {
+     "code": "4590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Weigela florida",
+     "description": "Weigela florida"
+    },
+    {
+     "code": "4600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Wisteria sinensis",
+     "description": "Wisteria sinensis"
+    },
+    {
+     "code": "4610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Zelkova serrata",
+     "description": "Zelkova serrata"
+    },
+    {
+     "code": "4620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Acer",
+     "description": "Acer"
+    },
+    {
+     "code": "4630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Actinidia Lind",
+     "description": "Actinidia Lind"
+    },
+    {
+     "code": "4640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aeschynanthus Jack",
+     "description": "Aeschynanthus Jack"
+    },
+    {
+     "code": "4650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ageratum",
+     "description": "Ageratum"
+    },
+    {
+     "code": "4660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Agrostemma githago",
+     "description": "Agrostemma githago"
+    },
+    {
+     "code": "4670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Agrostis",
+     "description": "Agrostis"
+    },
+    {
+     "code": "4680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Allium cepa",
+     "description": "Allium cepa"
+    },
+    {
+     "code": "4690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Allium fistulosum",
+     "description": "Allium fistulosum"
+    },
+    {
+     "code": "4700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Allium porrum",
+     "description": "Allium porrum"
+    },
+    {
+     "code": "4710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Allium schoenoprasum",
+     "description": "Allium schoenoprasum"
+    },
+    {
+     "code": "4720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aloe",
+     "description": "Aloe"
+    },
+    {
+     "code": "4730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alonsoa meridionalis ( f.) O. Kuntze",
+     "description": "Alonsoa meridionalis ( f.) O. Kuntze"
+    },
+    {
+     "code": "4740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alopecurus pratensis",
+     "description": "Alopecurus pratensis"
+    },
+    {
+     "code": "4750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Alstroemeria",
+     "description": "Alstroemeria"
+    },
+    {
+     "code": "4760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Amaranthus blitoides S. Watson",
+     "description": "Amaranthus blitoides S. Watson"
+    },
+    {
+     "code": "4770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Amaranthus cruentus",
+     "description": "Amaranthus cruentus"
+    },
+    {
+     "code": "4780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Anigozanthos Labil",
+     "description": "Anigozanthos Labil"
+    },
+    {
+     "code": "4790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Anthriscus cerefolium ( ) Hoffm.",
+     "description": "Anthriscus cerefolium ( ) Hoffm."
+    },
+    {
+     "code": "4800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Anthurium Schott",
+     "description": "Anthurium Schott"
+    },
+    {
+     "code": "4810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Antirrhinum",
+     "description": "Antirrhinum"
+    },
+    {
+     "code": "4820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Apium graveolens",
+     "description": "Apium graveolens"
+    },
+    {
+     "code": "4830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Arctium",
+     "description": "Arctium"
+    },
+    {
+     "code": "4840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Argyranthemum frutescens ( ) Schultz Bip.",
+     "description": "Argyranthemum frutescens ( ) Schultz Bip."
+    },
+    {
+     "code": "4850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Arnica montana",
+     "description": "Arnica montana"
+    },
+    {
+     "code": "4860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aronia Medik.",
+     "description": "Aronia Medik."
+    },
+    {
+     "code": "4870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Arrhenatherum elatius ( ) P.Beauv. ex J.S. et K.B. Presl",
+     "description": "Arrhenatherum elatius ( ) P.Beauv. ex J.S. et K.B. Presl"
+    },
+    {
+     "code": "4880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Asparagus officinalis",
+     "description": "Asparagus officinalis"
+    },
+    {
+     "code": "4890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aster",
+     "description": "Aster"
+    },
+    {
+     "code": "4900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Aubrieta Adans.",
+     "description": "Aubrieta Adans."
+    },
+    {
+     "code": "4910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Avena sativa",
+     "description": "Avena sativa"
+    },
+    {
+     "code": "4920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Avena sativa",
+     "description": "Avena sativa"
+    },
+    {
+     "code": "4930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Begonia x hiemalis Fotsch",
+     "description": "Begonia x hiemalis Fotsch"
+    },
+    {
+     "code": "4940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Begonia x tuberhybrida Voss",
+     "description": "Begonia x tuberhybrida Voss"
+    },
+    {
+     "code": "4950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Begonia-Semperflorens-Hybriden",
+     "description": "Begonia-Semperflorens-Hybriden"
+    },
+    {
+     "code": "4960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Beta vulgaris var. altissima Döll",
+     "description": "Beta vulgaris var. altissima Döll"
+    },
+    {
+     "code": "4970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Beta vulgaris var. conditiva Alef.",
+     "description": "Beta vulgaris var. conditiva Alef."
+    },
+    {
+     "code": "4980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Beta vulgaris var. crassa Mansf.",
+     "description": "Beta vulgaris var. crassa Mansf."
+    },
+    {
+     "code": "4990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Beta vulgaris var. vulgaris",
+     "description": "Beta vulgaris var. vulgaris"
+    },
+    {
+     "code": "5000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Bidens ferulifolia (Jacq.) DC.",
+     "description": "Bidens ferulifolia (Jacq.) DC."
+    },
+    {
+     "code": "5010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brachyscome Cass.",
+     "description": "Brachyscome Cass."
+    },
+    {
+     "code": "5020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica juncea ( ) Czernj. et Cosson",
+     "description": "Brassica juncea ( ) Czernj. et Cosson"
+    },
+    {
+     "code": "5030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica napus (partim)",
+     "description": "Brassica napus (partim)"
+    },
+    {
+     "code": "5040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica napus (partim)",
+     "description": "Brassica napus (partim)"
+    },
+    {
+     "code": "5050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica napus var. napobrassica ( ) Rchb.",
+     "description": "Brassica napus var. napobrassica ( ) Rchb."
+    },
+    {
+     "code": "5060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. acephala (DC.) Alef. var. gongylodes",
+     "description": "Brassica oleracea convar. acephala (DC.) Alef. var. gongylodes"
+    },
+    {
+     "code": "5070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. acephala (DC.) Alef. var. medullosa Thel und var. viridis",
+     "description": "Brassica oleracea convar. acephala (DC.) Alef. var. medullosa Thel und var. viridis"
+    },
+    {
+     "code": "5080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. acephala (DC.) Alef. var. sabellica",
+     "description": "Brassica oleracea convar. acephala (DC.) Alef. var. sabellica"
+    },
+    {
+     "code": "5090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. botrytis ( ) Alef. var. botrytis",
+     "description": "Brassica oleracea convar. botrytis ( ) Alef. var. botrytis"
+    },
+    {
+     "code": "5100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. botrytis ( ) Alef. var. cymosa Duch.",
+     "description": "Brassica oleracea convar. botrytis ( ) Alef. var. cymosa Duch."
+    },
+    {
+     "code": "5110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. capitata ( ) Alef. var. alba DC.",
+     "description": "Brassica oleracea convar. capitata ( ) Alef. var. alba DC."
+    },
+    {
+     "code": "5120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. capitata ( ) Alef. var. rubra DC.",
+     "description": "Brassica oleracea convar. capitata ( ) Alef. var. rubra DC."
+    },
+    {
+     "code": "5130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. capitata ( ) Alef. var. sabauda",
+     "description": "Brassica oleracea convar. capitata ( ) Alef. var. sabauda"
+    },
+    {
+     "code": "5140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica oleracea convar. oleracea var. gemmifera DC.",
+     "description": "Brassica oleracea convar. oleracea var. gemmifera DC."
+    },
+    {
+     "code": "5150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica rapa var. rapa",
+     "description": "Brassica rapa var. rapa"
+    },
+    {
+     "code": "5160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica rapa var. rapa",
+     "description": "Brassica rapa var. rapa"
+    },
+    {
+     "code": "5170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica rapa var. silvestris (Lam.) Briggs",
+     "description": "Brassica rapa var. silvestris (Lam.) Briggs"
+    },
+    {
+     "code": "5180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brassica rapa var. silvestris (Lam.) Briggs",
+     "description": "Brassica rapa var. silvestris (Lam.) Briggs"
+    },
+    {
+     "code": "5190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Bromus",
+     "description": "Bromus"
+    },
+    {
+     "code": "5200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Brunnera macrophylla (Adams) Johnst.",
+     "description": "Brunnera macrophylla (Adams) Johnst."
+    },
+    {
+     "code": "5210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calceolaria",
+     "description": "Calceolaria"
+    },
+    {
+     "code": "5220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Calluna vulgaris ( ) Hull",
+     "description": "Calluna vulgaris ( ) Hull"
+    },
+    {
+     "code": "5230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Camelina sativa ( ) Crantz",
+     "description": "Camelina sativa ( ) Crantz"
+    },
+    {
+     "code": "5240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cannabis sativa",
+     "description": "Cannabis sativa"
+    },
+    {
+     "code": "5250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Capsicum annuum",
+     "description": "Capsicum annuum"
+    },
+    {
+     "code": "5260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Carex",
+     "description": "Carex"
+    },
+    {
+     "code": "5270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Carthamus tinctorius",
+     "description": "Carthamus tinctorius"
+    },
+    {
+     "code": "5280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Celosia",
+     "description": "Celosia"
+    },
+    {
+     "code": "5290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Chamomilla recutita ( ) Rauschert",
+     "description": "Chamomilla recutita ( ) Rauschert"
+    },
+    {
+     "code": "5300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cichorium endivia",
+     "description": "Cichorium endivia"
+    },
+    {
+     "code": "5310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Clematis",
+     "description": "Clematis"
+    },
+    {
+     "code": "5320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Convallaria majalis",
+     "description": "Convallaria majalis"
+    },
+    {
+     "code": "5330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Coronilla varia",
+     "description": "Coronilla varia"
+    },
+    {
+     "code": "5340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Corylus",
+     "description": "Corylus"
+    },
+    {
+     "code": "5350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Crassula schmidtii Regel",
+     "description": "Crassula schmidtii Regel"
+    },
+    {
+     "code": "5360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cucumis sativus",
+     "description": "Cucumis sativus"
+    },
+    {
+     "code": "5370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cucurbita",
+     "description": "Cucurbita"
+    },
+    {
+     "code": "5380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cucurbita pepo",
+     "description": "Cucurbita pepo"
+    },
+    {
+     "code": "5390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cuphea P. Br.",
+     "description": "Cuphea P. Br."
+    },
+    {
+     "code": "5400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cydonia oblonga Mil",
+     "description": "Cydonia oblonga Mil"
+    },
+    {
+     "code": "5410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cynara cardunculus",
+     "description": "Cynara cardunculus"
+    },
+    {
+     "code": "5420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Cynara scolymus",
+     "description": "Cynara scolymus"
+    },
+    {
+     "code": "5430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Daboecia cantabrica (Huds.) K. Koch",
+     "description": "Daboecia cantabrica (Huds.) K. Koch"
+    },
+    {
+     "code": "5440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dactylis",
+     "description": "Dactylis"
+    },
+    {
+     "code": "5450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dahlia Cav.",
+     "description": "Dahlia Cav."
+    },
+    {
+     "code": "5460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Daucus carota",
+     "description": "Daucus carota"
+    },
+    {
+     "code": "5470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Daucus carota",
+     "description": "Daucus carota"
+    },
+    {
+     "code": "5480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dendranthema x grandiflorum (Ramat.) Kitam.",
+     "description": "Dendranthema x grandiflorum (Ramat.) Kitam."
+    },
+    {
+     "code": "5490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Deschampsia cespitosa ( ) P. Beauv.",
+     "description": "Deschampsia cespitosa ( ) P. Beauv."
+    },
+    {
+     "code": "5500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dianthus",
+     "description": "Dianthus"
+    },
+    {
+     "code": "5510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Digitalis",
+     "description": "Digitalis"
+    },
+    {
+     "code": "5520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Dracocephalum moldavica",
+     "description": "Dracocephalum moldavica"
+    },
+    {
+     "code": "5530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Echinodorus C. Rich. ex Engelm.",
+     "description": "Echinodorus C. Rich. ex Engelm."
+    },
+    {
+     "code": "5540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Erica",
+     "description": "Erica"
+    },
+    {
+     "code": "5550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euonymus fortunei (Turcz.) Hand.-Mazz.",
+     "description": "Euonymus fortunei (Turcz.) Hand.-Mazz."
+    },
+    {
+     "code": "5560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euphorbia fulgens Karw. ex Klotzsch",
+     "description": "Euphorbia fulgens Karw. ex Klotzsch"
+    },
+    {
+     "code": "5570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euphorbia milii Des Mou var. milii",
+     "description": "Euphorbia milii Des Mou var. milii"
+    },
+    {
+     "code": "5580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Euphorbia pulcherrima Willd. ex Klotzsch",
+     "description": "Euphorbia pulcherrima Willd. ex Klotzsch"
+    },
+    {
+     "code": "5590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fagopyrum Mil",
+     "description": "Fagopyrum Mil"
+    },
+    {
+     "code": "5600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Festuca arundinacea Schreber",
+     "description": "Festuca arundinacea Schreber"
+    },
+    {
+     "code": "5610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Festuca ovina sensu lato",
+     "description": "Festuca ovina sensu lato"
+    },
+    {
+     "code": "5620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Festuca pratensis Hudson",
+     "description": "Festuca pratensis Hudson"
+    },
+    {
+     "code": "5630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Festuca rubra sensu lato",
+     "description": "Festuca rubra sensu lato"
+    },
+    {
+     "code": "5640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ficus benjamina",
+     "description": "Ficus benjamina"
+    },
+    {
+     "code": "5650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ficus carica",
+     "description": "Ficus carica"
+    },
+    {
+     "code": "5660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Foeniculum vulgare Mil",
+     "description": "Foeniculum vulgare Mil"
+    },
+    {
+     "code": "5670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Foeniculum vulgare Mil",
+     "description": "Foeniculum vulgare Mil"
+    },
+    {
+     "code": "5680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Forsythia Vahl",
+     "description": "Forsythia Vahl"
+    },
+    {
+     "code": "5690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fragaria",
+     "description": "Fragaria"
+    },
+    {
+     "code": "5700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Fuchsia",
+     "description": "Fuchsia"
+    },
+    {
+     "code": "5710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gazania-Hybriden",
+     "description": "Gazania-Hybriden"
+    },
+    {
+     "code": "5720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gentiana",
+     "description": "Gentiana"
+    },
+    {
+     "code": "5730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Gerbera",
+     "description": "Gerbera"
+    },
+    {
+     "code": "5740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ginkgo biloba",
+     "description": "Ginkgo biloba"
+    },
+    {
+     "code": "5750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Glycine max ( ) Merr.",
+     "description": "Glycine max ( ) Merr."
+    },
+    {
+     "code": "5760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hebe Comm. ex Juss.",
+     "description": "Hebe Comm. ex Juss."
+    },
+    {
+     "code": "5770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Helianthus annuus",
+     "description": "Helianthus annuus"
+    },
+    {
+     "code": "5780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Helianthus tuberosus",
+     "description": "Helianthus tuberosus"
+    },
+    {
+     "code": "5790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Helichrysum italicum (Roth) Gussone",
+     "description": "Helichrysum italicum (Roth) Gussone"
+    },
+    {
+     "code": "5800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Heliotropium arborescens",
+     "description": "Heliotropium arborescens"
+    },
+    {
+     "code": "5810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Helleborus",
+     "description": "Helleborus"
+    },
+    {
+     "code": "5820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hippophae",
+     "description": "Hippophae"
+    },
+    {
+     "code": "5830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hordeum vulgare sensu lato",
+     "description": "Hordeum vulgare sensu lato"
+    },
+    {
+     "code": "5840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hordeum vulgare sensu lato",
+     "description": "Hordeum vulgare sensu lato"
+    },
+    {
+     "code": "5850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Humulus lupulus",
+     "description": "Humulus lupulus"
+    },
+    {
+     "code": "5860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hydrangea",
+     "description": "Hydrangea"
+    },
+    {
+     "code": "5870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hypericum androsaemum",
+     "description": "Hypericum androsaemum"
+    },
+    {
+     "code": "5880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hypericum perforatum",
+     "description": "Hypericum perforatum"
+    },
+    {
+     "code": "5890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Hyssopus officinalis",
+     "description": "Hyssopus officinalis"
+    },
+    {
+     "code": "5900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ilex",
+     "description": "Ilex"
+    },
+    {
+     "code": "5910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Impatiens",
+     "description": "Impatiens"
+    },
+    {
+     "code": "5920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Impatiens walleriana Hybriden",
+     "description": "Impatiens walleriana Hybriden"
+    },
+    {
+     "code": "5930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Juglans-Hybriden",
+     "description": "Juglans-Hybriden"
+    },
+    {
+     "code": "5940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Kalanchoe Adans.",
+     "description": "Kalanchoe Adans."
+    },
+    {
+     "code": "5950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lactuca sativa",
+     "description": "Lactuca sativa"
+    },
+    {
+     "code": "5960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lactuca sativa",
+     "description": "Lactuca sativa"
+    },
+    {
+     "code": "5970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Leontopodium alpinum Cass.",
+     "description": "Leontopodium alpinum Cass."
+    },
+    {
+     "code": "5980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Leucanthemum x superbum (J.W.Ingram) Bergmans ex Kent",
+     "description": "Leucanthemum x superbum (J.W.Ingram) Bergmans ex Kent"
+    },
+    {
+     "code": "5990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lilium",
+     "description": "Lilium"
+    },
+    {
+     "code": "6000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Limonium Mil",
+     "description": "Limonium Mil"
+    },
+    {
+     "code": "6010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Linum usitatissimum",
+     "description": "Linum usitatissimum"
+    },
+    {
+     "code": "6020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Liquidambar styraciflua",
+     "description": "Liquidambar styraciflua"
+    },
+    {
+     "code": "6030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lobelia",
+     "description": "Lobelia"
+    },
+    {
+     "code": "6040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lolium (partim)",
+     "description": "Lolium (partim)"
+    },
+    {
+     "code": "6050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lolium multiflorum Lam.",
+     "description": "Lolium multiflorum Lam."
+    },
+    {
+     "code": "6060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lolium perenne",
+     "description": "Lolium perenne"
+    },
+    {
+     "code": "6070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lolium x boucheanum Kunth",
+     "description": "Lolium x boucheanum Kunth"
+    },
+    {
+     "code": "6080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lonicera nitida Wils.",
+     "description": "Lonicera nitida Wils."
+    },
+    {
+     "code": "6090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lotus corniculatus",
+     "description": "Lotus corniculatus"
+    },
+    {
+     "code": "6100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lupinus luteus",
+     "description": "Lupinus luteus"
+    },
+    {
+     "code": "6110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lupinus albus",
+     "description": "Lupinus albus"
+    },
+    {
+     "code": "6120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lupinus angustifolius",
+     "description": "Lupinus angustifolius"
+    },
+    {
+     "code": "6130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lupinus mutabilis",
+     "description": "Lupinus mutabilis"
+    },
+    {
+     "code": "6140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lupinus nanus Douglas",
+     "description": "Lupinus nanus Douglas"
+    },
+    {
+     "code": "6150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Lycopersicon lycopersicum ( ) Karsten ex Farw.",
+     "description": "Lycopersicon lycopersicum ( ) Karsten ex Farw."
+    },
+    {
+     "code": "6160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malus Mil",
+     "description": "Malus Mil"
+    },
+    {
+     "code": "6170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malus Mil",
+     "description": "Malus Mil"
+    },
+    {
+     "code": "6180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malus Mil",
+     "description": "Malus Mil"
+    },
+    {
+     "code": "6190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Malva verticillata",
+     "description": "Malva verticillata"
+    },
+    {
+     "code": "6200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Medicago lupulina",
+     "description": "Medicago lupulina"
+    },
+    {
+     "code": "6210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Medicago sativa",
+     "description": "Medicago sativa"
+    },
+    {
+     "code": "6220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Melissa officinalis",
+     "description": "Melissa officinalis"
+    },
+    {
+     "code": "6230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Nicotiana",
+     "description": "Nicotiana"
+    },
+    {
+     "code": "6240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ocimum basilicum",
+     "description": "Ocimum basilicum"
+    },
+    {
+     "code": "6250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Onobrychis viciifolia Scop.",
+     "description": "Onobrychis viciifolia Scop."
+    },
+    {
+     "code": "6260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Orchidaceae",
+     "description": "Orchidaceae"
+    },
+    {
+     "code": "6270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Origanum majorana",
+     "description": "Origanum majorana"
+    },
+    {
+     "code": "6280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Origanum vulgare",
+     "description": "Origanum vulgare"
+    },
+    {
+     "code": "6290",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pelargonium L'Hérit. ex Ait.",
+     "description": "Pelargonium L'Hérit. ex Ait."
+    },
+    {
+     "code": "6300",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pelargonium-Grandiflorum-Hybriden",
+     "description": "Pelargonium-Grandiflorum-Hybriden"
+    },
+    {
+     "code": "6310",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Petroselinum crispum (Miller) Nyman ex A.W. Hill",
+     "description": "Petroselinum crispum (Miller) Nyman ex A.W. Hill"
+    },
+    {
+     "code": "6320",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Petroselinum crispum (Miller) Nyman ex A.W. Hill",
+     "description": "Petroselinum crispum (Miller) Nyman ex A.W. Hill"
+    },
+    {
+     "code": "6330",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Petunia Juss.",
+     "description": "Petunia Juss."
+    },
+    {
+     "code": "6340",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phacelia Juss.",
+     "description": "Phacelia Juss."
+    },
+    {
+     "code": "6350",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phalaris arundinacea",
+     "description": "Phalaris arundinacea"
+    },
+    {
+     "code": "6360",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phaseolus coccineus",
+     "description": "Phaseolus coccineus"
+    },
+    {
+     "code": "6370",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phaseolus vulgaris",
+     "description": "Phaseolus vulgaris"
+    },
+    {
+     "code": "6380",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phaseolus vulgaris",
+     "description": "Phaseolus vulgaris"
+    },
+    {
+     "code": "6390",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Phleum",
+     "description": "Phleum"
+    },
+    {
+     "code": "6400",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Physocarpus (Cambess.) Maxim.",
+     "description": "Physocarpus (Cambess.) Maxim."
+    },
+    {
+     "code": "6410",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Picea A. Dietr.",
+     "description": "Picea A. Dietr."
+    },
+    {
+     "code": "6420",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pinus",
+     "description": "Pinus"
+    },
+    {
+     "code": "6430",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pisum sativum (partim)",
+     "description": "Pisum sativum (partim)"
+    },
+    {
+     "code": "6440",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pisum sativum (partim)",
+     "description": "Pisum sativum (partim)"
+    },
+    {
+     "code": "6450",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pisum sativum (partim)",
+     "description": "Pisum sativum (partim)"
+    },
+    {
+     "code": "6460",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pisum sativum (partim)",
+     "description": "Pisum sativum (partim)"
+    },
+    {
+     "code": "6470",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Poa",
+     "description": "Poa"
+    },
+    {
+     "code": "6480",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Poa pratensis",
+     "description": "Poa pratensis"
+    },
+    {
+     "code": "6490",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Populus",
+     "description": "Populus"
+    },
+    {
+     "code": "6500",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus",
+     "description": "Prunus"
+    },
+    {
+     "code": "6510",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus",
+     "description": "Prunus"
+    },
+    {
+     "code": "6520",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus avium ( )",
+     "description": "Prunus avium ( )"
+    },
+    {
+     "code": "6530",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus cerasus",
+     "description": "Prunus cerasus"
+    },
+    {
+     "code": "6540",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus domestica",
+     "description": "Prunus domestica"
+    },
+    {
+     "code": "6550",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus persica ( ) Batsch",
+     "description": "Prunus persica ( ) Batsch"
+    },
+    {
+     "code": "6560",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Prunus spinosa",
+     "description": "Prunus spinosa"
+    },
+    {
+     "code": "6570",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pyracantha M.J. Roem.",
+     "description": "Pyracantha M.J. Roem."
+    },
+    {
+     "code": "6580",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pyrus",
+     "description": "Pyrus"
+    },
+    {
+     "code": "6590",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Pyrus",
+     "description": "Pyrus"
+    },
+    {
+     "code": "6600",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Quercus",
+     "description": "Quercus"
+    },
+    {
+     "code": "6610",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Raphanobrassica",
+     "description": "Raphanobrassica"
+    },
+    {
+     "code": "6620",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Raphanus sativus var. niger (Miller) S. Kerner",
+     "description": "Raphanus sativus var. niger (Miller) S. Kerner"
+    },
+    {
+     "code": "6630",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Raphanus sativus var. oleiformis Pers.",
+     "description": "Raphanus sativus var. oleiformis Pers."
+    },
+    {
+     "code": "6640",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Raphanus sativus var. sativus",
+     "description": "Raphanus sativus var. sativus"
+    },
+    {
+     "code": "6650",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rehmannia Libosch. ex Fisch. et C. A. Mey.",
+     "description": "Rehmannia Libosch. ex Fisch. et C. A. Mey."
+    },
+    {
+     "code": "6660",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhododendron",
+     "description": "Rhododendron"
+    },
+    {
+     "code": "6670",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rhododendron simsii Planch.",
+     "description": "Rhododendron simsii Planch."
+    },
+    {
+     "code": "6680",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes",
+     "description": "Ribes"
+    },
+    {
+     "code": "6690",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes",
+     "description": "Ribes"
+    },
+    {
+     "code": "6700",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes nigrum",
+     "description": "Ribes nigrum"
+    },
+    {
+     "code": "6710",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ribes x nidigrolaria R. et A. Bauer",
+     "description": "Ribes x nidigrolaria R. et A. Bauer"
+    },
+    {
+     "code": "6720",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rosa",
+     "description": "Rosa"
+    },
+    {
+     "code": "6730",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rubus",
+     "description": "Rubus"
+    },
+    {
+     "code": "6740",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Rubus",
+     "description": "Rubus"
+    },
+    {
+     "code": "6750",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Saintpaulia H. Wend",
+     "description": "Saintpaulia H. Wend"
+    },
+    {
+     "code": "6760",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Salix",
+     "description": "Salix"
+    },
+    {
+     "code": "6770",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sanvitalia Lam.",
+     "description": "Sanvitalia Lam."
+    },
+    {
+     "code": "6780",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Satureja hortensis",
+     "description": "Satureja hortensis"
+    },
+    {
+     "code": "6790",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Scorzonera hispanica",
+     "description": "Scorzonera hispanica"
+    },
+    {
+     "code": "6800",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Secale",
+     "description": "Secale"
+    },
+    {
+     "code": "6810",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Secale",
+     "description": "Secale"
+    },
+    {
+     "code": "6820",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Silybum marianum ( ) Gaertn.",
+     "description": "Silybum marianum ( ) Gaertn."
+    },
+    {
+     "code": "6830",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sinapis alba",
+     "description": "Sinapis alba"
+    },
+    {
+     "code": "6840",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sinningia Nees",
+     "description": "Sinningia Nees"
+    },
+    {
+     "code": "6850",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Solanum",
+     "description": "Solanum"
+    },
+    {
+     "code": "6860",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Solanum tuberosum",
+     "description": "Solanum tuberosum"
+    },
+    {
+     "code": "6870",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Spinacia oleracea",
+     "description": "Spinacia oleracea"
+    },
+    {
+     "code": "6880",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Streptocarpus Lind",
+     "description": "Streptocarpus Lind"
+    },
+    {
+     "code": "6890",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Sutera Roth",
+     "description": "Sutera Roth"
+    },
+    {
+     "code": "6900",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Symphoricarpos Duham.",
+     "description": "Symphoricarpos Duham."
+    },
+    {
+     "code": "6910",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Syringa",
+     "description": "Syringa"
+    },
+    {
+     "code": "6920",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tagetes",
+     "description": "Tagetes"
+    },
+    {
+     "code": "6930",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tanacetum parthenium ( ) Schultz Bip.",
+     "description": "Tanacetum parthenium ( ) Schultz Bip."
+    },
+    {
+     "code": "6940",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tilia",
+     "description": "Tilia"
+    },
+    {
+     "code": "6950",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium alexandrinum",
+     "description": "Trifolium alexandrinum"
+    },
+    {
+     "code": "6960",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium hybridum",
+     "description": "Trifolium hybridum"
+    },
+    {
+     "code": "6970",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium incarnatum",
+     "description": "Trifolium incarnatum"
+    },
+    {
+     "code": "6980",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium pratense",
+     "description": "Trifolium pratense"
+    },
+    {
+     "code": "6990",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium repens",
+     "description": "Trifolium repens"
+    },
+    {
+     "code": "7000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trifolium resupinatum",
+     "description": "Trifolium resupinatum"
+    },
+    {
+     "code": "7010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Trisetum flavescens ( ) P. Beauv.",
+     "description": "Trisetum flavescens ( ) P. Beauv."
+    },
+    {
+     "code": "7020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Triticum aestivum emend. Fiori et Pao",
+     "description": "Triticum aestivum emend. Fiori et Pao"
+    },
+    {
+     "code": "7030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Triticum aestivum emend. Fiori et Pao",
+     "description": "Triticum aestivum emend. Fiori et Pao"
+    },
+    {
+     "code": "7040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Triticum durum Desf.",
+     "description": "Triticum durum Desf."
+    },
+    {
+     "code": "7050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Triticum monococcum",
+     "description": "Triticum monococcum"
+    },
+    {
+     "code": "7060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Triticum spelta",
+     "description": "Triticum spelta"
+    },
+    {
+     "code": "7070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tulipa",
+     "description": "Tulipa"
+    },
+    {
+     "code": "7080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Tussilago farfara",
+     "description": "Tussilago farfara"
+    },
+    {
+     "code": "7090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Ulmus",
+     "description": "Ulmus"
+    },
+    {
+     "code": "7100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Urtica",
+     "description": "Urtica"
+    },
+    {
+     "code": "7110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vaccinium",
+     "description": "Vaccinium"
+    },
+    {
+     "code": "7120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Valeriana officinalis",
+     "description": "Valeriana officinalis"
+    },
+    {
+     "code": "7130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Valerianella locusta ( ) Laterr.",
+     "description": "Valerianella locusta ( ) Laterr."
+    },
+    {
+     "code": "7140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vallisneria",
+     "description": "Vallisneria"
+    },
+    {
+     "code": "7150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vicia (partim)",
+     "description": "Vicia (partim)"
+    },
+    {
+     "code": "7160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vicia faba (partim)",
+     "description": "Vicia faba (partim)"
+    },
+    {
+     "code": "7170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vicia faba (partim)",
+     "description": "Vicia faba (partim)"
+    },
+    {
+     "code": "7180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vicia sativa",
+     "description": "Vicia sativa"
+    },
+    {
+     "code": "7190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vinca minor",
+     "description": "Vinca minor"
+    },
+    {
+     "code": "7200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vitex agnus-castus",
+     "description": "Vitex agnus-castus"
+    },
+    {
+     "code": "7210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vitis",
+     "description": "Vitis"
+    },
+    {
+     "code": "7220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vitis vinifera",
+     "description": "Vitis vinifera"
+    },
+    {
+     "code": "7230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Vriesea splendens (Brongn.) Lem.",
+     "description": "Vriesea splendens (Brongn.) Lem."
+    },
+    {
+     "code": "7240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Zantedeschia Spreng.",
+     "description": "Zantedeschia Spreng."
+    },
+    {
+     "code": "7250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "Zea mays",
+     "description": "Zea mays"
+    },
+    {
+     "code": "7260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "x Festulolium",
+     "description": "x Festulolium"
+    },
+    {
+     "code": "7270",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "x Triticosecale Wittm.",
+     "description": "x Triticosecale Wittm."
+    },
+    {
+     "code": "7280",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "x Triticosecale Wittm.",
+     "description": "x Triticosecale Wittm."
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/vegetation/3.0/SpeciesValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "WaterBodyClassValue": {
+   "module": "WaterBody",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyClassValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyClassValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "6191099dd659136675237098995f6af357e98a096365d304dbf3509b448bc80d",
+   "identifier": "WaterBodyClassValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+   "description": "",
+   "metadata": {
+    "dataType": "WaterBodyClassValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "sea",
+     "description": "sea"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "tidal waterbody",
+     "description": "tidal waterbody"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "watercourse",
+     "description": "watercourse"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "river / stream",
+     "description": "river / stream"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "ditch",
+     "description": "ditch"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "spring / water hole",
+     "description": "spring / water hole"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "lake / pont",
+     "description": "lake / pont"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "bayou",
+     "description": "bayou"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "body of standing water",
+     "description": "body of standing water"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "waterfall",
+     "description": "waterfall"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "rapids",
+     "description": "rapids"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "swamp",
+     "description": "swamp"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "sinkhole (karst)",
+     "description": "sinkhole (karst)"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "ephemeral watercourse",
+     "description": "ephemeral watercourse"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "flooded land",
+     "description": "flooded land"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "artificial waterbody",
+     "description": "artificial waterbody"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "aqueduct",
+     "description": "aqueduct"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "canal",
+     "description": "canal"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "port basin",
+     "description": "port basin"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "reservior",
+     "description": "reservior"
+    },
+    {
+     "code": "1200",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "excavation pont",
+     "description": "excavation pont"
+    },
+    {
+     "code": "1210",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "moat",
+     "description": "moat"
+    },
+    {
+     "code": "1220",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "pool",
+     "description": "pool"
+    },
+    {
+     "code": "1230",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "fountain",
+     "description": "fountain"
+    },
+    {
+     "code": "1240",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "well",
+     "description": "well"
+    },
+    {
+     "code": "1250",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "cistern",
+     "description": "cistern"
+    },
+    {
+     "code": "1260",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "fish ladder",
+     "description": "fish ladder"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyClassValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "WaterBodyFunctionValue": {
+   "module": "WaterBody",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyFunctionValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyFunctionValue.xml",
+   "retrievedAt": "2026-10-16T13:26:32+00:00",
+   "sha256": "0365d1f50bb118ce22e799853f5fbf5d36d49bf9701f0dbe7a1247ac2add808e",
+   "identifier": "WaterBodyFunctionValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+   "description": "",
+   "metadata": {
+    "dataType": "WaterBodyFunctionValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "nature-sanctuary",
+     "description": "nature-sanctuary"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "protected waterbody",
+     "description": "protected waterbody"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "reservoir",
+     "description": "reservoir"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "retention waterbody",
+     "description": "retention waterbody"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "flood plain waterbody",
+     "description": "flood plain waterbody"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "waterway",
+     "description": "waterway"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "habor waterbody",
+     "description": "habor waterbody"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "sluice waterbody",
+     "description": "sluice waterbody"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "sewage system",
+     "description": "sewage system"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "public swimming",
+     "description": "public swimming"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "public fountain",
+     "description": "public fountain"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "private waterbody",
+     "description": "private waterbody"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "irrigation waterbody",
+     "description": "irrigation waterbody"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "watering place",
+     "description": "watering place"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "industrial waterbody",
+     "description": "industrial waterbody"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "waterbody for fire-fighting",
+     "description": "waterbody for fire-fighting"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyFunctionValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "WaterBodyUsageValue": {
+   "module": "WaterBody",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyUsageValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyUsageValue.xml",
+   "retrievedAt": "2026-10-16T13:26:33+00:00",
+   "sha256": "e99101074e783b00740de3b1c3d85243f9084f58b874ca50cc7e85b20b9ffe0e",
+   "identifier": "WaterBodyUsageValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+   "description": "",
+   "metadata": {
+    "dataType": "WaterBodyUsageValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "sanctuary",
+     "description": "sanctuary"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "recreation / sports",
+     "description": "recreation / sports"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "drinking water supply",
+     "description": "drinking water supply"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "hydroelectric water supply",
+     "description": "hydroelectric water supply"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "ocean shipping",
+     "description": "ocean shipping"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "inland shipping",
+     "description": "inland shipping"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "sewer",
+     "description": "sewer"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "port",
+     "description": "port"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "anchorage",
+     "description": "anchorage"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "public use",
+     "description": "public use"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "private use",
+     "description": "private use"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "industrial / craft water supply",
+     "description": "industrial / craft water supply"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "military use",
+     "description": "military use"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "mining / excavation",
+     "description": "mining / excavation"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "irrigation water supply",
+     "description": "irrigation water supply"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "fishing water",
+     "description": "fishing water"
+    },
+    {
+     "code": "1160",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "fish farm",
+     "description": "fish farm"
+    },
+    {
+     "code": "1170",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "archaeological site",
+     "description": "archaeological site"
+    },
+    {
+     "code": "1180",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "water protection area",
+     "description": "water protection area"
+    },
+    {
+     "code": "1190",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "abandoned",
+     "description": "abandoned"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterBodyUsageValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  },
+  "WaterLevelValue": {
+   "module": "WaterBody",
+   "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterLevelValue.xml",
+   "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterLevelValue.xml",
+   "retrievedAt": "2026-10-16T13:26:33+00:00",
+   "sha256": "873347c06b3b37a460a0ae11e7f248a80e1e571eb81d4d16057de69acd768f30",
+   "identifier": "WaterLevelValue",
+   "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+   "description": "",
+   "metadata": {
+    "dataType": "WaterLevelValue",
+    "namespace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0",
+    "language": "en-US",
+    "authority": "SIG3D",
+    "version": "1.0",
+    "metadataNamespace": "http://www.opengis.net/citygml/codelistmetadata/3.0"
+   },
+   "values": [
+    {
+     "code": "1000",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "MSL - Mean Sea Level",
+     "description": "MSL - Mean Sea Level"
+    },
+    {
+     "code": "1010",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "LAT - Lowest Astronomical Tide",
+     "description": "LAT - Lowest Astronomical Tide"
+    },
+    {
+     "code": "1020",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "National Water Level",
+     "description": "National Water Level"
+    },
+    {
+     "code": "1030",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Mean High Tide (related to National Waterlevel)",
+     "description": "Mean High Tide (related to National Waterlevel)"
+    },
+    {
+     "code": "1040",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Extreme High Tide (related to National Waterlevel)",
+     "description": "Extreme High Tide (related to National Waterlevel)"
+    },
+    {
+     "code": "1050",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Mean Low Tide (related to National Waterlevel)",
+     "description": "Mean Low Tide (related to National Waterlevel)"
+    },
+    {
+     "code": "1060",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Extreme Low Tide (related to National Waterlevel)",
+     "description": "Extreme Low Tide (related to National Waterlevel)"
+    },
+    {
+     "code": "1070",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Mean Water Level (watercourse)",
+     "description": "Mean Water Level (watercourse)"
+    },
+    {
+     "code": "1080",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "critical high-water level",
+     "description": "critical high-water level"
+    },
+    {
+     "code": "1090",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Hundred Year Flood",
+     "description": "Hundred Year Flood"
+    },
+    {
+     "code": "1100",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "highest known water level",
+     "description": "highest known water level"
+    },
+    {
+     "code": "1110",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "critical low-water level",
+     "description": "critical low-water level"
+    },
+    {
+     "code": "1120",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "lowest known water level",
+     "description": "lowest known water level"
+    },
+    {
+     "code": "1130",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Established Line of Navigability",
+     "description": "Established Line of Navigability"
+    },
+    {
+     "code": "1140",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Minimum Limit of Navigability",
+     "description": "Minimum Limit of Navigability"
+    },
+    {
+     "code": "1150",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "Maximum Limit of Navigability",
+     "description": "Maximum Limit of Navigability"
+    },
+    {
+     "code": "9999",
+     "codeSpace": "https://www.sig3d.org/codelists/citygml/waterbody/3.0/WaterLevelValue",
+     "name": "unknown",
+     "description": "unknown"
+    }
+   ],
+   "placeholder": false
+  }
+ },
+ "kind": "local"
+};

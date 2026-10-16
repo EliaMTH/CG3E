@@ -31,6 +31,8 @@ def main():
             errors.append('NON REGISTRATO: '+rel)
     for failure in manifest.get('failures', []):
         errors.append(f'NON ACQUISITO: {failure["url"]} ({failure["error"]})')
+    for missing in manifest.get('unavailable', []):
+        print(f'INFO: file facoltativo non disponibile alla fonte: {missing["url"]}')
     if errors:
         print('\n'.join(errors))
         sys.exit(1)

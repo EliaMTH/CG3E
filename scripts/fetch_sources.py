@@ -114,7 +114,11 @@ def check_document(payload, format_):
                     raise ValueError('Archivio zip danneggiato.')
         except zipfile.BadZipFile as exc:
             raise ValueError('Il documento non e un archivio zip.') from exc
-    if format_ not in ('text', 'html', 'zip'):
+    if format_ == 'gml-dictionary':
+        root = ET.fromstring(payload, parser=ET.XMLParser(resolve_entities=False, no_network=True, load_dtd=False))
+        if root.tag != '{http://www.opengis.net/gml/3.2}Dictionary':
+            raise ValueError('La radice non e gml:Dictionary.')
+    if format_ not in ('text', 'html', 'zip', 'gml-dictionary'):
         raise ValueError('Formato di documento sconosciuto: ' + str(format_))
 
 
@@ -140,7 +144,11 @@ def run(args):
         entry = {'url': entry, 'format': 'text'} if isinstance(entry, str) else entry
         queue.append({'url': entry['url'], 'kind': 'document', 'format': entry.get('format', 'text'),
                       'role': entry.get('role'), 'from': 'config/sources.json'})
-    entries, failures, seen = {}, [], set()
+    samples = config.get('codeListSamples')
+    for name in (samples or {}).get('files', []):
+        queue.append({'url': samples['baseUrl'] + name, 'kind': 'document', 'format': 'gml-dictionary',
+                      'role': 'codelist-sample', 'optional': True, 'from': 'config/sources.json'})
+    entries, failures, unavailable, seen = {}, [], [], set()
     while queue:
         item = queue.popleft()
         url = item['url']
@@ -170,8 +178,13 @@ def run(args):
             entries[url] = record
             print('OK', record['path'], flush=True)
         except Exception as exc:
-            failures.append({'url': url, 'requestedBy': item['from'], 'error': f'{type(exc).__name__}: {exc}'})
-            print('NON ACQUISITO', url, '-', type(exc).__name__, exc, file=sys.stderr, flush=True)
+            problem = {'url': url, 'requestedBy': item['from'], 'error': f'{type(exc).__name__}: {exc}'}
+            if item.get('optional'):
+                unavailable.append(problem)
+                print('NON DISPONIBILE ALLA FONTE', url, '-', type(exc).__name__, exc, flush=True)
+            else:
+                failures.append(problem)
+                print('NON ACQUISITO', url, '-', type(exc).__name__, exc, file=sys.stderr, flush=True)
     previous = root / 'sources/manifest.json'
     old_paths = set()
     if previous.exists():
@@ -186,11 +199,12 @@ def run(args):
     files = sorted(entries.values(), key=lambda r: r['path'])
     manifest = {'generatedBy': 'scripts/fetch_sources.py', 'config': 'config/sources.json',
                 'retrievedAt': max((r['retrievedAt'] for r in files), default=None),
-                'files': files, 'failures': failures}
+                'files': files, 'failures': failures, 'unavailable': unavailable}
     previous.parent.mkdir(parents=True, exist_ok=True)
     previous.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     write_xml_catalog(root, sorted({urlparse(r['url']).hostname for r in files if r['kind'] == 'xsd'}))
-    print(f'{len(files)} file salvati in sources/; {len(failures)} non acquisiti.')
+    print(f'{len(files)} file salvati in sources/; {len(failures)} non acquisiti; '
+          f'{len(unavailable)} facoltativi non disponibili alla fonte.')
     return 1 if failures else 0
 
 

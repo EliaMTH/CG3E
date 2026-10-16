@@ -5,7 +5,8 @@ espone `window.CITYGML_CATALOG` per il caricamento locale senza fetch. Entrambi
 sono generati da `scripts/build_catalog.py` a partire dalle fonti in `sources/`:
 gli XSD danno la struttura, il documento OGC 20-010 e il modello UML (letti da
 `scripts/conceptual_model.py`) le informazioni del modello concettuale. Il
-frontend non modifica le sorgenti.
+frontend non modifica le sorgenti né il catalogo: scrive soltanto il dizionario
+delle code list (`codelists/codelists.js`).
 
 ## Campi principali
 
@@ -132,6 +133,36 @@ dello schema importato, `status` (`local` o `missing`) e `localPath`. Un import
 
 Il parser è strettamente locale e disabilita la risoluzione di entità esterne;
 lo scaricamento è separato in `scripts/fetch_sources.py`.
+
+## Dizionario delle code list
+
+`codelists/codelists.default.js` espone `window.CITYGML_CODELISTS_DEFAULT`,
+`codelists/codelists.js` espone `window.CITYGML_CODELISTS`. Il contenuto è lo
+stesso oggetto JSON, serializzato con indentazione di uno spazio sia da
+`scripts/build_codelists.py` sia dall'interfaccia:
+
+| Campo | Contenuto |
+|---|---|
+| `format` | versione di questo formato (1) |
+| `kind` | `default` (stato iniziale) o `local` (dizionario locale) |
+| `source` | titolo, versione, riferimento (OGC 21-006r2 Annex E), URL di base, host e data di download degli esempi |
+| `codeLists` | una voce per ognuna delle 140 code list, con chiave il nome della code list |
+
+Ogni voce di `codeLists`:
+
+| Campo | Contenuto |
+|---|---|
+| `module`, `url` | modulo CityGML e URL dell'esempio OGC |
+| `path`, `retrievedAt`, `sha256` | copia locale dell'esempio in `sources/` (assenti se non pubblicato) |
+| `identifier`, `codeSpace`, `description` | identificatore del dizionario con il suo `codeSpace` e descrizione |
+| `metadata` | `CodeListMetaData` dell'esempio (`dataType`, `namespace`, `language`, `authority`, `version`) e `metadataNamespace` |
+| `values` | valori: `code`, `codeSpace`, `name`, `description` |
+| `placeholder` | true se tutti i valori della fonte sono segnaposto `{example-N}` |
+| `unavailable`, `availableAtSource` | presenti quando l'esempio non è pubblicato alla fonte |
+| `edited` | true per le code list modificate dall'interfaccia |
+
+Il catalogo collega gli attributi alle code list con `codeList`; il nome del
+nodo della code list è la chiave in `codeLists`.
 
 ## Vista a grafo
 

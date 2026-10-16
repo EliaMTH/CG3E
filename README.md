@@ -14,6 +14,11 @@ Il catalogo unisce le due parti dello standard OGC:
   code list, valori delle enumerazioni, superfici di confine ammesse, requisiti,
   composizioni.
 
+Lo standard è completo tranne i **valori delle code list**, che affida a
+dizionari esterni. Il catalogo carica un **dizionario locale** modificabile
+dall'interfaccia, inizializzato con gli esempi OGC delle code list: i valori
+compaiono nelle classi che le usano e nella ricerca.
+
 Funziona offline: nessun backend, database o CDN. Tutte le fonti necessarie sono
 nella cartella `sources/`.
 
@@ -29,7 +34,7 @@ documento OGC 20-010 aprono la sua copia locale.
 
 Ogni file è scaricato dall'URL ufficiale e salvato in `sources/<host>/<percorso>`,
 con la stessa struttura dell'URL. Tutti i file sono stati scaricati il
-**15 ottobre 2026**.
+**16 ottobre 2026**.
 
 ### Schemi XSD
 
@@ -63,6 +68,21 @@ tipo di aggregazione delle relazioni (composizione, aggregazione, associazione).
 Le classi del modello e gli elementi degli schemi corrispondono per nome; le
 differenze sono elencate nel riquadro **Sorgenti** dell'interfaccia.
 
+### Esempi di code list
+
+| Fonte | Versione | Origine | Riferimento |
+|---|---|---|---|
+| OGC CityGML 3.0 code list examples: un `gml:Dictionary` per code list, file `<Modulo>.<CodeList>.xml` | 3.0.0 (versione degli esempi, non dello standard) | `https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/` | OGC 21-006r2, Annex E (informativo) |
+
+Dei 140 file previsti, 139 sono pubblicati alla fonte; `Tunnel.HollowSpaceUsageValue.xml`
+non lo è ed è registrato come non disponibile nel manifest. Dei 139 file, 44
+contengono valori reali (autorità dichiarata: SIG3D), 95 contengono solo
+segnaposto generati automaticamente (`{example-1}`, `{example-2}`, autorità
+"TBD"). 41 file usano il namespace di `codeListMetaData.xsd`
+(`http://www.opengis.net/citygml/codelistmetadata/3.0`), 98 la forma
+`http://www.opengis.net/citygml/codelist-metadata`. I valori sono esempi non
+normativi.
+
 Accanto alle fonti sono conservati i file di avvertenze pubblicati con esse:
 `citygml/ReadMe.txt`, `citygml/xAL/3.0/ReadMe-xAL-3_0.txt`,
 `citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt`, `gml/ReadMe.txt`,
@@ -79,6 +99,8 @@ sources/
   docs.ogc.org/     documento OGC 20-010
   raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/<commit>/
                     XMI del modello UML e licenza del repository
+  data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/
+                    esempi OGC delle code list
   manifest.json     per ogni file: URL, data di download, Last-Modified,
                     versione dichiarata, namespace, SHA-256, import, ruolo
   xml-catalog.xml   catalogo OASIS XML che reindirizza gli URL degli schemi
@@ -87,6 +109,36 @@ sources/
 
 `sources/xml-catalog.xml` permette di usare gli schemi offline anche con
 validatori XML che supportano i cataloghi OASIS.
+
+## Code list e dizionario locale
+
+Le 140 code list sono definite dal modello concettuale; i loro valori no. Il
+catalogo usa due file:
+
+| File | Contenuto | Chi lo scrive |
+|---|---|---|
+| `codelists/codelists.default.js` | stato iniziale: i valori degli esempi OGC, come pubblicati | `scripts/build_codelists.py` |
+| `codelists/codelists.js` | dizionario locale, caricato dalla pagina | l'interfaccia (Salva, Reset) |
+
+Nell'interfaccia:
+
+- il pulsante **Code list** in alto indica quante code list hanno valori e apre
+  l'elenco di quelle da compilare;
+- la pagina di ogni code list mostra origine, stato (con valori, solo
+  segnaposto, vuota, non disponibile), un esempio d'uso in un file CityGML e la
+  tabella dei valori, modificabile;
+- le classi mostrano i valori delle code list dei loro attributi nella sezione
+  **Valori delle code list**, e la ricerca trova anche i valori.
+
+**Salva** scrive `codelists/codelists.js` con la File System Access API (Chrome,
+Edge): la prima volta si sceglie quel file nella cartella del progetto, poi la
+pagina lo ricorda. Negli altri browser il file viene scaricato e va sostituito a
+mano. **Reset** riscrive `codelists/codelists.js` con il contenuto di
+`codelists/codelists.default.js`. Il catalogo in `data/` non cambia: le modifiche
+alle code list non richiedono di rigenerarlo.
+
+L'esportazione del vocabolario in un pacchetto distribuibile è descritta in
+[features-future/export-vocabolario.md](features-future/export-vocabolario.md).
 
 ## Aggiornare o estendere il catalogo
 
@@ -104,13 +156,16 @@ I comandi seguenti vanno eseguiti con il Python dell'ambiente virtuale.
 |---|---|---|
 | `python scripts/fetch_sources.py` | sì | Scarica gli schemi di `config/sources.json` e, ricorsivamente, ogni `xs:import`, `xs:include` e `xs:redefine`; scarica i documenti; riscrive `sources/`, `sources/manifest.json` e `sources/xml-catalog.xml` |
 | `python scripts/build_catalog.py` | no | Rigenera `data/catalog.json` e `data/catalog.js` dalle fonti in `sources/` |
+| `python scripts/build_codelists.py` | no | Rigenera `codelists/codelists.default.js` dagli esempi OGC in `sources/`; crea `codelists/codelists.js` se manca, oppure lo riporta allo stato iniziale con `--reset` |
 | `python scripts/verify_sources.py` | no | Verifica gli hash di `sources/manifest.json`, l'assenza di XSD non registrati e la presenza locale di ogni import |
 
 `fetch_sources.py` accetta solo host elencati in `allowedHosts` e scarica in
 HTTPS. Uno schema è accettato solo se è uno `xs:schema` con il namespace atteso,
 e nel manifest resta l'URL `http://` usato negli schemi; un documento solo se
-corrisponde al formato dichiarato (`text`, `html` o `zip`). La verifica TLS usa
-il bundle di certificati `certifi`.
+corrisponde al formato dichiarato (`text`, `html`, `zip` o `gml-dictionary`). La
+verifica TLS usa il bundle di certificati `certifi`. Gli esempi di code list sono
+elencati in `codeListSamples`: un file non pubblicato alla fonte è registrato
+come `unavailable` e non blocca il download.
 
 In `config/sources.json` il campo `role` dei documenti indica a
 `build_catalog.py` quale file è il documento del modello concettuale
@@ -129,11 +184,13 @@ index.html             pagina dell'esploratore
 assets/                JavaScript e CSS, senza dipendenze esterne
 data/catalog.js        catalogo caricato dalla pagina (window.CITYGML_CATALOG)
 data/catalog.json      stesso catalogo in JSON
+codelists/             dizionario locale delle code list e suo stato iniziale
 sources/               fonti ufficiali e manifest
-config/sources.json    URL, host ammessi e ruoli delle fonti
+config/sources.json    URL, host ammessi, ruoli delle fonti, esempi di code list
 scripts/               download, lettura del modello concettuale, generazione e verifica
 tests/                 test automatici
 docs/                  modello dati del catalogo, test, schermate
+features-future/       piani di funzionalità non ancora implementate
 ```
 
 Il formato di `data/catalog.json` è descritto in [docs/DATA_MODEL.md](docs/DATA_MODEL.md).
@@ -156,8 +213,8 @@ Dettagli in [docs/TESTING.md](docs/TESTING.md).
 ## Limiti
 
 - I valori delle code list (`class`, `function`, `usage`…) non fanno parte dello
-  standard: il catalogo mostra nome e definizione di ogni code list, mentre i
-  valori sono definiti da dizionari esterni indicati con `codeSpace`.
+  standard. Il dizionario locale parte dagli esempi OGC, non normativi: 44 code
+  list hanno valori reali, 95 solo segnaposto, 1 non è pubblicata.
 - Le categorie ricavate dagli schemi (feature, oggetto, tipo di dato, spazio,
   superficie di confine) e i tipi di collegamento (aggregazione, associazione,
   solo riferimento) seguono le regole di [docs/DATA_MODEL.md](docs/DATA_MODEL.md);
@@ -175,5 +232,6 @@ Dettagli in [docs/TESTING.md](docs/TESTING.md).
 dell'applicazione. Le fonti in `sources/` mantengono i termini dei rispettivi
 autori: OGC (https://www.ogc.org/legal/; il documento 20-010 è conservato senza
 modifiche, con le sue note di copyright), ISO/TC 211, OASIS
-(`OASIS_COPYRIGHT_NOTICE.txt`), W3C (avvertenze nei file) e, per l'XMI, la
-licenza MIT del repository `opengeospatial/CityGML-3.0CM` (`LICENSE`).
+(`OASIS_COPYRIGHT_NOTICE.txt`), W3C (avvertenze nei file), per l'XMI la
+licenza MIT del repository `opengeospatial/CityGML-3.0CM` (`LICENSE`), per gli
+esempi di code list i termini di OGC e delle autorità indicate nei file.

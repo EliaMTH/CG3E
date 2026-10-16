@@ -1,13 +1,2237 @@
 {
   "generatedBy": "scripts/fetch_sources.py",
   "config": "config/sources.json",
-  "retrievedAt": "2026-10-15T15:24:20+00:00",
+  "retrievedAt": "2026-10-16T13:26:41+00:00",
   "files": [
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:12+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:58:01 GMT",
+      "etag": "\"crk0ozsqhk0e2se\"",
+      "sha256": "66f8fd69da86d1b1f421ca2d848a812250baeda4a88ed63e4f4c58783b9598e3",
+      "bytes": 3614,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:12+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:40 GMT",
+      "etag": "\"clglr43evizf17t\"",
+      "sha256": "fb359d65d6f0dc60e6450c916ee9212d4c001268c2cb319e80559e175ec342e3",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:40 GMT",
+      "etag": "\"clglr476minp185\"",
+      "sha256": "9df52d0f90682433f858e8d89e4403f650101dc2ef7e8af77641203440cd5ca5",
+      "bytes": 1589,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:41 GMT",
+      "etag": "\"clglr4atm1ag17t\"",
+      "sha256": "6471cfb4bbad41c629806a4eed65bca63949f668fb4a2a3316bdc4016761ecf2",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeConstructiveElementUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:58:01 GMT",
+      "etag": "\"crk0ozsqhk0e2ia\"",
+      "sha256": "891492251deb4032a6b89fd0dced40ca28e5a337bbc01d5aa601599997ed294e",
+      "bytes": 3250,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:41 GMT",
+      "etag": "\"clglr4i3l2k116p\"",
+      "sha256": "0d9b6dd8321c24182809dc5caf5d14220c8308edcbbb665b00f9d9b281e7f9c3",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:41 GMT",
+      "etag": "\"clglr4lsybpj171\"",
+      "sha256": "5e2d8ef8d65dab964761f56bba81241ec591c7d289ae09598b0fd93c60c52e65",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:42 GMT",
+      "etag": "\"clglr4pfxucb16p\"",
+      "sha256": "8a7c072126611c2a1f676f88b6d5b858b3271db763958250c671879e82d9d57e",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeFurnitureUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:13+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:42 GMT",
+      "etag": "\"clglr4t5b3hv171\"",
+      "sha256": "1d92247df0eedc7af92cf578abd4ee07169f40606e89ab6cebe5b3e02b7ef53a",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:42 GMT",
+      "etag": "\"clglr4wsam4m17d\"",
+      "sha256": "615ffbbb0bca9f9378d5543e8aef4ddba675cf581d320317dbf4d5ef7902c3fb",
+      "bytes": 1561,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:42 GMT",
+      "etag": "\"clglr50ot2ue171\"",
+      "sha256": "384177efd74f9574e6832e893c52c5f78d915a34a748669b166ae2dc9426beb0",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeInstallationUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:42 GMT",
+      "etag": "\"clglr54gk2in165\"",
+      "sha256": "ac328b97db7522cabd26d9742ffc036809c67411e89cdf6faf09ec3dfbe0c0de",
+      "bytes": 1517,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:43 GMT",
+      "etag": "\"clglr58aospo16h\"",
+      "sha256": "05be7df6985b119d18b93eba311c0204629cb5b9c4201a847ac4308a307a2d3d",
+      "bytes": 1529,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:43 GMT",
+      "etag": "\"clglr5c2fsdx165\"",
+      "sha256": "a05a40f4e1a747ee49863fc1928ec702bea585b5c79ac82d012b2cf5fb52a750",
+      "bytes": 1517,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeRoomUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:58:02 GMT",
+      "etag": "\"crk0ozz7vr5y2hg\"",
+      "sha256": "2d2b5fa9948c53d45ade96ed819ccd52e500468750b442c27b57d39f9937f8ac",
+      "bytes": 3220,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:14+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:58:02 GMT",
+      "etag": "\"crk0p00582h162q\"",
+      "sha256": "4b53c622bf9aaa9aeba2c32bafe0b45af5bb39181cc53bd3cfafb61b1482b655",
+      "bytes": 7874,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:44 GMT",
+      "etag": "\"clglr5ng2hxg185\"",
+      "sha256": "fd1b3644daed6b587e4a74eccb4cc83cf917ff566c668d33404b30f8f2d2ae09",
+      "bytes": 1589,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:44 GMT",
+      "etag": "\"clglr5r5fr3018h\"",
+      "sha256": "07e461d80174098abb9256e8681193cd0769a2e10a66a8cc2a39d0f7c1255ae0",
+      "bytes": 1601,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:44 GMT",
+      "etag": "\"clglr5usf9pr185\"",
+      "sha256": "c8fadec4f5be375d8a35ed2e3f4983eef43114ad31af19259030a58e7eb7b5dc",
+      "bytes": 1589,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingConstructiveElementUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:58:02 GMT",
+      "etag": "\"crk0p09h0y2s1c17\"",
+      "sha256": "29bdc2b078aa841dbc18dfa8df97f1c3a32ea6c5e93d838a61a2ff49173b810b",
+      "bytes": 62251,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:46 GMT",
+      "etag": "\"crk0hwtohjq267b\"",
+      "sha256": "78f06a1a5c03c2aca0764c2dfe044a9099d87f36f5a25f05d87e1a88a96675f2",
+      "bytes": 8039,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:15+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:46 GMT",
+      "etag": "\"crk0hwwiw86612bg\"",
+      "sha256": "0b0d79026fc9d72d082bd7517d0a5d2f0a24c4229b8c20c184fd9f5672c24c83",
+      "bytes": 49660,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:47 GMT",
+      "etag": "\"crk0hx3lq2111204\"",
+      "sha256": "5cd469600385328054787a588c1942b6855167edb322ebbf70068e35a9c32776",
+      "bytes": 49252,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingFurnitureUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:47 GMT",
+      "etag": "\"crk0hx1jw7uf5gx\"",
+      "sha256": "8edcb2faf6938fda831cc191e1a4d3b2481b771cd5e6bc5df7a8ac7873aeaa39",
+      "bytes": 7089,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:47 GMT",
+      "etag": "\"crk0hx8rhiqt73q\"",
+      "sha256": "babd28d13d633f316f78746d6eb267b93e0522d1903abbfcc1c77c7920fdcee8",
+      "bytes": 9206,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:47 GMT",
+      "etag": "\"crk0hx8rhiqt71k\"",
+      "sha256": "ae9f78952226b663e51f7578b02ece8de581e8c618b0fdce1926f579eb8e26f0",
+      "bytes": 9128,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingInstallationUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:48 GMT",
+      "etag": "\"crk0hxfkseij5d6\"",
+      "sha256": "aec0f2ae546662df78902d8e5f66adadeabbfd3b63c9a2e82a1a2210b6b34327",
+      "bytes": 6954,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:16+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:48 GMT",
+      "etag": "\"crk0hxk2qi0e1dax\"",
+      "sha256": "6abbbdce31950ac54b0e2756d330fd21d9fdd789a7bb1f03093a9af8b0d25293",
+      "bytes": 63897,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:48 GMT",
+      "etag": "\"crk0hxpp64ds1cw9\"",
+      "sha256": "07d5a7aa058b8c54fd8740e4101905f78e819b06017061ccfad3eb2755ae66e1",
+      "bytes": 63369,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingRoomUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:48 GMT",
+      "etag": "\"clglr7iizhta179\"",
+      "sha256": "ed812fa5ee148773edc0f14f2a1862eb8b146e81a5f759681d4f9cf7fe3ec1bc",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:48 GMT",
+      "etag": "\"clglr7m8cqyt17l\"",
+      "sha256": "0d965db5ea1230a03de0fc020b27d5b56b8d39bef50112fbe5e1cdf517e51994",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:48 GMT",
+      "etag": "\"clglr7r27iyy179\"",
+      "sha256": "b8b7dee3adfa690249ce100c1177e560bc7887b05d671f1ac67a7a43ebf7f461",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingSubdivisionUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:48 GMT",
+      "etag": "\"crk0hxsvhhfv1bmy\"",
+      "sha256": "21a1fb0efa8511ccadf9342c8ee7387a263e5b921d4a07c134bd59ac76957834",
+      "bytes": 61738,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.BuildingUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoofTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoofTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:17+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hxvpw5vz4og\"",
+      "sha256": "c0bc2695071f3055048a84b14d22d650904ae1a5305b1f4f25c972117a21ae3e",
+      "bytes": 6064,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoofTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoomElevationReferenceValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoomElevationReferenceValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:49 GMT",
+      "etag": "\"clglr83mphvt171\"",
+      "sha256": "e58b19c4f2282a4b69025e7c91620fe1c217ff5ce005be77868ada4be6f05644",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Building.RoomElevationReferenceValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hxy3mooi1zy\"",
+      "sha256": "9bde3e00c47a3fb50fc5facaa9c685b35b29ad3e25128c0d70f171a32a3186ec",
+      "bytes": 2590,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hy2xhgsege9\"",
+      "sha256": "8de4c67887c4eb4349515b5fb9e79c380867dd498e9e63391a52e4c26a40ea9a",
+      "bytes": 21249,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hy4l0vu6g9f\"",
+      "sha256": "8634f4336278183188e302d7b0a8307d0667646b8853978582f0d7d57bf9fdd6",
+      "bytes": 21075,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityFurniture.CityFurnitureUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hy880ejt1h2\"",
+      "sha256": "71b5e97e2deb51926908901ad02dffe0dee8136a8d72ff2ff05707aadc10ee6c",
+      "bytes": 1910,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:49 GMT",
+      "etag": "\"crk0hyaelprz21q\"",
+      "sha256": "a8d1f280b9b34dbbbca6684f12801ca9a6cc92fa4636f39d8497021b48d97aa0",
+      "bytes": 2654,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:18+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:50 GMT",
+      "etag": "\"crk0hyd48x6i212\"",
+      "sha256": "3066e1573eb45a8157410ab2c5a3ee468eee10d9a0846352f948624eb6fbd244",
+      "bytes": 2630,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/CityObjectGroup.CityObjectGroupUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:51 GMT",
+      "etag": "\"clglr8xj6h6z15t\"",
+      "sha256": "5c68d23329b66c62a51f430b0e28d633de4f8f5d01d9305b0c702253b87b3c87",
+      "bytes": 1505,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:51 GMT",
+      "etag": "\"clglr918jqch165\"",
+      "sha256": "ff3373ec434978a9dafd1aec903b9ac13c795fd2ca8455439ca471d7f2389127",
+      "bytes": 1517,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:51 GMT",
+      "etag": "\"clglr950aq0q15t\"",
+      "sha256": "cd02fd4116622f3fc2cd463f1ad781da816f4c4204b7c9c94151b83564864ffb",
+      "bytes": 1505,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.DoorUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.ElevationReferenceValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.ElevationReferenceValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:51 GMT",
+      "etag": "\"clglr98z6x9816t\"",
+      "sha256": "8e7500fcc6b6f1264f0eba986d003c026e7ae0d78491ad1cb313059ebc25cf4b",
+      "bytes": 1541,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.ElevationReferenceValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.EventValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.EventValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:52 GMT",
+      "etag": "\"clglr9cm6fw015d\"",
+      "sha256": "9a81cd37dce6fb04cd68720ae641550211198ff91e396122b3aed32c1c44c6db",
+      "bytes": 1489,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.EventValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:52 GMT",
+      "etag": "\"clglr9gbjp1j179\"",
+      "sha256": "1cdfc5eed24c11e87def34cfa6e543e78530b334de9e71c726bed694ab2c50be",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:19+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:52 GMT",
+      "etag": "\"clglr9jyj7oa17l\"",
+      "sha256": "3ecfffc5552eb39b5c3d242ba40fbd26bdc4ff946f180b871299a3340f41aae2",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:52 GMT",
+      "etag": "\"clglr9nnwgtt179\"",
+      "sha256": "3e5a014a147dbaba757556be09931cf3ce3a20fe7144d4129b78dae8a64e6d43",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.OtherConstructionUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:53 GMT",
+      "etag": "\"clglr9ri170u161\"",
+      "sha256": "ad3831f17736f02e37b55a0d16a12a004c3cb1cd10bfd39da4ca0e60616e1fe6",
+      "bytes": 1513,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:53 GMT",
+      "etag": "\"clglr9v9s6p316d\"",
+      "sha256": "340dbc3b8325e0b54701969aaac53c2dd577197cf1e277e75e59fe2b40c04fcb",
+      "bytes": 1525,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:53 GMT",
+      "etag": "\"clglr9yz5fum161\"",
+      "sha256": "a270e042f4ac8e6727060ca55aa5c44dbdec14f9f9dd4ba3879caa85bbc185b2",
+      "bytes": 1513,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Construction.WindowUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.IntervalValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.IntervalValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:53 GMT",
+      "etag": "\"clglra2ta61m159\"",
+      "sha256": "a8be6877d62a0dffe971b44e36cc444f9e85c4aed57b2fc8922b98405606e031",
+      "bytes": 1485,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.IntervalValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.MimeTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.MimeTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:50 GMT",
+      "etag": "\"crk0hygmgyug4y8\"",
+      "sha256": "b1764df5b6e1415ea5880a0dbf0d72076085729b5199d17a484b114d14d94fa9",
+      "bytes": 6416,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.MimeTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.NilReasonEnumeration.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.NilReasonEnumeration.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:54 GMT",
+      "etag": "\"clglraaf5vww161\"",
+      "sha256": "4b1c6e33b8a9cecc6afcd98eb4485938dc4965b983108fa0e0a1b950c7dda10d",
+      "bytes": 1513,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.NilReasonEnumeration.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OccupantTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OccupantTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:20+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:54 GMT",
+      "etag": "\"clglrae4j52e15p\"",
+      "sha256": "31682fb28af3c1c1dc6014970cd29fea7a88baa0bb202dacee2064c78f10d976",
+      "bytes": 1501,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OccupantTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OtherRelationTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OtherRelationTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:54 GMT",
+      "etag": "\"clglrahtwe7x169\"",
+      "sha256": "3838ccaae656664dc4a488ab55deefe94e386cd28fb72621ba028da3e3c85250",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.OtherRelationTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedAreaTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedAreaTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:54 GMT",
+      "etag": "\"clglralgvwup169\"",
+      "sha256": "5ff20f66954d7c3d1c95ae665cfa7b42f06de602b2863079ecc511ce7b8392d1",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedAreaTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedVolumeTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedVolumeTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:55 GMT",
+      "etag": "\"clglrap6960816h\"",
+      "sha256": "f85bc897d4af2f4be2c64d75d84fa270e59b989d7af97bf5bdec03ca4c559abe",
+      "bytes": 1529,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.QualifiedVolumeTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.RelationTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.RelationTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:55 GMT",
+      "etag": "\"clglrasvmf5q15p\"",
+      "sha256": "2dbc41f0aed2c71ba52a73b28e00c611d38fd64544473a6637a1bce1276eb453",
+      "bytes": 1501,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.RelationTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TemporalRelationTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TemporalRelationTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:55 GMT",
+      "etag": "\"clglrawilxsi16l\"",
+      "sha256": "96e42af754adc0682426f17ac6b837d5f66de18a147615551f67868145745953",
+      "bytes": 1533,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TemporalRelationTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TopologicalRelationTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TopologicalRelationTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:55 GMT",
+      "etag": "\"clglrb05lgfb16x\"",
+      "sha256": "a2ac106e4f30a1e3e130964d44603554d618bf1a4abd1af3e30b693bcf0386bd",
+      "bytes": 1545,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Core.TopologicalRelationTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.AuthenticationTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.AuthenticationTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:21+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:55 GMT",
+      "etag": "\"clglrb3uypkt16n\"",
+      "sha256": "a8b90758070979d50ceb0c173abce2a15ba1a6cf4c08092c40f3d628bb50d1a1",
+      "bytes": 1535,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.AuthenticationTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.SensorConnectionTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.SensorConnectionTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:56 GMT",
+      "etag": "\"clglrb7rh6ak16v\"",
+      "sha256": "26896c3ebc904722c328f306f86b31848f9a3003679148bafc3dce2d29773dec",
+      "bytes": 1543,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.SensorConnectionTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.StandardFileTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.StandardFileTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:56 GMT",
+      "etag": "\"clglrbbllwhk16f\"",
+      "sha256": "741ee321e72dbd06fb47e9d6508d918cebe5b4e58f681f2b861f067485cacb04",
+      "bytes": 1527,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.StandardFileTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.TabulatedFileTypeValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.TabulatedFileTypeValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:56 GMT",
+      "etag": "\"clglrbfaz5n316j\"",
+      "sha256": "847811f33936d9c6e92131397822b8f221126f9c84c431bfb686622b5e2df2c5",
+      "bytes": 1531,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Dynamizer.TabulatedFileTypeValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:56 GMT",
+      "etag": "\"clglrbixyo9w179\"",
+      "sha256": "ddad6c086bf5cd40a9f794639da58685b37c0d9a768eab0dfa1607218ac67519",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:57 GMT",
+      "etag": "\"clglrbmnbxfe17l\"",
+      "sha256": "9edb6750bd4320025a1f5a78a17e27271d2715a54da21159ed8e02656b4dec74",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:57 GMT",
+      "etag": "\"clglrbqcp6kx179\"",
+      "sha256": "e46d2d5c6b0409653a3653d106b13061269c3250953da85edd509766fb3d7dc5",
+      "bytes": 1557,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericLogicalSpaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:22+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:57 GMT",
+      "etag": "\"clglrbu22fqg17d\"",
+      "sha256": "ae21a43c23af2baa53b4b47143836c12ef915a64a1213bae341051254027a043",
+      "bytes": 1561,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:57 GMT",
+      "etag": "\"clglrbxw75xf17p\"",
+      "sha256": "fcb0cae7d706732be074a619f71aaeb31a10ca48a19e7560d8c45e9af26acb7f",
+      "bytes": 1573,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:58 GMT",
+      "etag": "\"clglrc1lkf2z17d\"",
+      "sha256": "ae43bb4b6f1122832ef96ab72b629c7ce651e92ea7b7f1b3f3718b736e4b6d85",
+      "bytes": 1561,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericOccupiedSpaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:58 GMT",
+      "etag": "\"clglrc5fp59y17l\"",
+      "sha256": "ada620b7c8ae563e0a01ab4c07ecb0f318733f146a091998c8e234f522edab43",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:58 GMT",
+      "etag": "\"clglrc92onwp17x\"",
+      "sha256": "66df6486d05ade6d434f87ce38f945ef3421fd7e2acf1c1781be89624f7bbe1f",
+      "bytes": 1581,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:58 GMT",
+      "etag": "\"clglrccs1x2917l\"",
+      "sha256": "ede458b9e4ea86b59b6b795808d200df34f2c645332155b0afb08690cb82fec4",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericThematicSurfaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:58 GMT",
+      "etag": "\"clglrcgokds017l\"",
+      "sha256": "3eacefd81198e306129ca15492cf6308fe7b67bf81d9f589fdd5448e0d375db1",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:23+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:59 GMT",
+      "etag": "\"clglrckbjwet17x\"",
+      "sha256": "75b33ac3540b63fd0d67a8b72d2c9f01249d83d014f4b60a56eebbce52da81dd",
+      "bytes": 1581,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:01:59 GMT",
+      "etag": "\"clglrcnyjf1k17l\"",
+      "sha256": "f89de8efb6ab3bcb644fdf1109b498914e9bc02c7737428ad9a75330d29a1486",
+      "bytes": 1569,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Generics.GenericUnoccupiedSpaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:50 GMT",
+      "etag": "\"crk0hyjssbwl27v\"",
+      "sha256": "839a9ccdf92c125645d26a8cd1258c187cccf3e07ed344a96abbd9def6ce7777",
+      "bytes": 2875,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:50 GMT",
+      "etag": "\"crk0hyn8mn1s8rq\"",
+      "sha256": "1b46100bc4a67f7e1a77b823086d1d50d54529b2e757c5eaca140c96de06484f",
+      "bytes": 11366,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:50 GMT",
+      "etag": "\"crk0hyqm37o78oz\"",
+      "sha256": "7d80053515d13227bc101f658edf8b8d25bed613e316be4d05a049fe5e6fb1dc",
+      "bytes": 11267,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/LandUse.LandUseUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:00 GMT",
+      "etag": "\"clglrd5vy24i17p\"",
+      "sha256": "16706a9f784794d5a576c80aa2035a8872ca19abda29560050b3c05ac58f8367",
+      "bytes": 1573,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:24+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:00 GMT",
+      "etag": "\"clglrd9ixkra651\"",
+      "sha256": "333831b0bb0c059448c355a6af569907295fc9d34977067c5a4ad455dc7326e4",
+      "bytes": 7957,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:00 GMT",
+      "etag": "\"clglrdd8atwt17p\"",
+      "sha256": "9147042a23d6a870419324e65e95bcf2c05789df9465a63c15b16f4d90719e4f",
+      "bytes": 1573,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficAreaUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:01 GMT",
+      "etag": "\"clglrdgswm0t17t\"",
+      "sha256": "f07a5c6d1bd87926c82326d2620c1e0f2f85fae1863c76ed43f1201a749559a3",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:01 GMT",
+      "etag": "\"clglrdkknlp4185\"",
+      "sha256": "11024602acd2ed2dbdc0160213d8d1976a01a71e6b789dd7c15f949cc4908efd",
+      "bytes": 1589,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:01 GMT",
+      "etag": "\"clglrdoa0uun17t\"",
+      "sha256": "aede5fdf3c0ac6d25dcc57d7bdfda1946352eb61f41ddaa8d56bf9ffabf3759b",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.AuxiliaryTrafficSpaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.ClearanceSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.ClearanceSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:01 GMT",
+      "etag": "\"clglrdrze404171\"",
+      "sha256": "600a8fedd272ee73c4a3072dd44901244cd432bd10b4172aca5ed2bd1737a15d",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.ClearanceSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.HoleClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.HoleClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:02 GMT",
+      "etag": "\"clglrdvjzw4615x\"",
+      "sha256": "1fb8d6fbf4ef84ca4a1453256071e658082726003d6339a6fcfef3a6ed87373e",
+      "bytes": 1509,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.HoleClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.IntersectionClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.IntersectionClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:02 GMT",
+      "etag": "\"clglrdze4mb616t\"",
+      "sha256": "929551a8b61e7afb5df5b4f5a668a821bfaf650e11cfce22d24d9c4acdea3d99",
+      "bytes": 1541,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.IntersectionClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.MarkingClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.MarkingClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:25+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:02 GMT",
+      "etag": "\"clglre389ci6169\"",
+      "sha256": "4655b1b220f74928eb6c4bbf4a2388f19c8f1fc0bbbd135b246133b220d32dfc",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.MarkingClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:02 GMT",
+      "etag": "\"clglre72e2p6169\"",
+      "sha256": "6ba5405e048fc701ba3f6178a634e93abad71c7109276dfa930ef9bd7f81c9f7",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:02 GMT",
+      "etag": "\"clglreau52dg16l\"",
+      "sha256": "db07d4c89fafef28bf13e35603847947199cc22bab489d23b897dbaeb88552c7",
+      "bytes": 1533,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:03 GMT",
+      "etag": "\"clglreelw21q169\"",
+      "sha256": "087754cbdabe592177b2f2465cd365fddceb1db62fe1adb5102a22ffc57534be",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RailwayUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:03 GMT",
+      "etag": "\"clglrei8vkoh15x\"",
+      "sha256": "ce8d6844f5c98d8c447b24cbdfeae02bcde6e7f63bd806b4278bedb414ab5c01",
+      "bytes": 1509,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:03 GMT",
+      "etag": "\"clglrem0mkcr169\"",
+      "sha256": "8b632e70c5205c3833006f18822872f8189aa66343176a86e25f184505c1792e",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:03 GMT",
+      "etag": "\"clglrepsdk1015x\"",
+      "sha256": "af215242d9ab3b2b63e79c061fbdbb5d87b758a690d151b3f222e86a6118cdd0",
+      "bytes": 1509,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.RoadUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SectionClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SectionClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:26+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:04 GMT",
+      "etag": "\"clglretfd2nt169\"",
+      "sha256": "32b5846199b504080c17c46e984018c3952f81a7b3a1eb57819b743a31e810bb",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SectionClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:04 GMT",
+      "etag": "\"clglrex4qbtb165\"",
+      "sha256": "c3d309b2c90dcfc4292334e85e9721acf9db45318431f2fbfca0096d76155c37",
+      "bytes": 1517,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:04 GMT",
+      "etag": "\"clglrf0rpug316h\"",
+      "sha256": "deae3382a5d8e4520ddb70d5499286173dac4477c994442fec1fde60b5c6fe6c",
+      "bytes": 1529,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:04 GMT",
+      "etag": "\"clglrf4lukn3165\"",
+      "sha256": "1eb66a84a1649ded534d4ac1b8b7b4cacff04ecb05268d1f11ad50be4fae9e0a",
+      "bytes": 1517,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SquareUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SurfaceMaterialValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SurfaceMaterialValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hysljbbz4pc\"",
+      "sha256": "2de8d0e4f5455d05d4f3a7efe71d4cded1459557caa28e818adcc609cc195016",
+      "bytes": 6096,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.SurfaceMaterialValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:05 GMT",
+      "etag": "\"clglrfbvtlwm161\"",
+      "sha256": "5e3521f80e4a3480766ce3fb1b6c50d382a68630bb63d0cda9259859e0dd4f27",
+      "bytes": 1513,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:05 GMT",
+      "etag": "\"clglrffl6v2716d\"",
+      "sha256": "478be56f4b476619772e233c700ba2868c9f552cc1cde0277ea8c1cbe0300916",
+      "bytes": 1525,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:27+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:05 GMT",
+      "etag": "\"clglrfjak47p161\"",
+      "sha256": "a7de4b98df25c78db895e63c175d2aa6c0f2d811823bc1133979389fbf6aeb08",
+      "bytes": 1513,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrackUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:05 GMT",
+      "etag": "\"clglrfn2b3vz16p\"",
+      "sha256": "e4996f9fe4c0e5f1946ca477d9c32d6a5557cc00c16651813dacaf7130242432",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:06 GMT",
+      "etag": "\"clglrfrw5vw3brw\"",
+      "sha256": "6033c70804b4ef2b777b487e61bdd0cc215b8d3a2e9f0bab7e8d78c35fae70ec",
+      "bytes": 15260,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:06 GMT",
+      "etag": "\"clglrfwx5vgg4uh\"",
+      "sha256": "757aa3f009e63aa1928e709c813d22a333ee79d8fd2179020dcc0a14f53f2eff",
+      "bytes": 6281,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficAreaUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:06 GMT",
+      "etag": "\"clglrg1tedza16t\"",
+      "sha256": "246c68628a79d72d35a4377a4e78e5a6033fafe9e6e0527dd94aedd6bacddb38",
+      "bytes": 1541,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:06 GMT",
+      "etag": "\"clglrg5l5dnj175\"",
+      "sha256": "e9e6e8f65dc934d26ef5e336779e4268b3aad80e7e0df74ea5c7ca18644ea143",
+      "bytes": 1553,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:28+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:07 GMT",
+      "etag": "\"clglrg9aimt216t\"",
+      "sha256": "e58256d2270bf8b0639fa3738ba852c340eafa39d530bcd2031e62cc957d5d93",
+      "bytes": 1541,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.TrafficSpaceUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:07 GMT",
+      "etag": "\"clglrge4det716d\"",
+      "sha256": "c522fcd9a7fe14bab335dea844d352ae0c68ba401ed880862ef7baa70199eae8",
+      "bytes": 1525,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:07 GMT",
+      "etag": "\"clglrghw4ehg16p\"",
+      "sha256": "dd0985c2492fffd71c758ff91520f32918beaca03d4fc77e4cdeed7905bc96f6",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:07 GMT",
+      "etag": "\"clglrglnve5p16d\"",
+      "sha256": "1e1b4f15290478932b89921532c4a766d06f2db6db753c3bfd613cac2ded4d9c",
+      "bytes": 1525,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Transportation.WaterwayUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:08 GMT",
+      "etag": "\"clglrgpd8nb8169\"",
+      "sha256": "b3e5380b871b44ce9e5cc30273a0d82ca62fbc862f30778b482b57d30c64d6db",
+      "bytes": 1521,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:08 GMT",
+      "etag": "\"clglrgt4zmzi16l\"",
+      "sha256": "4751ca2a7c6f76f54f74a09ae929155e19d40ccf35c89c19e8ec60a0ca8a6867",
+      "bytes": 1533,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hyvpgxv91wp\"",
+      "sha256": "d77e0f5367de1ecd7f42d4e3ef6b83d98083dcfecbfb5683894d368dbbeede4e",
+      "bytes": 2473,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:29+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:09 GMT",
+      "etag": "\"clglrh5icec617t\"",
+      "sha256": "a2fa123e1f21b56107cd3e6133aa6f228322a794cda488880d60a1781f578f1d",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:09 GMT",
+      "etag": "\"clglrh9a3e0f185\"",
+      "sha256": "7ed865e4f1ce2b6aeccd4346c1e4640ec0627740b55a1c743e2ec053f5389367",
+      "bytes": 1589,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:09 GMT",
+      "etag": "\"clglrhczgn5z17t\"",
+      "sha256": "acc66a1ce16e3572c635e01ab13e10b5a4bef793552675cb484129b30423772a",
+      "bytes": 1577,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelConstructiveElementUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hyxras1u1yx\"",
+      "sha256": "1d92c88b629a309212125cc926da1fa117f0c437f2ff462dfe6df9977bd6fb90",
+      "bytes": 2553,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:10 GMT",
+      "etag": "\"clglrhkgkvzp16p\"",
+      "sha256": "7e2f3cf9fbc9eeec992a19d21d2a2762b7d428515633ac15d754a229188348bb",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:10 GMT",
+      "etag": "\"clglrho5y558171\"",
+      "sha256": "632a59424309a121274c51f499148283510273ada04bda0e7324a931b786aa41",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:10 GMT",
+      "etag": "\"clglrhrxp4ti16p\"",
+      "sha256": "d7f8c712774d899cb746bfab1f069a6608f29eace66dcca54f53aa91359d6dfc",
+      "bytes": 1537,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelFurnitureUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:30+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:10 GMT",
+      "etag": "\"clglrhvn2dz1171\"",
+      "sha256": "c2ca578a2b70aed93c8c476281dd2aa058210802628ed8a3dad6323366235dba",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:10 GMT",
+      "etag": "\"clglrhza1wls17d\"",
+      "sha256": "b9c51fcd6c8f2551cc8ad3e61602e31e1809efd5b535b11c2f1d0066c179f71f",
+      "bytes": 1561,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Fri, 15 Jul 2022 23:02:11 GMT",
+      "etag": "\"clglri2unopt171\"",
+      "sha256": "fa6340b2f3509c49f1987c7d2d8317d53cbcb6551e5f8d4c14b838f932c6da9b",
+      "bytes": 1549,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelInstallationUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hz0v8el31y9\"",
+      "sha256": "03c700fd667d7272651488f34e93681d843536eabe056063c29ca41a21b32141",
+      "bytes": 2529,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.TunnelUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hz4b2pqbg4x\"",
+      "sha256": "f2f67a5e6d09a47ed24542291d3656c628959fd1cb131972193ef3435762f1e2",
+      "bytes": 20913,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:51 GMT",
+      "etag": "\"crk0hz7he2sdg9o\"",
+      "sha256": "e0691f12862365e470f827636084dc057fa8e05aa9c54a26c8422907c8cb3550",
+      "bytes": 21084,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:31+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:52 GMT",
+      "etag": "\"crk0hzbbit2dg4x\"",
+      "sha256": "14a9e7ff9374f587d6609ee12489eda6fd55c40003a9b383782af3826e012d20",
+      "bytes": 20913,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:52 GMT",
+      "etag": "\"crk0hzcie2gm4cn\"",
+      "sha256": "20e83df41d5dc4938bf55b4dd838b51608bd3809531eda3143de8dba8cdf3f0e",
+      "bytes": 5639,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:52 GMT",
+      "etag": "\"crk0hzh53n054dz\"",
+      "sha256": "e791e550ea25e03c5db00e22ba7dfa05dcedc25b6fad08f025168160fcf392de",
+      "bytes": 5687,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:52 GMT",
+      "etag": "\"crk0hzhsx0824cn\"",
+      "sha256": "f0e80c5989053affc5a05180e82ce37947415edfe59ae15f47103a868f9d571e",
+      "bytes": 5639,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SolitaryVegetationObjectUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SpeciesValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SpeciesValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:53 GMT",
+      "etag": "\"crk0hztigemd4qcz\"",
+      "sha256": "f1d585dd5a5c5ae69cd2431b9788ce78e8e45ca91ecb9ab2a9afb342fa6af248",
+      "bytes": 220787,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.SpeciesValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyClassValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyClassValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:52 GMT",
+      "etag": "\"crk0hzof2ofc8k9\"",
+      "sha256": "6191099dd659136675237098995f6af357e98a096365d304dbf3509b448bc80d",
+      "bytes": 11097,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyClassValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyFunctionValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyFunctionValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:32+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:53 GMT",
+      "etag": "\"crk0hzufspxh5qi\"",
+      "sha256": "0365d1f50bb118ce22e799853f5fbf5d36d49bf9701f0dbe7a1247ac2add808e",
+      "bytes": 7434,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyFunctionValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyUsageValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyUsageValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:53 GMT",
+      "etag": "\"crk0hzzxgv9a6s5\"",
+      "sha256": "e99101074e783b00740de3b1c3d85243f9084f58b874ca50cc7e85b20b9ffe0e",
+      "bytes": 8789,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterBodyUsageValue.xml"
+    },
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterLevelValue.xml",
+      "downloadedFrom": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterLevelValue.xml",
+      "kind": "document",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
+      "lastModified": "Thu, 30 Mar 2023 20:48:54 GMT",
+      "etag": "\"crk0i05f50l35zl\"",
+      "sha256": "873347c06b3b37a460a0ae11e7f248a80e1e571eb81d4d16057de69acd768f30",
+      "bytes": 7761,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "gml-dictionary",
+      "role": "codelist-sample",
+      "path": "sources/data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/WaterBody.WaterLevelValue.xml"
+    },
     {
       "url": "https://docs.ogc.org/is/20-010/20-010.html",
       "downloadedFrom": "https://docs.ogc.org/is/20-010/20-010.html",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:11+00:00",
       "lastModified": "Fri, 24 Apr 2026 01:05:11 GMT",
       "etag": "\"c13782-6502a5b5a36df\"",
       "sha256": "ed55c7146e9dbb25f0bb6c89ab23b7368a763776e236b68b93ee972bb28890f3",
@@ -23,7 +2247,7 @@
       "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/Conceptual%20Model/XMI%20Files.zip",
       "downloadedFrom": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/Conceptual%20Model/XMI%20Files.zip",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:12+00:00",
       "lastModified": null,
       "etag": "\"67c0ac214f1fe2040263df83393a3c295bffb926d625f93cdca0adcc708e8914\"",
       "sha256": "cd7ce0fd010c96a906936dbca237609ef352232771e2aee1479697b0d489bc3d",
@@ -39,7 +2263,7 @@
       "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/LICENSE",
       "downloadedFrom": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/LICENSE",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:12+00:00",
       "lastModified": null,
       "etag": "\"c2fe808b1f8fb7aa58882d4d3cbed7830c45bc048356d0df2d3b8a92e36cbcdc\"",
       "sha256": "c42f4f6b1c4827817a4822cbcaa8f97f3756b76e0c01f5764254eb7ee5071c97",
@@ -54,7 +2278,7 @@
       "url": "http://schemas.opengis.net/citygml/3.0/core.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/3.0/core.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"102ab-6324eaaf4a8ee\"",
       "sha256": "1a40612766a069e33c213c1ac3a75cc392d3cae9538c4ff538f256ec138570ba",
@@ -98,7 +2322,7 @@
       "url": "http://schemas.opengis.net/citygml/ReadMe.txt",
       "downloadedFrom": "https://schemas.opengis.net/citygml/ReadMe.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"891-6324eaaf4a8ee\"",
       "sha256": "f4fc86c2c2e154781cc95c5d11f0a585d5f4c9a330a00dd18e7287493f7e38bf",
@@ -113,7 +2337,7 @@
       "url": "http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"63cd-6324eaaf4a8ee\"",
       "sha256": "a955f7f1b4dac4dfec5a4f44b3dc34a1c0380d900d4bce75eb545b39fc4ecc5b",
@@ -142,7 +2366,7 @@
       "url": "http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"575e-6324eaaf4a8ee\"",
       "sha256": "2861490df35859281ab0805e64b0b3bdfa3cbdc1ad74d73418a48d41e880fa89",
@@ -176,7 +2400,7 @@
       "url": "http://schemas.opengis.net/citygml/building/3.0/building.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/building/3.0/building.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"8c96-6324eaaf4a8ee\"",
       "sha256": "38d613dfcfeac9bf4148d77185e334446ce6078a66ce2adaf6b2ea4beb029d57",
@@ -210,7 +2434,7 @@
       "url": "http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"dbc-6324eaaf4b88e\"",
       "sha256": "084776f6544a7e10ba98f841c15c3fc66cb7a75c39dd57b86493579ebb84d985",
@@ -239,7 +2463,7 @@
       "url": "http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:07+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"16c3-6324eaaf4b88e\"",
       "sha256": "0aac0962260d6d536dc7b13f505a878c635b1387513c41a3cde067b06e04fcb3",
@@ -268,7 +2492,7 @@
       "url": "http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:07+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"411-6324eaaf4b88e\"",
       "sha256": "dc31b4e58a78f39b76774f99e0bf2f17af482de554cfb9ae87fa6f931df7f628",
@@ -291,7 +2515,7 @@
       "url": "http://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/construction/3.0/construction.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:08+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"c0dc-6324eaaf4c82e\"",
       "sha256": "b25d853838b3188328855145638101f77b09923186ebc05979d632734016b33d",
@@ -323,7 +2547,7 @@
       "url": "http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:08+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"84ab-6324eaaf4c82e\"",
       "sha256": "d8874e233dd4867c491a77171f9c0d785438258d6615cb4b7b66513a3cd64295",
@@ -352,7 +2576,7 @@
       "url": "http://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/generics/3.0/generics.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:08+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"4ef6-6324eaaf4e76e\"",
       "sha256": "a5f71da583f9eedd7948eb08c87d632795efe8bc836f1816db2ad4bfce2ed684",
@@ -381,7 +2605,7 @@
       "url": "http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:08+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"cb2-6324eaaf4e76e\"",
       "sha256": "e6a8b6d32c81d6b929430fadfc0370a613c3f7ce527ac719e1bd50b1789c97ef",
@@ -410,7 +2634,7 @@
       "url": "http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:08+00:00",
+      "retrievedAt": "2026-10-16T13:26:08+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"da6-6324eaaf4e76e\"",
       "sha256": "218ae12de39935a80f365810b66a115a45d483a5168ce404e9549a4dae4520ca",
@@ -439,7 +2663,7 @@
       "url": "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:06+00:00",
+      "retrievedAt": "2026-10-16T13:26:06+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"d79-6324eaaf4e76e\"",
       "sha256": "6e86dfac4ab47dc250e45f78fc26fb8396795959db89cca617a66afccc644088",
@@ -537,7 +2761,7 @@
       "url": "http://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/relief/3.0/relief.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"399b-6324eaaf4e76e\"",
       "sha256": "e07afafa959e7e4c5e02c63bf96b21683639972af0731676413e307c4c0a8c64",
@@ -566,7 +2790,7 @@
       "url": "http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"bf47-6324eaaf4e76e\"",
       "sha256": "ce6621639f1263c8596d73553da87bce7f6d48e0dd3ea0b45b68c8d762961a7d",
@@ -595,7 +2819,7 @@
       "url": "http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"54cb-6324eaaf4e76e\"",
       "sha256": "f0e09e070a7792d6f61b689e2cc8de95ca512d0552405598b881c524f092fd15",
@@ -629,7 +2853,7 @@
       "url": "http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"277a-6324eaaf4e76e\"",
       "sha256": "a9af1bfef03ef62068c59353ccaf7610bbcdc2c098d2bcf0131918c0b872a114",
@@ -658,7 +2882,7 @@
       "url": "http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"318a-6324eaaf4e76e\"",
       "sha256": "d6b54a639f0bbb9dd560259a4afae3b0369d7fc8cba446821e2ecb7468a8bcd0",
@@ -687,7 +2911,7 @@
       "url": "http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:09+00:00",
+      "retrievedAt": "2026-10-16T13:26:09+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2275-6324eaaf4f70e\"",
       "sha256": "c75bb6ed94c4ad7b457e60dc0de11b7c85a1053dc8856f2ad350707476edb59e",
@@ -716,7 +2940,7 @@
       "url": "http://schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/CommonTypes.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"11c6-6324eaaf4f70e\"",
       "sha256": "3879347fa12a93aeacff0fc0a9c7f6247762d3689a84d36d6303e874ea339b04",
@@ -733,7 +2957,7 @@
       "url": "http://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
       "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1030-6324eaaf4f70e\"",
       "sha256": "ce41e3cff64363c34fcfdaacf83fc28450e90a40d75a7536df5583f96e0c428a",
@@ -748,7 +2972,7 @@
       "url": "http://schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt",
       "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/ReadMe-xAL-3_0.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"4f6-6324eaaf4f70e\"",
       "sha256": "a8884cae685ed1e9069c6b505fabf0dc3c981ee12bdcdcd24e3f5b429b068bdd",
@@ -763,7 +2987,7 @@
       "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/xAL-types.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"528c-6324eaaf4f70e\"",
       "sha256": "4f6e64be70c0df3386741d6b9f6f7563d8a8a8ed766ded7ccc1fffa688b1c25a",
@@ -780,7 +3004,7 @@
       "url": "http://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
       "downloadedFrom": "https://schemas.opengis.net/citygml/xAL/3.0/xAL.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"8142-6324eaaf4f70e\"",
       "sha256": "49398e78548a88bdada41510e616d9ac9673938a4abefc817e1144346f8dfbac",
@@ -814,7 +3038,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/basicTypes.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3a39-6324eaaf5e16e\"",
       "sha256": "2e37d858bd5be1307892add40826632e4e16d5c44b032ba668c510f09588da5c",
@@ -837,7 +3061,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:36+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"8240-6324eaaf5e16e\"",
       "sha256": "d9a96671453711b98301d8f796ba1bb47990b7ab4ea83e8a1803c27110bbc434",
@@ -875,7 +3099,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"47f4-6324eaaf5e16e\"",
       "sha256": "0b38a6d9a82b698307215be446cfbec18682f1edcdbdf531d0e9fadb88e3017e",
@@ -913,7 +3137,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coordinateSystems.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"490d-6324eaaf5e16e\"",
       "sha256": "50658a9b0cd0e8887dab3a54d0e66ea9d74e7737ac15b87fb3a88f6d578c884b",
@@ -941,7 +3165,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/coverage.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/coverage.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"515b-6324eaaf5e16e\"",
       "sha256": "8861ca287202f3da462b3d78c71065dc78b3d24ac37304297601bd6599e8362f",
@@ -984,7 +3208,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/datums.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/datums.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:36+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3e33-6324eaaf5e16e\"",
       "sha256": "a5ac13d8015f8d9c0947e5ad614c482a0f2c632d168f87c631d953273bdeb30d",
@@ -1017,7 +3241,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"8772-6324eaaf5e16e\"",
       "sha256": "cd02f14a1f83be529cb5d7ba8ce6a4089ebf26dcb3e287e4b81488cb6bf6dd5b",
@@ -1040,7 +3264,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/dictionary.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:36+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1be1-6324eaaf5e16e\"",
       "sha256": "fb5f633e6b441ed19bd17433e28efedfb7a335bdbde04b4e5383582a763beae5",
@@ -1070,7 +3294,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/direction.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/direction.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1041-6324eaaf5e16e\"",
       "sha256": "fed7bb5e0fcc13b78add0bdb4b603a278452b70617a207ee084d2427daa17011",
@@ -1099,7 +3323,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/dynamicFeature.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1a97-6324eaaf5e16e\"",
       "sha256": "457e07361d175c8c344d20fbed203f051b07dc13f7c637576247872fcf294c43",
@@ -1132,7 +3356,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/feature.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/feature.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"15d0-6324eaaf5e16e\"",
       "sha256": "aa8434aa6b38fe00ab9dd1a1e84c9288b4828484c783c04c8caf4ea5650ecb07",
@@ -1167,7 +3391,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2d03-6324eaaf5e16e\"",
       "sha256": "d1cb25b4e923d06c44d6930ced39848ea0e938e197f95a8794e73692d0ff425b",
@@ -1197,7 +3421,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryBasic0d1d.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"49f1-6324eaaf5e16e\"",
       "sha256": "b1f9e4c1714546cd1df6f03f459926c3714f6b4346bba58de7950eddedcc7d6c",
@@ -1228,7 +3452,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"19e1-6324eaaf5f10e\"",
       "sha256": "2fc0914ecd7ca02d41ec090d8202e754d67e40890d8846382e7e25446bf4b181",
@@ -1256,7 +3480,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryComplexes.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"16c0-6324eaaf5f10e\"",
       "sha256": "26e936aa53efe6e56bbcadd5528967c2b9ac2b08b869252703c757e7ffb9711c",
@@ -1284,7 +3508,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"a699-6324eaaf5f10e\"",
       "sha256": "ddde612ddaa13fe8313ac5e0d70090d52459c83777e394b3d3917a205469b2af",
@@ -1312,7 +3536,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/gml.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"434-6324eaaf5f10e\"",
       "sha256": "eb1e652fdc10fa70352c3fc554cd3bfacc5a863e964a4e64c76f25c762b80a3f",
@@ -1414,7 +3638,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/gmlBase.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"31d4-6324eaaf5f10e\"",
       "sha256": "36825875b089ee8f69f42103d31ce52f6eb9489d2f40e11516495f7c152cc79d",
@@ -1448,7 +3672,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/grids.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/grids.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1024-6324eaaf5f10e\"",
       "sha256": "c317678414da9a28e0be87bb1544b875875746bc219aa0b7f6c31f32efd0c5f0",
@@ -1476,7 +3700,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/measures.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/measures.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"c20-6324eaaf5f10e\"",
       "sha256": "3faae40533a200b6999278678ef43c90a508fd7f8ded474f50475b4c3f19f152",
@@ -1506,7 +3730,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/observation.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/observation.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"159a-6324eaaf5f10e\"",
       "sha256": "514b7489b2aeaf58303e24c0180cba92654f2201e87a6aa7c2fe8e1c73ceff99",
@@ -1544,7 +3768,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/referenceSystems.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1248-6324eaaf5f10e\"",
       "sha256": "5bbeb1210ead8b6fba6516c4a5b9e80c1b811b48ec9f3293bbaaa5346aeec0e8",
@@ -1579,7 +3803,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/temporal.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporal.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:36+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3cee-6324eaaf5f10e\"",
       "sha256": "e6336faf79732dd8cc79b4f18595a4ccf93ab9d7c55e9f6517b79f4f44572fdd",
@@ -1609,7 +3833,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporalReferenceSystems.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3187-6324eaaf5f10e\"",
       "sha256": "f7671997af4fbd098ff53db1f025df3d1a678f707560a9bca83ca54d4ef61e7c",
@@ -1642,7 +3866,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/temporalTopology.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:15+00:00",
+      "retrievedAt": "2026-10-16T13:26:36+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1e73-6324eaaf5f10e\"",
       "sha256": "ee8fd1e816cb41746c16443e47a0206f71ab77a621d49778dc565a9d6eff4352",
@@ -1670,7 +3894,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/topology.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/topology.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:34+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"5906-6324eaaf5f10e\"",
       "sha256": "aa4e2db656a1dfad2fe50c23cccf5ab0f3bba5894087dca75e7bd25faf31ba12",
@@ -1698,7 +3922,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/units.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/units.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2ffb-6324eaaf5f10e\"",
       "sha256": "b3e2b8f364b9b844dccc0d8314f9c6c952db5155bccfe7316a1742a63dcc29fe",
@@ -1726,7 +3950,7 @@
       "url": "http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
       "downloadedFrom": "https://schemas.opengis.net/gml/3.2.1/valueObjects.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:14+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2cae-6324eaaf5f10e\"",
       "sha256": "ddf0c234b66363f596492f59b92e307d2d7d864a122c28abc32bcdf87ce7485e",
@@ -1760,7 +3984,7 @@
       "url": "http://schemas.opengis.net/gml/ReadMe.txt",
       "downloadedFrom": "https://schemas.opengis.net/gml/ReadMe.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"180f-6324eaaf5f10e\"",
       "sha256": "e40438b69b6591409c40acad076baf07508d4c4ae97eeed6653dcbe29b970f8c",
@@ -1775,7 +3999,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/ReadMe.txt",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/ReadMe.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"585-6324eaaf7298e\"",
       "sha256": "0940a8fd58a5e5763d8ae2039b0d69a26534c7593744072203e74b80020a3c07",
@@ -1790,7 +4014,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/basicTypes.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"5622-6324eaaf7298e\"",
       "sha256": "5ac7545eedc0ebea9ee2788197ffc54eb32797cfde015239f33400f8527ff7f4",
@@ -1828,7 +4052,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"487-6324eaaf7298e\"",
       "sha256": "bc3ea300204f6b99e696976aeb32207d604295f8e4c1d397cf5bb7b9e59bdabf",
@@ -1871,7 +4095,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gco/gcoBase.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"ff7-6324eaaf7298e\"",
       "sha256": "bc6ef613238a37d0cfcdcbb43df751de7c81ebe46e67b185bae477f530b3f9ab",
@@ -1904,7 +4128,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/applicationSchema.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"c74-6324eaaf7298e\"",
       "sha256": "bd5b9f294f42dbe0d78e7f760fae008fb061c8a23d6c45b34bef0bf1427b1ed5",
@@ -1937,7 +4161,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/citation.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3ca1-6324eaaf7298e\"",
       "sha256": "dfdef7355c21e8780cb3d50b28dd6d4c556ef83a1082c3059fffe41e357ba97d",
@@ -1977,7 +4201,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/constraints.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"199b-6324eaaf7298e\"",
       "sha256": "b1f9c2971bbd1bf641f23a82ec87c0728bc19446b86ad490b5d3e917b096193e",
@@ -2005,7 +4229,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/content.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2c9f-6324eaaf7298e\"",
       "sha256": "e2c31ad9e56c6682f137b200db430b11ea89ee667379615c6498c4267c129eda",
@@ -2038,7 +4262,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/dataQuality.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"78d8-6324eaaf7298e\"",
       "sha256": "a1c97293e7966bf67ad4635894a5479c3e3f7044ad6253d3e87b74b3c34739cb",
@@ -2071,7 +4295,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/distribution.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2dd8-6324eaaf7298e\"",
       "sha256": "1759a0d820644e07ed442b8385a87585cf62c68a7a257dcff109fb469109bb28",
@@ -2104,7 +4328,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/extent.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2c6c-6324eaaf7298e\"",
       "sha256": "a1e35e7730774fd7c4229699ade5cd29a8449997452d6a017f8a797f2a0a8c41",
@@ -2152,7 +4376,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/freeText.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"1bf8-6324eaaf7298e\"",
       "sha256": "79fcacb8fe5d0000fce05bef5e6430c61af9c151edf50542de4f4d90f4d1d306",
@@ -2185,7 +4409,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:16+00:00",
+      "retrievedAt": "2026-10-16T13:26:37+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"492-6324eaaf7298e\"",
       "sha256": "62c01b7ac3a6d283a2ea4ac72891bc1b912ff43016367b8df30ec7a8dfa583b1",
@@ -2225,7 +4449,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/identification.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"4d27-6324eaaf7298e\"",
       "sha256": "a9cbc54f0774b804a7e49e0713502d49ed051e2ad43d138b7ba840b7868ea937",
@@ -2269,7 +4493,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/maintenance.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"178a-6324eaaf7298e\"",
       "sha256": "49e16597d6ce1bf039db46ac6d4c0069b2c6297bfc8da3fdb28a4d2e717766f9",
@@ -2307,7 +4531,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataApplication.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"2474-6324eaaf7298e\"",
       "sha256": "215e4f0e39b73c98c30e2c799b3c47448b420b481bed91087f983faf42074b6c",
@@ -2341,7 +4565,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataEntity.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:17+00:00",
+      "retrievedAt": "2026-10-16T13:26:38+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"16f5-6324eaaf7298e\"",
       "sha256": "e780e56e534c58140df94625293f535827b966a662b01014802288c349f31a3a",
@@ -2409,7 +4633,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/metadataExtension.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"191d-6324eaaf7298e\"",
       "sha256": "2a59d200fbd0cf1229f908fa5ddfee71c7b2be273d6f2d9402e386390e2d1012",
@@ -2442,7 +4666,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/portrayalCatalogue.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"a68-6324eaaf7298e\"",
       "sha256": "e8b1086c78ef4474be9091839d3fa9aee3d9481c465fe5aa4372e2e2d3c2090a",
@@ -2475,7 +4699,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/referenceSystem.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"165b-6324eaaf7298e\"",
       "sha256": "320bf5301f0fc40fc028a5428133ee66ed2b5b99ea5b74544ebf0642a1083f06",
@@ -2514,7 +4738,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gmd/spatialRepresentation.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:18+00:00",
+      "retrievedAt": "2026-10-16T13:26:39+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"3666-6324eaaf7298e\"",
       "sha256": "3e4d2886b7816e1bc67fa23d82201e473162c5110aa6e6bd34478ad606c0b73c",
@@ -2552,7 +4776,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gsr/gsr.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"49c-6324eaaf7298e\"",
       "sha256": "5066cfe4d0488b89cf7a15a990cd2e05f3dcdbb11c95df1ec73a1e714101161d",
@@ -2576,7 +4800,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gsr/spatialReferencing.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"876-6324eaaf7298e\"",
       "sha256": "19dcdbf1fcc296598dd5def55338bdf604e2ddd62358f7a3a9caa62bd7a6833b",
@@ -2609,7 +4833,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gss/geometry.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"a8c-6324eaaf7298e\"",
       "sha256": "fabf3df4d5d7098944494e4932426e4bfd7d56d73ac535edfcf5ef67292ad767",
@@ -2642,7 +4866,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:19+00:00",
+      "retrievedAt": "2026-10-16T13:26:40+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"48e-6324eaaf7298e\"",
       "sha256": "1cb5492d7cb110ced0d46e8bc858dc3b340e1350b0b16f99772318c7df4d3906",
@@ -2667,7 +4891,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gts/gts.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"495-6324eaaf7298e\"",
       "sha256": "bef7c0ed6e63cd2be4b54defe994125783491a4a750c675cd28ca01382c9b273",
@@ -2692,7 +4916,7 @@
       "url": "http://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/20070417/gts/temporalObjects.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:20+00:00",
+      "retrievedAt": "2026-10-16T13:26:41+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"ae3-6324eaaf7298e\"",
       "sha256": "22d2c593d31cd6c91e245bebd44240bd89046cc45c8e7f3a79b22442d9ee2595",
@@ -2725,7 +4949,7 @@
       "url": "http://schemas.opengis.net/iso/19139/ReadMe.txt",
       "downloadedFrom": "https://schemas.opengis.net/iso/19139/ReadMe.txt",
       "kind": "document",
-      "retrievedAt": "2026-10-15T15:24:10+00:00",
+      "retrievedAt": "2026-10-16T13:26:10+00:00",
       "lastModified": "Wed, 09 Apr 2025 01:48:37 GMT",
       "etag": "\"380-6324eaaf7392e\"",
       "sha256": "08768d30675f7f2f507f4c2088a2623dd1c3ef70a2201bf7555e9f95a13441b9",
@@ -2740,7 +4964,7 @@
       "url": "http://www.w3.org/1999/xlink.xsd",
       "downloadedFrom": "https://www.w3.org/1999/xlink.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:12+00:00",
+      "retrievedAt": "2026-10-16T13:26:33+00:00",
       "lastModified": "Wed, 03 Dec 2008 15:40:18 GMT",
       "etag": "W/\"2082-45d2642d15c80-gzip\"",
       "sha256": "c3dbbaa28b884377ecd4a6c49d1f12566d8227cb0dce8ced10c0f66f8fa266e3",
@@ -2766,7 +4990,7 @@
       "url": "http://www.w3.org/2001/xml.xsd",
       "downloadedFrom": "https://www.w3.org/2001/xml.xsd",
       "kind": "xsd",
-      "retrievedAt": "2026-10-15T15:24:13+00:00",
+      "retrievedAt": "2026-10-16T13:26:35+00:00",
       "lastModified": "Wed, 21 Jan 2009 22:06:40 GMT",
       "etag": "W/\"2284-461055ecbfc00-gzip\"",
       "sha256": "61960fb3131e38022caad5360e2f33a3382578ab3c80cd58bd74320ede61b20c",
@@ -2780,5 +5004,12 @@
       "path": "sources/www.w3.org/2001/xml.xsd"
     }
   ],
-  "failures": []
+  "failures": [],
+  "unavailable": [
+    {
+      "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Tunnel.HollowSpaceUsageValue.xml",
+      "requestedBy": "config/sources.json",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    }
+  ]
 }

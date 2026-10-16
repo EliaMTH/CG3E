@@ -55,6 +55,9 @@ class HelperTests(unittest.TestCase):
             f.check_document(b'Plain text', 'html')
         with self.assertRaisesRegex(ValueError, 'zip'):
             f.check_document(b'not a zip', 'zip')
+        f.check_document(b'<gml:Dictionary xmlns:gml="http://www.opengis.net/gml/3.2"/>', 'gml-dictionary')
+        with self.assertRaisesRegex(ValueError, 'gml:Dictionary'):
+            f.check_document(b'<root/>', 'gml-dictionary')
 
     def test_non_schema_rejected(self):
         with self.assertRaisesRegex(ValueError, 'xs:schema'):
@@ -91,6 +94,29 @@ class RunTests(unittest.TestCase):
             self.assertEqual(dep['targetNamespace'], 'urn:dep')
             self.assertEqual((root/'sources/schemas.opengis.net/d/dep.xsd').read_bytes(), documents['http://schemas.opengis.net/d/dep.xsd'])
             self.assertIn('rewriteURI', (root/'sources/xml-catalog.xml').read_text())
+
+    def test_missing_code_list_sample_is_unavailable_not_failure(self):
+        dictionary = b'<gml:Dictionary xmlns:gml="http://www.opengis.net/gml/3.2"/>'
+        base = 'https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/'
+
+        def fake_download(opener, url, hosts, timeout):
+            if url.endswith('Missing.Value.xml'):
+                raise OSError('HTTP Error 404')
+            return url, dictionary, {'lastModified': None, 'etag': None}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root/'config').mkdir()
+            (root/'config/sources.json').write_text(json.dumps({
+                'allowedHosts': ['data.ogc.org'], 'schemas': [], 'documents': [],
+                'codeListSamples': {'baseUrl': base, 'files': ['Building.RoofTypeValue.xml', 'Missing.Value.xml']}}))
+            with patch.object(f, 'download', fake_download):
+                self.assertEqual(f.run(Namespace(root=root, timeout=1)), 0)
+            manifest = json.loads((root/'sources/manifest.json').read_text())
+            self.assertEqual(manifest['failures'], [])
+            self.assertEqual([u['url'] for u in manifest['unavailable']], [base + 'Missing.Value.xml'])
+            sample = manifest['files'][0]
+            self.assertEqual((sample['role'], sample['format']), ('codelist-sample', 'gml-dictionary'))
 
     def test_failure_is_reported(self):
         def fake_download(opener, url, hosts, timeout):

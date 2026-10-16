@@ -8,6 +8,8 @@
   <title>CityGML Explorer</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="data/catalog.js"></script>
+  <script defer src="codelists/codelists.default.js"></script>
+  <script defer src="codelists/codelists.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
@@ -26,7 +28,7 @@
       <div class="filter-row"><label for="module" class="sr-only">Modulo</label><select id="module"><option value="">Tutti i moduli</option></select><button class="icon-button" id="filters-btn" aria-expanded="false" aria-controls="extra-filters" title="Altri filtri">&#9776;</button></div>
       <div id="extra-filters" class="extra-filters" hidden>
         <label for="category" class="sr-only">Categoria</label>
-        <select id="category"><option value="">Tutte le categorie</option><option value="topLevel">Oggetti di primo livello</option><option value="cityObject">Oggetti di citt&agrave;</option><option value="space">Oggetti di citt&agrave;: spazi</option><option value="boundary">Oggetti di citt&agrave;: superfici di confine</option><option value="feature">Feature</option><option value="object">Oggetti (non feature)</option><option value="datatype">Tipi di dato</option><option value="enumeration">Enumerazioni</option><option value="codelist">Code list</option></select>
+        <select id="category"><option value="">Tutte le categorie</option><option value="topLevel">Oggetti di primo livello</option><option value="cityObject">Oggetti di citt&agrave;</option><option value="space">Oggetti di citt&agrave;: spazi</option><option value="boundary">Oggetti di citt&agrave;: superfici di confine</option><option value="feature">Feature</option><option value="object">Oggetti (non feature)</option><option value="datatype">Tipi di dato</option><option value="enumeration">Enumerazioni</option><option value="codelist">Code list</option><option value="codelistFilled">Code list con valori</option><option value="codelistMissing">Code list da compilare</option></select>
         <label><input type="checkbox" id="technical"> Tipi tecnici e punti ADE</label>
         <label><input type="checkbox" id="only-concrete"> Solo concreti (istanziabili)</label>
         <label><input type="checkbox" id="include-external"> Riferimenti esterni</label>
@@ -39,7 +41,7 @@
   <div class="main-shell">
     <header class="topbar">
       <div class="topbar-left"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="Apri elenco concetti" aria-expanded="false">&#9776;</button><button class="icon-button" id="back-btn" title="Indietro" aria-label="Indietro">&#8592;</button><button class="icon-button" id="forward-btn" title="Avanti" aria-label="Avanti">&#8594;</button><div id="breadcrumb" class="breadcrumb"></div></div>
-      <div class="topbar-right"><span class="local-badge"><span class="status-dot"></span><span id="catalog-version">Catalogo locale</span></span><button class="text-button" id="sources-btn">Sorgenti <span id="file-count"></span></button></div>
+      <div class="topbar-right"><span class="local-badge"><span class="status-dot"></span><span id="catalog-version">Catalogo locale</span></span><button class="text-button" id="codelists-btn" title="Code list con valori nel dizionario locale">Code list <span id="codelist-count"></span></button><button class="text-button" id="sources-btn">Sorgenti <span id="file-count"></span></button></div>
     </header>
     <main id="content" tabindex="-1"><div class="loading">Caricamento del catalogo locale...</div></main>
     <noscript>Per navigare il catalogo occorre abilitare JavaScript. Gli schemi XSD sono disponibili nella cartella sources.</noscript>

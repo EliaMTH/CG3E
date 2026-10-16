@@ -37,6 +37,85 @@
   const tabs = {overview:'Panoramica',properties:'Proprietà',connections:'Connessioni',standard:'Standard',source:'Sorgente'};
   const docHref = anchor => standard ? standard.document.path+(anchor?'#'+anchor:'') : '#';
   const docLink = (anchor, label) => standard ? `<a href="${esc(docHref(anchor))}" target="_blank" rel="noopener">${esc(label)}</a>` : esc(label);
+  /* Local code list dictionary (codelists/codelists.js). Its values are not part of the standard. */
+  const clone = o => o ? JSON.parse(JSON.stringify(o)) : null;
+  const defaultCodeLists = window.CITYGML_CODELISTS_DEFAULT || null;
+  let codeLists = clone(window.CITYGML_CODELISTS || defaultCodeLists);
+  let savedCodeLists = clone(codeLists);
+  let codeListsDirty = false;
+  const PLACEHOLDER = /^\{example-\d+\}$/;
+  const codeListStates = {
+    values:['con valori','teal','Valori presenti nel dizionario locale.'],
+    placeholder:['solo segnaposto','amber','La fonte OGC fornisce solo segnaposto generati automaticamente ({example-1}, …).'],
+    empty:['vuota','amber','Nessun valore nel dizionario locale.'],
+    unavailable:['non disponibile','amber','Il file d’esempio OGC non è pubblicato alla fonte: la code list parte vuota.'],
+    missing:['assente','amber','Dizionario locale non caricato.']};
+  function codeListOf(n) { return n && n.kind==='codelist' ? codeLists?.codeLists?.[n.name] || null : null; }
+  function codeListState(l) {
+    if (!l) return 'missing';
+    if (!l.values.length) return l.unavailable ? 'unavailable' : 'empty';
+    return l.values.every(v=>PLACEHOLDER.test(v.name)) ? 'placeholder' : 'values';
+  }
+  function stateBadge(l) { const s=codeListStates[codeListState(l)]; return `<span class="badge ${s[1]}" title="${esc(s[2])}">${s[0]}</span>`; }
+  function codeListSummary() {
+    const all=Object.values(codeLists?.codeLists||{}), count=state=>all.filter(l=>codeListState(l)===state).length;
+    return {total:all.length, values:count('values'), placeholder:count('placeholder'), empty:count('empty')+count('unavailable'), edited:all.filter(l=>l.edited).length};
+  }
+  function updateCodeListIndicator() {
+    const s=codeListSummary(), button=$('#codelists-btn');
+    $('#codelist-count').textContent=`${s.values}/${s.total}${codeListsDirty?' •':''}`;
+    button.classList.toggle('dirty',codeListsDirty);
+    button.title=codeListsDirty?'Modifiche al dizionario locale non salvate':'Code list con valori nel dizionario locale';
+  }
+  function serializeCodeLists(obj) {
+    return '/* Local code list dictionary, edited by the interface (Save) and restored by Reset. Values are not part of the CityGML standard. */\nwindow.CITYGML_CODELISTS = '+JSON.stringify(obj,null,1)+';\n';
+  }
+  const HANDLE_DB='citygml-explorer', HANDLE_STORE='handles';
+  function openHandleDb() {
+    return new Promise((resolve,reject)=>{const r=indexedDB.open(HANDLE_DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(HANDLE_STORE);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
+  }
+  async function storedHandle() {
+    try { const db=await openHandleDb(); return await new Promise(res=>{const q=db.transaction(HANDLE_STORE).objectStore(HANDLE_STORE).get('codelists');q.onsuccess=()=>res(q.result||null);q.onerror=()=>res(null);}); }
+    catch (_) { return null; }
+  }
+  async function storeHandle(handle) {
+    try { const db=await openHandleDb(); db.transaction(HANDLE_STORE,'readwrite').objectStore(HANDLE_STORE).put(handle,'codelists'); } catch (_) {}
+  }
+  function downloadText(text, name) {
+    const url=URL.createObjectURL(new Blob([text],{type:'text/javascript'}));
+    const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  async function writeCodeLists(obj) {
+    const text=serializeCodeLists(obj);
+    if (!window.showSaveFilePicker) { downloadText(text,'codelists.js'); return 'download'; }
+    let handle=await storedHandle();
+    if (handle) {
+      let permission=await handle.queryPermission({mode:'readwrite'});
+      if (permission!=='granted') permission=await handle.requestPermission({mode:'readwrite'});
+      if (permission!=='granted') handle=null;
+    }
+    if (!handle) {
+      handle=await window.showSaveFilePicker({suggestedName:'codelists.js',types:[{description:'Dizionario delle code list',accept:{'text/javascript':['.js']}}]});
+      await storeHandle(handle);
+    }
+    const writable=await handle.createWritable();await writable.write(text);await writable.close();
+    return handle.name;
+  }
+  async function saveCodeLists() {
+    try {
+      const where=await writeCodeLists(codeLists);
+      savedCodeLists=clone(codeLists);codeListsDirty=false;updateCodeListIndicator();renderPage();
+      showToast(where==='download'?'File scaricato: sostituisci codelists/codelists.js':`Salvato in ${where}`);
+    } catch (err) { if (err?.name!=='AbortError') showToast('Salvataggio non riuscito: '+(err?.message||err)); }
+  }
+  function revertCodeLists() { codeLists=clone(savedCodeLists);codeListsDirty=false;updateCodeListIndicator();renderPage(); }
+  async function resetCodeLists() {
+    if (!defaultCodeLists) { showToast('Stato iniziale non disponibile: manca codelists/codelists.default.js'); return; }
+    if (!confirm('Ripristinare tutte le code list allo stato iniziale (esempi OGC)? Le modifiche in codelists/codelists.js andranno perse.')) return;
+    codeLists={...clone(defaultCodeLists),kind:'local'};codeListsDirty=true;updateCodeListIndicator();
+    await saveCodeLists();
+  }
+  function markCodeListEdited(l) { l.edited=true;codeListsDirty=true;updateCodeListIndicator(); }
   const onlineLink = (anchor, label) => standard ? `<a href="${esc(standard.document.url+(anchor?'#'+anchor:''))}" target="_blank" rel="noopener">${esc(label)}</a>` : '';
   let current = data.initialId, activeTab = 'overview', inherited = true, propertyQuery = '', propertyKind = 'all';
   let previous = null, searchTimer = null, toastTimer = null;
@@ -64,6 +143,8 @@
   function categoryMatch(n, category) {
     if (!category) return true;
     if (category==='topLevel') return n.topLevel;
+    if (category==='codelistFilled') return n.kind==='codelist' && codeListState(codeListOf(n))==='values';
+    if (category==='codelistMissing') return n.kind==='codelist' && codeListState(codeListOf(n))!=='values';
     if (category==='cityObject') return n.cityObject;
     if (category==='space' || category==='boundary') return n.spaceRole===category;
     return n.kind===category;
@@ -114,8 +195,12 @@
     $('#module').innerHTML='<option value="">Tutti i moduli</option>'+mods.map(m=>`<option value="${esc(m)}">${esc(m)}</option>`).join('');
     if (mods.includes(selected)) $('#module').value=selected;
   }
-  function listItem(n) {
-    return `<a href="${esc(href(n.id))}" class="concept-item ${current===n.id?'active':''}" ${current===n.id?'aria-current="page"':''} title="${esc(n.qname || n.name)}">${icon(n)}<span class="item-name">${esc(displayName(n))}</span>${n.abstract?'<span class="abstract-mark" title="Astratta">A</span>':''}</a>`;
+  function listItem(n, hint='') {
+    return `<a href="${esc(href(n.id))}" class="concept-item ${current===n.id?'active':''}" ${current===n.id?'aria-current="page"':''} title="${esc(n.qname || n.name)}">${icon(n)}<span class="item-name">${esc(displayName(n))}${hint?`<small class="item-hint">valore: ${esc(hint)}</small>`:''}</span>${n.abstract?'<span class="abstract-mark" title="Astratta">A</span>':''}</a>`;
+  }
+  function valueMatch(n, q) {
+    const v=codeListOf(n)?.values.find(v=>[v.code,v.name,v.description].some(s=>(s||'').toLowerCase().includes(q)));
+    return v ? (v.name||v.code) : '';
   }
   function renderList() {
     const q=$('#search').value.trim().toLowerCase(), family=$('#family').value, mod=$('#module').value, category=$('#category').value;
@@ -123,7 +208,7 @@
       && ($('#technical').checked || (!n.technical && n.kind!=='ade'))
       && ($('#include-external').checked || !n.external)
       && (!$('#only-concrete').checked || (!n.abstract && !n.external && n.kind!=='ade'))
-      && (!q || [n.name,n.label,n.qname].some(s=>(s||'').toLowerCase().includes(q))));
+      && (!q || [n.name,n.label,n.qname].some(s=>(s||'').toLowerCase().includes(q)) || (n.kind==='codelist' && valueMatch(n,q))));
     $('#results-count').textContent=fmt(matches.length);
     const box=$('#concept-list'), pos=box.scrollTop;
     if (!matches.length) {
@@ -133,7 +218,7 @@
     if (q) {
       const score=n=>n.name.toLowerCase()===q?0:n.name.toLowerCase().startsWith(q)?1:2;
       matches.sort((a,b)=>score(a)-score(b)||byName(a,b));
-      box.innerHTML=matches.map(listItem).join('');
+      box.innerHTML=matches.map(n=>listItem(n,n.kind==='codelist'&&![n.name,n.label,n.qname].some(s=>(s||'').toLowerCase().includes(q))?valueMatch(n,q):'')).join('');
     } else {
       const order=['Building','Core','Construction','Transportation'];
       const mods=[...new Set(matches.map(n=>n.module))].sort((a,b)=>{
@@ -158,7 +243,7 @@
     return `<div class="prop-table"><table><thead><tr><th>Proprietà</th><th>Tipo / destinazione</th><th>Occorrenze</th><th>Definita in</th></tr></thead><tbody>${props.map(p=>{
       const direct=p.declaredIn===n.id;
       const targets=(p.targets.length?p.targets.map(t=>ref(t,undefined,'prop-type')).join(''):'<span class="muted tiny">Non specificato</span>')
-        +(p.codeList?`<div class="tiny muted" title="Code list del modello concettuale (OGC 20-010)">code list ${ref(p.codeList,undefined,'prop-type')}</div>`:'');
+        +(p.codeList?`<div class="tiny muted" title="Code list del modello concettuale (OGC 20-010)">code list ${ref(p.codeList,undefined,'prop-type')} ${codeListCount(p.codeList)}</div>`:'');
       return `<tr><td><button class="prop-name-button" data-property="${esc(p.id)}">${esc(p.name)}</button><div class="prop-description">${esc(p.description||'Nessuna descrizione nella sorgente.')}</div>${linkBadge(p)}${p.choices?.length?'<span class="badge amber" title="Campo in un gruppo xs:choice: le alternative non sono indipendenti">alternativa XML</span>':''}</td><td>${targets}</td><td><span class="multiplicity">${esc(p.multiplicity)}</span></td><td>${ref(p.declaredIn,undefined,'prop-origin '+(direct?'direct':''))}<div class="prop-origin-label">${direct?'diretta':'ereditata'}</div></td></tr>`;
     }).join('')}</tbody></table></div>`;
   }
@@ -198,8 +283,44 @@
     if(!n.literals?.length) return '';
     return section('Valori ammessi',`<div class="prop-table"><table><thead><tr><th>Valore</th><th>Definizione</th></tr></thead><tbody>${n.literals.map(l=>`<tr><td><code>${esc(l.value)}</code></td><td>${esc(l.definition)}</td></tr>`).join('')}</tbody></table></div>`,n.literals.length,'Definizioni da OGC 20-010');
   }
+  function codeListCount(id) {
+    const l=codeListOf(nodes[id]), state=codeListState(l);
+    return state==='values'?`<span class="muted">· ${l.values.length} valori</span>`:`<span class="muted">· ${codeListStates[state][0]}</span>`;
+  }
+  function codeListValuesSection(n) {
+    const props=properties(n).filter(p=>p.codeList);
+    if (!props.length) return '';
+    const rows=props.map(p=>{
+      const l=codeListOf(nodes[p.codeList]), state=codeListState(l), values=l?.values||[];
+      const shown=state==='values'
+        ?values.slice(0,12).map(v=>`<span class="value-chip" title="${esc(v.code+(v.description?' — '+v.description:''))}">${esc(v.name||v.code)}</span>`).join('')+(values.length>12?` <a href="${esc(href(p.codeList))}">+${values.length-12}</a>`:'')
+        :`<span class="muted tiny">${esc(codeListStates[state][2])}</span>`;
+      return `<tr><td><span class="prop-name">${esc(p.name)}</span></td><td>${ref(p.codeList)} ${stateBadge(l)}</td><td>${shown}</td></tr>`;
+    }).join('');
+    return section('Valori delle code list',`<div class="prop-table"><table class="cl-values"><thead><tr><th>Attributo</th><th>Code list</th><th>Valori del dizionario locale</th></tr></thead><tbody>${rows}</tbody></table></div>`,props.length,'Non normativi · da codelists/codelists.js');
+  }
+  function usageExample(n, l) {
+    const use=n.incoming[0];
+    if (!use || !l?.values.length) return '';
+    const prop=nodes[use.source]?.properties.find(p=>p.id===use.id), tag=prop?.qname||use.property, v=l.values[0];
+    return `<pre class="source-block"><code>${esc(`<${tag} codeSpace="${l.codeSpace||''}">${v.code}</${tag}>`)}</code></pre><p class="tiny muted"><code>codeSpace</code> identifica il dizionario; il contenuto è il codice di una voce, qui “${esc(v.name)}”.</p>`;
+  }
+  function codeListEditor(l) {
+    const rows=l.values.map((v,i)=>`<tr><td><input class="cl-input mono" data-cl-field="code" data-cl-index="${i}" value="${esc(v.code)}" aria-label="Codice"></td><td><input class="cl-input" data-cl-field="name" data-cl-index="${i}" value="${esc(v.name)}" aria-label="Nome"></td><td><input class="cl-input" data-cl-field="description" data-cl-index="${i}" value="${esc(v.description)}" aria-label="Descrizione"></td><td><button class="icon-button" data-cl-action="delete" data-cl-index="${i}" title="Elimina valore" aria-label="Elimina valore">×</button></td></tr>`).join('');
+    return `<label class="cl-toolbar">codeSpace del dizionario <input class="cl-input mono" data-cl-field="codeSpace" value="${esc(l.codeSpace||'')}"></label><div class="prop-table"><table class="cl-table"><thead><tr><th>Codice</th><th>Nome</th><th>Descrizione</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="4" class="muted tiny">Nessun valore.</td></tr>'}</tbody></table></div><div class="cl-actions"><button class="text-button" data-cl-action="add">+ Aggiungi valore</button><span class="spacer"></span><button class="text-button" data-cl-action="revert">Annulla modifiche</button><button class="text-button" data-cl-action="reset">Reset allo stato iniziale</button><button class="text-button primary" data-cl-action="save">Salva</button></div><p class="tiny muted">Salva scrive <code>codelists/codelists.js</code>: la prima volta scegli quel file nella cartella del progetto (Chrome, Edge). Negli altri browser il file viene scaricato e va sostituito a mano. Reset riporta tutte le code list agli esempi OGC di <code>codelists/codelists.default.js</code>.</p>`;
+  }
   function codeListView(n) {
-    let body=notice('Code list del modello concettuale (OGC 20-010). I valori non fanno parte dello standard: ogni dataset li prende da un dizionario esterno, indicato con l’attributo <code>codeSpace</code> del valore.','info');
+    let body=notice('Code list del modello concettuale (OGC 20-010). I valori non fanno parte dello standard: ogni dataset li prende da un dizionario esterno, indicato con l’attributo <code>codeSpace</code>. Qui compaiono i valori del <strong>dizionario locale</strong> (<code>codelists/codelists.js</code>), modificabili.','info');
+    const l=codeListOf(n);
+    if (!l) body+=notice('Dizionario locale non caricato: mancano codelists/codelists.js e codelists/codelists.default.js.');
+    else {
+      const state=codeListState(l), meta=l.metadata||{};
+      if (state==='placeholder') body+=notice('La fonte OGC fornisce per questa code list solo segnaposto generati automaticamente: sostituiscili con i valori del tuo progetto.');
+      if (state==='unavailable') body+=notice('Il file d’esempio OGC per questa code list non è pubblicato alla fonte: il dizionario parte vuoto.');
+      body+=section('Origine dei valori',`<dl class="metadata-grid"><dt>Stato</dt><dd>${stateBadge(l)}${l.edited?' <span class="badge">modificata</span>':''}</dd><dt>Esempio OGC</dt><dd>${l.path?sourceLink(l.path,l.path.split('/').pop())+' · '+sourceLink(l.url,'online'):esc(l.url)}</dd><dt>Autorità</dt><dd>${esc(meta.authority||'—')}</dd><dt>Versione · lingua</dt><dd>${esc(meta.version||'—')} · ${esc(meta.language||'—')}</dd><dt>Riferimento</dt><dd>${esc(codeLists.source.title)} ${esc(codeLists.source.version)} · ${esc(codeLists.source.reference)}</dd></dl>`);
+      body+=section('Valori',codeListEditor(l),l.values.length,'Dizionario locale, non normativo');
+      body+=section('Come si usa in un file CityGML',usageExample(n,l)||empty('Aggiungi almeno un valore per vedere l’esempio.'));
+    }
     body+=literals(n);
     body+=section('Usata da',n.incoming.length?cardGrid(n.incoming.map(i=>i.source),'attributo che la usa'):empty('Nessun attributo degli schemi usa questa code list.'),n.incoming.length,esc(n.incoming.map(i=>i.property).filter((v,i,a)=>a.indexOf(v)===i).join(', ')));
     return body;
@@ -214,7 +335,7 @@
     if(props.length)body+=`<div class="stats-grid">${[[attrs,'Attributi e valori','teal','properties'],[rels,'Relazioni','purple','connections'],[geom,'Geometrie / LOD','blue','properties'],[ade,'Punti ADE','amber','properties']].map(([ps,label,color,tab])=>`<button class="stat-card" data-tab="${tab}" data-kind="${label==='Geometrie / LOD'?'geometry':label==='Punti ADE'?'ade':'all'}"><span class="stat-label"><i class="line-dot ${color}"></i>${label}</span><strong>${ps.length}</strong><small>${ps.filter(p=>p.declaredIn===n.id).length} dirette · ${ps.filter(p=>p.declaredIn!==n.id).length} ereditate</small></button>`).join('')}</div>`;
     if(attrs.length)body+=section('Attributi e valori',propTable(attrs,n),attrs.length,'Clicca sul nome per aprire i dettagli','01');
     if(rels.length)body+=section('Relazioni',propTable(rels,n),rels.length,'Destinazioni navigabili','02');
-    body+=boundarySections(n)+literals(n);
+    body+=codeListValuesSection(n)+boundarySections(n)+literals(n);
     if(geom.length)body+=section('Geometrie e livelli di dettaglio',propTable(geom,n),geom.length,'LOD0 — LOD3','03');
     if(ade.length)body+=`<details class="section-collapse"><summary>Punti di estensione ADE <span class="count">${ade.length}</span></summary><div>${propTable(ade,n)}</div></details>`;
     body+=constraints(n);
@@ -298,6 +419,11 @@
     renderList();renderPage(true);
     $('#sidebar').classList.remove('open');$('#mobile-menu').setAttribute('aria-expanded','false');
   }
+  function codeListSources() {
+    if(!codeLists) return '<h3>Code list</h3>'+notice('Dizionario locale non caricato: mancano codelists/codelists.js e codelists/codelists.default.js.');
+    const s=codeListSummary(), src=codeLists.source;
+    return `<h3>Code list (dizionario locale)</h3><div class="stats-grid"><div class="stat-card"><span class="stat-label">Con valori</span><strong>${s.values}</strong></div><div class="stat-card"><span class="stat-label">Solo segnaposto</span><strong>${s.placeholder}</strong></div><div class="stat-card"><span class="stat-label">Vuote o non disponibili</span><strong>${s.empty}</strong></div><div class="stat-card"><span class="stat-label">Modificate</span><strong>${s.edited}</strong></div></div><p>Lo standard definisce le ${s.total} code list ma non i loro valori. Lo stato iniziale del dizionario locale proviene da ${esc(src.title)} ${esc(src.version)} (${esc(src.reference)}), scaricati il ${esc((src.retrievedAt||'').slice(0,10))} in ${sourceLink('sources/'+src.host+'/citygml-swg/CodeList_Examples_3.0.0/','sources/'+src.host)}. I valori sono esempi non normativi; il dizionario si modifica dalla pagina di ogni code list e si salva in <code>codelists/codelists.js</code>.</p>`;
+  }
   function standardSources() {
     if(!standard) return '';
     const d=standard.document, u=standard.umlModel, r=standard.report;
@@ -310,10 +436,10 @@
     const missing=unique.filter(d=>d.status==='missing');
     const rows=files=>files.map(f=>`<tr><td>${sourceLink(f.path,f.path.replace(/^sources\//,''))}</td><td>${esc(f.schemaVersion||'—')}</td><td>${esc((f.retrievedAt||'').slice(0,10))}</td><td><code title="${esc(f.sha256)}">${f.sha256.slice(0,12)}…</code></td></tr>`).join('');
     const table=files=>`<table class="source-table"><thead><tr><th>File</th><th>Versione</th><th>Scaricato il</th><th>SHA-256 (inizio)</th></tr></thead><tbody>${rows(files)}</tbody></table>`;
-    showModal('Sorgenti',`<div class="stats-grid"><div class="stat-card"><span class="stat-label">Schemi CityGML 3.0</span><strong>${data.stats.citygmlFiles}</strong></div><div class="stat-card"><span class="stat-label">Schemi importati</span><strong>${data.stats.dependencyFiles}</strong></div><div class="stat-card"><span class="stat-label">Import non risolti</span><strong>${missing.length}</strong></div><div class="stat-card"><span class="stat-label">Riferimenti senza definizione</span><strong>${data.stats.external}</strong></div></div>${missing.length?notice('Alcuni import non sono presenti in <code>sources/</code>. Esegui <code>python scripts/fetch_sources.py</code> e poi <code>python scripts/build_catalog.py</code>.'):notice('Tutti gli import degli schemi sono presenti in <code>sources/</code>: il catalogo è consultabile offline.','info')}${missing.length?`<h3>Import non risolti</h3><table class="source-table"><thead><tr><th>Dipendenza</th><th>Richiesta da</th></tr></thead><tbody>${missing.map(d=>`<tr><td class="url"><a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener">${esc(d.url)}</a></td><td>${esc(d.from)}</td></tr>`).join('')}</tbody></table>`:''}<h3>CityGML 3.0</h3>${table(data.files.filter(f=>f.citygml))}<h3>Schemi importati (GML, ISO 19139, XLink, XML)</h3>${table(data.files.filter(f=>!f.citygml))}${standardSources()}<p>URL di origine, date e hash completi: ${sourceLink('sources/manifest.json','sources/manifest.json')}. Versioni e fonti sono descritte nel ${sourceLink('README.md','README')}.</p>`);
+    showModal('Sorgenti',`<div class="stats-grid"><div class="stat-card"><span class="stat-label">Schemi CityGML 3.0</span><strong>${data.stats.citygmlFiles}</strong></div><div class="stat-card"><span class="stat-label">Schemi importati</span><strong>${data.stats.dependencyFiles}</strong></div><div class="stat-card"><span class="stat-label">Import non risolti</span><strong>${missing.length}</strong></div><div class="stat-card"><span class="stat-label">Riferimenti senza definizione</span><strong>${data.stats.external}</strong></div></div>${missing.length?notice('Alcuni import non sono presenti in <code>sources/</code>. Esegui <code>python scripts/fetch_sources.py</code> e poi <code>python scripts/build_catalog.py</code>.'):notice('Tutti gli import degli schemi sono presenti in <code>sources/</code>: il catalogo è consultabile offline.','info')}${missing.length?`<h3>Import non risolti</h3><table class="source-table"><thead><tr><th>Dipendenza</th><th>Richiesta da</th></tr></thead><tbody>${missing.map(d=>`<tr><td class="url"><a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener">${esc(d.url)}</a></td><td>${esc(d.from)}</td></tr>`).join('')}</tbody></table>`:''}<h3>CityGML 3.0</h3>${table(data.files.filter(f=>f.citygml))}<h3>Schemi importati (GML, ISO 19139, XLink, XML)</h3>${table(data.files.filter(f=>!f.citygml))}${standardSources()}${codeListSources()}<p>URL di origine, date e hash completi: ${sourceLink('sources/manifest.json','sources/manifest.json')}. Versioni e fonti sono descritte nel ${sourceLink('README.md','README')}.</p>`);
   }
   function helpModal() {
-    showModal('Come leggere il catalogo',`<p>Cerca un concetto a sinistra, apri la scheda e segui i nomi cliccabili. La pagina funziona offline: legge un indice preparato dagli schemi XSD ufficiali nella cartella <code>sources/</code>.</p><h3>Ereditarietà e associazioni</h3><p>Le proprietà ereditate provengono soltanto da <code>xs:extension</code>. Le associazioni, i punti ADE e <code>substitutionGroup</code> non trasferiscono attributi. Per una <code>xs:restriction</code> viene mostrata la struttura dichiarata, senza espandere automaticamente il tipo base.</p><h3>Proprietà</h3><p>Attributi e valori è una categoria di lettura: molti sono <code>xs:element</code>, non <code>xs:attribute</code>. Le occorrenze includono i gruppi contenitori; un campo in <code>xs:choice</code> resta un’alternativa, non un requisito indipendente. Il codice XML rimane la fonte da verificare.</p><h3>Categorie</h3><p>Le categorie derivano dalla gerarchia <code>xs:extension</code>. <strong>Feature</strong>: discende da <code>gml:AbstractFeature</code>. <strong>Oggetto (non feature)</strong>: discende da <code>gml:AbstractGML</code> ma non da <code>gml:AbstractFeature</code>. <strong>Tipo di dato</strong>: nessuna delle due, quindi senza identità propria. Gli <strong>oggetti di città</strong> discendono da <code>core:AbstractCityObject</code>; fra questi gli <strong>spazi</strong> discendono da <code>core:AbstractSpace</code> e le <strong>superfici di confine</strong> da <code>core:AbstractSpaceBoundary</code>.</p><h3>Relazioni</h3><p>Una proprietà è una relazione quando la destinazione è una feature o un oggetto; verso un tipo di dato è un attributo. La forma XML indica il tipo di collegamento: <strong>aggregazione</strong> se il tipo estende <code>gml:AbstractFeatureMemberType</code> (l’oggetto collegato è parte di questo), <strong>solo riferimento</strong> se il tipo è <code>gml:ReferenceType</code>, <strong>associazione</strong> negli altri casi.</p><h3>Modello concettuale</h3><p>La scheda <strong>Standard</strong> e i badge «stereotipo», <strong>Primo livello</strong> e <strong>Solo nel modello UML</strong> provengono dal documento OGC 20-010 (CityGML 3.0 Part 1: Conceptual Model); le <strong>superfici di confine ammesse</strong> dalle sue tabelle <code>/req/&lt;modulo&gt;/boundaries</code>; la distinzione fra <strong>composizione</strong> e aggregazione dal modello UML (XMI). Le <strong>code list</strong> hanno un nome e una definizione nello standard, ma i loro valori sono definiti da dizionari esterni.</p>${standard?`<h3>Concetti dello standard</h3><p class="tiny muted">Capitolo 6 del documento, copia locale.</p><ul class="concept-links">${standard.concepts.map(c=>`<li class="level-${c.level}">${docLink(c.anchor,c.number+' '+c.title)}</li>`).join('')}</ul>`:''}<h3>Stato delle sorgenti</h3><p>La sigla <strong>est.</strong> indica una definizione non presente in <code>sources/</code>. Il browser non inventa le proprietà mancanti.</p><h3>Legenda</h3><div class="legend"><span>F: feature</span><span>O: oggetto (non feature)</span><span class="geom">T: tipo di dato, enumerazione, tipo base o unione</span><span class="geom">L: code list</span><span class="ade">+: punto ADE</span></div><p>I concetti degli schemi importati sono mostrati con il prefisso del namespace, per esempio <code>gml:AbstractFeature</code>.</p><p>Premi <kbd>/</kbd> per cercare. I pulsanti Indietro/Avanti e la cronologia del browser seguono i concetti. Ogni scheda ha un URL con identificatore e sezione.</p><p>${sourceLink('README.md','Apri il README del progetto')}</p>`);
+    showModal('Come leggere il catalogo',`<p>Cerca un concetto a sinistra, apri la scheda e segui i nomi cliccabili. La pagina funziona offline: legge un indice preparato dagli schemi XSD ufficiali nella cartella <code>sources/</code>.</p><h3>Ereditarietà e associazioni</h3><p>Le proprietà ereditate provengono soltanto da <code>xs:extension</code>. Le associazioni, i punti ADE e <code>substitutionGroup</code> non trasferiscono attributi. Per una <code>xs:restriction</code> viene mostrata la struttura dichiarata, senza espandere automaticamente il tipo base.</p><h3>Proprietà</h3><p>Attributi e valori è una categoria di lettura: molti sono <code>xs:element</code>, non <code>xs:attribute</code>. Le occorrenze includono i gruppi contenitori; un campo in <code>xs:choice</code> resta un’alternativa, non un requisito indipendente. Il codice XML rimane la fonte da verificare.</p><h3>Categorie</h3><p>Le categorie derivano dalla gerarchia <code>xs:extension</code>. <strong>Feature</strong>: discende da <code>gml:AbstractFeature</code>. <strong>Oggetto (non feature)</strong>: discende da <code>gml:AbstractGML</code> ma non da <code>gml:AbstractFeature</code>. <strong>Tipo di dato</strong>: nessuna delle due, quindi senza identità propria. Gli <strong>oggetti di città</strong> discendono da <code>core:AbstractCityObject</code>; fra questi gli <strong>spazi</strong> discendono da <code>core:AbstractSpace</code> e le <strong>superfici di confine</strong> da <code>core:AbstractSpaceBoundary</code>.</p><h3>Relazioni</h3><p>Una proprietà è una relazione quando la destinazione è una feature o un oggetto; verso un tipo di dato è un attributo. La forma XML indica il tipo di collegamento: <strong>aggregazione</strong> se il tipo estende <code>gml:AbstractFeatureMemberType</code> (l’oggetto collegato è parte di questo), <strong>solo riferimento</strong> se il tipo è <code>gml:ReferenceType</code>, <strong>associazione</strong> negli altri casi.</p><h3>Modello concettuale</h3><p>La scheda <strong>Standard</strong> e i badge «stereotipo», <strong>Primo livello</strong> e <strong>Solo nel modello UML</strong> provengono dal documento OGC 20-010 (CityGML 3.0 Part 1: Conceptual Model); le <strong>superfici di confine ammesse</strong> dalle sue tabelle <code>/req/&lt;modulo&gt;/boundaries</code>; la distinzione fra <strong>composizione</strong> e aggregazione dal modello UML (XMI). Le <strong>code list</strong> hanno un nome e una definizione nello standard, ma i loro valori sono definiti da dizionari esterni.</p><h3>Code list e dizionario locale</h3><p>Lo standard è completo tranne i <strong>valori delle code list</strong>, che affida a dizionari esterni. Il catalogo carica un <strong>dizionario locale</strong> (<code>codelists/codelists.js</code>), inizializzato con gli esempi OGC e modificabile dalla pagina di ogni code list: i valori compaiono nelle classi che usano quella code list e nella ricerca. Il pulsante <strong>Code list</strong> in alto indica quante hanno valori; <strong>Reset</strong> riporta il dizionario allo stato iniziale. I valori non sono normativi.</p>${standard?`<h3>Concetti dello standard</h3><p class="tiny muted">Capitolo 6 del documento, copia locale.</p><ul class="concept-links">${standard.concepts.map(c=>`<li class="level-${c.level}">${docLink(c.anchor,c.number+' '+c.title)}</li>`).join('')}</ul>`:''}<h3>Stato delle sorgenti</h3><p>La sigla <strong>est.</strong> indica una definizione non presente in <code>sources/</code>. Il browser non inventa le proprietà mancanti.</p><h3>Legenda</h3><div class="legend"><span>F: feature</span><span>O: oggetto (non feature)</span><span class="geom">T: tipo di dato, enumerazione, tipo base o unione</span><span class="geom">L: code list</span><span class="ade">+: punto ADE</span></div><p>I concetti degli schemi importati sono mostrati con il prefisso del namespace, per esempio <code>gml:AbstractFeature</code>.</p><p>Premi <kbd>/</kbd> per cercare. I pulsanti Indietro/Avanti e la cronologia del browser seguono i concetti. Ogni scheda ha un URL con identificatore e sezione.</p><p>${sourceLink('README.md','Apri il README del progetto')}</p>`);
   }
   function propertyModal(id) {
     const prop=properties(nodes[current],true).find(p=>p.id===id);
@@ -327,7 +453,29 @@
     showToast('Scheda esportata in JSON');
   }
 
+  document.addEventListener('input',e=>{
+    const field=e.target.closest('[data-cl-field]');
+    if(!field)return;
+    const l=codeListOf(nodes[current]);
+    if(!l)return;
+    if(field.dataset.clField==='codeSpace')l.codeSpace=field.value;
+    else l.values[+field.dataset.clIndex][field.dataset.clField]=field.value;
+    markCodeListEdited(l);
+  });
+  function codeListAction(button) {
+    const action=button.dataset.clAction, l=codeListOf(nodes[current]);
+    if(action==='save'){saveCodeLists();return;}
+    if(action==='revert'){revertCodeLists();return;}
+    if(action==='reset'){resetCodeLists();return;}
+    if(!l)return;
+    if(action==='add'){
+      l.values.push({code:'',codeSpace:l.codeSpace||null,name:'',description:''});markCodeListEdited(l);renderPage();
+      const inputs=document.querySelectorAll('[data-cl-field="code"]');inputs[inputs.length-1]?.focus();
+    }
+    if(action==='delete'){l.values.splice(+button.dataset.clIndex,1);markCodeListEdited(l);renderPage();}
+  }
   document.addEventListener('click',e=>{
+    const clButton=e.target.closest('[data-cl-action]');if(clButton){e.preventDefault();codeListAction(clButton);return;}
     const prop=e.target.closest('[data-property]');if(prop){propertyModal(prop.dataset.property);return;}
     const action=e.target.closest('[data-action]');
     if(action){e.preventDefault();const a=action.dataset.action;if(a==='sources')sourcesModal();else if(a==='help')helpModal();else if(a==='copy-id')copyText(nodes[current].id);else if(a==='export')exportCurrent();return;}
@@ -353,11 +501,19 @@
   $('#back-btn').addEventListener('click',()=>history.back());
   $('#forward-btn').addEventListener('click',()=>history.forward());
   $('#sources-btn').addEventListener('click',sourcesModal);
+  $('#codelists-btn').addEventListener('click',()=>{
+    $('#family').value='CityGML';$('#search').value='';moduleOptions();
+    $('#category').value=codeListSummary().values<codeListSummary().total?'codelistMissing':'codelist';
+    $('#extra-filters').hidden=false;$('#filters-btn').setAttribute('aria-expanded','true');
+    renderList();$('#sidebar').classList.add('open');
+  });
+  window.addEventListener('beforeunload',e=>{if(codeListsDirty){e.preventDefault();e.returnValue='';}});
   $('#about-btn').addEventListener('click',helpModal);
   $('#close-modal').addEventListener('click',()=>$('#modal').close());
   $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=$('#modal').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('#modal').close();}});
   $('#mobile-menu').addEventListener('click',()=>{const open=$('#sidebar').classList.toggle('open');$('#mobile-menu').setAttribute('aria-expanded',String(open));});
   $('#file-count').textContent=data.files.length;
+  updateCodeListIndicator();
   window.addEventListener('hashchange',route);
   moduleOptions();route();
 })();
