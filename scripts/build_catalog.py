@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build the local navigation index of CityGML 3.0 from the XSD files in sources/.
+"""Build the local navigation index of CityGML 3.0 from the sources in sources/.
 
-Never fetches anything: every schema must already be in sources/ (see
-scripts/fetch_sources.py). This is a structural explorer, NOT an XML validator
-or a UML reverse-engineering engine. Inferred display categories are labelled.
-Run from any directory: python scripts/build_catalog.py
+The XSD schemas give the structure; the Conceptual Model sources (OGC 20-010
+document and UML model, read by conceptual_model.py) add what the encoding
+omits: stereotypes, code lists, allowed boundaries, requirements. Never fetches
+anything (see scripts/fetch_sources.py). This is a structural explorer, NOT an
+XML validator. Run from any directory: python scripts/build_catalog.py
 """
 from __future__ import annotations
 import argparse
@@ -15,6 +16,7 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
 from lxml import etree as ET
+import conceptual_model
 
 ROOT = Path(__file__).resolve().parents[1]
 XS = 'http://www.w3.org/2001/XMLSchema'
@@ -92,6 +94,8 @@ class Builder:
         manifest = root / 'sources/manifest.json'
         records = json.loads(manifest.read_text(encoding='utf-8'))['files'] if manifest.exists() else []
         self.provenance = {r['path']: r for r in records}
+        self.roles = {r['role']: r for r in records if r.get('role')}
+        self.standard = None
         self.path_by_url = {r['url']: r['path'] for r in records}
 
     def relative(self, p):
@@ -419,9 +423,10 @@ class Builder:
             n['children'].sort(key=lambda id_:self.nodes[id_]['name'].lower())
             n['incompleteInheritance'] = any(self.nodes[a]['external'] for a in n['ancestors'])
         self.classify()
+        self.enrich()
         for n in list(self.nodes.values()):
             for prop in n['properties']:
-                for target in prop['targets']:
+                for target in prop['targets'] + ([prop['codeList']] if prop.get('codeList') else []):
                     if target in self.nodes:
                         self.nodes[target]['incoming'].append({'source':n['id'], 'property':prop['name'], 'kind':prop['kind'], 'link':prop['link'], 'multiplicity':prop.get('multiplicity'), 'id':prop['id']})
         self.resolve_dependencies()
@@ -449,6 +454,119 @@ class Builder:
             for p in n['properties']:
                 if p['kind'] == 'association' and not any(self.nodes[t]['kind'] in identity for t in p['targets'] if t in self.nodes):
                     p['kind'], p['link'] = 'attribute', None
+
+    def enrich(self):
+        """Add what the Conceptual Model states and the XSD encoding omits.
+
+        Classes are matched by name: the XSD element name equals the UML class
+        name; an XSD enumeration or basic type is the UML name plus 'Type'.
+        Everything that does not match is listed in standard.report.
+        """
+        doc_record, uml_record = self.roles.get('conceptual-model-document'), self.roles.get('uml-model')
+        if not doc_record or not (self.root/doc_record['path']).exists():
+            self.warnings.append('Documento del modello concettuale non disponibile in sources/: catalogo solo XSD.')
+            return
+        doc = conceptual_model.read_document(self.root/doc_record['path'])
+        xmi = conceptual_model.read_xmi(self.root/uml_record['path']) if uml_record and (self.root/uml_record['path']).exists() else {}
+        norm = lambda name: name.replace('×', 'x')
+        classes = {norm(k): v for k, v in doc['classes'].items()}
+        uml_node, report = {}, defaultdict(list)
+        candidates = [n for n in self.nodes.values() if n['family'] == 'CityGML' and not n.get('anonymous')
+                      and not n['technical'] and not n['external']]
+        for exact in (True, False):
+            for n in candidates:
+                if n.get('uml'):
+                    continue
+                name = n['name'] if exact else (n['name'][:-4] if n['name'].endswith('Type') else None)
+                if name not in classes or name in uml_node:
+                    continue
+                cls = classes[name]
+                n['uml'] = {'name': cls['name'], 'stereotype': cls['stereotype'], 'anchor': cls['anchor'], 'package': cls['module']}
+                n['topLevel'] = cls['stereotype'] == 'TopLevelFeatureType'
+                if cls['values']:
+                    n['literals'] = cls['values']
+                uml_node[name] = n['id']
+        report['xsdWithoutUml'] = sorted(n['name'] for n in candidates if not n.get('uml'))
+        kinds = {'CodeList': 'codelist', 'BasicType': 'basictype', 'Union': 'union', 'DataType': 'datatype'}
+        for name, cls in sorted(classes.items()):
+            if name in uml_node or cls['stereotype'] not in kinds or cls['module'] in (None, 'ISO Classes'):
+                continue
+            id_ = f"uml:{cls['module']}:{name}"
+            n = self.base_node(id_, cls['name'], cls['module'], 'CityGML', False)
+            n.update(kind=kinds[cls['stereotype']], description=cls.get('definition', ''), source=[doc_record['path']],
+                     qname=cls['name'], namespace='', umlOnly=True, ancestors=[], incompleteInheritance=False,
+                     cityObject=False, spaceRole=None, topLevel=False,
+                     uml={'name': cls['name'], 'stereotype': cls['stereotype'], 'anchor': cls['anchor'], 'package': cls['module']})
+            if cls['values']:
+                n['literals'] = cls['values']
+            self.nodes[id_] = n
+            uml_node[name] = id_
+        for n in self.nodes.values():
+            if not n.get('uml') or n.get('umlOnly'):
+                continue
+            cls = classes[norm(n['uml']['name'])]
+            for p in n['properties']:
+                declared = cls['attributes'].get(p['name']) or cls['associations'].get(p['name'])
+                if declared is None:
+                    report['propertiesWithoutUml'].append(f"{n['name']}.{p['name']}")
+                else:
+                    p['umlType'] = declared.get('type') or declared.get('target')
+                    p['umlTypeId'] = uml_node.get(norm(p['umlType']))
+                    if classes.get(norm(p['umlType']), {}).get('stereotype') == 'CodeList':
+                        p['codeList'] = p['umlTypeId']
+                if p['kind'] == 'association' and xmi:
+                    kind = xmi.get((n['uml']['name'], p['name']))
+                    if kind:
+                        p['aggregation'] = kind
+                    else:
+                        report['associationsWithoutXmi'].append(f"{n['name']}.{p['name']}")
+        self.allowed_boundaries(doc['boundaries'], uml_node, norm, report)
+        commit = re.search(r'/([0-9a-f]{40})/', uml_record['url']) if uml_record else None
+        self.standard = {
+            'document': {**doc['metadata'], 'documentNumber': '20-010', 'path': doc_record['path'], 'url': doc_record['url'],
+                         'retrievedAt': doc_record['retrievedAt'], 'lastModified': doc_record.get('lastModified'),
+                         'sha256': doc_record['sha256']},
+            'umlModel': {'path': uml_record['path'], 'url': uml_record['url'], 'retrievedAt': uml_record['retrievedAt'],
+                         'sha256': uml_record['sha256'], 'commit': commit.group(1) if commit else None,
+                         'member': conceptual_model.INTEGRATED} if uml_record else None,
+            'modules': doc['modules'], 'concepts': doc['concepts'], 'requirements': doc['requirements'],
+            'report': {k: v for k, v in sorted(report.items())},
+        }
+
+    def allowed_boundaries(self, rows, uml_node, norm, report):
+        """Tables /req/<module>/boundaries of OGC 20-010, expanded where they say 'and all subclasses'."""
+        def descendants(id_):
+            found, stack = [], list(self.nodes[id_]['children'])
+            while stack:
+                child = stack.pop()
+                if child not in found:
+                    found.append(child)
+                    stack.extend(self.nodes[child]['children'])
+            return found
+        for space, row in sorted(rows.items()):
+            space_id = uml_node.get(norm(space))
+            if space_id is None:
+                report['boundaryRowsWithoutXsd'].append(space)
+                continue
+            items, resolved = [], []
+            for item in row['allowed']:
+                class_id = uml_node.get(norm(item['class']))
+                if class_id is None:
+                    report['boundaryClassesWithoutXsd'].append(item['class'])
+                    continue
+                items.append({'id': class_id, 'withSubclasses': item['withSubclasses']})
+                for id_ in [class_id] + (descendants(class_id) if item['withSubclasses'] else []):
+                    if id_ not in resolved:
+                        resolved.append(id_)
+            concrete = sorted((id_ for id_ in resolved if not self.nodes[id_]['abstract']), key=lambda id_: self.nodes[id_]['name'])
+            self.nodes[space_id]['allowedBoundaries'] = {'items': items, 'concrete': concrete, 'ade': row['ade'], 'none': row['none'],
+                                                          'requirement': row['requirement'], 'table': row['table'], 'anchor': row['anchor']}
+        for n in self.nodes.values():
+            if n.get('allowedBoundaries') and not n['abstract']:
+                for id_ in n['allowedBoundaries']['concrete']:
+                    self.nodes[id_].setdefault('boundaryOf', []).append(n['id'])
+        report['spacesWithoutBoundaryTable'] = sorted(n['name'] for n in self.nodes.values()
+                                                      if n.get('spaceRole') == 'space' and not n['abstract'] and 'allowedBoundaries' not in n)
 
     def ancestors(self, id_, seen=None):
         seen = set(seen or [])
@@ -482,6 +600,8 @@ class Builder:
         self.connect()
         missing = list({d['url']:d for d in self.dependencies if d['status']=='missing'}.values())
         stats = {'nodes':len(self.nodes), 'defined':sum(not n['external'] for n in self.nodes.values()),
+                 'codeLists':sum(n['kind']=='codelist' for n in self.nodes.values()),
+                 'topLevel':sum(bool(n.get('topLevel')) for n in self.nodes.values()),
                  'external':sum(n['external'] for n in self.nodes.values()),
                  'files':len(self.files),'citygmlFiles':sum(f['citygml'] for f in self.files),
                  'dependencyFiles':sum(not f['citygml'] for f in self.files),
@@ -489,7 +609,7 @@ class Builder:
                  'missingDependencies':len(missing)}
         data = {'schemaVersion':1, 'title':'CityGML 3.0 Explorer',
                 'sourceVersion':'CityGML 3.0.0 (OGC 21-006r2)',
-                'nodes':self.nodes, 'files':self.files, 'dependencies':self.dependencies,
+                'nodes':self.nodes, 'files':self.files, 'dependencies':self.dependencies, 'standard':self.standard,
                 'warnings':sorted(set(self.warnings)), 'stats':stats,
                 'initialId':xid('http://www.opengis.net/citygml/building/3.0','Building')}
         (self.root/'data').mkdir(exist_ok=True)
@@ -497,6 +617,8 @@ class Builder:
         (self.root/'data/catalog.json').write_text(text,encoding='utf-8')
         (self.root/'data/catalog.js').write_text('/* Generated by scripts/build_catalog.py. Do not edit. */\nwindow.CITYGML_CATALOG = '+text+';\n',encoding='utf-8')
         print(json.dumps(stats,indent=2))
+        if self.standard:
+            print('Confronto con il modello concettuale:', json.dumps({k: len(v) for k, v in self.standard['report'].items()}))
         print('Warnings:',len(data['warnings']))
         return data
 

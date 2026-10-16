@@ -94,6 +94,57 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(traffic['predecessor']['link'], 'reference')
         self.assertEqual(traffic['clearanceSpace']['link'], 'aggregation')
 
+    def by_name(self, name):
+        return next(n for n in self.data['nodes'].values() if n['name'] == name and n['family'] == 'CityGML')
+
+    def names(self, ids):
+        return {self.data['nodes'][i]['name'] for i in ids}
+
+    def test_conceptual_model_classes(self):
+        nodes = self.data['nodes']
+        top = {n['name'] for n in nodes.values() if n.get('topLevel')}
+        self.assertEqual(top, {'Bridge', 'Building', 'CityFurniture', 'CityObjectGroup', 'GenericLogicalSpace',
+                               'GenericOccupiedSpace', 'GenericThematicSurface', 'GenericUnoccupiedSpace', 'LandUse',
+                               'OtherConstruction', 'PlantCover', 'Railway', 'ReliefFeature', 'Road',
+                               'SolitaryVegetationObject', 'Square', 'Track', 'Tunnel', 'WaterBody', 'Waterway'})
+        self.assertEqual(sum(n['kind'] == 'codelist' for n in nodes.values()), 140)
+        roof = self.inherited(xid(BLDG, 'Building'))['roofType']
+        self.assertEqual(roof['umlType'], 'RoofTypeValue')
+        self.assertEqual(nodes[roof['codeList']]['name'], 'RoofTypeValue')
+        self.assertIn('roof types', nodes[roof['codeList']]['description'])
+        enum = nodes[xid(CORE, 'RelativeToTerrainType', 'type')]
+        self.assertEqual(enum['uml']['name'], 'RelativeToTerrain')
+        self.assertEqual(len(enum['literals']), 5)
+
+    def test_allowed_boundaries(self):
+        building = self.by_name('Building')['allowedBoundaries']
+        self.assertEqual(self.names(building['concrete']), {'CeilingSurface', 'ClosureSurface', 'FloorSurface',
+                         'GenericThematicSurface', 'GroundSurface', 'InteriorWallSurface', 'OuterCeilingSurface',
+                         'OuterFloorSurface', 'RoofSurface', 'WallSurface'})
+        self.assertTrue(building['ade'])
+        self.assertEqual((building['table'], building['requirement']), ('Table 65', '/req/building/boundaries'))
+        self.assertEqual(self.names(self.by_name('BuildingUnit')['allowedBoundaries']['concrete']),
+                         {'ClosureSurface', 'GenericThematicSurface'})
+        self.assertTrue(self.by_name('PlantCover')['allowedBoundaries']['none'])
+        self.assertEqual(self.names(self.by_name('TrafficArea')['boundaryOf']), {'TrafficSpace'})
+        self.assertNotIn('TrafficArea', self.names(building['concrete']))
+
+    def test_aggregation_kinds_from_uml(self):
+        self.assertEqual(self.inherited(xid(BLDG, 'Building'))['buildingPart']['aggregation'], 'composite')
+        self.assertEqual(self.inherited(xid(TRAN, 'Road'))['section']['aggregation'], 'shared')
+        self.assertEqual(self.inherited(xid(BLDG, 'Building'))['boundary']['aggregation'], 'none')
+
+    def test_standard_sources_and_report(self):
+        standard = self.data['standard']
+        self.assertEqual(standard['document']['documentNumber'], '20-010')
+        self.assertEqual(standard['document']['version'], '3.0.0')
+        self.assertEqual(sum(r['kind'] == 'Requirement' for r in standard['requirements']), 50)
+        self.assertEqual(sum(r['kind'] == 'Requirements class' for r in standard['requirements']), 18)
+        self.assertEqual(standard['report']['xsdWithoutUml'], ['CodeListMetaData'])
+        self.assertEqual(standard['report']['spacesWithoutBoundaryTable'], [])
+        self.assertIn('Building', standard['modules'])
+        self.assertTrue(any(c['title'] == 'Spaces and Space Boundaries' for c in standard['concepts']))
+
     def test_all_references_resolved_as_nodes(self):
         nodes = self.data['nodes']
         for node in nodes.values():
@@ -133,7 +184,8 @@ class SyntheticBuildTests(unittest.TestCase):
             self.assertEqual(status['http://example.org/schema/part.xsd'], 'local')
             self.assertEqual(status['http://example.org/absent.xsd'], 'missing')
             self.assertEqual(data['stats']['missingDependencies'], 1)
-            self.assertEqual(data['warnings'], [])
+            self.assertEqual(data['warnings'], ['Documento del modello concettuale non disponibile in sources/: catalogo solo XSD.'])
+            self.assertIsNone(data['standard'])
 
 
 if __name__ == '__main__':

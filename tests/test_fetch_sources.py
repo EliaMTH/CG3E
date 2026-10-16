@@ -46,6 +46,16 @@ class HelperTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'HTML'):
             f.parse_schema(b'<!DOCTYPE html><html></html>', 'http://schemas.opengis.net/a.xsd')
 
+    def test_document_formats(self):
+        f.check_document(b'Plain text', 'text')
+        f.check_document(b'<!DOCTYPE html><html></html>', 'html')
+        with self.assertRaisesRegex(ValueError, 'HTML'):
+            f.check_document(b'<!DOCTYPE html><html></html>', 'text')
+        with self.assertRaisesRegex(ValueError, 'non e HTML'):
+            f.check_document(b'Plain text', 'html')
+        with self.assertRaisesRegex(ValueError, 'zip'):
+            f.check_document(b'not a zip', 'zip')
+
     def test_non_schema_rejected(self):
         with self.assertRaisesRegex(ValueError, 'xs:schema'):
             f.parse_schema(b'<root/>', 'http://schemas.opengis.net/a.xsd')

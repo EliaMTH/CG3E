@@ -1,8 +1,10 @@
 {
-  "description": "Fonti ufficiali del catalogo. scripts/fetch_sources.py scarica questi URL e, ricorsivamente, ogni xs:import, xs:include e xs:redefine che contengono.",
+  "description": "Fonti ufficiali del catalogo. scripts/fetch_sources.py scarica gli schemi e, ricorsivamente, ogni xs:import, xs:include e xs:redefine che contengono; scarica inoltre i documenti, verificandone il formato (text, html, zip). Il campo role indica a scripts/build_catalog.py quale documento e il modello concettuale (conceptual-model-document) e quale archivio contiene l'XMI del modello UML (uml-model).",
   "allowedHosts": [
     "schemas.opengis.net",
-    "www.w3.org"
+    "www.w3.org",
+    "docs.ogc.org",
+    "raw.githubusercontent.com"
   ],
   "schemas": [
     "http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd",
@@ -32,6 +34,20 @@
     "http://schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt",
     "http://schemas.opengis.net/gml/ReadMe.txt",
     "http://schemas.opengis.net/iso/19139/ReadMe.txt",
-    "http://schemas.opengis.net/iso/19139/20070417/ReadMe.txt"
+    "http://schemas.opengis.net/iso/19139/20070417/ReadMe.txt",
+    {
+      "url": "https://docs.ogc.org/is/20-010/20-010.html",
+      "format": "html",
+      "role": "conceptual-model-document"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/Conceptual%20Model/XMI%20Files.zip",
+      "format": "zip",
+      "role": "uml-model"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/LICENSE",
+      "format": "text"
+    }
   ]
 }

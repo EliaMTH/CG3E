@@ -21,5 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 SCOPE: This license covers only the application code, configuration, and
-documentation. It does not relicense the XSD schemas and notices in sources/
-(OGC, ISO/TC 211, OASIS, W3C). Those retain their original terms.
+documentation. It does not relicense the schemas, documents, UML model and
+notices in sources/ (OGC, ISO/TC 211, OASIS, W3C, opengeospatial/CityGML-3.0CM).
+Those retain their original terms.
