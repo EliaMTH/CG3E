@@ -11,6 +11,10 @@ sources/xml-catalog.xml per l'uso offline con strumenti XML.
 Le richieste usano HTTPS; per gli schemi il manifest registra l'URL http://
 scritto negli schemi stessi. Uno schema e accettato solo se e uno xs:schema con
 il namespace atteso; un documento solo se corrisponde al formato dichiarato.
+
+Con --reuse-local i file gia presenti in sources/, con lo SHA-256 registrato nel
+manifest, non vengono riscaricati: il manifest ne conserva URL, data di download
+e intestazioni originali. Si scaricano solo i file nuovi o modificati localmente.
 """
 from __future__ import annotations
 import argparse
@@ -29,7 +33,7 @@ from lxml import etree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 XS = 'http://www.w3.org/2001/XMLSchema'
-MAX_BYTES = 25 * 1024 * 1024
+MAX_BYTES = 64 * 1024 * 1024
 USER_AGENT = 'CityGML-Explorer-fetch-sources/2.0'
 
 
@@ -129,8 +133,19 @@ def download(opener, url, hosts, timeout):
         payload = response.read(MAX_BYTES + 1)
         headers = {'lastModified': response.headers.get('Last-Modified'), 'etag': response.headers.get('ETag')}
     if len(payload) > MAX_BYTES:
-        raise ValueError('File oltre il limite di 25 MiB.')
+        raise ValueError('File oltre il limite di 64 MiB.')
     return final, payload, headers
+
+
+def reusable(root, record):
+    """Contenuto del file locale se coincide con lo SHA-256 registrato nel manifest, altrimenti None."""
+    if not record:
+        return None
+    path = root / record['path']
+    if not path.is_file():
+        return None
+    payload = path.read_bytes()
+    return payload if hashlib.sha256(payload).hexdigest() == record['sha256'] else None
 
 
 def run(args):
@@ -149,6 +164,10 @@ def run(args):
         queue.append({'url': samples['baseUrl'] + name, 'kind': 'document', 'format': 'gml-dictionary',
                       'role': 'codelist-sample', 'optional': True, 'from': 'config/sources.json'})
     entries, failures, unavailable, seen = {}, [], [], set()
+    previous = root / 'sources/manifest.json'
+    recorded = {}
+    if getattr(args, 'reuse_local', False) and previous.exists():
+        recorded = {r['url']: r for r in json.loads(previous.read_text(encoding='utf-8')).get('files', [])}
     while queue:
         item = queue.popleft()
         url = item['url']
@@ -159,12 +178,17 @@ def run(args):
         seen.add(url)
         try:
             check_host(url, hosts)
-            final, payload, headers = download(opener, url, hosts, args.timeout)
-            record = {'url': url, 'downloadedFrom': final, 'kind': item['kind'],
-                      'retrievedAt': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-                      'lastModified': headers['lastModified'], 'etag': headers['etag'],
-                      'sha256': hashlib.sha256(payload).hexdigest(), 'bytes': len(payload),
-                      'requestedBy': [item['from']], 'payload': payload}
+            kept = reusable(root, recorded.get(url))
+            if kept is not None:
+                payload = kept
+                record = {**recorded[url], 'requestedBy': [item['from']], 'payload': payload}
+            else:
+                final, payload, headers = download(opener, url, hosts, args.timeout)
+                record = {'url': url, 'downloadedFrom': final, 'kind': item['kind'],
+                          'retrievedAt': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+                          'lastModified': headers['lastModified'], 'etag': headers['etag'],
+                          'sha256': hashlib.sha256(payload).hexdigest(), 'bytes': len(payload),
+                          'requestedBy': [item['from']], 'payload': payload}
             if item['kind'] == 'xsd':
                 namespace, version, refs = parse_schema(payload, url, item['namespace'])
                 record.update(targetNamespace=namespace, schemaVersion=version, references=refs)
@@ -176,7 +200,7 @@ def run(args):
                     record['role'] = item['role']
             record['path'] = local_path(root, url).relative_to(root).as_posix()
             entries[url] = record
-            print('OK', record['path'], flush=True)
+            print('RIUSATO' if kept is not None else 'OK', record['path'], flush=True)
         except Exception as exc:
             problem = {'url': url, 'requestedBy': item['from'], 'error': f'{type(exc).__name__}: {exc}'}
             if item.get('optional'):
@@ -185,7 +209,6 @@ def run(args):
             else:
                 failures.append(problem)
                 print('NON ACQUISITO', url, '-', type(exc).__name__, exc, file=sys.stderr, flush=True)
-    previous = root / 'sources/manifest.json'
     old_paths = set()
     if previous.exists():
         old_paths = {f['path'] for f in json.loads(previous.read_text(encoding='utf-8')).get('files', [])}
@@ -222,6 +245,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--root', type=Path, default=ROOT)
     ap.add_argument('--timeout', type=float, default=30, help='Timeout di ogni richiesta in secondi (default 30).')
+    ap.add_argument('--reuse-local', action='store_true',
+                    help='Non riscarica i file presenti in sources/ con lo SHA-256 del manifest; scarica solo i nuovi.')
     args = ap.parse_args()
     raise SystemExit(run(args))
 

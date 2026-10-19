@@ -42,6 +42,11 @@
       "role": "conceptual-model-document"
     },
     {
+      "url": "https://docs.ogc.org/is/21-006r2/21-006r2.html",
+      "format": "html",
+      "role": "gml-encoding-document"
+    },
+    {
       "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/Conceptual%20Model/XMI%20Files.zip",
       "format": "zip",
       "role": "uml-model"

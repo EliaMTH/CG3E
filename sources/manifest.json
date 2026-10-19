@@ -1,7 +1,7 @@
 {
   "generatedBy": "scripts/fetch_sources.py",
   "config": "config/sources.json",
-  "retrievedAt": "2026-10-16T13:26:41+00:00",
+  "retrievedAt": "2026-10-19T09:32:58+00:00",
   "files": [
     {
       "url": "https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Bridge.BridgeClassValue.xml",
@@ -2242,6 +2242,22 @@
       "format": "html",
       "role": "conceptual-model-document",
       "path": "sources/docs.ogc.org/is/20-010/20-010.html"
+    },
+    {
+      "url": "https://docs.ogc.org/is/21-006r2/21-006r2.html",
+      "downloadedFrom": "https://docs.ogc.org/is/21-006r2/21-006r2.html",
+      "kind": "document",
+      "retrievedAt": "2026-10-19T09:32:58+00:00",
+      "lastModified": "Fri, 24 Apr 2026 01:05:12 GMT",
+      "etag": "\"19d8cbf-6502a5b5f0940\"",
+      "sha256": "1b038d0b067d94111532bc4d39d4693d1f755a583ba27f3f7615d13c7f049f04",
+      "bytes": 27102399,
+      "requestedBy": [
+        "config/sources.json"
+      ],
+      "format": "html",
+      "role": "gml-encoding-document",
+      "path": "sources/docs.ogc.org/is/21-006r2/21-006r2.html"
     },
     {
       "url": "https://raw.githubusercontent.com/opengeospatial/CityGML-3.0CM/71ec3bee28f6b883e543a4439a0732bd37e2d9ab/Conceptual%20Model/XMI%20Files.zip",

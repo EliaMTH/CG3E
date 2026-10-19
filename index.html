@@ -3,10 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="Esploratore locale del vocabolario CityGML 3.0 dagli schemi XSD ufficiali OGC. Ricerca, proprieta e relazioni con provenienza verificabile.">
   <title>CityGML Explorer</title>
+  <script>/* Display options saved by assets/app.js, applied before the first paint. */
+    try { var root = document.documentElement, theme = localStorage.getItem('cg-theme') || 'light';
+      if (theme === 'system') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = theme; root.style.setProperty('--font-scale', parseFloat(localStorage.getItem('cg-font-scale')) || 1);
+    } catch (_) {}</script>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles-dark.css">
   <script defer src="data/catalog.js"></script>
   <script defer src="codelists/codelists.default.js"></script>
   <script defer src="codelists/codelists.js"></script>
@@ -36,7 +42,12 @@
     </div>
     <div class="list-heading"><span>CONCETTI</span><span id="results-count" class="count">0</span></div>
     <nav id="concept-list" class="concept-list" aria-label="Elenco dei concetti"></nav>
-    <div class="sidebar-footer"><span class="status-dot"></span><span>Catalogo locale &middot; nessun server</span><button id="about-btn" title="Guida e legenda" aria-label="Guida e legenda">?</button></div>
+    <div class="sidebar-footer"><span class="status-dot"></span><span>Catalogo locale &middot; nessun server</span><button id="options-btn" title="Opzioni di visualizzazione" aria-label="Opzioni di visualizzazione" aria-expanded="false" aria-controls="options-panel">&#9881;</button><button id="about-btn" title="Guida e legenda" aria-label="Guida e legenda">?</button>
+      <div id="options-panel" class="options-panel" role="dialog" aria-label="Opzioni di visualizzazione" hidden>
+        <div class="options-row"><span>Dimensione del testo</span><div class="options-group"><button type="button" data-font-step="-1" aria-label="Riduci il testo">A&minus;</button><span id="font-scale-value" class="options-value">100%</span><button type="button" data-font-step="1" aria-label="Ingrandisci il testo">A+</button></div></div>
+        <div class="options-row"><span>Tema</span><div class="options-group" role="radiogroup" aria-label="Tema"><button type="button" role="radio" data-theme-choice="light">Chiaro</button><button type="button" role="radio" data-theme-choice="dark">Scuro</button><button type="button" role="radio" data-theme-choice="system">Sistema</button></div></div>
+      </div>
+    </div>
   </aside>
   <div class="main-shell">
     <header class="topbar">

@@ -64,7 +64,7 @@ Per ogni code list:
 
 Il namespace dei metadati è quello di `codeListMetaData.xsd`
 (`http://www.opengis.net/citygml/codelistmetadata/3.0`), anche per le code list
-nate da esempi OGC che usano la versione precedente.
+derivate da esempi OGC che usano `http://www.opengis.net/citygml/codelist-metadata`.
 
 ## Validazione
 
@@ -101,11 +101,11 @@ I `codeSpace` del dizionario locale restano quelli degli esempi OGC finché non
 vengono modificati; l'esportazione li sostituisce con quelli derivati da
 `--base-uri`.
 
-Per pacchetti non ancora pubblicati, `--base-uri` accetta URI che non
+Per pacchetti in bozza, `--base-uri` accetta URI che non
 richiedono registrazione:
 
 - `https://example.org/…` (dominio riservato alla documentazione, RFC 2606);
-- `urn:uuid:<uuid>` (RFC 9562, già RFC 4122), univoco senza registrazione;
+- `urn:uuid:<uuid>` (RFC 9562, che sostituisce RFC 4122), univoco senza registrazione;
 - `tag:<dominio-o-email>,<data>:…` (RFC 4151), con un dominio o un indirizzo
   che si controlla alla data indicata.
 

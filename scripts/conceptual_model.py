@@ -24,8 +24,32 @@ def text(el):
     return ' '.join(el.text_content().split())
 
 
+def cell_rows(table):
+    return [[c for c in tr if isinstance(c.tag, str) and c.tag in ('td', 'th')] for tr in table.iter('tr')]
+
+
 def rows(table):
-    return [[text(c) for c in tr if isinstance(c.tag, str) and c.tag in ('td', 'th')] for tr in table.iter('tr')]
+    return [[text(c) for c in cells] for cells in cell_rows(table)]
+
+
+def lines(el):
+    """Text of an element keeping the line breaks (<br>, paragraphs): OCL is written on several lines."""
+    copy = html.fromstring(html.tostring(el))
+    for br in copy.iter('br'):
+        br.tail = '\n' + (br.tail or '')
+    for block in copy.iter('p', 'pre', 'div'):
+        block.tail = '\n' + (block.tail or '')
+    return '\n'.join(' '.join(line.split()) for line in copy.text_content().split('\n') if line.strip())
+
+
+def read_constraint(cell, caption):
+    """A Constraint row of a Metadata table: name (when written as "name:" in <tt>) and original text."""
+    body = lines(cell)
+    name = cell.find('.//tt')
+    label = name.text_content().strip() if name is not None else None
+    if label and body.startswith(label + ':'):
+        body = body[len(label) + 1:].strip()
+    return {'name': label, 'text': body, 'table': ' '.join(caption.split()[:2])}
 
 
 def next_table(el):
@@ -69,15 +93,20 @@ def read_document(path):
             # A package (ApplicationSchema) can share its name with a class, e.g. Building.
             target = result['packages'] if stereotype == 'ApplicationSchema' else result['classes']
             current = target.setdefault(name, {'name': name, 'module': module, 'stereotype': stereotype,
-                                                           'attributes': {}, 'associations': {}, 'values': []})
+                                                           'attributes': {}, 'associations': {}, 'values': [], 'constraints': []})
             body = rows(table)
             if what == 'Metadata':
                 # Rows are "Label:" / value; the label is the cell ending with a colon.
                 info = {}
-                for r in body:
+                for r, cells in zip(body, cell_rows(table)):
                     if len(r) == 2:
-                        label, value = (r[0], r[1]) if r[0].endswith(':') else (r[1], r[0])
-                        info[label.rstrip(':')] = value
+                        first = r[0].endswith(':')
+                        label, value = (r[0], r[1]) if first else (r[1], r[0])
+                        if label == 'Constraint:':
+                            # A table can hold several constraints: a list, never overwritten.
+                            current['constraints'].append(read_constraint(cells[1] if first else cells[0], match.group(0)))
+                        else:
+                            info[label.rstrip(':')] = value
                 current['definition'] = info.get('Definition', '')
                 current['subclassOf'] = [s for s in info.get('Subclass of', '').split(', ') if s and s != 'None']
             elif what == 'Attributes':

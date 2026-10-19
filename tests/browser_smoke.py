@@ -1,18 +1,22 @@
 """Smoke test of the HTML/CSS/JS catalog in Chromium, no network calls.
 
 Loads page, styles, catalog, code list dictionary and script as in-memory
-content, so the browser's file:// policy is not exercised. The File System
-Access API is replaced by a stub that records what Save writes. Writes
-docs/screenshot-desktop.png and docs/screenshot-mobile.png.
+content; the File System Access API is replaced by a stub that records what
+Save writes. The persistence of display options is checked on the real
+index.html opened from file://. Writes docs/screenshot-desktop.png and
+docs/screenshot-mobile.png.
 """
+import json
+import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ['data/catalog.js', 'codelists/codelists.default.js', 'codelists/codelists.js', 'assets/app.js']
 
-template = (ROOT/'index.html').read_text(encoding='utf-8').replace(
-    '<link rel="stylesheet" href="assets/styles.css">',
-    '<style>'+(ROOT/'assets/styles.css').read_text(encoding='utf-8')+'</style>')
+template = (ROOT/'index.html').read_text(encoding='utf-8')
+for sheet in ('assets/styles.css', 'assets/styles-dark.css'):
+    template = template.replace(f'<link rel="stylesheet" href="{sheet}">',
+                                '<style>'+(ROOT/sheet).read_text(encoding='utf-8')+'</style>')
 for script in SCRIPTS:
     template = template.replace(f'<script defer src="{script}"></script>', '')
 
@@ -20,6 +24,10 @@ STUB = '''window.__written = null;
 window.showSaveFilePicker = async () => ({name: 'codelists.js',
   queryPermission: async () => 'granted', requestPermission: async () => 'granted',
   createWritable: async () => ({write: async text => { window.__written = text; }, close: async () => {}})});'''
+# The write waits until the test calls window.__release().
+DEFERRED = STUB.replace('window.__written = text;', 'window.__written = text; await new Promise(r => { window.__release = r; });') \
+    + 'window.__release = null;'
+FAILING = STUB.replace('window.__written = text;', "throw new Error('disco pieno');")
 
 
 def load(page):
@@ -43,6 +51,7 @@ with sync_playwright() as pw:
     expect(page.locator('#catalog-version')).to_have_text('CityGML 3.0.0 (OGC 21-006r2)')
     expect(page.locator('#codelist-count')).to_have_text('44/140')
     assert page.locator('#family option').count() == 3
+    expect(page.locator('.item-hint')).to_have_count(0)
 
     # Categories and filters
     page.locator('#filters-btn').click()
@@ -107,6 +116,33 @@ with sync_playwright() as pw:
     assert 'tetto piano' in page.evaluate('window.__written')
     expect(page.locator('#codelist-count')).to_have_text('44/140')
 
+    # Edits made while the file is being written stay unsaved; Save and Reset wait for the write
+    page.evaluate(DEFERRED)
+    page.locator('[data-cl-action="save"]').click()
+    page.wait_for_function('window.__release !== null')
+    expect(page.locator('[data-cl-action="save"]')).to_be_disabled()
+    expect(page.locator('[data-cl-action="reset"]')).to_be_disabled()
+    page.locator('[data-cl-field="name"]').first.fill('durante il salvataggio')
+    page.evaluate('window.__release()')
+    expect(page.locator('[data-cl-action="save"]')).to_be_enabled()
+    assert 'durante il salvataggio' not in page.evaluate('window.__written')
+    expect(page.locator('#codelist-count')).to_contain_text('•')
+    expect(page.locator('[data-cl-field="name"]').first).to_have_value('durante il salvataggio')
+    page.evaluate(STUB)
+    page.locator('[data-cl-action="save"]').click()
+    page.wait_for_function('window.__written !== null')
+    assert 'durante il salvataggio' in page.evaluate('window.__written')
+    expect(page.locator('#codelist-count')).to_have_text('44/140')
+
+    # A failed write keeps the edits unsaved
+    page.locator('[data-cl-field="name"]').first.fill('non salvato')
+    page.evaluate(FAILING)
+    page.locator('[data-cl-action="save"]').click()
+    expect(page.locator('#toast')).to_contain_text('Salvataggio non riuscito: disco pieno')
+    expect(page.locator('#codelist-count')).to_contain_text('•')
+    expect(page.locator('[data-cl-action="save"]')).to_be_enabled()
+    page.evaluate(STUB)
+
     # Reset writes the initial state back (confirm dialog accepted)
     page.evaluate('window.__written = null')
     page.once('dialog', lambda dialog: dialog.accept())
@@ -125,9 +161,134 @@ with sync_playwright() as pw:
     search(page, 'footpath', 'TrafficAreaFunctionValue')
     page.locator('#search').fill('')
     page.locator('#codelists-btn').click()
-    expect(page.locator('#results-count')).to_have_text('96')
-    page.locator('#category').select_option('')
+    expect(page.locator('h1')).to_have_text('Code list')
+    expect(page.locator('#content tbody tr')).to_have_count(140)
+    page.locator('[data-cl-filter="values"]').click()
+    expect(page.locator('#content tbody tr')).to_have_count(44)
+    page.locator('[data-cl-filter="missing"]').click()
+    expect(page.locator('#content tbody tr')).to_have_count(96)
+    expect(page.locator('#content')).to_contain_text('HollowSpaceUsageValue')
+
+    # Classes without their own XSD type: usage example and encoding
+    search(page, 'TemporalRelationTypeValue', 'TemporalRelationTypeValue')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('.badge', has_text='Senza tipo XSD dedicato')).to_have_count(1)
+    expect(page.locator('#tab-content')).to_contain_text('Nessuna proprietà degli schemi XSD ha questa code list come tipo: manca')
+    expect(page.locator('#tab-content')).not_to_contain_text('Aggiungi almeno un valore')
+    page.locator('.tab', has_text='Sorgente').click()
+    expect(page.locator('#tab-content')).to_contain_text('il catalogo non registra come la codifica la rappresenta')
+    search(page, 'HollowSpaceUsageValue', 'HollowSpaceUsageValue')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('#tab-content')).to_contain_text('Aggiungi almeno un valore')
+    search(page, 'RoofTypeValue', 'RoofTypeValue')
+    page.locator('.concept-item').first.click()
+    page.locator('.tab', has_text='Sorgente').click()
+    expect(page.locator('#tab-content')).to_contain_text('roofType')
+    expect(page.locator('#tab-content')).to_contain_text('gml:CodeType')
+    expect(page.locator('#tab-content')).not_to_contain_text('non rappresenta')
+
+    # Conceptual model: generalization, members of unions and basic types, constraints, encoding forms
+    search(page, 'MeasureOrNilReasonList', 'MeasureOrNilReasonList')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('.inheritance-box')).to_contain_text('GENERALIZZAZIONE NEL MODELLO CONCETTUALE')
+    expect(page.locator('.inheritance-box')).to_contain_text('DoubleOrNilReasonList')
+    expect(page.locator('section', has_text='Membri nel modello concettuale').locator('tbody tr')).to_have_count(2)
+    search(page, 'CityModelMember', 'CityModelMember')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('#tab-content')).to_contain_text('Unione: un valore è uno solo dei membri')
+    expect(page.locator('section', has_text='Membri nel modello concettuale').locator('tbody tr')).to_have_count(5)
+    search(page, 'PointCloud', 'PointCloud')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('section', has_text='Vincoli del modello concettuale')).to_contain_text('inlineOrExternalPointCloud')
+    search(page, 'Role', 'Role')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('section', has_text='Relazioni').locator('.badge', has_text='solo riferimento')).to_have_count(1)
+    expect(page.locator('#tab-content')).to_contain_text('Describes the role the city object plays within the CityObjectGroup. (OGC 20-010)')
+    page.locator('.tab', has_text='Standard').click()
+    expect(page.locator('#tab-content')).to_contain_text('Membri nel modello concettuale')
+    expect(page.locator('summary', has_text='Requisiti della codifica GML del modulo CityObjectGroup')).to_have_count(1)
+    expect(page.locator('summary', has_text='Requisiti globali della codifica GML')).to_have_count(1)
+    page.locator('.tab', has_text='Panoramica').click()
+    page.locator('[data-property]', has_text='groupMember').first.click()
+    expect(page.locator('#modal-body')).to_contain_text('/req/cityobjectgroup/reference B')
+    page.locator('#close-modal').click()
+    search(page, 'CityModel', 'CityModel')
+    page.locator('.concept-item').first.click()
+    page.locator('.tab', has_text='Standard').click()
+    expect(page.locator('tr', has_text='cityModelMember')).to_contain_text('alternative dell’unione come proprietà: cityObjectMember')
+
+    # Property search: declaring class, concrete classes, class filters do not hide properties
+    search(page, 'dateOfConstruction', 'dateOfConstruction')
+    expect(page.locator('.property-item .item-hint')).to_have_text(['in AbstractConstruction (astratta)'])
+    page.locator('.property-item').first.click()
+    expect(page.locator('h1')).to_have_text('AbstractConstruction')
+    expect(page.locator('#modal-title')).to_have_text('dateOfConstruction')
+    expect(page.locator('#modal-body')).to_contain_text('Classi concrete con la proprietà')
+    expect(page.locator('#modal-body')).to_contain_text('BuildingPart')
+    page.locator('#close-modal').click()
     page.locator('#filters-btn').click()
+    page.locator('#only-concrete').check()
+    search(page, 'lod2MultiSurface', 'lod2MultiSurface')
+    expect(page.locator('.property-item .item-hint')).to_have_text(['in AbstractSpace (astratta)', 'in AbstractThematicSurface (astratta)'])
+    page.locator('#only-concrete').uncheck()
+    page.locator('#filters-btn').click()
+    search(page, 'boundary', 'boundary')
+    expect(page.locator('.property-item .item-hint').first).to_have_text('in AbstractSpace (astratta)')
+    search(page, 'Building', 'Building')
+
+    # Reading level: conceptual model and GML encoding of the same class, in the URL and in the export
+    page.locator('#home-link').click()
+    page.locator('[data-level="uml"]').click()
+    expect(page).to_have_url(re.compile(r'tab=overview&level=uml$'))
+    expect(page.locator('#tab-content')).to_contain_text('Livello: modello concettuale (OGC 20-010)')
+    expect(page.locator('.uml-members tr').filter(has=page.locator('.prop-name', has_text=re.compile('^buildingPart$')))).to_contain_text('1..*')
+    page.locator('.tab', has_text='Proprietà').click()
+    expect(page).to_have_url(re.compile(r'tab=properties&level=uml$'))
+    with page.expect_download() as download:
+        page.locator('[data-action="export"]').click()
+    exported = json.loads(Path(download.value.path()).read_text(encoding='utf-8'))
+    assert exported['level'] == 'uml'
+    assert {m['name']: m['multiplicity'] for m in exported['visibleProperties']}['buildingPart'] == '1..*'
+    page.locator('[data-level="gml"]').click()
+    expect(page).to_have_url(re.compile(r'tab=properties$'))
+    expect(page.locator('#tab-content tr').filter(has=page.locator('.prop-name-button', has_text=re.compile('^buildingPart$')))).to_contain_text('0..*')
+    with page.expect_download() as download:
+        page.locator('[data-action="export"]').click()
+    assert json.loads(Path(download.value.path()).read_text(encoding='utf-8'))['level'] == 'gml'
+    page.locator('.tab', has_text='Panoramica').click()
+
+    # Destinations of boundary in the context of the visited class, apart from the schema candidates
+    for name, expected, absent in [('BuildingUnit', 'Ammesse per BuildingUnit', 'RoofSurface'),
+                                   ('PlantCover', 'non ammette superfici di confine per PlantCover', None)]:
+        search(page, name, name)
+        page.locator('.concept-item').first.click()
+        page.locator('.tab', has_text='Proprietà').click()
+        page.locator('.prop-name-button', has_text=re.compile('^boundary$')).first.click()
+        expect(page.locator('.destinations > p').first).to_contain_text(expected)
+        if absent:
+            expect(page.locator('.destinations > p').first).not_to_contain_text(absent)
+        expect(page.locator('.destinations summary')).to_contain_text('Elementi sostituibili negli schemi')
+        page.locator('#close-modal').click()
+
+    # Display options: theme and text size
+    page.locator('#options-btn').click()
+    expect(page.locator('#options-panel')).to_be_visible()
+    page.locator('[data-theme-choice="dark"]').click()
+    assert page.evaluate('document.documentElement.dataset.theme') == 'dark'
+    background = page.evaluate('getComputedStyle(document.body).backgroundColor')
+    assert sum(int(v) for v in background[background.index('(')+1:-1].split(',')[:3]) < 150, background
+    page.locator('[data-font-step="1"]').click()
+    expect(page.locator('#font-scale-value')).to_have_text('110%')
+    assert page.evaluate('getComputedStyle(document.body).fontSize') == '15.4px'
+    page.keyboard.press('Escape')
+    expect(page.locator('#options-panel')).to_be_hidden()
+    page.locator('#options-btn').click()
+    page.locator('[data-theme-choice="light"]').click()
+    page.locator('[data-font-step="-1"]').click()
+    page.locator('h1').click()
+    expect(page.locator('#options-panel')).to_be_hidden()
+    assert page.evaluate('document.documentElement.dataset.theme') == 'light'
+    assert page.evaluate('getComputedStyle(document.body).fontSize') == '14px'
 
     # Tabs and dialogs
     search(page, 'BuildingPart', 'BuildingPart')
@@ -140,6 +301,9 @@ with sync_playwright() as pw:
     expect(page.locator('#modal-title')).to_have_text('Sorgenti')
     expect(page.locator('#modal-body')).to_contain_text('consultabile offline')
     expect(page.locator('#modal-body')).to_contain_text('Modello concettuale')
+    expect(page.locator('#modal-body tr', has_text='Attributi e ruoli')).to_contain_text('3 senza corrispondenza')
+    expect(page.locator('#modal-body')).to_contain_text('Codifica GML')
+    expect(page.locator('#modal-body tr', has_text='codifica GML (Parte 2)')).to_contain_text('43 requisiti')
     expect(page.locator('#modal-body')).to_contain_text('Solo segnaposto')
     page.locator('#close-modal').click()
     page.locator('#about-btn').click()
@@ -152,12 +316,27 @@ with sync_playwright() as pw:
     expect(page.locator('h1')).to_have_text('Building')
     page.screenshot(path=str(ROOT/'docs/screenshot-desktop.png'))
 
+    # Preferences persist across reloads of the real file:// page
+    real = browser.new_page()
+    real.on('pageerror', lambda exc: errors.append(str(exc)))
+    real.goto((ROOT/'index.html').as_uri())
+    real.locator('#options-btn').click()
+    real.locator('[data-theme-choice="dark"]').click()
+    real.locator('[data-font-step="1"]').click()
+    real.reload()
+    expect(real.locator('h1')).to_have_text('Building')
+    assert real.evaluate('document.documentElement.dataset.theme') == 'dark'
+    assert real.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--font-scale').trim()") == '1.1'
+    real.evaluate('localStorage.clear()')
+    real.close()
+
     mobile = browser.new_page(viewport={'width': 390, 'height': 844}, is_mobile=True)
     mobile.on('pageerror', lambda exc: errors.append(str(exc)))
     load(mobile)
     expect(mobile.locator('h1')).to_have_text('Building')
     assert mobile.evaluate('document.documentElement.scrollWidth') <= 390
+    expect(mobile.locator('[data-level="uml"]')).to_be_visible()
     mobile.screenshot(path=str(ROOT/'docs/screenshot-mobile.png'))
     browser.close()
     assert not errors, errors
-print('PASS: nessun errore JavaScript; navigazione, code list (modifica, salvataggio, reset, download) e riquadri funzionanti (file:// non testato).')
+print('PASS: nessun errore JavaScript; navigazione, ricerca delle proprietà, livelli GML e UML, destinazioni, code list (modifica, salvataggio, reset, download, panoramica), opzioni di visualizzazione e riquadri funzionanti.')

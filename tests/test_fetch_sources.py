@@ -95,6 +95,41 @@ class RunTests(unittest.TestCase):
             self.assertEqual((root/'sources/schemas.opengis.net/d/dep.xsd').read_bytes(), documents['http://schemas.opengis.net/d/dep.xsd'])
             self.assertIn('rewriteURI', (root/'sources/xml-catalog.xml').read_text())
 
+    def test_reuse_local_downloads_only_new_or_changed_files(self):
+        documents = {
+            'http://schemas.opengis.net/m/main.xsd': schema('urn:main', '<xs:import namespace="urn:dep" schemaLocation="../d/dep.xsd"/>'),
+            'http://schemas.opengis.net/d/dep.xsd': schema('urn:dep'),
+            'http://schemas.opengis.net/ReadMe.txt': b'Read me',
+            'http://schemas.opengis.net/New.txt': b'New document',
+        }
+        calls = []
+
+        def fake_download(opener, url, hosts, timeout):
+            calls.append(url)
+            return f.transport(url), documents[url], {'lastModified': None, 'etag': None}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root/'config').mkdir()
+            config = {'allowedHosts': ['schemas.opengis.net'], 'schemas': ['http://schemas.opengis.net/m/main.xsd'],
+                      'documents': ['http://schemas.opengis.net/ReadMe.txt']}
+            (root/'config/sources.json').write_text(json.dumps(config))
+            with patch.object(f, 'download', fake_download):
+                self.assertEqual(f.run(Namespace(root=root, timeout=1)), 0)
+            before = {r['url']: r for r in json.loads((root/'sources/manifest.json').read_text())['files']}
+            config['documents'].append('http://schemas.opengis.net/New.txt')
+            (root/'config/sources.json').write_text(json.dumps(config))
+            (root/'sources/schemas.opengis.net/d/dep.xsd').write_bytes(b'edited locally')
+            calls.clear()
+            with patch.object(f, 'download', fake_download):
+                self.assertEqual(f.run(Namespace(root=root, timeout=1, reuse_local=True)), 0)
+            self.assertEqual(sorted(calls), ['http://schemas.opengis.net/New.txt', 'http://schemas.opengis.net/d/dep.xsd'])
+            after = {r['url']: r for r in json.loads((root/'sources/manifest.json').read_text())['files']}
+            main = 'http://schemas.opengis.net/m/main.xsd'
+            self.assertEqual(after[main], before[main])
+            self.assertEqual((root/'sources/schemas.opengis.net/d/dep.xsd').read_bytes(), documents['http://schemas.opengis.net/d/dep.xsd'])
+            self.assertEqual(len(after), 4)
+
     def test_missing_code_list_sample_is_unavailable_not_failure(self):
         dictionary = b'<gml:Dictionary xmlns:gml="http://www.opengis.net/gml/3.2"/>'
         base = 'https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/'

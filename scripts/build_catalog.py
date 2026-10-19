@@ -3,7 +3,9 @@
 
 The XSD schemas give the structure; the Conceptual Model sources (OGC 20-010
 document and UML model, read by conceptual_model.py) add what the encoding
-omits: stereotypes, code lists, allowed boundaries, requirements. Never fetches
+omits: stereotypes, code lists, allowed boundaries, requirements. The GML
+Encoding document (OGC 21-006r2, read by encoding_document.py) adds the
+encoding rules that the schemas do not express. Never fetches
 anything (see scripts/fetch_sources.py). This is a structural explorer, NOT an
 XML validator. Run from any directory: python scripts/build_catalog.py
 """
@@ -17,11 +19,13 @@ from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
 from lxml import etree as ET
 import conceptual_model
+import encoding_document
 
 ROOT = Path(__file__).resolve().parents[1]
 XS = 'http://www.w3.org/2001/XMLSchema'
 GML = 'http://www.opengis.net/gml/3.2'
 CORE = 'http://www.opengis.net/citygml/3.0'
+XLINK = 'http://www.w3.org/1999/xlink'
 NS = {'xs': XS}
 # Property types that GML defines for members of a collection: in CityGML 3.0
 # every property in this form is an aggregation of the UML model.
@@ -80,6 +84,110 @@ def canonical(url):
     return urlunparse(p._replace(scheme='http' if p.scheme == 'https' else p.scheme, fragment=''))
 
 
+def union_alternative(cls, name, classes, norm):
+    """(member, alternative) when name is an alternative of the Union type of a member of cls."""
+    for member, m in {**cls['attributes'], **cls['associations']}.items():
+        union = classes.get(norm(m.get('type') or m.get('target') or ''))
+        if union and union['stereotype'] == 'Union':
+            alternative = union['attributes'].get(name) or union['associations'].get(name)
+            if alternative:
+                return member, alternative
+    return None
+
+
+def coverage(classes, nodes, uml_node, norm, simple_declarations=()):
+    """The data dictionary of OGC 20-010 and the lists and unions of the CityGML schemas against the catalog.
+
+    For every dimension: declarations in the source (total), present in the
+    catalog (represented), outside the catalog with the reason (excluded) and
+    findings for what is missing. 'xsd' tells how the encoding represents the
+    declarations; its categories come from the schemas, never from a list of names.
+    """
+    dims = {d: {'total': 0, 'represented': 0, 'excluded': [], 'findings': [], 'xsd': defaultdict(list)}
+            for d in ('classes', 'members', 'generalizations', 'constraints', 'simpleTypes')}
+
+    def missing(dim, declaration, expected):
+        dims[dim]['findings'].append({'declaration': declaration, 'expected': expected, 'outcome': 'unresolved'})
+
+    for name, cls in sorted(classes.items()):
+        label = cls['name']
+        if cls['module'] in (None, 'ISO Classes'):
+            reason = 'classe ISO citata dal documento, fuori dal vocabolario CityGML'
+            dims['classes']['excluded'].append({'declaration': label, 'reason': reason})
+            dims['constraints']['excluded'] += [{'declaration': f"{label}: {c['name'] or c['text']}", 'reason': reason}
+                                                for c in cls.get('constraints', [])]
+            continue
+        id_ = uml_node.get(name)
+        node = nodes.get(id_) if id_ else None
+        uml = (node or {}).get('uml') or {}
+        dims['classes']['total'] += 1
+        if uml:
+            dims['classes']['represented'] += 1
+            dims['classes']['xsd']['withoutXsdType' if node.get('umlOnly') else 'sameName'].append(label)
+        else:
+            missing('classes', label, 'classe nel catalogo')
+        present = {m['name']: m for m in uml.get('properties', [])}
+        for member in list(cls['attributes']) + list(cls['associations']):
+            dims['members']['total'] += 1
+            m = present.get(member)
+            if m is None:
+                missing('members', f'{label}.{member}', 'membro nella classe del catalogo')
+                continue
+            dims['members']['represented'] += 1
+            rule = ('classWithoutXsdType' if node.get('umlOnly') else 'sameName' if m.get('xsd')
+                    else m['xsdMapping']['rule'] if m.get('xsdMapping') else 'none')
+            dims['members']['xsd'][rule].append(f'{label}.{member}')
+        for parent in cls.get('subclassOf', []):
+            dims['generalizations']['total'] += 1
+            declaration = f'{label} → {parent}'
+            parent_id = uml_node.get(norm(parent))
+            if parent_id is None:
+                if classes.get(norm(parent), {}).get('module') == 'ISO Classes':
+                    dims['generalizations']['excluded'].append({'declaration': declaration, 'reason': 'superclasse ISO, fuori dal vocabolario CityGML'})
+                else:
+                    missing('generalizations', declaration, 'superclasse nel catalogo')
+            elif parent_id in uml.get('parents', []):
+                dims['generalizations']['represented'] += 1
+                dims['generalizations']['xsd']['xsExtension' if parent_id in node.get('ancestors', []) else 'umlOnly'].append(declaration)
+            else:
+                missing('generalizations', declaration, 'generalizzazione nel catalogo')
+        kept = {(c['name'], c['text']) for c in uml.get('constraints', [])}
+        for c in cls.get('constraints', []):
+            dims['constraints']['total'] += 1
+            if (c['name'], c['text']) in kept:
+                dims['constraints']['represented'] += 1
+            else:
+                missing('constraints', f"{label}: {c['name'] or c['text']}", 'vincolo nella classe del catalogo')
+    recorded = {(n['source'][0], c.get('line')) for n in nodes.values() if n.get('source')
+                for c in n['constraints'] if c['kind'] in ('xs:list', 'xs:union')}
+    for path, line, kind in simple_declarations:
+        dims['simpleTypes']['total'] += 1
+        if (path, line) in recorded:
+            dims['simpleTypes']['represented'] += 1
+        else:
+            missing('simpleTypes', f'{path}:{line} {kind}', 'lista o unione fra i vincoli di un nodo')
+    for d in dims.values():
+        d['xsd'] = {k: v for k, v in sorted(d['xsd'].items())}
+    return dims
+
+
+def document_coverage(standard):
+    """Normative documents: acquired, rules extracted, rules linked to the properties they name."""
+    kinds = lambda rules: {k: sum(r['kind'] == k for r in rules) for k in sorted({r['kind'] for r in rules})}
+    result = [{'document': standard['document'].get('documentNumber'), 'role': 'conceptual-model-document', 'acquired': True,
+               'rules': kinds(standard['requirements'])}]
+    encoding = standard.get('encoding')
+    entry = {'document': (encoding or {}).get('document', {}).get('documentNumber'), 'role': 'gml-encoding-document',
+             'acquired': encoding is not None}
+    if encoding:
+        entry.update(rules=kinds(encoding['requirements']),
+                     unrecognizedTables=[t['anchor'] or t['head'] for t in encoding['unrecognized']],
+                     linkedProperties=len({p['id'] for r in encoding['requirements'] for p in r['properties']}),
+                     unresolvedMentions=[m for r in encoding['requirements'] for m in r.get('unresolvedMentions', [])])
+    result.append(entry)
+    return result
+
+
 class Builder:
     def __init__(self, root):
         self.root = root
@@ -90,6 +198,7 @@ class Builder:
         self.files = []
         self.dependencies = []
         self.warnings = []
+        self.simple_declarations = []
         self.parser = ET.XMLParser(resolve_entities=False, no_network=True)
         manifest = root / 'sources/manifest.json'
         records = json.loads(manifest.read_text(encoding='utf-8'))['files'] if manifest.exists() else []
@@ -169,6 +278,9 @@ class Builder:
                 continue
             namespace = root.get('targetNamespace', '')
             record = self.register_file(path, namespace)
+            if record['citygml']:
+                self.simple_declarations += [(record['path'], item.sourceline, 'xs:'+ET.QName(item).localname)
+                                             for item in root.iter('{'+XS+'}list', '{'+XS+'}union')]
             for prefix, ns in root.nsmap.items():
                 if prefix and ns not in PREFIXES:
                     PREFIXES[ns] = prefix
@@ -265,16 +377,78 @@ class Builder:
             for facet in te.xpath('./xs:restriction/* | ./xs:simpleContent/xs:restriction/*', namespaces=NS):
                 if facet.get('value') is not None:
                     n['constraints'].append({'kind': ET.QName(facet).localname, 'value': facet.get('value'), 'description': doc(facet)})
-            for tag, attr in [('list', 'itemType'), ('union', 'memberTypes')]:
-                item = te.find('xs:'+tag, NS)
-                if item is not None:
-                    ids = [self.ensure_xsd(qname(item, v)) for v in item.get(attr, '').split()]
-                    n['constraints'].append({'kind': 'xs:'+tag, 'targets': ids})
+            n['constraints'].extend(self.simple_structure(te))
             if any(c['kind'] == 'enumeration' for c in n['constraints']):
                 n['kind'] = 'enumeration'
             owner_ns = n['namespace']
             container = ext if ext is not None else rest if rest is not None else te
             self.walk_fields(container, n, path, owner_ns)
+
+    def simple_structure(self, st):
+        """xs:list and xs:union of a simpleType, also inside the anonymous base of its xs:restriction."""
+        result = []
+        for item in st.xpath('./xs:list | ./xs:union | ./xs:restriction/xs:simpleType/xs:list | ./xs:restriction/xs:simpleType/xs:union', namespaces=NS):
+            tag = ET.QName(item).localname
+            ids = [self.ensure_xsd(qname(item, v)) for v in item.get('itemType' if tag == 'list' else 'memberTypes', '').split()]
+            entry = {'kind': 'xs:'+tag, 'targets': ids, 'line': item.sourceline}
+            notes = []
+            if item.getparent() is not st:
+                notes.append('Nel tipo base anonimo della restrizione: le faccette della restrizione valgono per la lista.')
+            anonymous = len(item.findall('xs:simpleType', NS))
+            if anonymous:
+                notes.append(f'{anonymous} tipi anonimi non espansi.')
+            if notes:
+                entry['description'] = ' '.join(notes)
+            result.append(entry)
+        return result
+
+    def content_forms(self, te, seen=frozenset()):
+        """(inline, reference) for a property type: whether the object can be a child element, and whether
+        xlink:href can point to it. None where part of the definition is not available locally.
+
+        Followed through xs:extension; an xs:restriction keeps only its own content model.
+        """
+        if te is None:
+            return None, None
+        ext = te.find('xs:complexContent/xs:extension', NS)
+        rest = te.find('xs:complexContent/xs:restriction', NS)
+        body = ext if ext is not None else rest if rest is not None else te
+        inline, reference = self.own_content(body, seen), self.has_href(body, seen)
+        derived = ext if ext is not None else rest
+        if derived is not None:
+            base = qname(derived, derived.get('base'))
+            if base in seen:
+                return inline, reference
+            base_inline, base_reference = self.content_forms(self.types.get(base, (None,))[0], seen | {base})
+            reference = True if reference or base_reference else None if None in (reference, base_reference) else False
+            if ext is not None:
+                inline = True if inline or base_inline else None if None in (inline, base_inline) else False
+        return inline, reference
+
+    def own_content(self, body, seen):
+        if body.xpath('./xs:sequence//xs:element | ./xs:choice//xs:element | ./xs:all//xs:element | ./xs:sequence//xs:any | ./xs:choice//xs:any', namespaces=NS):
+            return True
+        result = False
+        for ref in body.xpath('./xs:group | ./xs:sequence//xs:group | ./xs:choice//xs:group', namespaces=NS):
+            pair = qname(ref, ref.get('ref'))
+            if pair not in self.groups:
+                result = None
+            elif pair not in seen and self.own_content(self.groups[pair][0], seen | {pair}):
+                return True
+        return result
+
+    def has_href(self, body, seen):
+        result = False
+        for attr in body.xpath('./xs:attribute[@ref] | ./xs:attributeGroup[@ref]', namespaces=NS):
+            pair = qname(attr, attr.get('ref'))
+            if ET.QName(attr).localname == 'attribute':
+                if pair == (XLINK, 'href') and attr.get('use') != 'prohibited':
+                    return True
+            elif pair not in self.groups:
+                result = None
+            elif pair not in seen and self.has_href(self.groups[pair][0], seen | {pair}):
+                return True
+        return result
 
     def wrapper_targets(self, el, visited=None):
         visited = set() if visited is None else set(visited)
@@ -341,6 +515,8 @@ class Builder:
         if typ is None and resolved is not None:
             typ = qname(resolved, resolved.get('type'))
         targets = self.wrapper_targets(el) if tag == 'element' else []
+        # Only a property element wraps the object; an element that is the object itself has no encoding choice.
+        wrapper = bool(targets)
         if not targets and ref and tag == 'element':
             targets = [(self.ensure_xsd(ref, 'element'), 'xs:element/@ref')]
         inline = el.find('xs:complexType', NS)
@@ -379,11 +555,13 @@ class Builder:
                       xml=ET.tostring(st, encoding='unicode', pretty_print=True))
             for facet in st.xpath('./xs:restriction/*[@value]', namespaces=NS):
                 an['constraints'].append({'kind': ET.QName(facet).localname, 'value': facet.get('value')})
+            an['constraints'].extend(self.simple_structure(st))
             if any(c['kind'] == 'enumeration' for c in an['constraints']):
                 an['kind'] = 'enumeration'
             self.nodes[aid] = an
             targets = [(aid, 'tipo semplice anonimo')]
         target_ids = [a for a,b in targets]
+        forms = self.content_forms(inline if inline is not None else self.types.get(typ, (None,))[0]) if link and wrapper else None
         datatype = self.ensure_xsd(typ) if typ else None
         if not target_ids and datatype:
             target_ids = [datatype]
@@ -404,13 +582,15 @@ class Builder:
             hi = None if maximum is None or raw == 'unbounded' else maximum * int(raw)
         p = {'id': n['id']+'/property:'+name+':'+str(el.sourceline), 'name': name, 'qname': prefix,
              'kind': kind, 'xmlKind': 'xs:'+tag, 'description': doc(el) or doc(resolved),
-             'targets': target_ids, 'typeId': datatype, 'typeName': self.pretty_q(*typ) if typ else '(inline/ref)',
+             'targets': target_ids, 'typeId': datatype, 'typeName': self.pretty_q(*typ) if typ else '(tipo anonimo)',
              'multiplicity': f"{lo}..{'*' if hi is None else hi}", 'min': lo, 'max': hi,
              'declaredIn': n['id'], 'source': self.relative(path), 'line': el.sourceline,
              'choices': choices, 'nillable': el.get('nillable') == 'true',
              'default': el.get('default'), 'fixed': el.get('fixed'),
              'targetEvidence': [b for a,b in targets], 'link': link if kind == 'association' else None,
              'xml': ET.tostring(el, encoding='unicode', pretty_print=True)}
+        if kind == 'association' and forms:
+            p['encoding'] = {'allowsInline': forms[0], 'allowsReference': forms[1]}
         n['properties'].append(p)
 
     def connect(self):
@@ -429,6 +609,10 @@ class Builder:
                 for target in prop['targets'] + ([prop['codeList']] if prop.get('codeList') else []):
                     if target in self.nodes:
                         self.nodes[target]['incoming'].append({'source':n['id'], 'property':prop['name'], 'kind':prop['kind'], 'link':prop['link'], 'multiplicity':prop.get('multiplicity'), 'id':prop['id']})
+            # Members of the conceptual model without an XSD property of the same name.
+            for member in (n.get('uml') or {}).get('properties', []):
+                if not member['xsd'] and member['typeId'] in self.nodes:
+                    self.nodes[member['typeId']]['incoming'].append({'source':n['id'], 'property':member['name'], 'kind':'umlMember', 'link':None, 'multiplicity':member['multiplicity'], 'id':member['id']})
         self.resolve_dependencies()
 
     def classify(self):
@@ -454,6 +638,7 @@ class Builder:
             for p in n['properties']:
                 if p['kind'] == 'association' and not any(self.nodes[t]['kind'] in identity for t in p['targets'] if t in self.nodes):
                     p['kind'], p['link'] = 'attribute', None
+                    p.pop('encoding', None)
 
     def enrich(self):
         """Add what the Conceptual Model states and the XSD encoding omits.
@@ -501,12 +686,20 @@ class Builder:
                 n['literals'] = cls['values']
             self.nodes[id_] = n
             uml_node[name] = id_
+        self.conceptual_classes(classes, uml_node, norm, xmi)
         for n in self.nodes.values():
             if not n.get('uml') or n.get('umlOnly'):
                 continue
             cls = classes[norm(n['uml']['name'])]
             for p in n['properties']:
-                declared = cls['attributes'].get(p['name']) or cls['associations'].get(p['name'])
+                role = p['name']
+                declared = cls['attributes'].get(role) or cls['associations'].get(role)
+                if declared is None:
+                    union = union_alternative(cls, role, classes, norm)
+                    if union:
+                        role, declared = union
+                        p['umlMember'] = f"{n['id']}/uml:{role}"
+                        report['propertiesMappedToUnion'].append(f"{n['name']}.{p['name']}")
                 if declared is None:
                     report['propertiesWithoutUml'].append(f"{n['name']}.{p['name']}")
                 else:
@@ -514,8 +707,11 @@ class Builder:
                     p['umlTypeId'] = uml_node.get(norm(p['umlType']))
                     if classes.get(norm(p['umlType']), {}).get('stereotype') == 'CodeList':
                         p['codeList'] = p['umlTypeId']
+                    # The schema documentation wins; the data dictionary fills only an empty one.
+                    if not p['description'].strip() and declared.get('definition'):
+                        p['description'], p['descriptionSource'] = declared['definition'], 'uml'
                 if p['kind'] == 'association' and xmi:
-                    kind = xmi.get((n['uml']['name'], p['name']))
+                    kind = xmi.get((n['uml']['name'], role))
                     if kind:
                         p['aggregation'] = kind
                     else:
@@ -529,9 +725,106 @@ class Builder:
             'umlModel': {'path': uml_record['path'], 'url': uml_record['url'], 'retrievedAt': uml_record['retrievedAt'],
                          'sha256': uml_record['sha256'], 'commit': commit.group(1) if commit else None,
                          'member': conceptual_model.INTEGRATED} if uml_record else None,
-            'modules': doc['modules'], 'concepts': doc['concepts'], 'requirements': doc['requirements'],
+            'modules': doc['modules'], 'concepts': doc['concepts'],
+            'requirements': [{**r, 'document': '20-010'} for r in doc['requirements']],
             'report': {k: v for k, v in sorted(report.items())},
+            'coverage': coverage(classes, self.nodes, uml_node, norm, self.simple_declarations),
         }
+        self.standard['encoding'] = self.encoding_rules()
+        self.standard['coverage']['documents'] = document_coverage(self.standard)
+
+    def conceptual_classes(self, classes, uml_node, norm, xmi):
+        """Generalizations, members and constraints of every class, as the data dictionary states them.
+
+        Kept under 'uml', apart from the XSD fields: parents/children/ancestors
+        never mix the two hierarchies. A name that is not a class of the
+        catalog (ISO types) stays as text, without a link.
+        """
+        for name, id_ in uml_node.items():
+            cls, n = classes[name], self.nodes[id_]
+            parents = [(s, uml_node.get(norm(s))) for s in cls.get('subclassOf', [])]
+            xsd = {p['name']: p['id'] for p in n['properties']}
+            members = []
+            for kind, group, key in (('attribute', 'attributes', 'type'), ('association', 'associations', 'target')):
+                for member, m in cls[group].items():
+                    type_ = m.get(key) or ''
+                    entry = {'id': f"{id_}/uml:{member}", 'name': member, 'kind': kind, 'type': type_,
+                             'typeId': uml_node.get(norm(type_)), 'multiplicity': m.get('multiplicity'),
+                             'definition': m.get('definition', ''), 'xsd': xsd.get(member)}
+                    if classes.get(norm(type_), {}).get('stereotype') == 'CodeList':
+                        entry['codeList'] = True
+                    if kind == 'association' and xmi.get((cls['name'], member)):
+                        entry['aggregation'] = xmi[(cls['name'], member)]
+                    if not entry['xsd'] and not n.get('umlOnly'):
+                        mapping = self.member_mapping(n, member, classes.get(norm(type_)))
+                        if mapping:
+                            entry['xsdMapping'] = mapping
+                    members.append(entry)
+            n['uml'].update(definition=cls.get('definition', ''), parents=[p for s, p in parents if p and p != id_],
+                            unresolvedParents=[s for s, p in parents if not p],
+                            children=[], properties=members, constraints=cls.get('constraints', []))
+        for id_ in uml_node.values():
+            for parent in self.nodes[id_]['uml']['parents']:
+                self.nodes[parent]['uml']['children'].append(id_)
+        for id_ in uml_node.values():
+            n = self.nodes[id_]
+            n['uml']['children'].sort(key=lambda c: self.nodes[c]['name'].lower())
+            n['uml']['ancestors'] = self.ancestors(id_, parents_of=lambda x: x['uml']['parents'],
+                                                   label='Ciclo di generalizzazione UML: ')
+
+    def encoding_rules(self):
+        """Rules of OGC 21-006r2, apart from those of OGC 20-010 (short identifiers coincide, e.g.
+        /req/building/boundaries). A property named by a rule ("the X property ... of the E element")
+        gets the rule in 'rules'; a name that is not an element or property of the catalog stays listed
+        in 'unresolvedMentions'."""
+        record = self.roles.get('gml-encoding-document')
+        if not record or not (self.root/record['path']).exists():
+            self.warnings.append('Documento della codifica GML (OGC 21-006r2) non disponibile in sources/: requisiti di codifica assenti.')
+            return None
+        part2 = encoding_document.read_document(self.root/record['path'])
+        number = part2['metadata'].get('documentNumber')
+        if not part2['requirements']:
+            self.warnings.append(f"{record['path']}: nessun requisito riconosciuto; la struttura del documento è cambiata.")
+        for table in part2['unrecognized']:
+            self.warnings.append(f"{record['path']}: tabella {table['head']!r} ({table['anchor']}) con struttura non riconosciuta.")
+        elements = {}
+        for n in self.nodes.values():
+            if n['family'] == 'CityGML' and '}element:' in n['id'] and not n.get('anonymous'):
+                elements.setdefault(n['name'], n)
+        for rule in part2['requirements']:
+            rule['document'] = number
+            rule['properties'], unresolved = [], []
+            for m in rule.pop('mentions'):
+                n = elements.get(m['owner'])
+                prop = next((p for id_ in [n['id']] + n['ancestors'] if id_ in self.nodes
+                             for p in self.nodes[id_]['properties'] if p['name'] == m['property']), None) if n else None
+                if prop is None:
+                    unresolved.append(f"{m['owner']}.{m['property']}")
+                    continue
+                link = {'document': number, 'id': rule['id'], 'part': m['part'], 'anchor': rule['anchor']}
+                if link not in prop.setdefault('rules', []):
+                    prop['rules'].append(link)
+                rule['properties'].append({'id': prop['id'], 'part': m['part']})
+            if unresolved:
+                rule['unresolvedMentions'] = unresolved
+        return {'document': {**part2['metadata'], 'path': record['path'], 'url': record['url'],
+                             'retrievedAt': record['retrievedAt'], 'lastModified': record.get('lastModified'),
+                             'sha256': record['sha256']},
+                'requirements': part2['requirements'], 'unrecognized': part2['unrecognized']}
+
+    def member_mapping(self, n, member, type_cls):
+        """Correspondence derived from the schemas for a UML member without a property of the same name:
+        a property of the same name inherited through xs:extension, or the properties named after the
+        alternatives of the member's Union type. None when the schemas give no such evidence."""
+        for ancestor in n['ancestors']:
+            for p in self.nodes[ancestor]['properties'] if ancestor in self.nodes else []:
+                if p['name'] == member:
+                    return {'rule': 'inherited', 'properties': [p['id']]}
+        if type_cls and type_cls['stereotype'] == 'Union':
+            alternatives = [p['id'] for p in n['properties'] if p['name'] in type_cls['attributes'] or p['name'] in type_cls['associations']]
+            if alternatives:
+                return {'rule': 'unionAlternatives', 'properties': alternatives}
+        return None
 
     def allowed_boundaries(self, rows, uml_node, norm, report):
         """Tables /req/<module>/boundaries of OGC 20-010, expanded where they say 'and all subclasses'."""
@@ -568,21 +861,22 @@ class Builder:
         report['spacesWithoutBoundaryTable'] = sorted(n['name'] for n in self.nodes.values()
                                                       if n.get('spaceRole') == 'space' and not n['abstract'] and 'allowedBoundaries' not in n)
 
-    def ancestors(self, id_, seen=None):
+    def ancestors(self, id_, seen=None, parents_of=lambda n: n['parents'], label=None):
+        label = label or 'Ciclo di ereditarietà: '
         seen = set(seen or [])
         if id_ in seen:
-            self.warnings.append('Ciclo di ereditarietà: '+id_)
+            self.warnings.append(label+id_)
             return []
         seen.add(id_)
         result = []
-        for parent in self.nodes[id_]['parents']:
+        for parent in parents_of(self.nodes[id_]):
             if parent in seen:
-                self.warnings.append('Ciclo di ereditarietà: '+parent)
+                self.warnings.append(label+parent)
                 continue
             if parent not in result:
                 result.append(parent)
             if parent in self.nodes:
-                for other in self.ancestors(parent,seen):
+                for other in self.ancestors(parent, seen, parents_of, label):
                     if other not in result:
                         result.append(other)
         return result

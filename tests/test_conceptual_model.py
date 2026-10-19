@@ -33,6 +33,11 @@ DOCUMENT = '''<html><head><meta charset="utf-8"><title>CityGML Part 1</title></h
 <p>Table 675 — Attributes of Building (TopLevelFeatureType)</p>
 <table><tr><th>Attribute</th><th>Value type and multiplicity</th><th>Definition</th></tr>
 <tr><td>roofType</td><td>RoofTypeValue [0..1]</td><td>Indicates the shape of the roof.</td></tr></table></div>
+<div id="Color-section"><p>Table 237 — Metadata of Color (BasicType)</p>
+<table><tr><th>Definition:</th><td>Color is a list of values.</td></tr><tr><th>Subclass of:</th><td>DoubleBetween0and1List</td></tr>
+<tr><th>Constraint:</th><td><p><tt>lengthOfList</tt>:</p><pre>inv: list-&gt;size() = 3 or<br/>list-&gt;size() = 4</pre></td></tr>
+<tr><th>Constraint:</th><td><p><tt>notEmpty</tt>:</p><pre>inv: list-&gt;notEmpty()</pre></td></tr>
+<tr><th>Unknown label:</th><td>Not a constraint.</td></tr></table></div>
 <div id="RelativeToTerrain-section"><p>Table 9 — Values of RelativeToTerrain (Enumeration)</p>
 <table><tr><th>Literal value</th><th>Definition</th></tr><tr><td>entirelyAboveTerrain</td><td>Above.</td></tr></table></div>
 </body></html>'''
@@ -72,6 +77,15 @@ class DocumentTests(unittest.TestCase):
         self.assertIn('Building', self.doc['packages'])
         self.assertEqual(building['attributes']['roofType'], {'type': 'RoofTypeValue', 'multiplicity': '0..1',
                                                               'definition': 'Indicates the shape of the roof.'})
+
+    def test_constraints_kept_as_a_list(self):
+        color = self.doc['classes']['Color']
+        self.assertEqual(color['constraints'], [
+            {'name': 'lengthOfList', 'text': 'inv: list->size() = 3 or\nlist->size() = 4', 'table': 'Table 237'},
+            {'name': 'notEmpty', 'text': 'inv: list->notEmpty()', 'table': 'Table 237'}])
+        self.assertEqual(color['subclassOf'], ['DoubleBetween0and1List'])
+        self.assertEqual(color['definition'], 'Color is a list of values.')
+        self.assertEqual(self.doc['classes']['Building']['constraints'], [])
 
     def test_enumeration_values(self):
         self.assertEqual(self.doc['classes']['RelativeToTerrain']['values'], [{'value': 'entirelyAboveTerrain', 'definition': 'Above.'}])
