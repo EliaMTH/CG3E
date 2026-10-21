@@ -88,7 +88,10 @@ with sync_playwright() as pw:
     expect(page.locator('.cl-table tbody tr')).to_have_count(14)
     expect(page.locator('#tab-content')).to_contain_text('codeSpace="https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue">1000')
     expect(page.locator('#tab-content')).to_contain_text('Usata da')
+    # The usage example is XML: special characters of code and codeSpace are escaped
+    page.locator('[data-cl-field="code"]').first.fill('A&B')
     page.locator('[data-cl-action="add"]').click()
+    expect(page.locator('.source-block').first).to_contain_text('RoofTypeValue">A&amp;B</bldg:roofType>')
     expect(page.locator('.cl-table tbody tr')).to_have_count(15)
     page.locator('[data-cl-field="code"]').last.fill('9000')
     expect(page.locator('#codelist-count')).to_contain_text('•')
@@ -241,14 +244,18 @@ with sync_playwright() as pw:
     page.locator('[data-level="uml"]').click()
     expect(page).to_have_url(re.compile(r'tab=overview&level=uml$'))
     expect(page.locator('#tab-content')).to_contain_text('Livello: modello concettuale (OGC 20-010)')
-    expect(page.locator('.uml-members tr').filter(has=page.locator('.prop-name', has_text=re.compile('^buildingPart$')))).to_contain_text('1..*')
+    # Multiplicity of the UML model ('*' in figure 64), with the value of the data dictionary beside it
+    part = page.locator('.uml-members tr').filter(has=page.locator('.prop-name', has_text=re.compile('^buildingPart$')))
+    expect(part.locator('.multiplicity')).to_have_text('0..*')
+    expect(part.locator('.badge', has_text='dizionario: 1..*')).to_have_count(1)
     page.locator('.tab', has_text='Proprietà').click()
     expect(page).to_have_url(re.compile(r'tab=properties&level=uml$'))
     with page.expect_download() as download:
         page.locator('[data-action="export"]').click()
     exported = json.loads(Path(download.value.path()).read_text(encoding='utf-8'))
     assert exported['level'] == 'uml'
-    assert {m['name']: m['multiplicity'] for m in exported['visibleProperties']}['buildingPart'] == '1..*'
+    member = next(m for m in exported['visibleProperties'] if m['name'] == 'buildingPart')
+    assert (member['multiplicity'], member['dictionaryMultiplicity']) == ('0..*', '1..*'), member
     page.locator('[data-level="gml"]').click()
     expect(page).to_have_url(re.compile(r'tab=properties$'))
     expect(page.locator('#tab-content tr').filter(has=page.locator('.prop-name-button', has_text=re.compile('^buildingPart$')))).to_contain_text('0..*')
@@ -256,6 +263,20 @@ with sync_playwright() as pw:
         page.locator('[data-action="export"]').click()
     assert json.loads(Path(download.value.path()).read_text(encoding='utf-8'))['level'] == 'gml'
     page.locator('.tab', has_text='Panoramica').click()
+
+    # The same relation reads the same in both directions: buildingPart is a composition also seen from BuildingPart
+    search(page, 'BuildingPart', 'BuildingPart')
+    page.locator('.concept-item').first.click()
+    page.locator('.tab', has_text='Connessioni').click()
+    expect(page.locator('.connection-card small', has_text=re.compile('^buildingPart · '))).to_have_text('buildingPart · composizione · 0..*')
+    # A generalization of the UML model that the data dictionary omits (figure 37)
+    search(page, 'StringAttribute', 'StringAttribute')
+    page.locator('.concept-item').first.click()
+    page.locator('[data-level="uml"]').click()
+    expect(page.locator('.inheritance-box')).to_contain_text('AbstractGenericAttribute')
+    expect(page.locator('.inheritance-box')).to_contain_text('«Subclass of: None»')
+    page.locator('[data-level="gml"]').click()
+    page.locator('#home-link').click()
 
     # Destinations of boundary in the context of the visited class, apart from the schema candidates
     for name, expected, absent in [('BuildingUnit', 'Ammesse per BuildingUnit', 'RoofSurface'),
@@ -304,6 +325,8 @@ with sync_playwright() as pw:
     expect(page.locator('#modal-body tr', has_text='Attributi e ruoli')).to_contain_text('3 senza corrispondenza')
     expect(page.locator('#modal-body')).to_contain_text('Codifica GML')
     expect(page.locator('#modal-body tr', has_text='codifica GML (Parte 2)')).to_contain_text('43 requisiti')
+    expect(page.locator('#modal-body')).to_contain_text('divergono su 78 molteplicità e 10 generalizzazioni')
+    expect(page.locator('#modal-body tr', has_text='Generalizzazioni')).to_contain_text('dizionario 123 · modello UML 132')
     expect(page.locator('#modal-body')).to_contain_text('Solo segnaposto')
     page.locator('#close-modal').click()
     page.locator('#about-btn').click()
@@ -314,6 +337,7 @@ with sync_playwright() as pw:
     page.locator('#search').fill('')
     page.locator('#home-link').click()
     expect(page.locator('h1')).to_have_text('Building')
+    page.evaluate("document.querySelector('#content').scrollTop = 0")
     page.screenshot(path=str(ROOT/'docs/screenshot-desktop.png'))
 
     # Preferences persist across reloads of the real file:// page
@@ -339,4 +363,4 @@ with sync_playwright() as pw:
     mobile.screenshot(path=str(ROOT/'docs/screenshot-mobile.png'))
     browser.close()
     assert not errors, errors
-print('PASS: nessun errore JavaScript; navigazione, ricerca delle proprietà, livelli GML e UML, destinazioni, code list (modifica, salvataggio, reset, download, panoramica), opzioni di visualizzazione e riquadri funzionanti.')
+print('PASS: nessun errore JavaScript; navigazione, ricerca delle proprietà, livelli GML e UML con le divergenze fra dizionario e modello, relazioni lette allo stesso modo nei due versi, destinazioni, code list (modifica, esempio XML, salvataggio, reset, download, panoramica), opzioni di visualizzazione e riquadri funzionanti.')

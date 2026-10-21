@@ -69,9 +69,11 @@ livelli, scelti nella testata della scheda:
 
 - **Codifica GML**: elementi, tipi XML, cardinalità ed ereditarietà
   `xs:extension` degli schemi;
-- **Modello UML**: definizione, generalizzazioni, attributi e ruoli con le
-  molteplicità del dizionario dati di OGC 20-010 e, per ognuno, la proprietà XSD
-  corrispondente quando gli schemi ne danno prova.
+- **Modello UML**: definizione, attributi e ruoli del dizionario dati di OGC
+  20-010, con le molteplicità e le generalizzazioni del modello UML (XMI), quelle
+  disegnate nelle figure del documento; dove il dizionario riporta un valore
+  diverso, compare accanto con il badge **dizionario**. Per ogni membro, la
+  proprietà XSD corrispondente quando gli schemi ne danno prova.
 
 Il livello è nell'URL (`level=uml`; senza il parametro vale la codifica GML) e
 resta nei collegamenti fra le schede. **Esporta JSON** salva la scheda con il
@@ -121,14 +123,30 @@ pacchetto ufficiale `http://schemas.opengis.net/citygml/citygml-3_0_0.zip`.
 | Modello UML CityGML 3.0 (XMI esportato da Enterprise Architect), file `XMI Files.zip` | 3.0 | repository OGC `opengeospatial/CityGML-3.0CM`, commit `71ec3bee28f6b883e543a4439a0732bd37e2d9ab` | 2021-08-02 |
 
 Dal documento provengono stereotipi, oggetti di primo livello, code list con le
-loro definizioni, superclassi, attributi e ruoli con i loro tipi, vincoli OCL,
+loro definizioni, attributi e ruoli con i loro tipi e definizioni, vincoli OCL,
 definizioni dei valori delle enumerazioni, superfici di confine ammesse (tabelle
 dei requisiti `/req/<modulo>/boundaries`), requisiti, capitoli dei moduli e
 sezioni concettuali. Dall'XMI (`Integrated/CityGML_3.0.xml` dentro lo zip)
-proviene il tipo di aggregazione delle relazioni (composizione, aggregazione,
-associazione). Classi del modello ed elementi degli schemi corrispondono per
-nome; il confronto è descritto in
+provengono le molteplicità di attributi e ruoli, le generalizzazioni e il tipo
+di aggregazione delle relazioni (composizione, aggregazione, associazione),
+comprese quelle delle association class `TextureAssociation`, `Role` e
+`CityObjectRelation`. Le molteplicità dei ruoli sono quelle scritte nel modello
+e disegnate nelle figure, dove `*` vale `0..*`. Classi del modello ed elementi
+degli schemi corrispondono per nome; il confronto è descritto in
 [Copertura del modello concettuale](#copertura-del-modello-concettuale).
+
+Il dizionario dati e il modello UML divergono in due punti; la scheda della
+classe mostra entrambi i valori:
+
+- 78 ruoli hanno `*` nel modello e `[1..*]` nel dizionario, per esempio
+  `Building.buildingPart` (figura 64) e `AbstractSpace.boundary` (figura 24). La
+  codifica XSD segue il modello: per i 113 ruoli con una proprietà XSD,
+  `minOccurs` è 0 dove il modello scrive `*` o `0..1` e 1 dove scrive `1` o
+  `1..*`, come per `GenericAttributeSet.genericAttribute` (figura 37).
+- 10 classi hanno una superclasse nel modello e «Subclass of: None» nel
+  dizionario: gli otto attributi generici (`StringAttribute`, `IntAttribute`…,
+  sottoclassi di `AbstractGenericAttribute`, figura 37), `TexCoordGen` e
+  `TexCoordList` (sottoclassi di `AbstractTextureParameterization`, figura 27).
 
 ### Codifica GML
 
@@ -194,23 +212,28 @@ Il catalogo confronta le proprie informazioni con le fonti e riporta il
 risultato nel riquadro **Sorgenti** e in `standard.coverage` (dettagli in
 [docs/DATA_MODEL.md](docs/DATA_MODEL.md)).
 
-Classi, attributi e ruoli, generalizzazioni e vincoli del dizionario dati di
-OGC 20-010 (classi CityGML), liste e unioni degli schemi CityGML:
+Classi, attributi e ruoli e vincoli del dizionario dati di OGC 20-010 (classi
+CityGML), generalizzazioni del dizionario e del modello UML, liste e unioni degli
+schemi CityGML:
 
 | Dimensione | Nella fonte | Nel catalogo | Esclusi | Negli schemi XSD |
 |---|---|---|---|---|
 | Classi | 426 | 426 | 14 classi ISO | 276 con lo stesso nome, 150 senza tipo XSD dedicato |
 | Attributi e ruoli | 552 | 552 | — | 518 con lo stesso nome, 16 con una proprietà ereditata, 1 come alternative di un'unione, 14 in classi senza tipo XSD, 3 senza corrispondenza |
-| Generalizzazioni | 123 | 122 | 1 verso una classe ISO | 113 con `xs:extension`, 9 solo nel modello concettuale |
+| Generalizzazioni | 133 (123 nel dizionario, 132 nel modello UML) | 132 | 1 verso una classe ISO | 123 con `xs:extension`, 9 solo nel modello concettuale |
 | Vincoli OCL | 12 | 12, come testo | 3 di una classe ISO | — |
 | Liste e unioni | 5 | 5 | — | — |
+
+Le divergenze fra dizionario dati e modello UML (78 molteplicità, 10
+generalizzazioni) sono elencate in `standard.coverage.divergences` e nel
+riquadro **Sorgenti**.
 
 Regole e documenti normativi:
 
 | Fonte | Nel catalogo |
 |---|---|
 | OGC 20-010 (Parte 1), documento | dizionario dati; 50 requisiti, 18 classi di requisiti, 2 raccomandazioni, 1 permesso; tabelle dei confini di 58 spazi; capitoli dei moduli e sezioni concettuali come collegamenti |
-| OGC 20-010, modello UML (XMI) | composizione, aggregazione o associazione delle relazioni |
+| OGC 20-010, modello UML (XMI) | molteplicità di attributi e ruoli, generalizzazioni, composizione, aggregazione o associazione delle relazioni |
 | OGC 21-006r2 (Parte 2), schemi XSD | struttura: classi, proprietà, cardinalità, ereditarietà, forme di collegamento, faccette |
 | OGC 21-006r2, documento | 43 requisiti, 4 raccomandazioni, 18 classi di requisiti, per modulo e globali; 15 proprietà collegate alle regole che le nominano |
 
@@ -379,8 +402,11 @@ Dettagli in [docs/TESTING.md](docs/TESTING.md).
 - Le superfici di confine ammesse sono quelle delle tabelle di OGC 20-010; quando
   una tabella dice "e tutte le sottoclassi", l'elenco delle superfici concrete è
   calcolato dalla gerarchia degli schemi.
-- L'ereditarietà degli schemi deriva da `xs:extension`; `substitutionGroup` e
-  associazioni non trasferiscono proprietà.
+- Le proprietà ereditate negli schemi derivano da `xs:extension`;
+  `substitutionGroup` e associazioni non trasferiscono proprietà. Una
+  `xs:restriction` non porta le proprietà del tipo base, ma il tipo derivato ne
+  conserva la categoria: `gml:Dictionary`, il cui tipo deriva per restrizione da
+  `gml:AbstractGMLType`, è un oggetto GML.
 - I vincoli OCL del dizionario dati sono riportati come testo: il catalogo non
   li interpreta né li verifica.
 - La corrispondenza fra membri UML e proprietà XSD si ricava da nomi,

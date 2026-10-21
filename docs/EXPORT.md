@@ -71,6 +71,12 @@ form for defining and exchanging codelists in a GML environment"*, e due
 codifiche alternative, CSV e JSON. Per Annex E il `codeSpace` serve *"to
 identify the codelist from which the value has been taken"*.
 
+Annex E indica che il repository degli esempi OGC offre ogni code list in GML,
+CSV e JSON. Al 19 ottobre 2026 i file JSON non sono pubblicati e i CSV hanno una
+forma diversa da quella di Annex E (righe `Meta;CityGML_Version;3.0`,
+`Meta|Module|…`, `Meta|DataType|…` in minuscolo, codici UUID diversi da quelli
+dei file XML): per JSON e CSV gli export seguono il testo di Annex E.
+
 Sono esportate le code list con valori reali; i valori segnaposto
 `{example-N}` e i valori senza codice sono esclusi. Nel dizionario attuale: 44
 liste, 2295 valori. Il file di ogni lista si chiama
@@ -237,26 +243,27 @@ oggetti), in ordine di namespace e nome:
 | `topLevel` | true se può essere membro diretto di un `CityModel` |
 | `substitutionGroup` | catena dei `substitutionGroup` fino a GML |
 | `description` | documentazione dello schema |
-| `properties` | tutte le proprietà, ereditate comprese, nell'ordine richiesto dall'XML: prima quelle del tipo base più lontano, poi a scendere; in ogni tipo, l'ordine del modello di contenuto (oggi 3483) |
+| `properties` | tutte le proprietà, ereditate comprese, nell'ordine richiesto dall'XML: prima quelle del tipo base più lontano, poi a scendere; in ogni tipo, l'ordine del modello di contenuto (oggi 3483). Fanno eccezione i membri di un gruppo `xs:choice` ripetuto, che possono comparire alternati (vedi `choiceGroups`) |
+| `choiceGroups` | presente se l'elemento ha gruppi `xs:choice`: per ognuno, con chiave l'identificatore usato in `choices`, `minOccurs` e `maxOccurs` (occorrenze nel tipo, comprese le ripetizioni dei gruppi che lo contengono) e `members`. A ogni occorrenza compare uno solo dei membri: con `maxOccurs` maggiore di 1 i membri possono comparire tutti, in qualsiasi ordine fra loro. Oggi solo `core:CityModel`, con i cinque membri `…Member` e occorrenze `0..unbounded` |
 
 Ogni proprietà:
 
 | Campo | Contenuto |
 |---|---|
-| `name`, `namespace`, `qname` | identità della proprietà |
+| `name`, `namespace`, `qname` | nome XML della proprietà; `namespace` null e `qname` senza prefisso per un attributo locale non qualificato (per esempio `srsName` di `app:TexCoordGen`) |
 | `xmlKind` | `element` o `attribute` |
 | `group` | `attribute`, `xmlAttribute`, `association`, `geometry`, `ade` |
 | `minOccurs`, `maxOccurs` | cardinalità degli schemi (`maxOccurs` intero o `unbounded`) |
-| `choices` | gruppi `xs:choice` che contengono la proprietà, come `<dichiarante>/choice:<riga>`; le proprietà con lo stesso identificatore sono alternative |
+| `choices` | gruppi `xs:choice` che contengono la proprietà, come `<dichiarante>/choice:<riga>`; le proprietà con lo stesso identificatore sono alternative a ogni occorrenza del gruppo, descritto in `choiceGroups` dell'elemento |
 | `type` | tipo XML dichiarato (QName), `null` per un tipo anonimo |
 | `targets` | elementi di destinazione; vuoto per le proprietà che sono esse stesse un elemento globale (`xs:element/@ref`) |
 | `candidates` | elementi concreti ammessi dagli schemi al posto delle destinazioni: le destinazioni stesse, se concrete, e gli elementi del loro `substitutionGroup` |
 | `declaredIn` | elemento che dichiara la proprietà |
 | `description` | documentazione dello schema |
-| `nillable`, `default`, `fixed` | presenti se dichiarati |
+| `nillable`, `default`, `fixed` | presenti se dichiarati; per un riferimento, quelli della dichiarazione globale (per esempio `gml:boundedBy` è nillable) |
 | `encoding` | `allowsInline`, `allowsReference`: forme di collegamento ammesse dal tipo della proprietà |
 | `codeList` | code list della proprietà |
-| `uml` | membro corrispondente del modello concettuale: `class`, `member`, `type`, `multiplicity` |
+| `uml` | membro corrispondente del modello concettuale: `class`, `member`, `type`, `multiplicity` (del modello UML, come nelle figure di OGC 20-010) e `dictionaryMultiplicity` quando il dizionario dati riporta un valore diverso (per esempio `boundary`: `0..*`, dizionario `1..*`) |
 
 È una vista risolta degli XSD, non una fonte alternativa: la validità si
 verifica contro `schemas/`.

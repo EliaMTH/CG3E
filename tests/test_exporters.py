@@ -291,11 +291,21 @@ class City3dAndGeneratorTests(unittest.TestCase):
         self.assertEqual(function['uml'], {'class': 'AbstractBuilding', 'member': 'function', 'type': 'BuildingFunctionValue', 'multiplicity': '0..*'})
         boundary = building['properties'][names.index('core:boundary')]
         self.assertIn('tran:TrafficArea', boundary['candidates'])
+        # Multiplicity of the UML model (figure 24: '*'), with the value of the data dictionary beside it
+        self.assertEqual(boundary['uml'], {'class': 'AbstractSpace', 'member': 'boundary', 'type': 'AbstractSpaceBoundary',
+                                           'multiplicity': '0..*', 'dictionaryMultiplicity': '1..*'})
         self.assertEqual(building['properties'][names.index('gml:description')]['targets'], [])
+        self.assertTrue(building['properties'][names.index('gml:boundedBy')]['nillable'])
+        texture = {p['name']: p for p in items['app:TexCoordGen']['properties'] if p['xmlKind'] == 'attribute'}
+        self.assertEqual({(p['qname'], p['namespace']) for p in texture.values()},
+                         {('srsName', None), ('srsDimension', None), ('axisLabels', None), ('uomLabels', None)})
         city_model = items['core:CityModel']
         members = [p for p in city_model['properties'] if p.get('choices')]
         self.assertEqual({tuple(p['choices']) for p in members}, {('core:CityModel/choice:936',)})
         self.assertEqual(len(members), 5)
+        self.assertEqual(city_model['choiceGroups'], {'core:CityModel/choice:936': {
+            'minOccurs': 0, 'maxOccurs': 'unbounded', 'members': [p['qname'] for p in members]}})
+        self.assertEqual(sum('choiceGroups' in e for e in items.values()), 1)
 
     def test_generator_rules(self):
         rules = self.generator['rules']
@@ -369,6 +379,15 @@ class City3dAndGeneratorTests(unittest.TestCase):
             self.assertTrue(schema.validate(wrong), schema.error_log)
             allowed = next(r for r in gen['rules']['allowedBoundaries'] if r['space'] == 'bldg:Building')
             self.assertNotIn('tran:TrafficArea', allowed['concrete'])
+            # A repeated choice: one member per occurrence, so members can alternate
+            group = next(e for e in gen['elements'] if e['qname'] == 'core:CityModel')['choiceGroups']['core:CityModel/choice:936']
+            self.assertEqual(group['maxOccurs'], 'unbounded')
+            alternated = ET.fromstring(
+                f'<core:CityModel xmlns:core="{CORE}" xmlns:bldg="{BLDG}" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:gml="{GML}">'
+                '<core:cityObjectMember><bldg:Building gml:id="b1"/></core:cityObjectMember>'
+                '<core:appearanceMember><app:Appearance gml:id="a1"/></core:appearanceMember>'
+                '<core:cityObjectMember><bldg:Building gml:id="b2"/></core:cityObjectMember></core:CityModel>')
+            self.assertTrue(schema.validate(alternated), schema.error_log)
 
 
 class StandardTests(unittest.TestCase):

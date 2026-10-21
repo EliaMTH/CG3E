@@ -5,14 +5,23 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from lxml import etree as ET
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from build_catalog import Builder, coverage, xid
+import exporters
 
 BLDG = 'http://www.opengis.net/citygml/building/3.0'
 CON = 'http://www.opengis.net/citygml/construction/3.0'
 CORE = 'http://www.opengis.net/citygml/3.0'
 TRAN = 'http://www.opengis.net/citygml/transportation/3.0'
+APP = 'http://www.opengis.net/citygml/appearance/3.0'
+GML = 'http://www.opengis.net/gml/3.2'
+XAL = 'urn:oasis:names:tc:ciq:xal:3'
+XLINK = 'http://www.w3.org/1999/xlink'
+XSI = 'http://www.w3.org/2001/XMLSchema-instance'
+PROFILE = 'http://www.opengis.net/citygml/profiles/base/3.0'
+PROFILE_XSD = 'http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd'
 
 
 class CatalogTests(unittest.TestCase):
@@ -180,7 +189,8 @@ class CatalogTests(unittest.TestCase):
         self.assertIn(('NilReason', 'nilReasonEnumeration', 'umlMember'),
                       {(self.data['nodes'][i['source']]['name'], i['property'], i['kind']) for i in self.by_name('NilReasonEnumeration')['incoming']})
         part = members('Building')['buildingPart']
-        self.assertEqual((part['multiplicity'], part['aggregation']), ('1..*', 'composite'))
+        # '*' in the UML model (OGC 20-010, figure 64); the data dictionary writes [1..*]
+        self.assertEqual((part['multiplicity'], part['dictionaryMultiplicity'], part['aggregation']), ('0..*', '1..*', 'composite'))
         self.assertEqual(part['xsd'], next(p['id'] for p in self.by_name('Building')['properties'] if p['name'] == 'buildingPart'))
         self.assertTrue(part['id'].endswith('/uml:buildingPart'))
 
@@ -242,16 +252,25 @@ class CatalogTests(unittest.TestCase):
 
     def test_coverage_of_the_data_dictionary(self):
         cov = self.data['standard']['coverage']
-        self.assertEqual({k: (v['total'], v['represented'], len(v['excluded']), len(v['findings'])) for k, v in cov.items() if k != 'documents'},
-                         {'classes': (426, 426, 14, 0), 'members': (552, 552, 0, 0), 'generalizations': (123, 122, 1, 0),
+        self.assertEqual({k: (v['total'], v['represented'], len(v['excluded']), len(v['findings'])) for k, v in cov.items()
+                          if k not in ('documents', 'divergences')},
+                         {'classes': (426, 426, 14, 0), 'members': (552, 552, 0, 0), 'generalizations': (133, 132, 1, 0),
                           'constraints': (12, 12, 3, 0), 'simpleTypes': (5, 5, 0, 0)})
+        # Generalizations: 123 in the data dictionary, 132 in the UML model (and one ISO superclass outside the file)
+        self.assertEqual(cov['generalizations']['declaredBy'], {'dictionary': 123, 'model': 132})
+        divergences = cov['divergences']
+        self.assertEqual({(d['dictionary'], d['model']) for d in divergences['multiplicities']}, {('1..*', '0..*')})
+        self.assertEqual(len(divergences['multiplicities']), 78)
+        self.assertEqual(sorted(d['declaration'] for d in divergences['generalizations']), [
+            'CodeAttribute', 'DateAttribute', 'DoubleAttribute', 'GenericAttributeSet', 'IntAttribute', 'MeasureAttribute',
+            'StringAttribute', 'TexCoordGen', 'TexCoordList', 'UriAttribute'])
         members = cov['members']['xsd']
         self.assertEqual({k: len(v) for k, v in members.items()},
                          {'sameName': 518, 'inherited': 16, 'unionAlternatives': 1, 'classWithoutXsdType': 14, 'none': 3})
         self.assertEqual(members['none'], ['AbstractFeature.featureID', 'ImplicitGeometry.objectID', 'TexCoordGen.crs'])
         self.assertEqual(members['unionAlternatives'], ['CityModel.cityModelMember'])
         self.assertIn('BuildingRoom.boundary', members['inherited'])
-        self.assertEqual({k: len(v) for k, v in cov['generalizations']['xsd'].items()}, {'xsExtension': 113, 'umlOnly': 9})
+        self.assertEqual({k: len(v) for k, v in cov['generalizations']['xsd'].items()}, {'xsExtension': 123, 'umlOnly': 9})
         self.assertEqual(cov['generalizations']['excluded'][0]['declaration'], 'AbstractFeature → AnyFeature')
         report = self.data['standard']['report']
         self.assertEqual(report['propertiesMappedToUnion'], ['CityModel.cityObjectMember', 'CityModel.appearanceMember',
@@ -317,6 +336,117 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(json.loads(payload), self.data)
 
 
+class IndependentSourceTests(unittest.TestCase):
+    """The catalog checked against a source it is not built from: the XSD schemas for the conceptual model,
+    the figures of OGC 20-010, and the official schemas validating instances written from the catalog."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.data = json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
+        cls.nodes = cls.data['nodes']
+        cls.schema = exporters.compile_schema(ROOT/'sources/xml-catalog.xml', [(PROFILE, PROFILE_XSD)])
+
+    def by_qname(self, qname):
+        return next(n for n in self.nodes.values() if n.get('qname') == qname)
+
+    def member(self, uml_name, name):
+        node = next(n for n in self.nodes.values() if (n.get('uml') or {}).get('name') == uml_name)
+        return next(m for m in node['uml']['properties'] if m['name'] == name)
+
+    def prop(self, qname, name, xml_kind='xs:element'):
+        return next(p for p in self.by_qname(qname)['properties'] if p['name'] == name and p['xmlKind'] == xml_kind)
+
+    def valid(self, xml):
+        doc = ET.fromstring(xml) if isinstance(xml, str) else xml
+        return self.schema.validate(doc)
+
+    def test_role_multiplicities_agree_with_the_schemas(self):
+        props = {p['id']: p for n in self.nodes.values() for p in n['properties']}
+        checked = 0
+        for n in self.nodes.values():
+            for m in (n.get('uml') or {}).get('properties', []):
+                if m['kind'] != 'association' or not m['xsd']:
+                    continue
+                lower, upper = m['multiplicity'].split('..')
+                p = props[m['xsd']]
+                self.assertEqual((int(lower), upper == '*'), (p['min'], p['max'] is None), f"{n['name']}.{m['name']}")
+                checked += 1
+        self.assertEqual(checked, 113)
+
+    def test_values_drawn_in_the_figures(self):
+        # OGC 20-010, figure 64 (Building), 37 (Generics), 27 (Appearance)
+        self.assertEqual(self.member('Building', 'buildingPart')['multiplicity'], '0..*')
+        self.assertEqual(self.member('AbstractCityObject', 'genericAttribute')['multiplicity'], '0..*')
+        set_member = self.member('GenericAttributeSet', 'genericAttribute')
+        self.assertEqual(set_member['multiplicity'], '1..*')
+        self.assertNotIn('dictionaryMultiplicity', set_member)
+        generic = self.by_qname('core:AbstractGenericAttribute')['id']
+        for name in ('CodeAttribute', 'DateAttribute', 'DoubleAttribute', 'GenericAttributeSet', 'IntAttribute',
+                     'MeasureAttribute', 'StringAttribute', 'UriAttribute'):
+            node = self.by_qname('gen:' + name)
+            self.assertEqual((node['uml']['parents'], node['uml']['dictionaryParents']), ([generic], []), name)
+        texture = self.by_qname('app:AbstractTextureParameterization')['id']
+        for name in ('TexCoordGen', 'TexCoordList'):
+            self.assertEqual(self.by_qname('app:' + name)['uml']['parents'], [texture], name)
+        self.assertEqual(self.prop('app:ParameterizedTexture', 'textureParameterization')['aggregation'], 'composite')
+        self.assertEqual(self.member('ParameterizedTexture', 'textureParameterization')['aggregation'], 'composite')
+
+    def test_association_classes(self):
+        self.assertEqual(self.prop('grp:CityObjectGroup', 'groupMember')['aggregation'], 'shared')
+        self.assertEqual(self.prop('core:AbstractCityObject', 'relatedTo')['aggregation'], 'none')
+        self.assertEqual(self.member('CityObjectRelation', 'genericAttribute')['aggregation'], 'composite')
+        self.assertEqual(self.data['standard']['report']['associationsWithoutXmi'],
+                         ['CityModel.engineeringCRS', 'CityObjectRelation.relatedTo', 'Role.groupMember',
+                          'TimeValuePair.implicitGeometryValue', 'TimeValuePair.appearanceValue'])
+
+    def test_no_required_boundary_where_none_is_allowed(self):
+        spaces = [n for n in self.nodes.values() if n.get('allowedBoundaries', {}).get('none')]
+        self.assertIn('PlantCover', {n['name'] for n in spaces})
+        for n in spaces:
+            boundary = next(m for id_ in [n['id'], *n['uml']['ancestors']] for m in self.nodes[id_]['uml']['properties']
+                            if m['name'] == 'boundary')
+            self.assertTrue(boundary['multiplicity'].startswith('0..'), n['name'])
+
+    def test_attribute_names_are_the_xml_names(self):
+        def instance(xml, prop, value):
+            doc = ET.fromstring(xml)
+            doc.set(f"{{{prop['namespace']}}}{prop['name']}" if prop['namespace'] else prop['name'], value)
+            return doc
+        matrix = '1 0 0 0 0 1 0 0 0 0 1 0'
+        cases = [('app:TexCoordGen', 'srsName', None, 'srsName', 'urn:x',
+                  f'<app:TexCoordGen xmlns:app="{APP}"><app:worldToTexture>{matrix}</app:worldToTexture></app:TexCoordGen>'),
+                 ('gml:CodeType', 'codeSpace', None, 'codeSpace', 'urn:x', f'<gml:name xmlns:gml="{GML}">a</gml:name>'),
+                 ('xal:Address', 'href', XLINK, 'xlink:href', '#a', f'<xal:Address xmlns:xal="{XAL}"/>')]
+        for owner, name, namespace, qname, value, xml in cases:
+            prop = self.prop(owner, name, 'xs:attribute')
+            self.assertEqual((prop['namespace'], prop['qname']), (namespace, qname), owner)
+            self.assertTrue(self.valid(instance(xml, prop, value)), (owner, self.schema.error_log))
+        self.assertEqual((self.prop('gml:AbstractGML', 'id', 'xs:attribute')['qname'],
+                          self.prop('bldg:AbstractBuilding', 'roofType')['namespace']), ('gml:id', BLDG))
+
+    def test_nillable_from_the_global_declaration(self):
+        self.assertTrue(self.prop('gml:AbstractFeature', 'boundedBy')['nillable'])
+        building = f'<bldg:Building xmlns:bldg="{BLDG}" xmlns:gml="{GML}" xmlns:xsi="{XSI}" gml:id="b1"><gml:boundedBy xsi:nil="true"/></bldg:Building>'
+        self.assertTrue(self.valid(building), self.schema.error_log)
+
+    def test_identity_survives_a_restriction(self):
+        for qname in ('gml:Dictionary', 'gml:Definition', 'gml:EngineeringCRS', 'gml:UnitDefinition'):
+            self.assertEqual(self.by_qname(qname)['kind'], 'object', qname)
+        # The schemas require gml:id on a Dictionary: it has an identity
+        self.assertFalse(self.valid(f'<gml:Dictionary xmlns:gml="{GML}"><gml:identifier codeSpace="urn:x">d</gml:identifier></gml:Dictionary>'))
+        crs = self.prop('core:CityModel', 'engineeringCRS')
+        self.assertEqual((crs['kind'], crs['link']), ('association', 'association'))
+
+    def test_repeated_choice(self):
+        choice = next(c for c in self.by_qname('core:CityModel')['constraints'] if c['kind'] == 'xs:choice')
+        self.assertEqual((choice['value'], choice['occurs']), ('1..1', '0..*'))
+        model = (f'<core:CityModel xmlns:core="{CORE}" xmlns:bldg="{BLDG}" xmlns:app="{APP}" xmlns:gml="{GML}">'
+                 '<core:cityObjectMember><bldg:Building gml:id="b1"/></core:cityObjectMember>'
+                 '<core:appearanceMember><app:Appearance gml:id="a1"/></core:appearanceMember>'
+                 '<core:cityObjectMember><bldg:Building gml:id="b2"/></core:cityObjectMember></core:CityModel>')
+        self.assertTrue(self.valid(model), self.schema.error_log)
+
+
 FORMS = '''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:c="urn:city"
  xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="urn:city">
 <xs:attributeGroup name="Association"><xs:attribute ref="xlink:href"/></xs:attributeGroup>
@@ -369,7 +499,7 @@ class CoverageTests(unittest.TestCase):
             'C': node('C', [{'name': 'u', 'xsd': None, 'xsdMapping': {'rule': 'unionAlternatives', 'properties': ['C/property:x']}}],
                       parents=['A'], ancestors=['A'])}
         cov = coverage(classes, nodes, {k: k for k in nodes}, lambda s: s, [('s.xsd', 10, 'xs:list'), ('s.xsd', 20, 'xs:union')])
-        findings = {k: [f['declaration'] for f in v['findings']] for k, v in cov.items()}
+        findings = {k: [f['declaration'] for f in v['findings']] for k, v in cov.items() if k != 'divergences'}
         self.assertEqual(findings, {'classes': [], 'members': ['B.b2'], 'generalizations': ['B → A'],
                                     'constraints': ['B: r'], 'simpleTypes': ['s.xsd:20 xs:union']})
         self.assertEqual((cov['classes']['total'], cov['classes']['represented']), (4, 4))
@@ -379,6 +509,18 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual((cov['generalizations']['total'], cov['generalizations']['represented']), (3, 1))
         self.assertEqual(cov['generalizations']['xsd'], {'xsExtension': ['C → A']})
         self.assertEqual([e['declaration'] for e in cov['generalizations']['excluded']], ['C → GM_Object'])
+        self.assertEqual(cov['generalizations']['declaredBy'], {'dictionary': 3, 'model': 0})
+        self.assertEqual(cov['divergences'], {'multiplicities': [], 'generalizations': []})
+
+        # With the UML model: a generalization only in the model counts, and the divergences are listed.
+        nodes['B']['uml'].update(dictionaryParents=['A'])
+        nodes['A']['uml']['properties'][0].update(multiplicity='0..*', dictionaryMultiplicity='1..*')
+        model = {'members': {}, 'generalizations': {'B': {'parents': ['A', 'U'], 'unresolved': 0}}}
+        cov = coverage(classes, nodes, {k: k for k in nodes}, lambda s: s, [], model)
+        self.assertEqual((cov['generalizations']['total'], cov['generalizations']['declaredBy']), (4, {'dictionary': 3, 'model': 2}))
+        self.assertEqual([f['declaration'] for f in cov['generalizations']['findings']], ['B → A', 'B → U'])
+        self.assertEqual(cov['divergences'], {'multiplicities': [{'declaration': 'A.a', 'dictionary': '1..*', 'model': '0..*'}],
+                                              'generalizations': [{'declaration': 'B', 'dictionary': ['A'], 'model': ['A', 'U']}]})
 
 
 class SyntheticBuildTests(unittest.TestCase):

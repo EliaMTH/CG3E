@@ -42,14 +42,50 @@ DOCUMENT = '''<html><head><meta charset="utf-8"><title>CityGML Part 1</title></h
 <table><tr><th>Literal value</th><th>Definition</th></tr><tr><td>entirelyAboveTerrain</td><td>Above.</td></tr></table></div>
 </body></html>'''
 
+# Shaped like the export of Enterprise Architect: the multiplicity '*' of an association end is written as
+# lower -1 / upper -1 in the model and as '*' in the connector of the extension, which repeats some identifiers.
 XMI = '''<?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1">
-<uml:Model><packagedElement xmi:type="uml:Class" xmi:id="B" name="Building"/>
+<uml:Model xmi:type="uml:Model" name="EA_Model">
+<packagedElement xmi:type="uml:Class" xmi:id="B" name="Building">
+  <ownedAttribute xmi:type="uml:Property" xmi:id="B_roof" name="roofType"><type xmi:idref="R"/>
+    <lowerValue xmi:type="uml:LiteralInteger" value="0"/><upperValue xmi:type="uml:LiteralInteger" value="1"/></ownedAttribute>
+  <ownedAttribute xmi:type="uml:Property" xmi:id="B_part" name="buildingPart" association="A1" aggregation="composite"><type xmi:idref="P"/>
+    <lowerValue xmi:type="uml:LiteralUnlimitedNatural" value="-1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" value="-1"/></ownedAttribute>
+  <generalization xmi:type="uml:Generalization" xmi:id="G1" general="AB"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="AB" name="AbstractBuilding">
+  <generalization xmi:type="uml:Generalization" xmi:id="G2" general="OUTSIDE"/>
+</packagedElement>
 <packagedElement xmi:type="uml:Class" xmi:id="P" name="BuildingPart"/>
-<packagedElement xmi:type="uml:Association" xmi:id="A1">
-  <ownedEnd xmi:type="uml:Property" name="buildingPart" aggregation="composite"><type xmi:idref="P"/></ownedEnd>
-  <ownedEnd xmi:type="uml:Property" aggregation="none"><type xmi:idref="B"/></ownedEnd>
-</packagedElement></uml:Model></xmi:XMI>'''
+<packagedElement xmi:type="uml:Association" xmi:id="A1"><memberEnd xmi:idref="B_part"/><memberEnd xmi:idref="A1_src"/>
+  <ownedEnd xmi:type="uml:Property" xmi:id="A1_src" association="A1" aggregation="none"><type xmi:idref="B"/></ownedEnd></packagedElement>
+<packagedElement xmi:type="uml:DataType" xmi:id="S" name="GenericAttributeSet">
+  <ownedAttribute xmi:type="uml:Property" xmi:id="S_ga" name="genericAttribute" association="A2" aggregation="composite"><type xmi:idref="GA"/>
+    <lowerValue xmi:type="uml:LiteralInteger" value="1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" value="-1"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:DataType" xmi:id="GA" name="AbstractGenericAttribute"/>
+<packagedElement xmi:type="uml:Association" xmi:id="A2"><memberEnd xmi:idref="S_ga"/><memberEnd xmi:idref="A2_src"/>
+  <ownedEnd xmi:type="uml:Property" xmi:id="A2_src" association="A2" aggregation="none"><type xmi:idref="S"/></ownedEnd></packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="G" name="CityObjectGroup">
+  <ownedAttribute xmi:type="uml:Property" xmi:id="G_member" name="groupMember" association="R1" aggregation="shared"><type xmi:idref="P"/>
+    <lowerValue xmi:type="uml:LiteralUnlimitedNatural" value="-1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" value="-1"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:AssociationClass" xmi:id="R1" name="Role"><memberEnd xmi:idref="G_member"/><memberEnd xmi:idref="R1_src"/>
+  <ownedEnd xmi:type="uml:Property" xmi:id="R1_src" association="R1" aggregation="none"><type xmi:idref="G"/></ownedEnd>
+  <ownedAttribute xmi:type="uml:Property" xmi:id="R1_role" name="role">
+    <lowerValue xmi:type="uml:LiteralInteger" value="0"/><upperValue xmi:type="uml:LiteralInteger" value="1"/></ownedAttribute>
+</packagedElement>
+</uml:Model>
+<xmi:Extension extender="Enterprise Architect"><connectors>
+  <connector xmi:idref="A1"><source xmi:idref="B"><model name="Building"/><role/><type multiplicity="1" aggregation="composite"/></source>
+    <target xmi:idref="P"><model name="BuildingPart"/><role name="buildingPart"/><type multiplicity="*" aggregation="none"/></target></connector>
+  <connector xmi:idref="A2"><source xmi:idref="S"><model name="GenericAttributeSet"/><role/><type multiplicity="0..1" aggregation="composite"/></source>
+    <target xmi:idref="GA"><model name="AbstractGenericAttribute"/><role name="genericAttribute"/><type multiplicity="1..*" aggregation="none"/></target></connector>
+  <connector xmi:idref="C_R1"><source xmi:idref="G"><model name="CityObjectGroup"/><role/><type multiplicity="*" aggregation="shared"/></source>
+    <target xmi:idref="P"><model name="BuildingPart"/><role name="groupMember"/><type multiplicity="*" aggregation="none"/></target>
+    <extendedProperties associationclass="R1"/></connector>
+</connectors><diagrams><Association xmi:id="A1"/><Generalization xmi:id="G1"/></diagrams></xmi:Extension></xmi:XMI>'''
 
 
 class DocumentTests(unittest.TestCase):
@@ -108,12 +144,34 @@ class DocumentTests(unittest.TestCase):
 
 
 class XmiTests(unittest.TestCase):
-    def test_aggregation_by_owner_and_role(self):
+    @classmethod
+    def setUpClass(cls):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'xmi.zip'
             with zipfile.ZipFile(path, 'w') as archive:
                 archive.writestr(cm.INTEGRATED, XMI)
-            self.assertEqual(cm.read_xmi(path), {('Building', 'buildingPart'): 'composite'})
+            cls.model = cm.read_xmi(path)
+
+    def test_members_by_owner_and_name(self):
+        self.assertEqual(self.model['members'], {
+            ('Building', 'roofType'): {'multiplicity': '0..1'},
+            # '*' in the model, lower -1 in the XMI: read from the connector, as drawn
+            ('Building', 'buildingPart'): {'multiplicity': '0..*', 'aggregation': 'composite'},
+            ('GenericAttributeSet', 'genericAttribute'): {'multiplicity': '1..*', 'aggregation': 'composite'},
+            # End of an association class; its own attribute 'role' is an attribute, not an end
+            ('CityObjectGroup', 'groupMember'): {'multiplicity': '0..*', 'aggregation': 'shared'},
+            ('Role', 'role'): {'multiplicity': '0..1'}})
+
+    def test_generalizations(self):
+        generalizations = self.model['generalizations']
+        self.assertEqual(generalizations['Building'], {'parents': ['AbstractBuilding'], 'unresolved': 0})
+        # A superclass outside the file (an ISO class) stays unresolved, without a name
+        self.assertEqual(generalizations['AbstractBuilding'], {'parents': [], 'unresolved': 1})
+        self.assertEqual(generalizations['BuildingPart'], {'parents': [], 'unresolved': 0})
+
+    def test_multiplicity_notation(self):
+        self.assertEqual([cm.multiplicity(n) for n in ('*', '1', '0..1', '1..*', '', None)],
+                         ['0..*', '1..1', '0..1', '1..*', None, None])
 
 
 if __name__ == '__main__':

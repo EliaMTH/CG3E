@@ -2,8 +2,9 @@
 
 read_document()  OGC 20-010 (HTML): data dictionary, allowed space boundaries,
                  requirements, chapter structure and document metadata.
-read_xmi()       UML model (XMI in the official zip): aggregation kind of every
-                 association end.
+read_xmi()       UML model (XMI in the official zip): multiplicity of every
+                 attribute and association end, aggregation kind of every
+                 association, generalizations.
 
 Both functions only extract what the sources state; matching with the XSD
 classes happens in build_catalog.py.
@@ -214,34 +215,88 @@ def read_metadata(doc):
 
 XMI = '{http://schema.omg.org/spec/XMI/2.1}'
 INTEGRATED = 'XMI Files/OGC CityGML 3.0/Integrated/CityGML_3.0.xml'
+CLASSIFIERS = ('uml:Class', 'uml:DataType', 'uml:AssociationClass')
+
+
+def multiplicity(notation):
+    """A multiplicity in UML notation, written lower..upper: '*' is '0..*', '1' is '1..1'."""
+    notation = (notation or '').replace(' ', '')
+    if not notation:
+        return None
+    if '..' in notation:
+        return notation
+    return '0..*' if notation == '*' else f'{notation}..{notation}'
+
+
+def bounds(prop):
+    """lower..upper from lowerValue/upperValue (-1 upper is '*'); None when the lower bound is not a number.
+
+    Enterprise Architect exports the multiplicity '*' of an association end as lower -1 and upper -1:
+    -1 is not a lower bound, so such an end is read from the multiplicity written in the model.
+    """
+    lower, upper = prop.find('lowerValue'), prop.find('upperValue')
+    if lower is None or upper is None or lower.get('value') in (None, '-1'):
+        return None
+    return f"{lower.get('value')}..{'*' if upper.get('value') == '-1' else upper.get('value')}"
 
 
 def read_xmi(zip_path):
-    """Return {(owner class, role name): 'composite' | 'shared' | 'none'} for every association end."""
+    """What the UML model states, by class name.
+
+    members          {(class, member): {'multiplicity': 'lower..upper', 'aggregation': kind}} for every
+                     attribute and association end; the multiplicity of an end is the one written in the
+                     model (connector of Enterprise Architect, as in the diagrams), 'aggregation' (only for
+                     association ends) the strongest kind of the association
+    generalizations  {class: {'parents': [names], 'unresolved': count}}; unresolved parents are not in the file
+    """
     with zipfile.ZipFile(zip_path) as archive:
         root = ET.fromstring(archive.read(INTEGRATED), parser=ET.XMLParser(resolve_entities=False, no_network=True, huge_tree=True))
-    classes = {el.get(XMI + 'id'): el for el in root.iter()
-               if isinstance(el.tag, str) and el.get(XMI + 'type') in ('uml:Class', 'uml:DataType')}
-    owned = {}
+    # Identifiers of the UML model only: the Enterprise Architect extension repeats some of them.
+    model = next((el for el in root if isinstance(el.tag, str) and ET.QName(el).localname == 'Model'), root)
+    ids = {}
+    for el in model.iter():
+        if isinstance(el.tag, str) and el.get(XMI + 'id'):
+            ids.setdefault(el.get(XMI + 'id'), el)
+    classes = {id_: el for id_, el in ids.items() if el.get(XMI + 'type') in CLASSIFIERS}
+    # Multiplicity of each association end as written in the model; the connector of an association class
+    # names the class in extendedProperties/@associationclass.
+    written = {}
+    for connector in root.iter('connector'):
+        extended = connector.find('extendedProperties')
+        keys = [connector.get(XMI + 'idref')] + ([extended.get('associationclass')] if extended is not None and extended.get('associationclass') else [])
+        for side in connector.findall('source') + connector.findall('target'):
+            role, kind = side.find('role'), side.find('type')
+            if role is not None and role.get('name') and kind is not None and kind.get('multiplicity'):
+                for key in keys:
+                    written[(key, role.get('name'))] = kind.get('multiplicity')
+    members, owned, generalizations = {}, {}, {}
     for cls in classes.values():
+        parents = [ids.get(g.get('general')) for g in cls if g.tag == 'generalization']
+        generalizations[cls.get('name')] = {'parents': [p.get('name') for p in parents if p is not None],
+                                            'unresolved': sum(p is None for p in parents)}
         for attr in cls:
-            if attr.tag == 'ownedAttribute' and attr.get('association'):
+            if attr.tag != 'ownedAttribute' or not attr.get('name'):
+                continue
+            if attr.get('association'):
                 owned.setdefault(attr.get('association'), []).append(attr)
+            else:
+                members[(cls.get('name'), attr.get('name'))] = {'multiplicity': bounds(attr)}
     rank = {None: 0, 'none': 0, 'shared': 1, 'composite': 2}
-    result = {}
-    for assoc in root.iter():
-        if not isinstance(assoc.tag, str) or assoc.get(XMI + 'type') != 'uml:Association':
+    for id_, assoc in ids.items():
+        if assoc.get(XMI + 'type') not in ('uml:Association', 'uml:AssociationClass'):
             continue
-        ends = [e for e in assoc if e.get(XMI + 'type') == 'uml:Property'] + owned.get(assoc.get(XMI + 'id'), [])
+        # An association class also has attributes of its own: its ends are the ownedEnd elements and the
+        # attributes of other classes that reference it.
+        ends = [e for e in assoc if e.tag == 'ownedEnd'] + owned.get(id_, [])
         if len(ends) != 2:
             continue
         kind = max((e.get('aggregation') for e in ends), key=lambda k: rank.get(k, 0)) or 'none'
         for i, end in enumerate(ends):
-            other = ends[1 - i]
-            end_type, other_type = end.find('type'), other.find('type')
-            if not end.get('name') or end_type is None or other_type is None:
+            other_type = ends[1 - i].find('type')
+            owner = classes.get(other_type.get(XMI + 'idref')) if other_type is not None else None
+            if not end.get('name') or owner is None or not owner.get('name'):
                 continue
-            owner = classes.get(other_type.get(XMI + 'idref'))
-            if owner is not None and owner.get('name'):
-                result[(owner.get('name'), end.get('name'))] = kind
-    return result
+            notation = written.get((id_, end.get('name')))
+            members[(owner.get('name'), end.get('name'))] = {'multiplicity': multiplicity(notation) if notation else bounds(end),
+                                                             'aggregation': kind}
+    return {'members': members, 'generalizations': generalizations}

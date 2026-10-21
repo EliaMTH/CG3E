@@ -326,16 +326,14 @@ class View:
     def __init__(self, catalog):
         self.catalog = catalog
         self.nodes = catalog['nodes']
-        self.prefixes = {}
-        for n in self.nodes.values():
-            if n.get('namespace') and ':' in (n.get('qname') or ''):
-                self.prefixes.setdefault(n['qname'].split(':', 1)[0], n['namespace'])
         self.props = {p['id']: p for n in self.nodes.values() for p in n['properties']}
         self.uml = {}
         self.uml_members = {}
         for n in self.nodes.values():
             for m in (n.get('uml') or {}).get('properties', []):
                 entry = {'class': n['uml']['name'], 'member': m['name'], 'type': m.get('type'), 'multiplicity': m.get('multiplicity')}
+                if m.get('dictionaryMultiplicity'):
+                    entry['dictionaryMultiplicity'] = m['dictionaryMultiplicity']
                 self.uml_members[m['id']] = entry
                 if m.get('xsd'):
                     self.uml.setdefault(m['xsd'], entry)
@@ -347,9 +345,10 @@ class View:
     def qname(self, id_):
         return self.nodes[id_].get('qname') or self.nodes[id_]['name']
 
-    def namespace(self, prop):
-        prefix = prop['qname'].split(':', 1)[0] if ':' in prop['qname'] else None
-        return self.prefixes.get(prefix) if prefix else None
+    @staticmethod
+    def namespace(prop):
+        """Namespace of the XML name of a property; None for an unqualified local attribute."""
+        return prop['namespace']
 
     def concrete_elements(self):
         """Elementi CityGML concreti: feature, oggetti e tipi di dato, esclusi astratti, tipi tecnici e agganci ADE."""
@@ -431,12 +430,38 @@ def property_entry(view, prop):
     return entry
 
 
+def choice_groups(view, node, props):
+    """xs:choice groups of an element: occurrences in the type (repetitions of the enclosing groups included)
+    and members. At every occurrence one member appears; with more occurrences the members can all appear."""
+    groups = {}
+    for id_ in reversed([node['id'], *node['ancestors']]):
+        owner = view.nodes[id_]
+        for c in owner['constraints']:
+            if c['kind'] == 'xs:choice':
+                low, high = c['occurs'].split('..')
+                groups[f"{view.qname(id_)}/choice:{c['line']}"] = {'minOccurs': int(low), 'maxOccurs': 'unbounded' if high == '*' else int(high),
+                                                                   'members': []}
+    for p in props:
+        for choice in p.get('choices', []):
+            key = f"{view.qname(p['declaredIn'])}/{choice}"
+            if key in groups:
+                groups[key]['members'].append(p['qname'])
+    return groups
+
+
 def elements(view):
-    return [{'name': n['name'], 'namespace': n['namespace'], 'qname': n['qname'], 'kind': n['kind'],
-             'type': n.get('xmlType'), 'spaceRole': n.get('spaceRole'), 'topLevel': bool(n.get('topLevel')),
-             'substitutionGroup': view.substitution_chain(n), 'description': n.get('description') or '',
-             'properties': [property_entry(view, p) for p in view.xml_properties(n)]}
-            for n in view.concrete_elements()]
+    result = []
+    for n in view.concrete_elements():
+        props = view.xml_properties(n)
+        entry = {'name': n['name'], 'namespace': n['namespace'], 'qname': n['qname'], 'kind': n['kind'],
+                 'type': n.get('xmlType'), 'spaceRole': n.get('spaceRole'), 'topLevel': bool(n.get('topLevel')),
+                 'substitutionGroup': view.substitution_chain(n), 'description': n.get('description') or '',
+                 'properties': [property_entry(view, p) for p in props]}
+        groups = choice_groups(view, n, props)
+        if groups:
+            entry['choiceGroups'] = groups
+        result.append(entry)
+    return result
 
 
 def document_label(document):

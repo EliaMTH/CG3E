@@ -36,22 +36,49 @@ Sul catalogo generato verifica:
   confronto;
 - **classi UML**: le 9 generalizzazioni che gli schemi non esprimono e la
   coerenza fra superclassi e sottoclassi; i membri delle 8 classi senza tipo XSD
-  dedicato (unioni e tipi base) e i loro collegamenti; i 12 vincoli OCL con il
-  testo su più righe; le 4 descrizioni prese dal dizionario dati; il tipo degli
-  elementi delle liste annidate (`ColorType`, matrici di trasformazione);
-- **copertura**: conteggi per dimensione, i 3 membri senza corrispondenza, le
-  corrispondenze per ereditarietà e per unione, le proprietà `CityModel.…Member`
-  collegate a `cityModelMember`;
+  dedicato (unioni e tipi base) e i loro collegamenti; la molteplicità di
+  `Building.buildingPart` (`0..*` del modello, `1..*` del dizionario); i 12
+  vincoli OCL con il testo su più righe; le 4 descrizioni prese dal dizionario
+  dati; il tipo degli elementi delle liste annidate (`ColorType`, matrici di
+  trasformazione);
+- **copertura**: conteggi per dimensione, con le generalizzazioni del dizionario
+  (123) e del modello UML (132); le 78 molteplicità e le 10 generalizzazioni in
+  cui dizionario e modello divergono; i 3 membri senza corrispondenza, le
+  corrispondenze per ereditarietà e per unione, le proprietà
+  `CityModel.…Member` collegate a `cityModelMember`;
 - **regole della codifica**: 43 requisiti, 4 raccomandazioni e 18 classi di
   OGC 21-006r2, identificatori brevi in comune con OGC 20-010 distinti dal
   documento, regole collegate alle proprietà, copertura dei documenti
   normativi.
 
+Contro fonti da cui il catalogo non è costruito (`IndependentSourceTests`):
+
+- **schemi XSD**: per i 113 ruoli UML con una proprietà XSD, il limite inferiore
+  della molteplicità è il `minOccurs` dello schema e il limite superiore `*`
+  corrisponde a `maxOccurs="unbounded"`;
+- **figure di OGC 20-010**: `buildingPart` `0..*` (figura 64);
+  `genericAttribute` `0..*` in `AbstractCityObject` e `1..*` in
+  `GenericAttributeSet`, superclasse `AbstractGenericAttribute` degli otto
+  attributi generici (figura 37); superclasse
+  `AbstractTextureParameterization` di `TexCoordGen` e `TexCoordList` e
+  composizione di `textureParameterization` (figura 27);
+- **regole del modello**: nessuno spazio senza superfici ammesse (come
+  `PlantCover`) eredita un `boundary` obbligatorio; aggregazioni delle
+  association class;
+- **istanze validate con gli schemi ufficiali, offline**: gli attributi scritti
+  con il nome del catalogo (`srsName` di `TexCoordGen`, `codeSpace` di
+  `gml:CodeType`, `xlink:href` di `xal:Address`); un `Building` con
+  `gml:boundedBy` nil; un `gml:Dictionary` senza `gml:id`, rifiutato, mentre il
+  catalogo lo classifica come oggetto; un `CityModel` con membri alternati, come
+  ammette la scelta ripetuta `0..*`.
+
 Su dati sintetici verifica:
 
 - che un membro, una generalizzazione, un vincolo o una lista persi dal
   catalogo diventino rilievi della copertura, mentre un'unione codificata come
-  alternative e una classe ISO no;
+  alternative e una classe ISO no; che una generalizzazione presente solo nel
+  modello UML conti nella copertura e che le divergenze fra dizionario e
+  modello siano elencate;
 - la risoluzione degli import tramite manifest;
 - le forme di collegamento (incluso, riferimento, entrambe, ereditate per
   estensione, tolte da una restrizione, base non disponibile) e le liste
@@ -82,7 +109,10 @@ Sui dati del progetto verifica:
   `Building`/`roofType`, uguaglianza fra `city3d` e `generator`;
 - **`generator`**: 78 XSD con lo SHA-256 del manifest, avvertenze, 88 file di
   code list, `manifest.json`; 107 elementi e 3483 proprietà, ordine delle
-  proprietà di `Building`, `choices` di `CityModel`; regole (10 superfici di
+  proprietà di `Building`, campo `uml` di `boundary` con la molteplicità del
+  modello e quella del dizionario, `gml:boundedBy` nillable, attributi non
+  qualificati di `TexCoordGen`, `choices` e `choiceGroups` di `CityModel`
+  (unico elemento con gruppi `xs:choice`); regole (10 superfici di
   `Building`, nessuna per `PlantCover`, 20 oggetti di primo livello, 12
   proprietà solo per riferimento, 12 vincoli, 65 regole di codifica);
   `xml-catalog.xml` che riconduce ogni `codeSpace` al suo file;
@@ -91,7 +121,9 @@ Sui dati del progetto verifica:
   `lod1Solid`) costruito con le sole informazioni del pacchetto valida offline
   contro `CityGML.xsd` del pacchetto con il suo `xml-catalog.xml`, e non valida
   con le proprietà in ordine inverso; un `Building` con un `TrafficArea` come
-  `boundary` valida ma non è fra le superfici ammesse di `rules`;
+  `boundary` valida ma non è fra le superfici ammesse di `rules`; un `CityModel`
+  con membri alternati (`cityObjectMember`, `appearanceMember`,
+  `cityObjectMember`) valida, come dice `choiceGroups`;
 - **`standard`**: file presenti ed esclusi, SHA-256 delle fonti, dizionario
   esportato invariato, dizionari GML validi con il catalogo XML del pacchetto,
   contenuto di `EXPORT.md`;
@@ -118,7 +150,11 @@ non scrive nulla.
   distinte dai package omonimi, attributi, vincoli (più righe *Constraint*
   nella stessa tabella, testo su più righe), valori delle enumerazioni,
   tabelle dei confini con liste annidate, requisiti, capitoli, sezioni
-  concettuali e tipi di aggregazione.
+  concettuali. Dell'XMI, con la struttura dell'export di Enterprise Architect:
+  molteplicità di attributi e ruoli (il `*` scritto nel connettore, con limite
+  inferiore -1 nel modello), tipi di aggregazione, estremità di un'association
+  class distinte dai suoi attributi, generalizzazioni anche verso classi fuori
+  dal file, identificatori ripetuti nell'estensione.
 - `tests/test_encoding_document.py` verifica la lettura del documento OGC
   21-006r2 su un file sintetico con la stessa struttura: metadati, classe di
   requisiti con dipendenze, requisito con punti, note e proprietà nominate,
@@ -157,9 +193,13 @@ list e script in Chromium (Playwright). Verifica:
   le classi concrete che la hanno, proprietà di classi astratte visibili con il
   filtro "solo concreti", dichiarazione XSD prima dei membri UML omonimi;
 - **livelli di lettura**: passaggio da Codifica GML a Modello UML e ritorno, con
-  il livello nell'URL e nei cambi di scheda, molteplicità diverse fra i due
-  livelli (`buildingPart` 1..* e 0..*), export con il livello dichiarato,
-  selettore visibile su mobile;
+  il livello nell'URL e nei cambi di scheda; al livello UML la molteplicità del
+  modello con il badge del dizionario (`buildingPart` `0..*`, "dizionario:
+  1..*"), anche nell'export; export con il livello dichiarato, selettore
+  visibile su mobile;
+- **relazioni e generalizzazioni**: `buildingPart` letta come composizione anche
+  nelle connessioni in ingresso di `BuildingPart`; la generalizzazione di
+  `StringAttribute` presente solo nel modello UML, con la nota sul dizionario;
 - **destinazioni**: `boundary` nel contesto della classe visitata
   (`BuildingUnit` senza le superfici di `Building`, divieto per `PlantCover`),
   separate dagli elementi sostituibili negli schemi;
@@ -172,8 +212,10 @@ list e script in Chromium (Playwright). Verifica:
   nella scheda Sorgente, messaggio dell'esempio d'uso per una code list senza
   proprietà che la usano e per una code list vuota;
 - **riquadro Sorgenti**: documenti, copertura del modello concettuale e dei
-  documenti normativi;
-- **code list**: valori nelle classi e nella pagina della code list, aggiunta e
+  documenti normativi, generalizzazioni per fonte, divergenze fra dizionario e
+  modello UML;
+- **code list**: valori nelle classi e nella pagina della code list, esempio
+  d'uso con i caratteri speciali di XML (`A&B` scritto `A&amp;B`), aggiunta e
   annullamento di un valore, ricerca per valore, pulsante Code list, Salva (con
   la File System Access API sostituita da uno stub: il testo scritto coincide
   byte per byte con `codelists/codelists.js`), modifica durante la scrittura

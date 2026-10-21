@@ -56,10 +56,12 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
 - `family`: `CityGML` per i namespace CityGML 3.0 e per le classi del modello
   concettuale, `Supporto` per GML, ISO 19139, xAL, XLink e XML Schema;
   `support` è true per questi ultimi.
-- `kind`: per i concetti degli schemi è una categoria derivata dalla gerarchia
-  `xs:extension`, mai dai nomi:
-  - `feature`: discende da `gml:AbstractFeature`;
-  - `object`: discende da `gml:AbstractGML` ma non da `gml:AbstractFeature`;
+- `kind`: per i concetti degli schemi è una categoria derivata dalla
+  derivazione dei tipi, per `xs:extension` o per `xs:restriction`, mai dai nomi:
+  - `feature`: deriva da `gml:AbstractFeature`;
+  - `object`: deriva da `gml:AbstractGML` ma non da `gml:AbstractFeature`
+    (per esempio `gml:Dictionary`, il cui tipo deriva per restrizione da
+    `gml:AbstractGMLType`);
   - `datatype`: nessuna delle due, oppure tipo semplice o tipo `…PropertyType`;
   - `enumeration`: tipo semplice con valori elencati;
   - `ade`: agganci `ADEOf…`;
@@ -84,22 +86,37 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
 
 - `parents`, `ancestors`, `children`: gerarchia da `xs:extension`.
 - `derivation`: `xs:extension` o `xs:restriction`; `restrictedBase` è la base di
-  una restrizione e non è un arco di ereditarietà.
+  una restrizione: non porta proprietà, ma conta per la categoria (`kind`).
 - `substitution`: testa del `substitutionGroup`, separata dall'ereditarietà.
 - `incompleteInheritance`: true se la gerarchia raggiunge un nodo esterno.
 - `constraints`: faccette, `xs:choice`, liste, unioni, wildcard e gruppi non
   risolti. Liste e unioni sono lette anche nel tipo base anonimo di un
   `xs:restriction` (per esempio `ColorType`) e riportano la `line` della
-  dichiarazione.
+  dichiarazione. Un `xs:choice` ha `value` (occorrenze dichiarate sulla scelta)
+  e `occurs` (occorrenze nel tipo, comprese le ripetizioni dei gruppi che la
+  contengono): a ogni occorrenza compare uno solo dei campi, quindi con più
+  occorrenze i campi possono comparire tutti, alternati (per esempio i membri
+  di `CityModel`, `occurs` `0..*`).
 
 ### Proprietà (`properties`)
 
 Dichiarazioni dirette del tipo. Ogni proprietà ha `id`, `name`, `qname`,
-`xmlKind` (`xs:element` o `xs:attribute`), `kind`, `link`, `typeId` e
-`typeName` (`(tipo anonimo)` quando il tipo è dichiarato dentro l'elemento),
+`namespace`, `xmlKind` (`xs:element` o `xs:attribute`), `kind`, `link`, `typeId`
+e `typeName` (`(tipo anonimo)` quando il tipo è dichiarato dentro l'elemento),
 `targets`, `min`, `max`, `multiplicity`, `choices`, `nillable`, `default`,
 `fixed`, `declaredIn`, `source`, `line`, `targetEvidence` (come è stata risolta
 la destinazione) e l'estratto `xml`.
+
+- `qname`, `namespace`: il nome XML della proprietà. Per un riferimento
+  (`xs:element/@ref`, `xs:attribute/@ref`) è il nome della dichiarazione
+  globale, per esempio `xlink:href` in `xal:Address`; per una dichiarazione
+  locale, il namespace del tipo se è qualificata (`form`, `elementFormDefault`,
+  `attributeFormDefault` dello schema), altrimenti nessuno: `namespace` null e
+  `qname` senza prefisso, per esempio `codeSpace` di `gml:CodeType` e `srsName`
+  di `app:TexCoordGen`.
+- `nillable`, `default`, `fixed`: per un riferimento, quelli della dichiarazione
+  globale (per esempio `gml:boundedBy` è nillable); un riferimento ad attributo
+  può dichiarare `default` o `fixed` propri.
 
 - `kind`: `association` se una destinazione è una `feature` o un `object`;
   `attribute` se le destinazioni sono tipi di dato; `geometry` per le proprietà
@@ -123,7 +140,8 @@ la destinazione) e l'estratto `xml`.
   tipo dell'alternativa.
 - `codeList`: nodo della code list, quando il tipo UML è una «CodeList».
 - `aggregation`: tipo di aggregazione dell'associazione nel modello UML
-  (`composite`, `shared`, `none`).
+  (`composite`, `shared`, `none`), comprese le associazioni che sono association
+  class (`TextureAssociation`, `Role`, `CityObjectRelation`).
 - `rules`: regole di OGC 21-006r2 che nominano la proprietà, con `document`,
   `id`, `part` e `anchor`.
 
@@ -148,23 +166,36 @@ conserva l'origine di ogni proprietà mostrata su una sottoclasse.
 
 ### Modello concettuale (`uml`)
 
-Classe corrispondente del modello concettuale, come la scrive il dizionario
-dati di OGC 20-010, separata dai campi degli schemi. La corrispondenza è per
-nome: l'elemento XSD ha il nome della classe UML; un'enumerazione o un tipo base
-XSD ha il nome UML più `Type`.
+Classe corrispondente del modello concettuale, separata dai campi degli schemi:
+definizione, stereotipo, membri con i loro tipi e vincoli come li scrive il
+dizionario dati di OGC 20-010; molteplicità e generalizzazioni come le dichiara
+il modello UML (XMI), cioè come le disegnano le figure del documento. Dove il
+dizionario riporta un valore diverso, il suo valore resta accanto
+(`dictionaryMultiplicity`, `dictionaryParents`). La corrispondenza è per nome:
+l'elemento XSD ha il nome della classe UML; un'enumerazione o un tipo base XSD
+ha il nome UML più `Type`.
 
 - `name`, `stereotype`, `package`, `anchor` (ancora della scheda nel dizionario
   dati), `definition`.
-- `parents`, `children`, `ancestors`: generalizzazioni UML (riga *Subclass of*
-  delle tabelle Metadata), fra nodi del catalogo.
+- `parents`, `children`, `ancestors`: generalizzazioni del dizionario (riga
+  *Subclass of* delle tabelle Metadata) e del modello UML, fra nodi del
+  catalogo.
+- `dictionaryParents`: presente quando il dizionario dichiara superclassi
+  diverse da quelle del modello UML: le superclassi del dizionario (lista vuota
+  per «Subclass of: None»). Le superclassi fuori dal file XMI (classi ISO) non
+  sono una divergenza.
 - `unresolvedParents`: superclassi che non sono classi del catalogo (classi
   ISO, per esempio `AnyFeature`).
 - `properties`: attributi e ruoli dichiarati dalla classe:
-  - `id`, `name`, `kind` (`attribute` o `association`), `multiplicity`,
-    `definition`;
+  - `id`, `name`, `kind` (`attribute` o `association`), `definition`;
+  - `multiplicity`: dal modello UML; per un ruolo è la molteplicità scritta nel
+    modello (connettore di Enterprise Architect), dove `*` vale `0..*`;
+    l'XMI la esporta con limite inferiore -1, che non è un limite;
+  - `dictionaryMultiplicity`: il valore del dizionario dati, presente quando è
+    diverso (per esempio `[1..*]` dove il modello scrive `*`);
   - `type` e `typeId` (null se il tipo non è una classe del catalogo);
   - `codeList`: true se il tipo è una code list;
-  - `aggregation`: per i ruoli, dall'XMI;
+  - `aggregation`: per i ruoli, dall'XMI, comprese le association class;
   - `xsd`: proprietà XSD con lo stesso nome nella stessa classe, oppure null;
   - `xsdMapping`, quando `xsd` è null in una classe con tipo XSD: la
     corrispondenza ricavata dagli schemi, con `rule` `inherited` (proprietà con
@@ -219,8 +250,9 @@ OGC 20-010: una regola si identifica con `document` e `id`.
 Le dimensioni `classes`, `members`, `generalizations`, `constraints` e
 `simpleTypes` riportano:
 
-- `total`: dichiarazioni nella fonte (il dizionario dati per le classi CityGML,
-  gli schemi CityGML per liste e unioni);
+- `total`: dichiarazioni nella fonte (il dizionario dati per le classi CityGML;
+  per le generalizzazioni il dizionario e il modello UML, con il conteggio di
+  ciascuno in `declaredBy`; gli schemi CityGML per liste e unioni);
 - `represented`: dichiarazioni presenti nel catalogo;
 - `excluded`: dichiarazioni fuori dal catalogo, con `declaration` e `reason`
   (classi ISO e ciò che dichiarano);
@@ -230,6 +262,11 @@ Le dimensioni `classes`, `members`, `generalizations`, `constraints` e
   schemi: `sameName` e `withoutXsdType` per le classi; `sameName`, `inherited`,
   `unionAlternatives`, `classWithoutXsdType` e `none` per i membri;
   `xsExtension` e `umlOnly` per le generalizzazioni.
+
+`coverage.divergences` elenca dove il dizionario dati e il modello UML
+dichiarano cose diverse: `multiplicities` (`declaration` classe.membro,
+`dictionary`, `model`) e `generalizations` (`declaration` classe, superclassi
+del dizionario e del modello).
 
 `coverage.documents` elenca i documenti normativi: `document`, `role`,
 `acquired`, `rules` (conteggi per tipo) e, per OGC 21-006r2,

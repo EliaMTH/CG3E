@@ -26,6 +26,7 @@ XS = 'http://www.w3.org/2001/XMLSchema'
 GML = 'http://www.opengis.net/gml/3.2'
 CORE = 'http://www.opengis.net/citygml/3.0'
 XLINK = 'http://www.w3.org/1999/xlink'
+XML_NS = 'http://www.w3.org/XML/1998/namespace'
 NS = {'xs': XS}
 # Property types that GML defines for members of a collection: in CityGML 3.0
 # every property in this form is an aggregation of the UML model.
@@ -36,7 +37,7 @@ PREFIXES = {
     'http://www.opengis.net/citygml/construction/3.0': 'con',
     'http://www.opengis.net/citygml/transportation/3.0': 'tran',
     'urn:oasis:names:tc:ciq:xal:3': 'xal', 'urn:oasis:names:tc:ciq:ct:3': 'ct',
-    'http://www.w3.org/1999/xlink': 'xlink'
+    'http://www.w3.org/1999/xlink': 'xlink', XML_NS: 'xml'
 }
 MODULES = {'core': 'Core', 'building': 'Building', 'construction': 'Construction',
            'cityfurniture': 'CityFurniture', 'cityobjectgroup': 'CityObjectGroup',
@@ -71,7 +72,8 @@ def qname(el, value, fallback=''):
         return None
     if ':' in value:
         pre, name = value.split(':', 1)
-        return el.nsmap.get(pre, 'UNRESOLVED:' + pre), name
+        # The prefix xml is bound by definition and never declared (Namespaces in XML).
+        return el.nsmap.get(pre, XML_NS if pre == 'xml' else 'UNRESOLVED:' + pre), name
     return el.nsmap.get(None, fallback), value
 
 
@@ -95,16 +97,21 @@ def union_alternative(cls, name, classes, norm):
     return None
 
 
-def coverage(classes, nodes, uml_node, norm, simple_declarations=()):
-    """The data dictionary of OGC 20-010 and the lists and unions of the CityGML schemas against the catalog.
+def coverage(classes, nodes, uml_node, norm, simple_declarations=(), model=None):
+    """The conceptual model of OGC 20-010 and the lists and unions of the CityGML schemas against the catalog.
 
+    Classes, members and constraints are those of the data dictionary; generalizations those of the
+    data dictionary and of the UML model (XMI), with the count of each source in 'declaredBy'.
     For every dimension: declarations in the source (total), present in the
     catalog (represented), outside the catalog with the reason (excluded) and
     findings for what is missing. 'xsd' tells how the encoding represents the
     declarations; its categories come from the schemas, never from a list of names.
+    'divergences' lists where the data dictionary and the UML model state different things.
     """
     dims = {d: {'total': 0, 'represented': 0, 'excluded': [], 'findings': [], 'xsd': defaultdict(list)}
             for d in ('classes', 'members', 'generalizations', 'constraints', 'simpleTypes')}
+    dims['generalizations']['declaredBy'] = {'dictionary': 0, 'model': 0}
+    divergences = {'multiplicities': [], 'generalizations': []}
 
     def missing(dim, declaration, expected):
         dims[dim]['findings'].append({'declaration': declaration, 'expected': expected, 'outcome': 'unresolved'})
@@ -137,8 +144,18 @@ def coverage(classes, nodes, uml_node, norm, simple_declarations=()):
             rule = ('classWithoutXsdType' if node.get('umlOnly') else 'sameName' if m.get('xsd')
                     else m['xsdMapping']['rule'] if m.get('xsdMapping') else 'none')
             dims['members']['xsd'][rule].append(f'{label}.{member}')
-        for parent in cls.get('subclassOf', []):
+            if m.get('dictionaryMultiplicity'):
+                divergences['multiplicities'].append({'declaration': f'{label}.{member}', 'dictionary': m['dictionaryMultiplicity'],
+                                                      'model': m['multiplicity']})
+        dictionary = cls.get('subclassOf', [])
+        stated = (model or {}).get('generalizations', {}).get(name) or {'parents': []}
+        listed, drawn = {norm(s) for s in dictionary}, {norm(s) for s in stated['parents']}
+        if 'dictionaryParents' in uml:
+            divergences['generalizations'].append({'declaration': label, 'dictionary': dictionary, 'model': stated['parents']})
+        for parent in dictionary + [s for s in stated['parents'] if norm(s) not in listed]:
             dims['generalizations']['total'] += 1
+            dims['generalizations']['declaredBy']['dictionary'] += norm(parent) in listed
+            dims['generalizations']['declaredBy']['model'] += norm(parent) in drawn
             declaration = f'{label} → {parent}'
             parent_id = uml_node.get(norm(parent))
             if parent_id is None:
@@ -168,6 +185,7 @@ def coverage(classes, nodes, uml_node, norm, simple_declarations=()):
             missing('simpleTypes', f'{path}:{line} {kind}', 'lista o unione fra i vincoli di un nodo')
     for d in dims.values():
         d['xsd'] = {k: v for k, v in sorted(d['xsd'].items())}
+    dims['divergences'] = divergences
     return dims
 
 
@@ -193,6 +211,8 @@ class Builder:
         self.root = root
         self.nodes = {}
         self.elements, self.types, self.groups, self.attrs = {}, {}, {}, {}
+        # elementFormDefault and attributeFormDefault of every schema document, by path.
+        self.forms = {}
         self.type_alias = {}
         self.node_defs = {}
         self.files = []
@@ -278,6 +298,7 @@ class Builder:
                 continue
             namespace = root.get('targetNamespace', '')
             record = self.register_file(path, namespace)
+            self.forms[path] = (root.get('elementFormDefault', 'unqualified'), root.get('attributeFormDefault', 'unqualified'))
             if record['citygml']:
                 self.simple_declarations += [(record['path'], item.sourceline, 'xs:'+ET.QName(item).localname)
                                              for item in root.iter('{'+XS+'}list', '{'+XS+'}union')]
@@ -484,9 +505,13 @@ class Builder:
                 cs = list(choices)
                 if tag == 'choice':
                     cs.append(f'choice:{child.sourceline}')
+                    # Occurrences of the choice in the type, repetitions of the enclosing groups included.
+                    occurs = f"{lo}..{'*' if hi is None else hi}"
                     lo = 0  # Per-branch lower bound; group constraint is kept separately.
-                    n['constraints'].append({'kind': 'xs:choice', 'value': f"{child.get('minOccurs','1')}..{child.get('maxOccurs','1')}", 'line': child.sourceline,
-                         'description': 'Alternative XML: i singoli campi non sono requisiti indipendenti.'})
+                    n['constraints'].append({'kind': 'xs:choice', 'value': f"{child.get('minOccurs','1')}..{child.get('maxOccurs','1')}",
+                         'occurs': occurs, 'line': child.sourceline,
+                         'description': 'Alternative XML: a ogni occorrenza della scelta compare uno solo dei campi; '
+                                        'con più occorrenze i campi possono comparire tutti, in qualsiasi ordine fra loro.'})
                 self.walk_fields(child, n, path, owner_ns, lo, hi, cs, groups_seen)
             elif tag in ('group', 'attributeGroup') and child.get('ref'):
                 pair = qname(child, child.get('ref'))
@@ -509,9 +534,21 @@ class Builder:
     def add_field(self, el, n, path, owner_ns, tag, minimum, maximum, choices):
         ref = qname(el, el.get('ref'))
         name = el.get('name') or (ref[1] if ref else '(anonimo)')
-        prefix = self.pretty_q(owner_ns, name)
+        # Namespace of the XML name: the referenced declaration's for @ref; for a local declaration, the
+        # target namespace when qualified (form, elementFormDefault, attributeFormDefault), else none.
+        if ref:
+            namespace = ref[0]
+        else:
+            element_form, attribute_form = self.forms.get(path, ('unqualified', 'unqualified'))
+            form = el.get('form') or (element_form if tag == 'element' else attribute_form)
+            namespace = owner_ns if form == 'qualified' else None
+        prefix = self.pretty_q(namespace, name) if namespace else name
         typ = qname(el, el.get('type'))
         resolved = self.elements.get(ref, (None, None))[0] if tag == 'element' else self.attrs.get(ref, (None, None))[0]
+        # nillable, default and fixed belong to the global declaration of a reference; an attribute
+        # reference may set its own default or fixed value.
+        declaration = resolved if ref and resolved is not None else el
+        value = lambda key: el.get(key) if el.get(key) is not None else declaration.get(key)
         if typ is None and resolved is not None:
             typ = qname(resolved, resolved.get('type'))
         targets = self.wrapper_targets(el) if tag == 'element' else []
@@ -580,13 +617,13 @@ class Builder:
             lo = minimum * int(el.get('minOccurs','1'))
             raw = el.get('maxOccurs','1')
             hi = None if maximum is None or raw == 'unbounded' else maximum * int(raw)
-        p = {'id': n['id']+'/property:'+name+':'+str(el.sourceline), 'name': name, 'qname': prefix,
+        p = {'id': n['id']+'/property:'+name+':'+str(el.sourceline), 'name': name, 'qname': prefix, 'namespace': namespace,
              'kind': kind, 'xmlKind': 'xs:'+tag, 'description': doc(el) or doc(resolved),
              'targets': target_ids, 'typeId': datatype, 'typeName': self.pretty_q(*typ) if typ else '(tipo anonimo)',
              'multiplicity': f"{lo}..{'*' if hi is None else hi}", 'min': lo, 'max': hi,
              'declaredIn': n['id'], 'source': self.relative(path), 'line': el.sourceline,
-             'choices': choices, 'nillable': el.get('nillable') == 'true',
-             'default': el.get('default'), 'fixed': el.get('fixed'),
+             'choices': choices, 'nillable': tag == 'element' and declaration.get('nillable') == 'true',
+             'default': value('default'), 'fixed': value('fixed'),
              'targetEvidence': [b for a,b in targets], 'link': link if kind == 'association' else None,
              'xml': ET.tostring(el, encoding='unicode', pretty_print=True)}
         if kind == 'association' and forms:
@@ -615,11 +652,28 @@ class Builder:
                     self.nodes[member['typeId']]['incoming'].append({'source':n['id'], 'property':member['name'], 'kind':'umlMember', 'link':None, 'multiplicity':member['multiplicity'], 'id':member['id']})
         self.resolve_dependencies()
 
-    def classify(self):
-        """Categories derived from the xs:extension hierarchy, never from names.
+    def derivation(self, id_):
+        """The node and the types it derives from, by xs:extension and by xs:restriction.
 
-        feature   descends from gml:AbstractFeature
-        object    descends from gml:AbstractGML, not from gml:AbstractFeature
+        A restriction does not bring the properties of its base (see ancestors), but the derived
+        type stays a type of the base: a gml:Definition, restriction of gml:AbstractGMLType, is a GML object.
+        """
+        found, stack = set(), [id_]
+        while stack:
+            x = stack.pop()
+            if x in found or x not in self.nodes:
+                continue
+            found.add(x)
+            stack.extend(self.nodes[x]['parents'])
+            if self.nodes[x].get('restrictedBase'):
+                stack.append(self.nodes[x]['restrictedBase'])
+        return found
+
+    def classify(self):
+        """Categories derived from the type derivation (xs:extension and xs:restriction), never from names.
+
+        feature   derives from gml:AbstractFeature
+        object    derives from gml:AbstractGML, not from gml:AbstractFeature
         datatype  neither: a structure of values without its own identity
         A city object descends from core:AbstractCityObject; its spaceRole is
         'space' or 'boundary' when it descends from core:AbstractSpace or
@@ -628,7 +682,7 @@ class Builder:
         feature, gml_object = xid(GML, 'AbstractFeature'), xid(GML, 'AbstractGML')
         city, space, boundary = (xid(CORE, name) for name in ('AbstractCityObject', 'AbstractSpace', 'AbstractSpaceBoundary'))
         for n in self.nodes.values():
-            line = {n['id'], *n['ancestors']}
+            line = self.derivation(n['id'])
             if n['kind'] == 'class':
                 n['kind'] = 'feature' if feature in line else 'object' if gml_object in line else 'datatype'
             n['cityObject'] = n['kind'] == 'feature' and city in line
@@ -652,8 +706,12 @@ class Builder:
             self.warnings.append('Documento del modello concettuale non disponibile in sources/: catalogo solo XSD.')
             return
         doc = conceptual_model.read_document(self.root/doc_record['path'])
-        xmi = conceptual_model.read_xmi(self.root/uml_record['path']) if uml_record and (self.root/uml_record['path']).exists() else {}
         norm = lambda name: name.replace('×', 'x')
+        stated = (conceptual_model.read_xmi(self.root/uml_record['path']) if uml_record and (self.root/uml_record['path']).exists()
+                  else {'members': {}, 'generalizations': {}})
+        # The UML model, by class name normalized as the data dictionary.
+        model = {'members': {(norm(c), m): v for (c, m), v in stated['members'].items()},
+                 'generalizations': {norm(c): v for c, v in stated['generalizations'].items()}}
         classes = {norm(k): v for k, v in doc['classes'].items()}
         uml_node, report = {}, defaultdict(list)
         candidates = [n for n in self.nodes.values() if n['family'] == 'CityGML' and not n.get('anonymous')
@@ -686,7 +744,7 @@ class Builder:
                 n['literals'] = cls['values']
             self.nodes[id_] = n
             uml_node[name] = id_
-        self.conceptual_classes(classes, uml_node, norm, xmi)
+        self.conceptual_classes(classes, uml_node, norm, model)
         for n in self.nodes.values():
             if not n.get('uml') or n.get('umlOnly'):
                 continue
@@ -710,8 +768,8 @@ class Builder:
                     # The schema documentation wins; the data dictionary fills only an empty one.
                     if not p['description'].strip() and declared.get('definition'):
                         p['description'], p['descriptionSource'] = declared['definition'], 'uml'
-                if p['kind'] == 'association' and xmi:
-                    kind = xmi.get((n['uml']['name'], role))
+                if p['kind'] == 'association' and model['members']:
+                    kind = model['members'].get((norm(n['uml']['name']), role), {}).get('aggregation')
                     if kind:
                         p['aggregation'] = kind
                     else:
@@ -728,13 +786,18 @@ class Builder:
             'modules': doc['modules'], 'concepts': doc['concepts'],
             'requirements': [{**r, 'document': '20-010'} for r in doc['requirements']],
             'report': {k: v for k, v in sorted(report.items())},
-            'coverage': coverage(classes, self.nodes, uml_node, norm, self.simple_declarations),
+            'coverage': coverage(classes, self.nodes, uml_node, norm, self.simple_declarations, model),
         }
         self.standard['encoding'] = self.encoding_rules()
         self.standard['coverage']['documents'] = document_coverage(self.standard)
 
-    def conceptual_classes(self, classes, uml_node, norm, xmi):
-        """Generalizations, members and constraints of every class, as the data dictionary states them.
+    def conceptual_classes(self, classes, uml_node, norm, model):
+        """Generalizations, members and constraints of every class.
+
+        Definitions, types, stereotypes and constraints come from the data dictionary of OGC 20-010;
+        multiplicities and generalizations from the UML model (XMI), as drawn in the figures of the
+        document. Where the dictionary states something else, its value stays beside the model's:
+        dictionaryMultiplicity on the member, dictionaryParents on the class.
 
         Kept under 'uml', apart from the XSD fields: parents/children/ancestors
         never mix the two hierarchies. A name that is not a class of the
@@ -742,19 +805,26 @@ class Builder:
         """
         for name, id_ in uml_node.items():
             cls, n = classes[name], self.nodes[id_]
-            parents = [(s, uml_node.get(norm(s))) for s in cls.get('subclassOf', [])]
+            dictionary = cls.get('subclassOf', [])
+            stated = model['generalizations'].get(name)
+            listed = {norm(s) for s in dictionary}
+            declared = dictionary + [s for s in (stated or {}).get('parents', []) if norm(s) not in listed]
+            parents = [(s, uml_node.get(norm(s))) for s in declared]
             xsd = {p['name']: p['id'] for p in n['properties']}
             members = []
             for kind, group, key in (('attribute', 'attributes', 'type'), ('association', 'associations', 'target')):
                 for member, m in cls[group].items():
                     type_ = m.get(key) or ''
+                    drawn = model['members'].get((name, member), {})
                     entry = {'id': f"{id_}/uml:{member}", 'name': member, 'kind': kind, 'type': type_,
-                             'typeId': uml_node.get(norm(type_)), 'multiplicity': m.get('multiplicity'),
+                             'typeId': uml_node.get(norm(type_)), 'multiplicity': drawn.get('multiplicity') or m.get('multiplicity'),
                              'definition': m.get('definition', ''), 'xsd': xsd.get(member)}
+                    if drawn.get('multiplicity') and m.get('multiplicity') and drawn['multiplicity'] != m['multiplicity']:
+                        entry['dictionaryMultiplicity'] = m['multiplicity']
                     if classes.get(norm(type_), {}).get('stereotype') == 'CodeList':
                         entry['codeList'] = True
-                    if kind == 'association' and xmi.get((cls['name'], member)):
-                        entry['aggregation'] = xmi[(cls['name'], member)]
+                    if kind == 'association' and drawn.get('aggregation'):
+                        entry['aggregation'] = drawn['aggregation']
                     if not entry['xsd'] and not n.get('umlOnly'):
                         mapping = self.member_mapping(n, member, classes.get(norm(type_)))
                         if mapping:
@@ -763,6 +833,9 @@ class Builder:
             n['uml'].update(definition=cls.get('definition', ''), parents=[p for s, p in parents if p and p != id_],
                             unresolvedParents=[s for s, p in parents if not p],
                             children=[], properties=members, constraints=cls.get('constraints', []))
+            # Compared on the classes of the model file: an ISO superclass outside it is not a divergence.
+            if stated is not None and {norm(s) for s in stated['parents']} != {s for s in listed if s in model['generalizations']}:
+                n['uml']['dictionaryParents'] = dictionary
         for id_ in uml_node.values():
             for parent in self.nodes[id_]['uml']['parents']:
                 self.nodes[parent]['uml']['children'].append(id_)
