@@ -54,7 +54,9 @@ scaricato.
 Gli avvisi (`AVVISO:`) non fermano l'export:
 
 - lista modificata che ha ancora il `codeSpace` dell'esempio OGC;
-- valori senza codice o segnaposto in una lista con valori, non esportati;
+- valori senza codice, non esportati; l'avviso compare anche quando nessun
+  valore della lista ha un codice e la lista resta fuori dall'export;
+- segnaposto in una lista con valori, non esportati;
 - codici ripetuti nello stesso `codeSpace` (negli esempi OGC:
   `BuildingFurnitureFunctionValue` e `BuildingFurnitureUsageValue`, codici 1270
   e 2200).
@@ -140,7 +142,8 @@ La struttura di Annex E §E.2.3:
 
 ### CSV
 
-La struttura di Annex E §E.2.2, con separatore `|` e righe terminate da CRLF:
+La struttura di Annex E §E.2.2, con il separatore `|` dell'esempio; le righe
+terminano con CRLF, come in RFC 4180:
 
 ```text
 CodeType|Identifier|Description
@@ -197,6 +200,7 @@ voce per ognuna delle 140 code list, in ordine di nome:
 |---|---|
 | `module` | modulo CityGML |
 | `state` | `values`, `placeholder` (solo segnaposto), `empty`, `unavailable` (esempio non pubblicato) |
+| `exportedValues` | numero di valori esportati; 0 per una lista `values` senza nessun valore con codice, che non è esportata |
 | `edited` | presente e true per le liste modificate |
 | `Dictionary` | il contenuto della forma JSON di Annex E, solo per le liste con valori reali |
 
@@ -240,7 +244,7 @@ oggetti), in ordine di namespace e nome:
 | `kind` | `feature`, `object`, `datatype` |
 | `type` | tipo XML |
 | `spaceRole` | `space`, `boundary` o `null` |
-| `topLevel` | true se può essere membro diretto di un `CityModel` |
+| `topLevel` | true per lo stereotipo «TopLevelFeatureType» di OGC 20-010: le feature che rappresentano i componenti principali del modello concettuale e possono essere scomposte in parti |
 | `substitutionGroup` | catena dei `substitutionGroup` fino a GML |
 | `description` | documentazione dello schema |
 | `properties` | tutte le proprietà, ereditate comprese, nell'ordine richiesto dall'XML: prima quelle del tipo base più lontano, poi a scendere; in ogni tipo, l'ordine del modello di contenuto (oggi 3483). Fanno eccezione i membri di un gruppo `xs:choice` ripetuto, che possono comparire alternati (vedi `choiceGroups`) |
@@ -276,7 +280,7 @@ il pacchetto non le applica.
 | Chiave | Contenuto | Fonte |
 |---|---|---|
 | `allowedBoundaries` | per ognuno dei 58 spazi con tabella dei confini: `space`, `namespace`, `abstract`, superfici scritte nella tabella (`written`, con `withSubclasses`), superfici concrete risultanti (`concrete`), `ade` (classi da ADE ammesse), `none` (nessuna superficie ammessa) | OGC 20-010, tabelle `/req/<modulo>/boundaries`: `requirement`, `table`, `url` |
-| `topLevel` | i 20 elementi che possono essere membri diretti di un `CityModel` | OGC 20-010, stereotipo `TopLevelFeatureType`: `stereotype`, `url` |
+| `topLevel` | i 20 elementi con lo stereotipo «TopLevelFeatureType», i componenti principali del modello concettuale | OGC 20-010, stereotipo `TopLevelFeatureType`: `stereotype`, `url` |
 | `referenceOnly` | le 12 proprietà da scrivere solo come `xlink:href`: `element`, `property` | schemi (`schemas`) e requisiti `/reference` di OGC 21-006r2 (`requirements`, con punto e `url`) |
 | `constraints` | i 12 vincoli OCL: `class` (classe UML), `xsd` (elemento o tipo degli schemi, `null` se la classe non ne ha), `name`, `text` | OGC 20-010, tabelle Metadata: `table`, `url` |
 | `encodingRules` | requisiti, raccomandazioni e classi di requisiti di OGC 21-006r2: `kind`, `title`, `id`, `module`, `text`, `parts`, `notes`, `targetType` e `dependencies` per le classi, `properties` nominate (`element`, `property`, `part`) | OGC 21-006r2: `url` |

@@ -88,15 +88,27 @@ with sync_playwright() as pw:
     expect(page.locator('.cl-table tbody tr')).to_have_count(14)
     expect(page.locator('#tab-content')).to_contain_text('codeSpace="https://www.sig3d.org/codelists/citygml/building/3.0/RoofTypeValue">1000')
     expect(page.locator('#tab-content')).to_contain_text('Usata da')
-    # The usage example is XML: special characters of code and codeSpace are escaped
+    # The usage example follows the input at once, keeps the focus in the field, and is XML: & is escaped
     page.locator('[data-cl-field="code"]').first.fill('A&B')
+    expect(page.locator('#cl-usage .source-block')).to_contain_text('RoofTypeValue">A&amp;B</bldg:roofType>')
+    expect(page.locator('[data-cl-field="code"]').first).to_be_focused()
+    expect(page.locator('#cl-state')).to_contain_text('modificata')
     page.locator('[data-cl-action="add"]').click()
-    expect(page.locator('.source-block').first).to_contain_text('RoofTypeValue">A&amp;B</bldg:roofType>')
     expect(page.locator('.cl-table tbody tr')).to_have_count(15)
     page.locator('[data-cl-field="code"]').last.fill('9000')
     expect(page.locator('#codelist-count')).to_contain_text('•')
     page.locator('[data-cl-action="revert"]').click()
     expect(page.locator('.cl-table tbody tr')).to_have_count(14)
+    expect(page.locator('#codelist-count')).to_have_text('44/140')
+    # The values that follow the codeSpace of the list follow its change; the export of the card has the local values
+    page.locator('[data-cl-field="codeSpace"]').fill('https://example.org/roofs.xml')
+    expect(page.locator('#cl-usage .source-block')).to_contain_text('codeSpace="https://example.org/roofs.xml"')
+    with page.expect_download() as download:
+        page.locator('[data-action="export"]').click()
+    local = json.loads(Path(download.value.path()).read_text(encoding='utf-8'))['localCodeList']
+    assert (local['normative'], local['saved'], len(local['values'])) == (False, False, 14), local
+    assert {v['codeSpace'] for v in local['values']} == {'https://example.org/roofs.xml'}
+    page.locator('[data-cl-action="revert"]').click()
     expect(page.locator('#codelist-count')).to_have_text('44/140')
 
     # Save through the File System Access API stub: same bytes as codelists.js
@@ -146,6 +158,18 @@ with sync_playwright() as pw:
     expect(page.locator('[data-cl-action="save"]')).to_be_enabled()
     page.evaluate(STUB)
 
+    # A Reset whose write fails shows the initial state at once: table and data agree, editing goes on
+    page.locator('[data-cl-action="add"]').click()
+    expect(page.locator('.cl-table tbody tr')).to_have_count(15)
+    page.evaluate(FAILING)
+    page.once('dialog', lambda dialog: dialog.accept())
+    page.locator('[data-cl-action="reset"]').click()
+    expect(page.locator('#toast')).to_contain_text('Salvataggio non riuscito')
+    expect(page.locator('.cl-table tbody tr')).to_have_count(14)
+    page.locator('[data-cl-field="code"]').last.fill('1999')
+    expect(page.locator('#codelist-count')).to_contain_text('•')
+    page.evaluate(STUB)
+
     # Reset writes the initial state back (confirm dialog accepted)
     page.evaluate('window.__written = null')
     page.once('dialog', lambda dialog: dialog.accept())
@@ -171,6 +195,35 @@ with sync_playwright() as pw:
     page.locator('[data-cl-filter="missing"]').click()
     expect(page.locator('#content tbody tr')).to_have_count(96)
     expect(page.locator('#content')).to_contain_text('HollowSpaceUsageValue')
+    # Values with a codeSpace of their own show it under the code
+    search(page, 'TrafficAreaFunctionValue', 'TrafficAreaFunctionValue')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('.cl-table tbody tr').first).to_contain_text('https://ogc.org/citygml/3.0/codelists/gml/')
+    # A value keeps its own codeSpace while the codeSpace of the list is edited, also when the two coincide for a
+    # moment (paste, typing, deletion); a value added to the list follows it; the export has the expected URIs
+    driving = 'https://ogc.org/citygml/3.0/codelists/gml/driving_lane'
+    expect(page.locator('.cl-table tbody tr').first).to_contain_text(driving)
+    page.locator('[data-cl-action="add"]').click()
+    page.locator('[data-cl-field="code"]').last.fill('9000')
+    codespace = page.locator('[data-cl-field="codeSpace"]')
+    codespace.fill(driving)
+    page.locator('#home-link').click()
+    search(page, 'TrafficAreaFunctionValue', 'TrafficAreaFunctionValue')
+    page.locator('.concept-item').first.click()
+    expect(page.locator('.cl-table tbody tr').first).to_contain_text(driving)
+    expect(page.locator('.cl-table tbody tr').last).not_to_contain_text('https://')
+    codespace.press('End')
+    codespace.press_sequentially('-v2')
+    codespace.press('Backspace')
+    codespace.press_sequentially('3')
+    with page.expect_download() as download:
+        page.locator('[data-action="export"]').click()
+    local = json.loads(Path(download.value.path()).read_text(encoding='utf-8'))['localCodeList']
+    initial = page.evaluate("window.CITYGML_CODELISTS.codeLists.TrafficAreaFunctionValue.values.map(v => v.codeSpace)")
+    assert local['codeSpace'] == driving + '-v3', local['codeSpace']
+    assert [v['codeSpace'] for v in local['values']] == initial + [driving + '-v3']
+    page.locator('[data-cl-action="revert"]').click()
+    expect(page.locator('#codelist-count')).to_have_text('44/140')
 
     # Classes without their own XSD type: usage example and encoding
     search(page, 'TemporalRelationTypeValue', 'TemporalRelationTypeValue')
@@ -200,6 +253,7 @@ with sync_playwright() as pw:
     page.locator('.concept-item').first.click()
     expect(page.locator('#tab-content')).to_contain_text('Unione: un valore è uno solo dei membri')
     expect(page.locator('section', has_text='Membri nel modello concettuale').locator('tbody tr')).to_have_count(5)
+    expect(page.locator('.tab', has_text='Proprietà').locator('.count')).to_have_text('5')
     search(page, 'PointCloud', 'PointCloud')
     page.locator('.concept-item').first.click()
     expect(page.locator('section', has_text='Vincoli del modello concettuale')).to_contain_text('inlineOrExternalPointCloud')
@@ -215,6 +269,15 @@ with sync_playwright() as pw:
     page.locator('[data-property]', has_text='groupMember').first.click()
     expect(page.locator('#modal-body')).to_contain_text('/req/cityobjectgroup/reference B')
     page.locator('#close-modal').click()
+    # Role is the association class of CityObjectGroup.groupMember: linked both ways in the UML model
+    page.locator('.tab', has_text='Connessioni').click()
+    expect(page.locator('section', has_text='Classe di associazione')).to_contain_text('il ruolo groupMember di CityObjectGroup')
+    search(page, 'CityObjectGroup', 'CityObjectGroup')
+    page.locator('.concept-item').first.click()
+    page.locator('[data-level="uml"]').click()
+    expect(page.locator('.uml-members tr').filter(has=page.locator('.prop-name', has_text=re.compile('^groupMember$')))).to_contain_text(
+        'qualificato dalla classe di associazione Role')
+    page.locator('[data-level="gml"]').click()
     search(page, 'CityModel', 'CityModel')
     page.locator('.concept-item').first.click()
     page.locator('.tab', has_text='Standard').click()
@@ -228,6 +291,18 @@ with sync_playwright() as pw:
     expect(page.locator('#modal-title')).to_have_text('dateOfConstruction')
     expect(page.locator('#modal-body')).to_contain_text('Classi concrete con la proprietà')
     expect(page.locator('#modal-body')).to_contain_text('BuildingPart')
+    expect(page.locator('#modal-body')).to_contain_text('Dettagli della codifica GML (schemi XSD)')
+    page.locator('#close-modal').click()
+    # The same result opens the details again; Back and Forward close and reopen them with the URL
+    page.locator('.property-item').first.click()
+    expect(page.locator('#modal-title')).to_have_text('dateOfConstruction')
+    expect(page.locator('#modal')).to_be_visible()
+    page.evaluate('history.back()')
+    expect(page.locator('#modal')).to_be_hidden()
+    assert 'prop=' not in page.evaluate('location.hash')
+    page.evaluate('history.forward()')
+    expect(page.locator('#modal')).to_be_visible()
+    expect(page.locator('#modal-title')).to_have_text('dateOfConstruction')
     page.locator('#close-modal').click()
     page.locator('#filters-btn').click()
     page.locator('#only-concrete').check()
@@ -276,6 +351,10 @@ with sync_playwright() as pw:
     expect(page.locator('.inheritance-box')).to_contain_text('AbstractGenericAttribute')
     expect(page.locator('.inheritance-box')).to_contain_text('«Subclass of: None»')
     page.locator('[data-level="gml"]').click()
+    # A restriction keeps the attributes of its base type: uom, required, of gml:QuantityExtent
+    page.evaluate("location.hash = 'node=' + encodeURIComponent('xsd:{http://www.opengis.net/gml/3.2}element:QuantityExtent') + '&tab=properties'")
+    expect(page.locator('h1')).to_have_text('QuantityExtent')
+    expect(page.locator('#tab-content tr', has=page.locator('.prop-name-button', has_text=re.compile('^uom$')))).to_contain_text('MeasureOrNilReasonListType')
     page.locator('#home-link').click()
 
     # Destinations of boundary in the context of the visited class, apart from the schema candidates
@@ -290,6 +369,41 @@ with sync_playwright() as pw:
             expect(page.locator('.destinations > p').first).not_to_contain_text(absent)
         expect(page.locator('.destinations summary')).to_contain_text('Elementi sostituibili negli schemi')
         page.locator('#close-modal').click()
+
+    # TINRelief.tin, an anonymous property type towards gml:TriangulatedSurface, is among the geometries
+    search(page, 'TINRelief', 'TINRelief')
+    page.locator('.concept-item').first.click()
+    page.locator('.tab', has_text='Proprietà').click()
+    page.locator('.segment [data-kind="geometry"]').click()
+    expect(page.locator('#property-results .prop-name-button', has_text=re.compile('^tin$'))).to_have_count(1)
+    # The stereotype «TopLevelFeatureType», with the meaning given by OGC 20-010, and apart from it the member
+    # of CityModelMember (data dictionary) and of CityModel (schemas) that admits the class
+    row = lambda label: page.locator('.metadata-grid dt', has_text=label).locator('xpath=following-sibling::dd[1]')
+    for ns, name, top, member, diverges in [
+            ('http://www.opengis.net/citygml/building/3.0', 'Building', 'Sì: stereotipo «TopLevelFeatureType», uno dei componenti principali', 'cityObjectMember', False),
+            ('http://www.opengis.net/citygml/appearance/3.0', 'Appearance', 'No: non ha lo stereotipo «TopLevelFeatureType»', 'appearanceMember', True),
+            ('http://www.opengis.net/citygml/versioning/3.0', 'Version', 'No', 'versionMember', True),
+            ('http://www.opengis.net/citygml/versioning/3.0', 'VersionTransition', 'No', 'versionTransitionMember', True),
+            ('http://www.opengis.net/citygml/construction/3.0', 'WallSurface', 'No', 'cityObjectMember', True)]:
+        page.evaluate(f"location.hash = 'node=' + encodeURIComponent('xsd:{{{ns}}}element:{name}') + '&tab=standard'")
+        expect(page.locator('h1')).to_have_text(name)
+        expect(row('Primo livello')).to_contain_text(top)
+        members = row('Membro diretto di un CityModel')
+        expect(members.locator('code').first).to_have_text(member)
+        expect(members).to_contain_text('featureMember')
+        expect(members).to_contain_text(f'core:{member}')
+        expect(members).to_contain_text('«Only top-level features are allowed as direct members of a city model.»')
+        expect(members.get_by_text('non coincidono')).to_have_count(1 if diverges else 0)
+    # The reading level survives the Code list overview
+    page.locator('#home-link').click()
+    page.locator('[data-level="uml"]').click()
+    page.locator('#codelists-btn').click()
+    expect(page).to_have_url(re.compile(r'view=codelists&level=uml$'))
+    page.locator('#home-link').click()
+    expect(page).to_have_url(re.compile(r'level=uml$'))
+    expect(page.locator('#tab-content')).to_contain_text('Livello: modello concettuale (OGC 20-010)')
+    page.locator('[data-level="gml"]').click()
+    page.locator('.tab', has_text='Panoramica').click()
 
     # Display options: theme and text size
     page.locator('#options-btn').click()
@@ -360,7 +474,11 @@ with sync_playwright() as pw:
     expect(mobile.locator('h1')).to_have_text('Building')
     assert mobile.evaluate('document.documentElement.scrollWidth') <= 390
     expect(mobile.locator('[data-level="uml"]')).to_be_visible()
+    # The export of the card stays reachable on narrow screens
+    expect(mobile.locator('[data-action="export"]')).to_be_visible()
     mobile.screenshot(path=str(ROOT/'docs/screenshot-mobile.png'))
+    mobile.set_viewport_size({'width': 850, 'height': 844})
+    expect(mobile.locator('[data-action="export"]')).to_be_visible()
     browser.close()
     assert not errors, errors
-print('PASS: nessun errore JavaScript; navigazione, ricerca delle proprietà, livelli GML e UML con le divergenze fra dizionario e modello, relazioni lette allo stesso modo nei due versi, destinazioni, code list (modifica, esempio XML, salvataggio, reset, download, panoramica), opzioni di visualizzazione e riquadri funzionanti.')
+print('PASS: nessun errore JavaScript; navigazione, ricerca e dettagli delle proprietà, livelli GML e UML con le divergenze fra dizionario e modello, relazioni e classi di associazione, geometrie, destinazioni, code list (modifica dal vivo, codeSpace, esempio XML, salvataggio, reset anche fallito, download, export, panoramica), export su schermi stretti, opzioni di visualizzazione e riquadri funzionanti.')

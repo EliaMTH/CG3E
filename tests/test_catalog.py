@@ -5,10 +5,11 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from lxml import etree as ET
+from lxml import etree as ET, html
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from build_catalog import Builder, coverage, xid
+import conceptual_model
 import exporters
 
 BLDG = 'http://www.opengis.net/citygml/building/3.0'
@@ -255,7 +256,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual({k: (v['total'], v['represented'], len(v['excluded']), len(v['findings'])) for k, v in cov.items()
                           if k not in ('documents', 'divergences')},
                          {'classes': (426, 426, 14, 0), 'members': (552, 552, 0, 0), 'generalizations': (133, 132, 1, 0),
-                          'constraints': (12, 12, 3, 0), 'simpleTypes': (5, 5, 0, 0)})
+                          'associationClasses': (3, 3, 0, 0), 'constraints': (12, 12, 3, 0), 'simpleTypes': (5, 5, 0, 0)})
         # Generalizations: 123 in the data dictionary, 132 in the UML model (and one ISO superclass outside the file)
         self.assertEqual(cov['generalizations']['declaredBy'], {'dictionary': 123, 'model': 132})
         divergences = cov['divergences']
@@ -344,6 +345,7 @@ class IndependentSourceTests(unittest.TestCase):
     def setUpClass(cls):
         cls.data = json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
         cls.nodes = cls.data['nodes']
+        cls.props_by_id = {p['id']: p for n in cls.nodes.values() for p in n['properties']}
         cls.schema = exporters.compile_schema(ROOT/'sources/xml-catalog.xml', [(PROFILE, PROFILE_XSD)])
 
     def by_qname(self, qname):
@@ -359,6 +361,28 @@ class IndependentSourceTests(unittest.TestCase):
     def valid(self, xml):
         doc = ET.fromstring(xml) if isinstance(xml, str) else xml
         return self.schema.validate(doc)
+
+    def test_every_anchor_exists_in_the_documents(self):
+        standard = self.data['standard']
+        documents = {}
+        for key, path in (('20-010', standard['document']['path']), ('21-006r2', standard['encoding']['document']['path'])):
+            documents[key] = {el.get('id') for el in html.parse(str(ROOT/path)).getroot().iter() if isinstance(el.tag, str) and el.get('id')}
+        used = {'20-010': set(), '21-006r2': set()}
+        for n in self.nodes.values():
+            uml = n.get('uml') or {}
+            if uml:
+                self.assertTrue(uml.get('anchor'), uml['name'])
+                used['20-010'].add(uml['anchor'])
+            if n.get('allowedBoundaries'):
+                used['20-010'].add(n['allowedBoundaries']['anchor'])
+            for p in n['properties']:
+                used['21-006r2'].update(r['anchor'] for r in p.get('rules', []))
+        used['20-010'].update(r['anchor'] for r in standard['requirements'])
+        used['20-010'].update(m['anchor'] for m in standard['modules'].values())
+        used['20-010'].update(c['anchor'] for c in standard['concepts'])
+        used['21-006r2'].update(r['anchor'] for r in standard['encoding']['requirements'])
+        for key in used:
+            self.assertEqual(used[key] - documents[key], set(), key)
 
     def test_role_multiplicities_agree_with_the_schemas(self):
         props = {p['id']: p for n in self.nodes.values() for p in n['properties']}
@@ -395,6 +419,13 @@ class IndependentSourceTests(unittest.TestCase):
         self.assertEqual(self.prop('grp:CityObjectGroup', 'groupMember')['aggregation'], 'shared')
         self.assertEqual(self.prop('core:AbstractCityObject', 'relatedTo')['aggregation'], 'none')
         self.assertEqual(self.member('CityObjectRelation', 'genericAttribute')['aggregation'], 'composite')
+        # Each association class and the role it qualifies, linked both ways (XMI)
+        for association, owner, role in (('grp:Role', 'grp:CityObjectGroup', 'groupMember'),
+                                         ('core:CityObjectRelation', 'core:AbstractCityObject', 'relatedTo'),
+                                         ('app:TextureAssociation', 'app:ParameterizedTexture', 'textureParameterization')):
+            qualifier, owner_id = self.by_qname(association), self.by_qname(owner)['id']
+            self.assertEqual(qualifier['uml']['associationOf'], [f'{owner_id}/uml:{role}'], association)
+            self.assertEqual(self.member(self.nodes[owner_id]['uml']['name'], role)['associationClass'], qualifier['id'], association)
         self.assertEqual(self.data['standard']['report']['associationsWithoutXmi'],
                          ['CityModel.engineeringCRS', 'CityObjectRelation.relatedTo', 'Role.groupMember',
                           'TimeValuePair.implicitGeometryValue', 'TimeValuePair.appearanceValue'])
@@ -430,12 +461,39 @@ class IndependentSourceTests(unittest.TestCase):
         self.assertTrue(self.valid(building), self.schema.error_log)
 
     def test_identity_survives_a_restriction(self):
-        for qname in ('gml:Dictionary', 'gml:Definition', 'gml:EngineeringCRS', 'gml:UnitDefinition'):
+        for qname in ('gml:Dictionary', 'gml:Definition', 'gml:EngineeringCRS', 'gml:UnitDefinition',
+                      'gml:SurfaceType', 'gml:DictionaryType', 'gml:AbstractGeometryType'):
             self.assertEqual(self.by_qname(qname)['kind'], 'object', qname)
+        self.assertEqual(self.by_qname('gml:DiscreteCoverageType')['kind'], 'feature')
+        # No complex type that derives from gml:AbstractGML is left as a data type
+        gml_object = {'xsd:{http://www.opengis.net/gml/3.2}element:AbstractGML', 'xsd:{http://www.opengis.net/gml/3.2}type:AbstractGMLType'}
+        def derivation(id_):
+            seen, stack = set(), [id_]
+            while stack:
+                x = stack.pop()
+                if x not in seen and x in self.nodes:
+                    seen.add(x)
+                    stack += self.nodes[x]['parents'] + ([self.nodes[x]['restrictedBase']] if self.nodes[x].get('restrictedBase') else [])
+            return seen
+        self.assertEqual([n['qname'] for n in self.nodes.values() if n['kind'] == 'datatype' and derivation(n['id']) & gml_object], [])
         # The schemas require gml:id on a Dictionary: it has an identity
         self.assertFalse(self.valid(f'<gml:Dictionary xmlns:gml="{GML}"><gml:identifier codeSpace="urn:x">d</gml:identifier></gml:Dictionary>'))
         crs = self.prop('core:CityModel', 'engineeringCRS')
         self.assertEqual((crs['kind'], crs['link']), ('association', 'association'))
+
+    def test_restriction_keeps_base_attributes(self):
+        extent = self.by_qname('gml:QuantityExtent')
+        kept = [self.props_by_id[i] for i in extent['restrictionAttributes']]
+        self.assertEqual([(p['name'], p['namespace'], p['min']) for p in kept], [('uom', None, 1)])
+        # The schemas require it: without uom the element is not valid
+        self.assertTrue(self.valid(f'<gml:QuantityExtent xmlns:gml="{GML}" uom="m">1 2</gml:QuantityExtent>'), self.schema.error_log)
+        self.assertFalse(self.valid(f'<gml:QuantityExtent xmlns:gml="{GML}">1 2</gml:QuantityExtent>'))
+        self.assertEqual(sum(bool(n.get('restrictionAttributes')) for n in self.nodes.values()), 9)
+
+    def test_geometries_found_through_their_target(self):
+        tin = self.prop('dem:TINRelief', 'tin')
+        self.assertEqual((tin['kind'], tin['multiplicity'], [self.nodes[t]['qname'] for t in tin['targets']]),
+                         ('geometry', '1..1', ['gml:TriangulatedSurface']))
 
     def test_repeated_choice(self):
         choice = next(c for c in self.by_qname('core:CityModel')['constraints'] if c['kind'] == 'xs:choice')
@@ -445,6 +503,40 @@ class IndependentSourceTests(unittest.TestCase):
                  '<core:appearanceMember><app:Appearance gml:id="a1"/></core:appearanceMember>'
                  '<core:cityObjectMember><bldg:Building gml:id="b2"/></core:cityObjectMember></core:CityModel>')
         self.assertTrue(self.valid(model), self.schema.error_log)
+
+    def test_members_of_a_city_model(self):
+        """Encoding: the official schemas accept the element exactly in the members the catalog lists. Conceptual
+        model: the attributes of CityModelMember typed by a superclass in the data dictionary of OGC 20-010."""
+        vers, con = 'http://www.opengis.net/citygml/versioning/3.0', 'http://www.opengis.net/citygml/construction/3.0'
+        members = ('cityObjectMember', 'appearanceMember', 'versionMember', 'versionTransitionMember', 'featureMember')
+        doc = conceptual_model.read_document(ROOT/self.data['standard']['document']['path'])
+        classes, union = doc['classes'], doc['classes']['CityModelMember']['attributes']
+        def superclasses(name):
+            found, todo = [], [name]
+            while todo:
+                found.append(todo.pop())
+                todo += [s for s in classes.get(found[-1], {}).get('subclassOf', []) if s not in found]
+            return found
+        cases = [(BLDG, 'bldg:Building', ''), (APP, 'app:Appearance', ''), (vers, 'vers:Version', ''),
+                 (vers, 'vers:VersionTransition', '<vers:clonePredecessor>false</vers:clonePredecessor>'),
+                 (con, 'con:WallSurface', ''), (CORE, 'core:CityModel', '')]
+        for ns, qname, content in cases:
+            node, prefix = self.by_qname(qname), qname.split(':')[0]
+            listed, declared = node['cityModelMember'], '' if prefix == 'core' else f' xmlns:{prefix}="{ns}"'
+            accepted = [m for m in members if self.valid(
+                f'<core:CityModel xmlns:core="{CORE}"{declared} xmlns:gml="{GML}">'
+                f'<core:{m}><{qname} gml:id="x">{content}</{qname}></core:{m}></core:CityModel>')]
+            self.assertEqual(sorted(self.props_by_id[p]['name'] for p in listed['gml']), sorted(accepted), qname)
+            stated = sorted(a for a, v in union.items() if v['type'] in superclasses(node['uml']['name']))
+            self.assertEqual(sorted(m.split('/uml:')[1] for m in listed['uml']), stated, qname)
+        self.assertEqual([m.split('/uml:')[1] for m in self.by_qname('bldg:Building')['cityModelMember']['uml']],
+                         ['cityObjectMember', 'featureMember'])
+        # The sentence of OGC 20-010 on top-level features, in the section the catalog links
+        rule, page = self.data['standard']['topLevelMembers'], (ROOT/self.data['standard']['document']['path']).read_text(encoding='utf-8')
+        start = page.index(f'id="{rule["anchor"]}"')
+        section = ' '.join(html.fromstring(page[start - 200:start + 3000]).text_content().split())
+        self.assertEqual(rule['number'], '6.2.3')
+        self.assertIn(rule['text'], section)
 
 
 FORMS = '''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:c="urn:city"
@@ -475,6 +567,20 @@ FORMS = '''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:c="urn:c
 </xs:schema>'''
 
 
+RESTRICTION = '''<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:c="urn:city" targetNamespace="urn:city"
+ elementFormDefault="qualified">
+<xs:attribute name="global" type="xs:string"/>
+<xs:complexType name="AttributedType"><xs:sequence><xs:element name="x" type="xs:string" minOccurs="0"/></xs:sequence>
+ <xs:attribute name="kept" type="xs:string"/><xs:attribute name="redeclared" type="xs:string"/>
+ <xs:attribute name="removed" type="xs:string"/><xs:attribute ref="c:global"/></xs:complexType>
+<xs:complexType name="NarrowedType"><xs:complexContent><xs:restriction base="c:AttributedType">
+ <xs:sequence><xs:element name="x" type="xs:string"/></xs:sequence>
+ <xs:attribute name="redeclared" type="xs:string" use="required"/>
+ <xs:attribute name="removed" use="prohibited"/></xs:restriction></xs:complexContent></xs:complexType>
+<xs:complexType name="QualifiedType"><xs:attribute name="local" type="xs:string" form="qualified"/></xs:complexType>
+</xs:schema>'''
+
+
 class CoverageTests(unittest.TestCase):
     def test_findings_for_what_the_catalog_loses(self):
         def cls(name, attrs=(), parents=(), constraints=(), module='Core', stereotype='FeatureType'):
@@ -500,7 +606,7 @@ class CoverageTests(unittest.TestCase):
                       parents=['A'], ancestors=['A'])}
         cov = coverage(classes, nodes, {k: k for k in nodes}, lambda s: s, [('s.xsd', 10, 'xs:list'), ('s.xsd', 20, 'xs:union')])
         findings = {k: [f['declaration'] for f in v['findings']] for k, v in cov.items() if k != 'divergences'}
-        self.assertEqual(findings, {'classes': [], 'members': ['B.b2'], 'generalizations': ['B → A'],
+        self.assertEqual(findings, {'classes': [], 'members': ['B.b2'], 'generalizations': ['B → A'], 'associationClasses': [],
                                     'constraints': ['B: r'], 'simpleTypes': ['s.xsd:20 xs:union']})
         self.assertEqual((cov['classes']['total'], cov['classes']['represented']), (4, 4))
         self.assertEqual([e['declaration'] for e in cov['classes']['excluded']], ['GM_Object'])
@@ -515,8 +621,13 @@ class CoverageTests(unittest.TestCase):
         # With the UML model: a generalization only in the model counts, and the divergences are listed.
         nodes['B']['uml'].update(dictionaryParents=['A'])
         nodes['A']['uml']['properties'][0].update(multiplicity='0..*', dictionaryMultiplicity='1..*')
-        model = {'members': {}, 'generalizations': {'B': {'parents': ['A', 'U'], 'unresolved': 0}}}
+        nodes['U']['uml']['associationOf'] = ['A/uml:a']
+        model = {'members': {}, 'generalizations': {'B': {'parents': ['A', 'U'], 'unresolved': 0}},
+                 'associationClasses': {'U': [('A', 'a')], 'C': [('B', 'b2')]}}
         cov = coverage(classes, nodes, {k: k for k in nodes}, lambda s: s, [], model)
+        # A role qualified by an association class must be linked to it in the catalog
+        self.assertEqual((cov['associationClasses']['total'], cov['associationClasses']['represented']), (2, 1))
+        self.assertEqual([f['declaration'] for f in cov['associationClasses']['findings']], ['C → B.b2'])
         self.assertEqual((cov['generalizations']['total'], cov['generalizations']['declaredBy']), (4, {'dictionary': 3, 'model': 2}))
         self.assertEqual([f['declaration'] for f in cov['generalizations']['findings']], ['B → A', 'B → U'])
         self.assertEqual(cov['divergences'], {'multiplicities': [{'declaration': 'A.a', 'dictionary': '1..*', 'model': '0..*'}],
@@ -553,6 +664,26 @@ class SyntheticBuildTests(unittest.TestCase):
             self.assertEqual([name(c['targets']) for c in holder['pair']['constraints'] if c['kind'] == 'xs:list'], [['double']])
             self.assertEqual([name(c['targets']) for c in holder['names']['constraints'] if c['kind'] == 'xs:list'], [['string']])
 
+
+    def test_restriction_attributes_and_xml_names(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root/'sources/example.org'
+            folder.mkdir(parents=True)
+            (folder/'restriction.xsd').write_text(RESTRICTION, encoding='utf-8')
+            nodes = Builder(root).build()['nodes']
+            attributed = {p['name']: p for p in nodes[xid('urn:city', 'AttributedType', 'type')]['properties']}
+            # Local attributes are unqualified by default; a reference keeps the namespace of its declaration
+            self.assertEqual({k: (p['qname'], p['namespace']) for k, p in attributed.items()},
+                             {'x': ('c:x', 'urn:city'), 'kept': ('kept', None), 'redeclared': ('redeclared', None),
+                              'removed': ('removed', None), 'global': ('c:global', 'urn:city')})
+            # A restriction keeps the attributes of the base it neither declares again nor prohibits
+            narrowed = nodes[xid('urn:city', 'NarrowedType', 'type')]
+            self.assertEqual(narrowed['restrictionAttributes'], [attributed['kept']['id'], attributed['global']['id']])
+            self.assertEqual({p['name']: p['multiplicity'] for p in narrowed['properties']},
+                             {'x': '1..1', 'redeclared': '1..1', 'removed': '0..0'})
+            local = nodes[xid('urn:city', 'QualifiedType', 'type')]['properties'][0]
+            self.assertEqual((local['qname'], local['namespace']), ('c:local', 'urn:city'))
 
     def test_import_resolution_uses_manifest_urls(self):
         with tempfile.TemporaryDirectory() as tmp:

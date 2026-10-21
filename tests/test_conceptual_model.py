@@ -13,6 +13,8 @@ DOCUMENT = '''<html><head><meta charset="utf-8"><title>CityGML Part 1</title></h
 <div>Version: 3.0.0 Additional Formats: PDF</div>
 <h1 id="toc0">I. Abstract</h1>
 <h1 id="toc6">6. Overview</h1>
+<div id="_relationships"><h3>6.2.3. Relationships between CityGML objects</h3>
+<p>Objects form hierarchies. Some feature types are marked with the stereotype «TopLevelFeatureType». Only top-level features are allowed as direct members of a city model. Tools filter by them.</p></div>
 <div id="_spaces"><h3>6.4.1. Spaces and Space Boundaries</h3></div>
 <h1 id="toc7">7. CityGML UML Model</h1>
 <h2 id="toc45">7.17. Building</h2>
@@ -38,6 +40,8 @@ DOCUMENT = '''<html><head><meta charset="utf-8"><title>CityGML Part 1</title></h
 <tr><th>Constraint:</th><td><p><tt>lengthOfList</tt>:</p><pre>inv: list-&gt;size() = 3 or<br/>list-&gt;size() = 4</pre></td></tr>
 <tr><th>Constraint:</th><td><p><tt>notEmpty</tt>:</p><pre>inv: list-&gt;notEmpty()</pre></td></tr>
 <tr><th>Unknown label:</th><td>Not a constraint.</td></tr></table></div>
+<div id="TransformationMatrix2x2-section"><p>Table 230 — Metadata of TransformationMatrix2×2 (BasicType)</p>
+<table><tr><th>Definition:</th><td>A 2 by 2 matrix.</td></tr><tr><th>Subclass of:</th><td>DoubleList</td></tr></table></div>
 <div id="RelativeToTerrain-section"><p>Table 9 — Values of RelativeToTerrain (Enumeration)</p>
 <table><tr><th>Literal value</th><th>Definition</th></tr><tr><td>entirelyAboveTerrain</td><td>Above.</td></tr></table></div>
 </body></html>'''
@@ -123,6 +127,10 @@ class DocumentTests(unittest.TestCase):
         self.assertEqual(color['definition'], 'Color is a list of values.')
         self.assertEqual(self.doc['classes']['Building']['constraints'], [])
 
+    def test_anchor_of_a_name_with_multiplication_sign(self):
+        matrix = self.doc['classes']['TransformationMatrix2×2']
+        self.assertEqual((matrix['anchor'], matrix['subclassOf']), ('TransformationMatrix2x2-section', ['DoubleList']))
+
     def test_enumeration_values(self):
         self.assertEqual(self.doc['classes']['RelativeToTerrain']['values'], [{'value': 'entirelyAboveTerrain', 'definition': 'Above.'}])
 
@@ -140,7 +148,12 @@ class DocumentTests(unittest.TestCase):
                                                      'module': 'building', 'text': ['Table 65 lists the allowed boundaries.'],
                                                      'anchor': 'req_building_boundaries'}])
         self.assertEqual(self.doc['modules'], {'Building': {'number': '7.17', 'anchor': 'toc45'}})
-        self.assertEqual(self.doc['concepts'], [{'number': '6.4.1', 'title': 'Spaces and Space Boundaries', 'anchor': '_spaces', 'level': 3}])
+        self.assertEqual(self.doc['concepts'], [{'number': '6.2.3', 'title': 'Relationships between CityGML objects', 'anchor': '_relationships', 'level': 3},
+                                                {'number': '6.4.1', 'title': 'Spaces and Space Boundaries', 'anchor': '_spaces', 'level': 3}])
+
+    def test_sentence_on_the_members_of_a_city_model(self):
+        self.assertEqual(self.doc['topLevelMembers'], {'number': '6.2.3', 'title': 'Relationships between CityGML objects', 'anchor': '_relationships',
+                                                       'text': 'Only top-level features are allowed as direct members of a city model.'})
 
 
 class XmiTests(unittest.TestCase):
@@ -159,8 +172,9 @@ class XmiTests(unittest.TestCase):
             ('Building', 'buildingPart'): {'multiplicity': '0..*', 'aggregation': 'composite'},
             ('GenericAttributeSet', 'genericAttribute'): {'multiplicity': '1..*', 'aggregation': 'composite'},
             # End of an association class; its own attribute 'role' is an attribute, not an end
-            ('CityObjectGroup', 'groupMember'): {'multiplicity': '0..*', 'aggregation': 'shared'},
+            ('CityObjectGroup', 'groupMember'): {'multiplicity': '0..*', 'aggregation': 'shared', 'associationClass': 'Role'},
             ('Role', 'role'): {'multiplicity': '0..1'}})
+        self.assertEqual(self.model['associationClasses'], {'Role': [('CityObjectGroup', 'groupMember')]})
 
     def test_generalizations(self):
         generalizations = self.model['generalizations']

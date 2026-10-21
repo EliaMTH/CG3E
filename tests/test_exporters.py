@@ -160,6 +160,28 @@ class DictionaryTests(unittest.TestCase):
         self.assertTrue(any(w.startswith('RoofTypeValue: lista modificata con il codeSpace') for w in warnings))
         self.assertIn('BuildingFurnitureFunctionValue: codici ripetuti nello stesso codeSpace: 1270, 2200.', warnings)
 
+    def test_values_without_code_are_always_reported(self):
+        def run(codes):
+            inputs = copy.copy(self.inputs)
+            inputs.dictionary = copy.deepcopy(self.inputs.dictionary)
+            values = inputs.dictionary['codeLists']['RoofTypeValue']['values']
+            for v, code in zip(values, codes):
+                v['code'] = code
+            records = ex.dictionary_records(inputs.dictionary)
+            index = ex.code_list_index(inputs, records, 'codelists')['RoofTypeValue']
+            return index, [w for w in ex.dictionary_warnings(inputs, records) if w.startswith('RoofTypeValue')]
+        # One value without code: the others are exported
+        index, warnings = run([''])
+        self.assertEqual((index['state'], index['exportedValues']), ('values', 13))
+        self.assertEqual(warnings, ['RoofTypeValue: 1 valori senza codice non esportati.'])
+        # No value with a code: the list is left out, and said so
+        index, warnings = run([''] * 14)
+        self.assertEqual((index['state'], index['exportedValues']), ('values', 0))
+        self.assertEqual(warnings, ['RoofTypeValue: 14 valori senza codice non esportati; nessun valore esportabile, la lista non è esportata.'])
+        # Placeholders of the OGC examples are intentional: no warning when no value is exported
+        records = ex.dictionary_records(self.inputs.dictionary)
+        self.assertFalse(any(w.startswith('DoorClassValue') for w in ex.dictionary_warnings(self.inputs, records)))
+
 
 class InputTests(unittest.TestCase):
     """Controlli iniziali: nessun file scritto se gli input non sono coerenti."""
@@ -232,9 +254,10 @@ class City3dAndGeneratorTests(unittest.TestCase):
         self.assertEqual(len(doc['codeLists']), 140)
         with_values = {n: l for n, l in doc['codeLists'].items() if 'Dictionary' in l}
         self.assertEqual(len(with_values), 44)
-        self.assertEqual(doc['codeLists']['DoorClassValue'], {'module': 'Construction', 'state': 'placeholder'})
-        self.assertEqual(doc['codeLists']['HollowSpaceUsageValue'], {'module': 'Tunnel', 'state': 'unavailable'})
+        self.assertEqual(doc['codeLists']['DoorClassValue'], {'module': 'Construction', 'state': 'placeholder', 'exportedValues': 0})
+        self.assertEqual(doc['codeLists']['HollowSpaceUsageValue'], {'module': 'Tunnel', 'state': 'unavailable', 'exportedValues': 0})
         roof = doc['codeLists']['RoofTypeValue']
+        self.assertEqual(roof['exportedValues'], 14)
         self.assertEqual((roof['module'], roof['state']), ('Building', 'values'))
         self.assertEqual(keys({'Dictionary': roof['Dictionary']}), keys(json.loads(annex_e_examples()[3])))
         traffic = doc['codeLists']['TrafficAreaFunctionValue']['Dictionary']['dictionaryEntry']

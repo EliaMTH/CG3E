@@ -1,7 +1,8 @@
 """Read the CityGML 3.0 Conceptual Model sources stored in sources/.
 
 read_document()  OGC 20-010 (HTML): data dictionary, allowed space boundaries,
-                 requirements, chapter structure and document metadata.
+                 requirements, chapter structure, document metadata and the
+                 sentence of chapter 6 on the direct members of a city model.
 read_xmi()       UML model (XMI in the official zip): multiplicity of every
                  attribute and association end, aggregation kind of every
                  association, generalizations.
@@ -63,8 +64,8 @@ def next_table(el):
 def read_document(path):
     doc = html.parse(str(path)).getroot()
     result = {'classes': {}, 'packages': {}, 'boundaries': {}, 'requirements': [], 'modules': {}, 'concepts': [],
-              'metadata': read_metadata(doc)}
-    chapter = section = module = None
+              'metadata': read_metadata(doc), 'topLevelMembers': None}
+    chapter = section = module = concept = None
     current = None
     for el in doc.iter():
         if not isinstance(el.tag, str):
@@ -78,12 +79,19 @@ def read_document(path):
                 section = title
             anchor = el.get('id') or el.getparent().get('id')
             if chapter == '6.' and el.tag in ('h2', 'h3') and anchor:
-                result['concepts'].append({'number': number.rstrip('.'), 'title': title.split(' ', 1)[1], 'anchor': anchor,
-                                           'level': int(el.tag[1])})
+                concept = {'number': number.rstrip('.'), 'title': title.split(' ', 1)[1], 'anchor': anchor, 'level': int(el.tag[1])}
+                result['concepts'].append(concept)
             if chapter == '7.' and el.tag == 'h2' and el.get('id') and number not in ('7.1.',):
                 result['modules'][title.split(' ', 1)[1]] = {'number': number.rstrip('.'), 'anchor': el.get('id')}
             if chapter == '8.' and el.tag == 'h2':
                 module = title.split(' ', 1)[1]
+            continue
+        if el.tag == 'p' and chapter == '6.' and concept and not result['topLevelMembers'] and '«TopLevelFeatureType»' in text(el):
+            # The paragraph that introduces the stereotype says which features a city model contains directly (6.2.3).
+            sentence = next((s for s in re.split(r'(?<=\.)\s+', text(el)) if 'members of a city model' in s), None)
+            if sentence:
+                result['topLevelMembers'] = {'number': concept['number'], 'title': concept['title'],
+                                             'anchor': concept['anchor'], 'text': sentence}
             continue
         if el.tag == 'p' and chapter == '8.':
             match = CAPTION.match(text(el))
@@ -132,7 +140,9 @@ def read_document(path):
                     result['requirements'].append(requirement)
     anchors = {e.get('id') for e in doc.iter() if isinstance(e.tag, str) and e.get('id')}
     for name, cls in result['classes'].items():
-        cls['anchor'] = name + '-section' if name + '-section' in anchors else None
+        # The section of TransformationMatrix2×2 has the id TransformationMatrix2x2-section.
+        sections = [name + '-section', name.replace('×', 'x') + '-section']
+        cls['anchor'] = next((a for a in sections if a in anchors), None)
     return result
 
 
@@ -243,11 +253,13 @@ def bounds(prop):
 def read_xmi(zip_path):
     """What the UML model states, by class name.
 
-    members          {(class, member): {'multiplicity': 'lower..upper', 'aggregation': kind}} for every
-                     attribute and association end; the multiplicity of an end is the one written in the
-                     model (connector of Enterprise Architect, as in the diagrams), 'aggregation' (only for
-                     association ends) the strongest kind of the association
-    generalizations  {class: {'parents': [names], 'unresolved': count}}; unresolved parents are not in the file
+    members             {(class, member): {'multiplicity': 'lower..upper', 'aggregation': kind}} for every
+                        attribute and association end; the multiplicity of an end is the one written in the
+                        model (connector of Enterprise Architect, as in the diagrams), 'aggregation' (only for
+                        association ends) the strongest kind of the association; the end of an association
+                        class also has 'associationClass', the name of the class
+    generalizations     {class: {'parents': [names], 'unresolved': count}}; unresolved parents are not in the file
+    associationClasses  {association class: [(class, role)]}: the roles that the class qualifies
     """
     with zipfile.ZipFile(zip_path) as archive:
         root = ET.fromstring(archive.read(INTEGRATED), parser=ET.XMLParser(resolve_entities=False, no_network=True, huge_tree=True))
@@ -282,6 +294,7 @@ def read_xmi(zip_path):
             else:
                 members[(cls.get('name'), attr.get('name'))] = {'multiplicity': bounds(attr)}
     rank = {None: 0, 'none': 0, 'shared': 1, 'composite': 2}
+    qualified = {}
     for id_, assoc in ids.items():
         if assoc.get(XMI + 'type') not in ('uml:Association', 'uml:AssociationClass'):
             continue
@@ -297,6 +310,9 @@ def read_xmi(zip_path):
             if not end.get('name') or owner is None or not owner.get('name'):
                 continue
             notation = written.get((id_, end.get('name')))
-            members[(owner.get('name'), end.get('name'))] = {'multiplicity': multiplicity(notation) if notation else bounds(end),
-                                                             'aggregation': kind}
-    return {'members': members, 'generalizations': generalizations}
+            member = {'multiplicity': multiplicity(notation) if notation else bounds(end), 'aggregation': kind}
+            if assoc.get(XMI + 'type') == 'uml:AssociationClass':
+                member['associationClass'] = assoc.get('name')
+                qualified.setdefault(assoc.get('name'), []).append((owner.get('name'), end.get('name')))
+            members[(owner.get('name'), end.get('name'))] = member
+    return {'members': members, 'generalizations': generalizations, 'associationClasses': qualified}

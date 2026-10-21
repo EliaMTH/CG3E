@@ -56,8 +56,8 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
 - `family`: `CityGML` per i namespace CityGML 3.0 e per le classi del modello
   concettuale, `Supporto` per GML, ISO 19139, xAL, XLink e XML Schema;
   `support` è true per questi ultimi.
-- `kind`: per i concetti degli schemi è una categoria derivata dalla
-  derivazione dei tipi, per `xs:extension` o per `xs:restriction`, mai dai nomi:
+- `kind`: per i concetti degli schemi è una categoria che segue la derivazione
+  dei tipi, per `xs:extension` o per `xs:restriction`, mai i nomi:
   - `feature`: deriva da `gml:AbstractFeature`;
   - `object`: deriva da `gml:AbstractGML` ma non da `gml:AbstractFeature`
     (per esempio `gml:Dictionary`, il cui tipo deriva per restrizione da
@@ -78,7 +78,18 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
   predefinito di XML Schema).
 - `description`: testo di `xs:annotation/xs:documentation`; per le classi solo
   UML, la definizione del documento.
-- `topLevel`: true per lo stereotipo «TopLevelFeatureType».
+- `topLevel`: true per lo stereotipo «TopLevelFeatureType», che OGC 20-010
+  assegna alle feature che rappresentano i componenti principali del modello
+  concettuale e che possono essere scomposte in parti.
+- `cityModelMember`: dove la classe può essere membro diretto di un
+  `CityModel`, dalla più specifica:
+  - `uml`: gli attributi dell'unione `CityModelMember` del dizionario dati il
+    cui tipo è la classe o una sua superclasse UML;
+  - `gml`: le proprietà di `core:CityModel` il cui elemento ammette quello
+    della classe attraverso i gruppi di sostituzione.
+
+  Per `bldg:Building`: `cityObjectMember` e `featureMember`. La frase di OGC
+  20-010 sui membri diretti è in `standard.topLevelMembers`.
 - `umlOnly`: true per le classi del modello concettuale senza elemento XSD.
 - `source`, `line`, `xml`: file, riga ed estratto della dichiarazione.
 
@@ -86,7 +97,14 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
 
 - `parents`, `ancestors`, `children`: gerarchia da `xs:extension`.
 - `derivation`: `xs:extension` o `xs:restriction`; `restrictedBase` è la base di
-  una restrizione: non porta proprietà, ma conta per la categoria (`kind`).
+  una restrizione. La restrizione dichiara di nuovo gli elementi, quindi la base
+  non è fra gli `ancestors`; ne conserva però la categoria (`kind`) e gli
+  attributi che non dichiara di nuovo né proibisce (XML Schema 1.0, Parte 1,
+  3.4.2).
+- `restrictionAttributes`: per una restrizione, gli identificatori delle
+  proprietà della base che restano attributi del tipo derivato, per esempio
+  `uom`, obbligatorio, di `gml:QuantityExtent`. L'interfaccia li mostra fra le
+  proprietà ereditate.
 - `substitution`: testa del `substitutionGroup`, separata dall'ereditarietà.
 - `incompleteInheritance`: true se la gerarchia raggiunge un nodo esterno.
 - `constraints`: faccette, `xs:choice`, liste, unioni, wildcard e gruppi non
@@ -120,7 +138,9 @@ la destinazione) e l'estratto `xml`.
 
 - `kind`: `association` se una destinazione è una `feature` o un `object`;
   `attribute` se le destinazioni sono tipi di dato; `geometry` per le proprietà
-  `lod…` e i tipi geometrici GML; `ade` per `adeOf…`; `xmlAttribute` per
+  `lod…`, per i tipi geometrici GML e per le proprietà le cui destinazioni
+  derivano da `gml:AbstractGeometry` (per esempio `tin` di `TINRelief`, con un
+  tipo anonimo); `ade` per `adeOf…`; `xmlAttribute` per
   `xs:attribute`.
 - `link`, solo per le associazioni: `aggregation` se il tipo della proprietà
   estende `gml:AbstractFeatureMemberType` o `gml:AbstractMemberType`;
@@ -196,12 +216,18 @@ ha il nome UML più `Type`.
   - `type` e `typeId` (null se il tipo non è una classe del catalogo);
   - `codeList`: true se il tipo è una code list;
   - `aggregation`: per i ruoli, dall'XMI, comprese le association class;
+  - `associationClass`: per un ruolo qualificato da una classe di associazione
+    del modello UML, il nodo di quella classe (per esempio `Role` per
+    `CityObjectGroup.groupMember`);
   - `xsd`: proprietà XSD con lo stesso nome nella stessa classe, oppure null;
   - `xsdMapping`, quando `xsd` è null in una classe con tipo XSD: la
     corrispondenza ricavata dagli schemi, con `rule` `inherited` (proprietà con
     lo stesso nome in un antenato `xs:extension`) o `unionAlternatives` (il tipo
     del membro è un'unione e la classe ha proprietà con i nomi delle sue
     alternative) e gli identificatori delle `properties`.
+- `associationOf`: per una classe di associazione (`Role`, `CityObjectRelation`,
+  `TextureAssociation`), gli identificatori dei membri UML dei ruoli che
+  qualifica; i suoi attributi descrivono quel legame.
 - `constraints`: righe *Constraint* delle tabelle Metadata, con `name`, `text`
   (testo originale, a capo compresi) e `table`.
 
@@ -213,6 +239,7 @@ ha il nome UML più `Type`.
 | `umlModel` | percorso dello zip, URL, commit, file XMI letto, data di download, SHA-256 |
 | `modules` | capitolo di ogni modulo nel documento (numero e ancora) |
 | `concepts` | sezioni del capitolo 6 (concetti generali) con numero, titolo, ancora e livello |
+| `topLevelMembers` | la frase del capitolo 6 sui membri diretti di un city model, con numero, titolo e ancora della sezione (6.2.3) |
 | `requirements` | requisiti, classi di requisiti, raccomandazioni e permessi di OGC 20-010: `kind`, `title`, `id`, `module`, `text`, `anchor`, `document` (`20-010`) |
 | `encoding` | documento OGC 21-006r2 e sue regole; null se il documento manca |
 | `report` | differenze fra schemi e modello concettuale |
@@ -247,12 +274,14 @@ OGC 20-010: una regola si identifica con `document` e `id`.
 
 ### Copertura (`coverage`)
 
-Le dimensioni `classes`, `members`, `generalizations`, `constraints` e
-`simpleTypes` riportano:
+Le dimensioni `classes`, `members`, `generalizations`, `associationClasses`,
+`constraints` e `simpleTypes` riportano:
 
 - `total`: dichiarazioni nella fonte (il dizionario dati per le classi CityGML;
   per le generalizzazioni il dizionario e il modello UML, con il conteggio di
-  ciascuno in `declaredBy`; gli schemi CityGML per liste e unioni);
+  ciascuno in `declaredBy`; per `associationClasses` i ruoli qualificati da una
+  classe di associazione nel modello UML; gli schemi CityGML per liste e
+  unioni);
 - `represented`: dichiarazioni presenti nel catalogo;
 - `excluded`: dichiarazioni fuori dal catalogo, con `declaration` e `reason`
   (classi ISO e ciò che dichiarano);
@@ -328,7 +357,10 @@ Le esportazioni del dizionario sono descritte in [EXPORT.md](EXPORT.md).
 **Esporta JSON** salva un oggetto con `schemaVersion`, `sourceVersion`, `level`
 (`gml` o `uml`), `concept` (il nodo del catalogo), `visibleProperties` (le
 proprietà XSD al livello `gml`, i membri UML con la classe che li dichiara al
-livello `uml`; ereditate comprese se `includeInherited` è true) e `notes`.
+livello `uml`; ereditate comprese se `includeInherited` è true) e `notes`. Per
+una code list aggiunge `localCodeList`: la voce del dizionario locale, con
+`file`, `normative` (false), `saved` (false se la pagina ha modifiche non
+ancora scritte) e `note`.
 
 ## Vista a grafo
 

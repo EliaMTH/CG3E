@@ -64,13 +64,28 @@ Contro fonti da cui il catalogo non è costruito (`IndependentSourceTests`):
   composizione di `textureParameterization` (figura 27);
 - **regole del modello**: nessuno spazio senza superfici ammesse (come
   `PlantCover`) eredita un `boundary` obbligatorio; aggregazioni delle
-  association class;
+  association class e loro collegamento, nei due versi, con i ruoli che
+  qualificano (`Role`, `CityObjectRelation`, `TextureAssociation`);
+- **membri di un CityModel**: per `Building`, `Appearance`, `Version`,
+  `VersionTransition`, `WallSurface` e `CityModel` gli schemi ufficiali
+  accettano l'elemento esattamente nei membri di `CityModel` che il catalogo
+  elenca, e i membri UML sono gli attributi di `CityModelMember` il cui tipo è
+  una superclasse nel dizionario dati (`Building`: `cityObjectMember`, poi
+  `featureMember`); la frase di OGC 20-010 sui membri diretti è nella sezione
+  6.2.3 che il catalogo collega;
+- **derivazione negli schemi**: nessun tipo complesso che deriva da
+  `gml:AbstractGML` resta un tipo di dato (`gml:SurfaceType`,
+  `gml:DictionaryType`, `gml:DiscreteCoverageType`…); `TINRelief.tin`, con tipo
+  anonimo verso `gml:TriangulatedSurface`, è una geometria;
 - **istanze validate con gli schemi ufficiali, offline**: gli attributi scritti
   con il nome del catalogo (`srsName` di `TexCoordGen`, `codeSpace` di
   `gml:CodeType`, `xlink:href` di `xal:Address`); un `Building` con
   `gml:boundedBy` nil; un `gml:Dictionary` senza `gml:id`, rifiutato, mentre il
   catalogo lo classifica come oggetto; un `CityModel` con membri alternati, come
-  ammette la scelta ripetuta `0..*`.
+  ammette la scelta ripetuta `0..*`; un `gml:QuantityExtent` senza `uom`,
+  rifiutato, mentre il catalogo riporta `uom` fra gli attributi che la
+  restrizione eredita dal tipo base (9 tipi GML con attributi ereditati per
+  restrizione).
 
 Su dati sintetici verifica:
 
@@ -78,8 +93,13 @@ Su dati sintetici verifica:
   catalogo diventino rilievi della copertura, mentre un'unione codificata come
   alternative e una classe ISO no; che una generalizzazione presente solo nel
   modello UML conti nella copertura e che le divergenze fra dizionario e
-  modello siano elencate;
+  modello siano elencate; che un ruolo qualificato da una classe di
+  associazione e non collegato diventi un rilievo;
 - la risoluzione degli import tramite manifest;
+- i nomi XML delle proprietà (attributi locali non qualificati, `form`
+  qualificato, riferimenti con il namespace della dichiarazione) e gli
+  attributi che una restrizione eredita dalla base, esclusi quelli dichiarati di
+  nuovo o proibiti;
 - le forme di collegamento (incluso, riferimento, entrambe, ereditate per
   estensione, tolte da una restrizione, base non disponibile) e le liste
   dirette, annidate e in tipi anonimi di proprietà.
@@ -101,9 +121,12 @@ Sui dati del progetto verifica:
   non risolve è un errore e non viene scaricato;
 - **dati sintetici**: `codeSpace` del valore o della lista, esclusione di
   segnaposto e valori senza codice, lista senza metadati di Annex E, testo non
-  rappresentabile in XML, avvisi;
+  rappresentabile in XML, avvisi; i valori senza codice segnalati sempre, anche
+  quando nessun valore ha un codice e la lista resta fuori dall'export
+  (`exportedValues` 0), mentre i segnaposto degli esempi OGC non producono
+  avvisi;
 - **`city3d`**: intestazione, 140 code list (44 con `Dictionary`), stati,
-  struttura di Annex E;
+  valori esportati, struttura di Annex E;
 - **`codeListUse`**: 158 voci su 63 elementi e 136 code list, coppie
   (elemento, proprietà) uniche, le voci di `TrafficArea`/`function` e
   `Building`/`roofType`, uguaglianza fra `city3d` e `generator`;
@@ -150,11 +173,12 @@ non scrive nulla.
   distinte dai package omonimi, attributi, vincoli (più righe *Constraint*
   nella stessa tabella, testo su più righe), valori delle enumerazioni,
   tabelle dei confini con liste annidate, requisiti, capitoli, sezioni
-  concettuali. Dell'XMI, con la struttura dell'export di Enterprise Architect:
+  concettuali e la frase sui membri diretti di un city model. Dell'XMI, con la struttura dell'export di Enterprise Architect:
   molteplicità di attributi e ruoli (il `*` scritto nel connettore, con limite
   inferiore -1 nel modello), tipi di aggregazione, estremità di un'association
-  class distinte dai suoi attributi, generalizzazioni anche verso classi fuori
-  dal file, identificatori ripetuti nell'estensione.
+  class distinte dai suoi attributi e collegate al ruolo che qualifica,
+  generalizzazioni anche verso classi fuori dal file, identificatori ripetuti
+  nell'estensione; l'ancora di una classe con il segno × nel nome.
 - `tests/test_encoding_document.py` verifica la lettura del documento OGC
   21-006r2 su un file sintetico con la stessa struttura: metadati, classe di
   requisiti con dipendenze, requisito con punti, note e proprietà nominate,
@@ -190,16 +214,27 @@ list e script in Chromium (Playwright). Verifica:
   livello), schede compresa Standard e riquadri, catena di ereditarietà con i
   prefissi, superfici ammesse;
 - **ricerca delle proprietà**: classe dichiarante, apertura della proprietà con
-  le classi concrete che la hanno, proprietà di classi astratte visibili con il
-  filtro "solo concreti", dichiarazione XSD prima dei membri UML omonimi;
+  le classi concrete che la hanno, riapertura dei dettagli con lo stesso
+  risultato, dettagli chiusi da Indietro e riaperti da Avanti, dettagli
+  indicati come codifica GML, proprietà di classi astratte
+  visibili con il filtro "solo concreti", dichiarazione XSD prima dei membri UML
+  omonimi;
 - **livelli di lettura**: passaggio da Codifica GML a Modello UML e ritorno, con
-  il livello nell'URL e nei cambi di scheda; al livello UML la molteplicità del
-  modello con il badge del dizionario (`buildingPart` `0..*`, "dizionario:
-  1..*"), anche nell'export; export con il livello dichiarato, selettore
-  visibile su mobile;
+  il livello nell'URL e nei cambi di scheda, anche passando dalla pagina Code
+  list; al livello UML la molteplicità del modello con il badge del dizionario
+  (`buildingPart` `0..*`, "dizionario: 1..*"), anche nell'export; export con il
+  livello dichiarato; selettore e Esporta JSON visibili a 390 e 850 px;
 - **relazioni e generalizzazioni**: `buildingPart` letta come composizione anche
   nelle connessioni in ingresso di `BuildingPart`; la generalizzazione di
   `StringAttribute` presente solo nel modello UML, con la nota sul dizionario;
+  `uom` fra le proprietà ereditate di `gml:QuantityExtent`, definito in
+  `gml:MeasureOrNilReasonListType`; `Role` come classe di associazione di
+  `CityObjectGroup.groupMember`, nei due versi; `TINRelief.tin` fra le
+  geometrie; il campo Primo livello con il significato dello stereotipo
+  «TopLevelFeatureType» e, a parte, i membri di `CityModel` che ammettono la
+  classe, con la frase di OGC 20-010, §6.2.3, e la divergenza segnalata per le
+  classi concrete senza lo stereotipo (`Building`, `Appearance`, `Version`,
+  `VersionTransition`, `WallSurface`);
 - **destinazioni**: `boundary` nel contesto della classe visitata
   (`BuildingUnit` senza le superfici di `Building`, divieto per `PlantCover`),
   separate dagli elementi sostituibili negli schemi;
@@ -208,20 +243,29 @@ list e script in Chromium (Playwright). Verifica:
   descrizione presa dal dizionario dati, membri nella scheda Standard con la
   loro corrispondenza negli schemi, requisiti della codifica GML nella scheda
   Standard e nei dettagli di una proprietà;
-- **classi senza tipo XSD dedicato**: badge, proprietà che le usano come tipo
-  nella scheda Sorgente, messaggio dell'esempio d'uso per una code list senza
+- **classi senza tipo XSD dedicato**: badge, numero dei membri nella scheda
+  Proprietà (`CityModelMember`: 5), proprietà che le usano come tipo nella
+  scheda Sorgente, messaggio dell'esempio d'uso per una code list senza
   proprietà che la usano e per una code list vuota;
 - **riquadro Sorgenti**: documenti, copertura del modello concettuale e dei
   documenti normativi, generalizzazioni per fonte, divergenze fra dizionario e
   modello UML;
-- **code list**: valori nelle classi e nella pagina della code list, esempio
-  d'uso con i caratteri speciali di XML (`A&B` scritto `A&amp;B`), aggiunta e
-  annullamento di un valore, ricerca per valore, pulsante Code list, Salva (con
-  la File System Access API sostituita da uno stub: il testo scritto coincide
-  byte per byte con `codelists/codelists.js`), modifica durante la scrittura
-  (resta da salvare; Salva e Reset sono disabilitati finché la scrittura non
-  termina), scrittura fallita, Reset, download quando l'API manca, pagina Code
-  list con i suoi filtri;
+- **code list**: valori nelle classi e nella pagina della code list; esempio
+  d'uso e stato aggiornati mentre si scrive, con il cursore che resta nel campo,
+  e caratteri speciali di XML (`A&B` scritto `A&amp;B`); `codeSpace` del
+  dizionario seguito dalle voci senza un `codeSpace` proprio e `codeSpace`
+  propri mostrati sotto il codice (`TrafficAreaFunctionValue`), conservati
+  anche quando il `codeSpace` del dizionario coincide per un momento con il
+  loro (incolla, digitazione, cancellazione), con una voce aggiunta che segue
+  il dizionario e gli URI attesi nell'export della scheda; export della
+  scheda con i valori locali (`localCodeList`); aggiunta e annullamento di un
+  valore, ricerca per valore, pulsante Code list, Salva (con la File System
+  Access API sostituita da uno stub: il testo scritto coincide byte per byte con
+  `codelists/codelists.js`), modifica durante la scrittura (resta da salvare;
+  Salva e Reset sono disabilitati finché la scrittura non termina), scrittura
+  fallita, Reset la cui scrittura fallisce (la tabella mostra subito lo stato
+  iniziale e resta modificabile), Reset, download quando l'API manca, pagina
+  Code list con i suoi filtri;
 - **opzioni di visualizzazione**: tema scuro, dimensione del testo, chiusura
   del pannello; la persistenza delle scelte è verificata sulla pagina reale
   aperta da `file://` e ricaricata;

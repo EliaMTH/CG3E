@@ -237,9 +237,14 @@ def dictionary_warnings(inputs, records):
     for name, lst in sorted(inputs.dictionary['codeLists'].items()):
         if lst.get('edited') and name in records and lst.get('codeSpace') and lst['codeSpace'] == default.get(name, {}).get('codeSpace'):
             warnings.append(f'{name}: lista modificata con il codeSpace dell\'esempio OGC; per un codeSpace proprio usa python scripts/codespaces.py.')
-        skipped = sum(1 for v in lst['values'] if not is_real(v))
-        if name in records and skipped:
-            warnings.append(f'{name}: {skipped} valori senza codice o segnaposto non esportati.')
+        # A value written without a code is never exported: reported even when the whole list is left out.
+        placeholders = sum(1 for v in lst['values'] if PLACEHOLDER.match(v.get('name') or ''))
+        without_code = sum(1 for v in lst['values'] if not v.get('code') and not PLACEHOLDER.match(v.get('name') or ''))
+        if without_code:
+            warnings.append(f'{name}: {without_code} valori senza codice non esportati'
+                            + ('' if name in records else '; nessun valore esportabile, la lista non è esportata') + '.')
+        if name in records and placeholders:
+            warnings.append(f'{name}: {placeholders} segnaposto non esportati.')
     for name, record in records.items():
         seen, repeated = set(), set()
         for entry in record['entries']:
@@ -357,10 +362,12 @@ class View:
                       key=lambda n: (n['namespace'], n['name']))
 
     def xml_properties(self, node):
-        """Proprietà di un elemento nell'ordine dell'XML: dal tipo base più lontano, poi a scendere."""
+        """Proprietà di un elemento nell'ordine dell'XML: dal tipo base più lontano, poi a scendere.
+        Una restrizione aggiunge gli attributi del tipo base che non dichiara di nuovo."""
         seen, result = set(), []
         for id_ in reversed([node['id'], *node['ancestors']]):
-            for prop in self.nodes[id_]['properties']:
+            owner = self.nodes[id_]
+            for prop in owner['properties'] + [self.props[k] for k in owner.get('restrictionAttributes', [])]:
                 key = (prop['qname'], prop['xmlKind'])
                 if key not in seen:
                     seen.add(key)
@@ -574,7 +581,8 @@ def code_list_index(inputs, records, folder):
     index = {}
     for name in sorted(inputs.dictionary['codeLists']):
         lst = inputs.dictionary['codeLists'][name]
-        entry = {'module': lst['module'], 'state': list_state(lst)}
+        entry = {'module': lst['module'], 'state': list_state(lst),
+                 'exportedValues': len(records[name]['entries']) if name in records else 0}
         if lst.get('edited'):
             entry['edited'] = True
         if name in records:
@@ -740,8 +748,9 @@ offline, senza installare nulla. I collegamenti ai documenti OGC aprono le copie
 
 ## Dizionario delle code list
 
-I valori delle code list non fanno parte dello standard: ogni dataset li prende da un
-dizionario esterno, indicato con l'attributo `codeSpace`.
+I valori delle code list non fanno parte dello standard: vanno definiti esternamente, e
+l'attributo `codeSpace`, facoltativo, identifica la code list da cui un valore è preso
+(OGC 21-006r2, Annex E).
 
 - Code list con valori: {lists} su {total}.
 - Modificate rispetto agli esempi OGC: {edited}.

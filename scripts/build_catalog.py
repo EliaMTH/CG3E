@@ -109,7 +109,7 @@ def coverage(classes, nodes, uml_node, norm, simple_declarations=(), model=None)
     'divergences' lists where the data dictionary and the UML model state different things.
     """
     dims = {d: {'total': 0, 'represented': 0, 'excluded': [], 'findings': [], 'xsd': defaultdict(list)}
-            for d in ('classes', 'members', 'generalizations', 'constraints', 'simpleTypes')}
+            for d in ('classes', 'members', 'generalizations', 'associationClasses', 'constraints', 'simpleTypes')}
     dims['generalizations']['declaredBy'] = {'dictionary': 0, 'model': 0}
     divergences = {'multiplicities': [], 'generalizations': []}
 
@@ -175,6 +175,15 @@ def coverage(classes, nodes, uml_node, norm, simple_declarations=(), model=None)
                 dims['constraints']['represented'] += 1
             else:
                 missing('constraints', f"{label}: {c['name'] or c['text']}", 'vincolo nella classe del catalogo')
+    # Roles qualified by an association class of the UML model, linked to the class in the catalog.
+    for name, roles in sorted((model or {}).get('associationClasses', {}).items()):
+        linked = set(((nodes.get(uml_node.get(name)) or {}).get('uml') or {}).get('associationOf', []))
+        for owner, role in roles:
+            dims['associationClasses']['total'] += 1
+            if uml_node.get(owner) and f'{uml_node[owner]}/uml:{role}' in linked:
+                dims['associationClasses']['represented'] += 1
+            else:
+                missing('associationClasses', f'{name} → {owner}.{role}', 'ruolo collegato alla classe di associazione')
     recorded = {(n['source'][0], c.get('line')) for n in nodes.values() if n.get('source')
                 for c in n['constraints'] if c['kind'] in ('xs:list', 'xs:union')}
     for path, line, kind in simple_declarations:
@@ -364,11 +373,13 @@ class Builder:
             ns, name = pair
             module, family, support = self.category(ns)
             n = self.base_node(xid(ns, name, 'type'), name, module, family, support)
+            # A complex type gets its category from its derivation in classify(), as an element does.
             n.update(namespace=ns, qname=self.pretty_q(ns, name), xmlType=self.pretty_q(ns, name),
                      description=doc(te), source=[self.relative(path)], line=te.sourceline,
                      xml=ET.tostring(te, encoding='unicode', pretty_print=True),
                      abstract=te.get('abstract') == 'true',
-                     kind='datatype', technical=name.endswith('PropertyType'))
+                     kind='class' if ET.QName(te).localname == 'complexType' else 'datatype',
+                     technical=name.endswith('PropertyType'))
             self.nodes[n['id']] = n
             self.node_defs[n['id']] = (te, path)
         # Resolve all types after registry is complete; only extension is inheritance.
@@ -639,6 +650,11 @@ class Builder:
             n['ancestors'] = self.ancestors(n['id'])
             n['children'].sort(key=lambda id_:self.nodes[id_]['name'].lower())
             n['incompleteInheritance'] = any(self.nodes[a]['external'] for a in n['ancestors'])
+        uses = {}
+        for n in self.nodes.values():
+            kept = self.kept_attributes(n['id'], uses)
+            if kept:
+                n['restrictionAttributes'] = [p['id'] for p in kept]
         self.classify()
         self.enrich()
         for n in list(self.nodes.values()):
@@ -651,6 +667,33 @@ class Builder:
                 if not member['xsd'] and member['typeId'] in self.nodes:
                     self.nodes[member['typeId']]['incoming'].append({'source':n['id'], 'property':member['name'], 'kind':'umlMember', 'link':None, 'multiplicity':member['multiplicity'], 'id':member['id']})
         self.resolve_dependencies()
+
+    def kept_attributes(self, id_, uses, seen=frozenset()):
+        """Attribute uses that a restriction keeps from its base type (XML Schema 1.0 Part 1, 3.4.2): those of
+        the base, inherited ones included, that the restriction neither declares again nor prohibits. The
+        content model of a restriction is declared again in full and is not inherited."""
+        n = self.nodes[id_]
+        base = n.get('restrictedBase')
+        if not base or base not in self.nodes or id_ in seen:
+            return []
+        declared = {(p['namespace'], p['name']) for p in n['properties'] if p['xmlKind'] == 'xs:attribute'}
+        return [p for p in self.attribute_uses(base, uses, seen | {id_}) if (p['namespace'], p['name']) not in declared]
+
+    def attribute_uses(self, id_, uses, seen=frozenset()):
+        """All the attribute uses of a type: its own, those of its xs:extension bases and those kept by restrictions."""
+        if id_ in uses:
+            return uses[id_]
+        result, names = [], set()
+        for owner in [id_, *self.nodes[id_]['ancestors']]:
+            if owner not in self.nodes:
+                continue
+            own = [p for p in self.nodes[owner]['properties'] if p['xmlKind'] == 'xs:attribute']
+            for p in own + self.kept_attributes(owner, uses, seen):
+                if (p['namespace'], p['name']) not in names:
+                    names.add((p['namespace'], p['name']))
+                    result.append(p)
+        uses[id_] = result
+        return result
 
     def derivation(self, id_):
         """The node and the types it derives from, by xs:extension and by xs:restriction.
@@ -688,10 +731,17 @@ class Builder:
             n['cityObject'] = n['kind'] == 'feature' and city in line
             n['spaceRole'] = ('space' if space in line else 'boundary' if boundary in line else None) if n['cityObject'] else None
         identity = ('feature', 'object', 'ade', 'external')
+        geometry = {xid(GML, 'AbstractGeometry'), xid(GML, 'AbstractGeometryType', 'type')}
         for n in self.nodes.values():
             for p in n['properties']:
-                if p['kind'] == 'association' and not any(self.nodes[t]['kind'] in identity for t in p['targets'] if t in self.nodes):
+                if p['kind'] != 'association':
+                    continue
+                if not any(self.nodes[t]['kind'] in identity for t in p['targets'] if t in self.nodes):
                     p['kind'], p['link'] = 'attribute', None
+                    p.pop('encoding', None)
+                elif all(t in self.nodes and self.derivation(t) & geometry for t in p['targets']):
+                    # A GML geometry reached through an anonymous or unlisted property type, e.g. TINRelief.tin
+                    p['kind'], p['link'] = 'geometry', None
                     p.pop('encoding', None)
 
     def enrich(self):
@@ -708,10 +758,11 @@ class Builder:
         doc = conceptual_model.read_document(self.root/doc_record['path'])
         norm = lambda name: name.replace('×', 'x')
         stated = (conceptual_model.read_xmi(self.root/uml_record['path']) if uml_record and (self.root/uml_record['path']).exists()
-                  else {'members': {}, 'generalizations': {}})
+                  else {'members': {}, 'generalizations': {}, 'associationClasses': {}})
         # The UML model, by class name normalized as the data dictionary.
         model = {'members': {(norm(c), m): v for (c, m), v in stated['members'].items()},
-                 'generalizations': {norm(c): v for c, v in stated['generalizations'].items()}}
+                 'generalizations': {norm(c): v for c, v in stated['generalizations'].items()},
+                 'associationClasses': {norm(c): [(norm(o), r) for o, r in roles] for c, roles in stated['associationClasses'].items()}}
         classes = {norm(k): v for k, v in doc['classes'].items()}
         uml_node, report = {}, defaultdict(list)
         candidates = [n for n in self.nodes.values() if n['family'] == 'CityGML' and not n.get('anonymous')
@@ -745,6 +796,7 @@ class Builder:
             self.nodes[id_] = n
             uml_node[name] = id_
         self.conceptual_classes(classes, uml_node, norm, model)
+        self.city_model_members(uml_node)
         for n in self.nodes.values():
             if not n.get('uml') or n.get('umlOnly'):
                 continue
@@ -783,8 +835,8 @@ class Builder:
             'umlModel': {'path': uml_record['path'], 'url': uml_record['url'], 'retrievedAt': uml_record['retrievedAt'],
                          'sha256': uml_record['sha256'], 'commit': commit.group(1) if commit else None,
                          'member': conceptual_model.INTEGRATED} if uml_record else None,
-            'modules': doc['modules'], 'concepts': doc['concepts'],
-            'requirements': [{**r, 'document': '20-010'} for r in doc['requirements']],
+            'modules': doc['modules'], 'concepts': doc['concepts'], 'topLevelMembers': doc['topLevelMembers'],
+            'requirements':[{**r, 'document': '20-010'} for r in doc['requirements']],
             'report': {k: v for k, v in sorted(report.items())},
             'coverage': coverage(classes, self.nodes, uml_node, norm, self.simple_declarations, model),
         }
@@ -825,6 +877,8 @@ class Builder:
                         entry['codeList'] = True
                     if kind == 'association' and drawn.get('aggregation'):
                         entry['aggregation'] = drawn['aggregation']
+                    if drawn.get('associationClass') and uml_node.get(norm(drawn['associationClass'])):
+                        entry['associationClass'] = uml_node[norm(drawn['associationClass'])]
                     if not entry['xsd'] and not n.get('umlOnly'):
                         mapping = self.member_mapping(n, member, classes.get(norm(type_)))
                         if mapping:
@@ -836,6 +890,11 @@ class Builder:
             # Compared on the classes of the model file: an ISO superclass outside it is not a divergence.
             if stated is not None and {norm(s) for s in stated['parents']} != {s for s in listed if s in model['generalizations']}:
                 n['uml']['dictionaryParents'] = dictionary
+        # An association class qualifies the roles of its association: linked both ways.
+        for name, roles in model['associationClasses'].items():
+            if name in uml_node:
+                self.nodes[uml_node[name]]['uml']['associationOf'] = [f'{uml_node[owner]}/uml:{role}' for owner, role in roles
+                                                                    if owner in uml_node]
         for id_ in uml_node.values():
             for parent in self.nodes[id_]['uml']['parents']:
                 self.nodes[parent]['uml']['children'].append(id_)
@@ -844,6 +903,28 @@ class Builder:
             n['uml']['children'].sort(key=lambda c: self.nodes[c]['name'].lower())
             n['uml']['ancestors'] = self.ancestors(id_, parents_of=lambda x: x['uml']['parents'],
                                                    label='Ciclo di generalizzazione UML: ')
+
+    def city_model_members(self, uml_node):
+        """Where a class can be a direct member of a CityModel, at both levels. Conceptual model: the attributes
+        of the union CityModelMember typed by the class or by one of its UML superclasses. GML encoding: the
+        elements of CityModel whose content admits the element through its substitution groups."""
+        union = (self.nodes.get(uml_node.get('CityModelMember')) or {}).get('uml', {}).get('properties', [])
+        city_model = self.nodes.get(xid(CORE, 'CityModel'))
+        members = [p for p in (city_model or {}).get('properties', []) if p['kind'] == 'association']
+        for n in self.nodes.values():
+            if n['family'] != 'CityGML':
+                continue
+            heads, head = [], n['id']
+            while head in self.nodes and head not in heads:
+                heads.append(head)
+                head = self.nodes[head].get('substitution')
+            types = [n['id'], *n['uml'].get('ancestors', [])] if n.get('uml') else []
+            # Nearest type first: cityObjectMember before featureMember for a Building.
+            found = {'uml': [m['id'] for m in sorted((m for m in union if m.get('typeId') in types), key=lambda m: types.index(m['typeId']))],
+                     'gml': [p['id'] for p in sorted((p for p in members if set(heads) & set(p['targets'])),
+                                                     key=lambda p: min(heads.index(t) for t in p['targets'] if t in heads))]}
+            if found['uml'] or found['gml']:
+                n['cityModelMember'] = found
 
     def encoding_rules(self):
         """Rules of OGC 21-006r2, apart from those of OGC 20-010 (short identifiers coincide, e.g.
