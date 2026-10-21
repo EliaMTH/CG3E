@@ -262,6 +262,7 @@ stesso oggetto JSON, serializzato con indentazione di uno spazio sia da
 | `kind` | `default` (stato iniziale) o `local` (dizionario locale) |
 | `source` | titolo, versione, riferimento (OGC 21-006r2 Annex E), URL di base, host e data di download degli esempi |
 | `codeLists` | una voce per ognuna delle 140 code list, con chiave il nome della code list |
+| `codeSpacePolicy` | presente dopo `scripts/codespaces.py`: `base`, `version`, `authority`, `language` (se indicata), `lists` (liste trattate), `appliedAt` |
 
 Ogni voce di `codeLists`:
 
@@ -274,10 +275,16 @@ Ogni voce di `codeLists`:
 | `values` | valori: `code`, `codeSpace`, `name`, `description` |
 | `placeholder` | true se tutti i valori della fonte sono segnaposto `{example-N}` |
 | `unavailable`, `availableAtSource` | presenti quando l'esempio non è pubblicato alla fonte |
-| `edited` | true per le code list modificate dall'interfaccia |
+| `edited` | true per le code list modificate dall'interfaccia o trattate da `scripts/codespaces.py` |
 
 Il catalogo collega gli attributi alle code list con `codeList`; il nome del
 nodo della code list è la chiave in `codeLists`.
+
+Per ogni lista trattata, `scripts/codespaces.py` scrive in `codeSpace` della
+lista e dei valori `<base><versione>/<Modulo>.<CodeList>.xml`, in `identifier` e
+`metadata.dataType` il nome della code list, in `metadata.namespace` il
+namespace del suo modulo, e in `metadata` autorità, versione e lingua indicate.
+Le esportazioni del dizionario sono descritte in [EXPORT.md](EXPORT.md).
 
 ## Esportazione di una scheda
 

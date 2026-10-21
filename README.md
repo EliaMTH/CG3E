@@ -25,6 +25,10 @@ compaiono nelle classi che le usano e nella ricerca.
 Funziona offline: nessun backend, database o CDN. Tutte le fonti necessarie sono
 nella cartella `sources/`.
 
+Da riga di comando il vocabolario in uso si esporta per tre destinatari: l'editor
+di City3D, un generatore di file CityGML e una persona che vuole consultare lo
+standard (vedi [Esportare](#esportare)).
+
 ![Scheda di Building](docs/screenshot-desktop.png)
 
 ## Aprire il catalogo
@@ -241,8 +245,46 @@ viene scaricato e va sostituito a mano. **Reset** riscrive
 Il catalogo in `data/` non cambia: le modifiche alle code list non richiedono di
 rigenerarlo.
 
-L'esportazione del vocabolario in un pacchetto distribuibile è descritta in
-[features-future/export-vocabolario.md](features-future/export-vocabolario.md).
+## Esportare
+
+`scripts/export.py` esporta il vocabolario in uso: catalogo, dizionario salvato
+delle code list e fonti.
+
+| Comando | Uscita | Destinatario |
+|---|---|---|
+| `python scripts/export.py city3d --out citygml-codelists.city3d.json` | JSON: le 140 code list, con i valori nella forma JSON di Annex E, e `codeListUse`, la code list di ogni proprietà di ogni elemento | l'editor degli attributi di City3D |
+| `python scripts/export.py generator --out citygml-generator.zip` | zip: i 78 XSD ufficiali, i dizionari in GML e JSON, `xml-catalog.xml` per l'uso offline, `citygml-generator.json` con struttura risolta degli elementi e regole che gli XSD non esprimono | un generatore di file CityGML |
+| `python scripts/export.py standard --out citygml-explorer.zip` | zip: l'explorer offline con fonti e dizionario, i dizionari in GML e CSV, `EXPORT.md` con versioni e stato del dizionario | una persona che vuole consultare lo standard in uso |
+
+Il formato è quello standard dove esiste: gli XSD ufficiali invariati e, per le
+code list, le forme di OGC 21-006r2, Annex E (`gml:Dictionary`, JSON, CSV). Il
+resto (code list di ogni proprietà, struttura risolta, regole fuori dagli XSD)
+sta in un solo file per exporter, con la fonte di ogni regola.
+
+Il comando si ferma senza scrivere nulla se il catalogo non corrisponde a
+`sources/manifest.json`, se un file da copiare non ha lo SHA-256 del manifest o
+se una code list con valori non ha i dati richiesti da Annex E. `--codelists`
+indica un altro dizionario; con `--exported-at` (data ISO 8601 con fuso orario)
+l'output è identico byte per byte a ogni esecuzione. Formati e campi in
+[docs/EXPORT.md](docs/EXPORT.md).
+
+### `codeSpace` delle code list proprie
+
+Il `codeSpace` identifica la code list da cui un valore è preso (OGC 21-006r2,
+Annex E). Una lista usata com'è pubblicata conserva il `codeSpace` della fonte;
+una lista compilata o modificata nel progetto ne riceve uno proprio con:
+
+```bash
+python scripts/codespaces.py --base https://example.org/citygml/codelists/ --version 1.0 --authority "Nome"
+```
+
+Senza `--lists` il comando tratta le liste modificate. Il `codeSpace` della
+lista e dei suoi valori diventa `<base><versione>/<Modulo>.<CodeList>.xml`,
+l'URL del dizionario GML esportato se la cartella dei dizionari è pubblicata
+sotto `<base><versione>/`; autorità, versione e, con `--language`, lingua vanno
+nei metadati. La politica applicata resta nel dizionario (`codeSpacePolicy`).
+`--dry-run` mostra le modifiche senza scriverle. Il file è scritto come lo
+scrive Salva; dopo un Reset il comando va rieseguito.
 
 ## Aggiornare o estendere il catalogo
 
@@ -264,6 +306,8 @@ I comandi seguenti vanno eseguiti con il Python dell'ambiente virtuale.
 | `python scripts/build_dark_theme.py` | no | Rigenera `assets/styles-dark.css` trasformando per il tema scuro i colori di `assets/styles.css` |
 | `python scripts/build_codelists.py` | no | Rigenera `codelists/codelists.default.js` dagli esempi OGC in `sources/`; crea `codelists/codelists.js` se manca, oppure lo riporta allo stato iniziale con `--reset` |
 | `python scripts/verify_sources.py` | no | Verifica gli hash di `sources/manifest.json`, l'assenza di XSD non registrati e la presenza locale di ogni import |
+| `python scripts/export.py city3d\|generator\|standard --out PERCORSO` | no | Esporta il vocabolario in uso (vedi [Esportare](#esportare)) |
+| `python scripts/codespaces.py --base URI --version V --authority NOME` | no | Fissa nel dizionario i `codeSpace` delle code list modificate |
 
 `fetch_sources.py` accetta solo host elencati in `allowedHosts` e scarica in
 HTTPS, con un limite di 64 MiB per file. Uno schema è accettato solo se è uno
@@ -299,10 +343,10 @@ data/catalog.json      stesso catalogo in JSON
 codelists/             dizionario locale delle code list e suo stato iniziale
 sources/               fonti ufficiali e manifest
 config/sources.json    URL, host ammessi, ruoli delle fonti, esempi di code list
-scripts/               download, lettura dei documenti OGC, generazione e verifica
+scripts/               download, lettura dei documenti OGC, generazione, verifica
+                       ed esportazione
 tests/                 test automatici
-docs/                  modello dati del catalogo, test, schermate
-features-future/       piani di funzionalità previste
+docs/                  modello dati del catalogo, esportazioni, test, schermate
 ```
 
 Il formato di `data/catalog.json` è descritto in [docs/DATA_MODEL.md](docs/DATA_MODEL.md).
@@ -313,11 +357,12 @@ Il formato di `data/catalog.json` è descritto in [docs/DATA_MODEL.md](docs/DATA
 python -m unittest discover -s tests -v
 ```
 
-Il test nel browser richiede Playwright e Chromium
+I test nel browser richiedono Playwright e Chromium
 (`pip install playwright` e `python -m playwright install chromium`):
 
 ```bash
 python tests/browser_smoke.py
+python tests/browser_export.py
 ```
 
 Dettagli in [docs/TESTING.md](docs/TESTING.md).
@@ -345,6 +390,9 @@ Dettagli in [docs/TESTING.md](docs/TESTING.md).
   testo la nomina («the X property … of the E element»); le altre, per esempio
   `/req/global/alternativeaggregations`, compaiono nella scheda Standard fra le
   regole del modulo o globali. Il catalogo non le applica né le verifica.
+- Le regole esportate in `citygml-generator.json` (superfici ammesse, primo
+  livello, proprietà solo per riferimento, vincoli OCL, regole di codifica)
+  sono dati da leggere: l'export non le applica.
 - Non è un parser di file CityGML `.gml` né un validatore XML.
 
 ## Strumenti simili
