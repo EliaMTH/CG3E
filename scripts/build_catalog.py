@@ -14,10 +14,13 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, urlunparse
 from lxml import etree as ET
+import ades as ade_config
+import build_codelists
 import conceptual_model
 import encoding_document
 
@@ -235,6 +238,11 @@ class Builder:
         self.roles = {r['role']: r for r in records if r.get('role')}
         self.standard = None
         self.path_by_url = {r['url']: r['path'] for r in records}
+        # ADEs of config/sources.json: their prefix wins over the first one found in the schemas.
+        self.ades = ade_config.read(root)
+        self.ade_of = {ade.namespace: ade for ade in self.ades}
+        for ade in self.ades:
+            PREFIXES[ade.namespace] = ade.prefix
 
     def relative(self, p):
         return str(p.relative_to(self.root)).replace('\\', '/')
@@ -247,6 +255,8 @@ class Builder:
                   'url': info.get('url', ''), 'retrievedAt': info.get('retrievedAt', ''),
                   'lastModified': info.get('lastModified', ''), 'schemaVersion': info.get('schemaVersion'),
                   'sha256': sha(path), 'bytes': path.stat().st_size}
+        if namespace in self.ade_of:
+            record['ade'] = self.ade_of[namespace].name
         if info and info.get('sha256') != record['sha256']:
             self.warnings.append(f'{rel}: SHA-256 diverso da sources/manifest.json.')
         if not info:
@@ -260,6 +270,8 @@ class Builder:
         return f'{prefix}:{name}'
 
     def category(self, ns):
+        if ns in self.ade_of:
+            return self.ade_of[ns].name, 'ADE', False
         if 'opengis.net/citygml/' in ns:
             part = 'core' if ns.endswith('citygml/3.0') else ns.split('/')[-2]
             return MODULES.get(part, part[:1].upper()+part[1:]), 'CityGML', False
@@ -656,6 +668,7 @@ class Builder:
             if kept:
                 n['restrictionAttributes'] = [p['id'] for p in kept]
         self.classify()
+        self.apply_ades()
         self.enrich()
         for n in list(self.nodes.values()):
             for prop in n['properties']:
@@ -743,6 +756,80 @@ class Builder:
                     # A GML geometry reached through an anonymous or unlisted property type, e.g. TINRelief.tin
                     p['kind'], p['link'] = 'geometry', None
                     p.pop('encoding', None)
+
+    def apply_ades(self):
+        """Code lists, bindings and top-level elements of the ADEs in config/sources.json (scripts/ades.py): the
+        schemas of an ADE say neither which code list a gml:CodeType property uses nor which classes are top-level.
+        A binding holds for the XSD declaration of the property, so for every element and type that contains it."""
+        modules = {n['module'].lower() for n in self.nodes.values() if n['family'] != 'ADE'}
+        for ade in self.ades:
+            if ade.name.lower() in modules:
+                raise ade_config.ConfigError(f'ADE {ade.name}: il nome coincide con un modulo del catalogo.')
+            clash = sorted(ns for ns, prefix in PREFIXES.items() if prefix == ade.prefix and ns != ade.namespace)
+            if clash:
+                raise ade_config.ConfigError(f'ADE {ade.name}: il prefisso {ade.prefix} è già usato per {", ".join(clash)}.')
+            own = [n for n in self.nodes.values() if n.get('namespace') == ade.namespace and not n['external']]
+            if not own:
+                self.warnings.append(f'ADE {ade.name}: nessuno schema con namespace {ade.namespace} in sources/; '
+                                     'esegui python scripts/fetch_sources.py.')
+            lists = {}
+            for name in ade.lists():
+                id_ = f'ade:{ade.name}:{name}'
+                n = self.base_node(id_, name, ade.name, 'ADE', False)
+                n.update(kind='codelist', namespace=ade.namespace, qname=f'{ade.prefix}:{name}', ancestors=[],
+                         incompleteInheritance=False, cityObject=False, spaceRole=None)
+                url = ade.dictionary(name)
+                path = self.path_by_url.get(url) if url else None
+                if path and (self.root/path).exists():
+                    try:
+                        n.update(description=build_codelists.read_dictionary(self.root/path)['description'], source=[path])
+                    except (ValueError, ET.LxmlError) as exc:
+                        self.warnings.append(f'{path}: dizionario non leggibile ({exc}).')
+                elif url:
+                    self.warnings.append(f'ADE {ade.name}: il dizionario di {name} non è in sources/; esegui python scripts/fetch_sources.py.')
+                self.nodes[id_] = n
+                lists[name] = id_
+            declarations, owners = {}, [n for n in own if not n.get('anonymous')]
+            for key, name in sorted(ade.bindings.items()):
+                owner, prop = key.split('/', 1)
+                found = next((p for n in owners if n['qname'] == owner for id_ in [n['id'], *n['ancestors']] if id_ in self.nodes
+                              for p in self.nodes[id_]['properties'] if p['qname'] == prop), None)
+                if found is None:
+                    self.warnings.append(f'ADE {ade.name}: collegamento {key}: proprietà non trovata negli schemi.')
+                    continue
+                declarations[(found['source'], found['line'], found['qname'])] = lists[name]
+            for n in self.nodes.values():
+                for p in n['properties']:
+                    if (p['source'], p['line'], p['qname']) in declarations:
+                        p['codeList'] = declarations[(p['source'], p['line'], p['qname'])]
+            reported = set()
+            for n in own:
+                for p in n['properties']:
+                    declaration = (p['source'], p['line'], p['qname'])
+                    if p['typeName'] == 'gml:CodeType' and not p.get('codeList') and declaration not in reported:
+                        reported.add(declaration)
+                        self.warnings.append(f'ADE {ade.name}: {n["qname"]}/{p["qname"]} è gml:CodeType senza code list in codeListBindings.')
+            for q in ade.top_level:
+                n = next((n for n in own if n['qname'] == q and '}element:' in n['id'] and n['kind'] == 'feature'), None)
+                if n is None:
+                    self.warnings.append(f'ADE {ade.name}: topLevel {q}: nessuna feature dell\'ADE con questo nome.')
+                else:
+                    n['topLevel'] = True
+
+    def ade_entries(self):
+        """The ADEs of the catalog, for the interface and the exporters."""
+        result = []
+        for ade in self.ades:
+            record = self.provenance.get(self.path_by_url.get(canonical(ade.schema)), {})
+            result.append({'name': ade.name, 'prefix': ade.prefix, 'namespace': ade.namespace,
+                           'schema': {'url': ade.schema, 'path': record.get('path'), 'version': record.get('schemaVersion'),
+                                      'sha256': record.get('sha256')},
+                           'origin': 'local' if ade.local_base else 'remote',
+                           'files': sorted(f['path'] for f in self.files if f.get('ade') == ade.name),
+                           'codeLists': {'baseUrl': ade.code_list_base, 'lists': ade.lists(),
+                                         'extends': sorted(f'{module}.{name}' for module, name, _ in ade.extensions())},
+                           'codeListBindings': dict(sorted(ade.bindings.items())), 'topLevel': ade.top_level})
+        return result
 
     def enrich(self):
         """Add what the Conceptual Model states and the XSD encoding omits.
@@ -912,7 +999,7 @@ class Builder:
         city_model = self.nodes.get(xid(CORE, 'CityModel'))
         members = [p for p in (city_model or {}).get('properties', []) if p['kind'] == 'association']
         for n in self.nodes.values():
-            if n['family'] != 'CityGML':
+            if n['family'] not in ('CityGML', 'ADE'):
                 continue
             heads, head = [], n['id']
             while head in self.nodes and head not in heads:
@@ -1012,8 +1099,9 @@ class Builder:
             if n.get('allowedBoundaries') and not n['abstract']:
                 for id_ in n['allowedBoundaries']['concrete']:
                     self.nodes[id_].setdefault('boundaryOf', []).append(n['id'])
-        report['spacesWithoutBoundaryTable'] = sorted(n['name'] for n in self.nodes.values()
-                                                      if n.get('spaceRole') == 'space' and not n['abstract'] and 'allowedBoundaries' not in n)
+        # The tables are those of the conceptual model: an ADE space is not expected to have one.
+        report['spacesWithoutBoundaryTable'] = sorted(n['name'] for n in self.nodes.values() if n['family'] == 'CityGML'
+                                                      and n.get('spaceRole') == 'space' and not n['abstract'] and 'allowedBoundaries' not in n)
 
     def ancestors(self, id_, seen=None, parents_of=lambda n: n['parents'], label=None):
         label = label or 'Ciclo di ereditarietà: '
@@ -1055,11 +1143,16 @@ class Builder:
                  'dependencyFiles':sum(not f['citygml'] for f in self.files),
                  'properties':sum(len(n['properties']) for n in self.nodes.values()),
                  'missingDependencies':len(missing)}
+        if self.ades:
+            stats['adeFiles'] = sum(bool(f.get('ade')) for f in self.files)
+            stats['dependencyFiles'] -= stats['adeFiles']
         data = {'schemaVersion':1, 'title':'CityGML 3.0 Explorer',
                 'sourceVersion':'CityGML 3.0.0 (OGC 21-006r2)',
                 'nodes':self.nodes, 'files':self.files, 'dependencies':self.dependencies, 'standard':self.standard,
                 'warnings':sorted(set(self.warnings)), 'stats':stats,
                 'initialId':xid('http://www.opengis.net/citygml/building/3.0','Building')}
+        if self.ades:
+            data['ades'] = self.ade_entries()
         (self.root/'data').mkdir(exist_ok=True)
         text = json.dumps(data,ensure_ascii=True,separators=(',',':'))
         (self.root/'data/catalog.json').write_text(text,encoding='utf-8')
@@ -1075,7 +1168,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--root', type=Path, default=ROOT)
     args = ap.parse_args()
-    Builder(args.root.resolve()).build()
+    try:
+        Builder(args.root.resolve()).build()
+    except ade_config.ConfigError as exc:
+        print('ERRORE:', exc, file=sys.stderr)
+        raise SystemExit(1)
 
 
 if __name__ == '__main__':

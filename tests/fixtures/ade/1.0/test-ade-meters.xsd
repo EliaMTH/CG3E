@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tade="https://example.org/cg3e/test-ade/1.0"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        targetNamespace="https://example.org/cg3e/test-ade/1.0"
+        elementFormDefault="qualified" version="1.0">
+  <annotation>
+    <documentation>Part of the Test ADE included by test-ade.xsd: a type shared by two elements.</documentation>
+  </annotation>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <element name="ElectricityMeter" substitutionGroup="gml:AbstractObject" type="tade:MeterType"/>
+  <element name="WaterMeter" substitutionGroup="gml:AbstractObject" type="tade:MeterType"/>
+  <complexType name="MeterType">
+    <sequence>
+      <element name="meterKind" type="gml:CodeType">
+        <annotation>
+          <documentation>Kind of meter. Code list: MeterKindValue.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="serialNumber" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="ElectricityMeterPropertyType">
+    <sequence>
+      <element ref="tade:ElectricityMeter"/>
+    </sequence>
+  </complexType>
+  <complexType name="WaterMeterPropertyType">
+    <sequence>
+      <element ref="tade:WaterMeter"/>
+    </sequence>
+  </complexType>
+</schema>

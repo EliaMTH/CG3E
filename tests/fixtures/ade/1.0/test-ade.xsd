@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tade="https://example.org/cg3e/test-ade/1.0"
+        xmlns:core="http://www.opengis.net/citygml/3.0"
+        xmlns:bldg="http://www.opengis.net/citygml/building/3.0"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        targetNamespace="https://example.org/cg3e/test-ade/1.0"
+        elementFormDefault="qualified" version="1.0">
+  <annotation>
+    <documentation>Synthetic ADE of the CG3E tests, written after the cases of the Test ADE of OGC 21-006r2 (Annex B): a hook, a subclass, code lists and an enumeration.</documentation>
+  </annotation>
+  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="http://schemas.opengis.net/citygml/3.0/core.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="http://schemas.opengis.net/citygml/building/3.0/building.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <include schemaLocation="test-ade-meters.xsd"/>
+  <!-- Hook: properties added to every building -->
+  <element name="BuildingProperties" substitutionGroup="bldg:ADEOfAbstractBuilding" type="tade:BuildingPropertiesType">
+    <annotation>
+      <documentation>Properties that the Test ADE adds to a building.</documentation>
+    </annotation>
+  </element>
+  <complexType name="BuildingPropertiesType">
+    <complexContent>
+      <extension base="bldg:ADEOfAbstractBuildingType">
+        <sequence>
+          <element minOccurs="0" name="energyClass" type="gml:CodeType">
+            <annotation>
+              <documentation>Energy class. Code list: EnergyClassValue.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="ownerType" type="gml:CodeType">
+            <annotation>
+              <documentation>Kind of owner. Code list: OwnerTypeValue, without a published dictionary.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="heritageType" type="gml:CodeType">
+            <annotation>
+              <documentation>Protection of the building, left without a code list on purpose.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="certification" type="tade:CertificationPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="refurbishment" type="tade:RefurbishmentKindType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <element name="Certification" substitutionGroup="gml:AbstractObject" type="tade:CertificationType">
+    <annotation>
+      <documentation>Certificate issued for a building.</documentation>
+    </annotation>
+  </element>
+  <complexType name="CertificationType">
+    <sequence>
+      <element name="label" type="string"/>
+      <element minOccurs="0" name="validUntil" type="date"/>
+    </sequence>
+  </complexType>
+  <complexType name="CertificationPropertyType">
+    <sequence>
+      <element ref="tade:Certification"/>
+    </sequence>
+  </complexType>
+  <simpleType name="RefurbishmentKindType">
+    <restriction base="string">
+      <enumeration value="Insulation"/>
+      <enumeration value="Glazing"/>
+    </restriction>
+  </simpleType>
+  <!-- Subclass: a new kind of city object, a space -->
+  <element name="Kiosk" substitutionGroup="core:AbstractOccupiedSpace" type="tade:KioskType">
+    <annotation>
+      <documentation>Small building used as a shop.</documentation>
+    </annotation>
+  </element>
+  <complexType name="KioskType">
+    <complexContent>
+      <extension base="core:AbstractOccupiedSpaceType">
+        <sequence>
+          <element minOccurs="0" name="operatorName" type="string"/>
+          <element minOccurs="0" name="electricityMeter" type="tade:ElectricityMeterPropertyType"/>
+          <element minOccurs="0" name="waterMeter" type="tade:WaterMeterPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:Dictionary xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:cmd="http://www.opengis.net/citygml/codelistmetadata/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="EnergyClassValue" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.opengis.net/citygml/codelistmetadata/3.0 http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd">
+  <gml:metaDataProperty>
+    <cmd:CodeListMetaData>
+      <cmd:dataType>EnergyClassValue</cmd:dataType>
+      <cmd:namespace>https://example.org/cg3e/test-ade/1.0</cmd:namespace>
+      <cmd:language>en</cmd:language>
+      <cmd:authority>CG3E tests</cmd:authority>
+      <cmd:version>1.0</cmd:version>
+    </cmd:CodeListMetaData>
+  </gml:metaDataProperty>
+  <gml:description>Energy classes of a building.</gml:description>
+  <gml:identifier codeSpace="https://example.org/cg3e/test-ade/1.0/codelists/TestADE.EnergyClassValue.xml">EnergyClassValue</gml:identifier>
+  <gml:dictionaryEntry>
+    <gml:Definition gml:id="id1">
+      <gml:description>Highest energy performance.</gml:description>
+      <gml:identifier codeSpace="https://example.org/cg3e/test-ade/1.0/codelists/TestADE.EnergyClassValue.xml">A</gml:identifier>
+      <gml:name>class A</gml:name>
+    </gml:Definition>
+  </gml:dictionaryEntry>
+  <gml:dictionaryEntry>
+    <gml:Definition gml:id="id2">
+      <gml:description>Medium energy performance.</gml:description>
+      <gml:identifier codeSpace="https://example.org/cg3e/test-ade/1.0/codelists/TestADE.EnergyClassValue.xml">B</gml:identifier>
+      <gml:name>class B</gml:name>
+    </gml:Definition>
+  </gml:dictionaryEntry>
+</gml:Dictionary>

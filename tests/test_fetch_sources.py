@@ -1,5 +1,6 @@
 """Tests of scripts/fetch_sources.py with simulated responses. No network calls."""
 import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ sys.path.insert(0, str(ROOT/'scripts'))
 import fetch_sources as f
 
 XSD = 'http://www.w3.org/2001/XMLSchema'
+ADE_BASE = 'https://example.org/cg3e/test-ade/'
 
 
 def schema(namespace, *refs):
@@ -168,6 +170,84 @@ class RunTests(unittest.TestCase):
             manifest = json.loads((root/'sources/manifest.json').read_text())
             self.assertEqual(manifest['files'], [])
             self.assertEqual(manifest['failures'][0]['url'], 'http://schemas.opengis.net/m/main.xsd')
+
+
+class LocalAdeTests(unittest.TestCase):
+    """An ADE read from a local folder (tests/fixtures/ade): no network, host not allowed."""
+
+    # The schemas that the Test ADE imports, as small stand-ins.
+    IMPORTS = {'http://schemas.opengis.net/citygml/3.0/core.xsd': schema('http://www.opengis.net/citygml/3.0'),
+               'http://schemas.opengis.net/citygml/building/3.0/building.xsd': schema('http://www.opengis.net/citygml/building/3.0'),
+               'http://schemas.opengis.net/gml/3.2.1/gml.xsd': schema('http://www.opengis.net/gml/3.2')}
+
+    def setUp(self):
+        self.calls = []
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        shutil.copytree(ROOT/'tests/fixtures/ade', self.root/'ade')
+        (self.root/'config').mkdir()
+        self.config = {'allowedHosts': ['schemas.opengis.net'], 'schemas': [], 'documents': [], 'ades': [{
+            'name': 'TestADE', 'prefix': 'tade', 'namespace': 'https://example.org/cg3e/test-ade/1.0',
+            'schema': ADE_BASE + '1.0/test-ade.xsd', 'local': {'baseUrl': ADE_BASE, 'folder': 'ade'},
+            'codeLists': {'baseUrl': ADE_BASE + '1.0/codelists/',
+                          'files': ['TestADE.EnergyClassValue.xml', 'Building.BuildingClassValue.xml']}}]}
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def run_fetch(self):
+        def fake_download(opener, url, hosts, timeout):
+            self.calls.append(url)
+            return f.transport(url), self.IMPORTS[url], {'lastModified': None, 'etag': None}
+        (self.root/'config/sources.json').write_text(json.dumps(self.config))
+        with patch.object(f, 'download', fake_download):
+            code = f.run(Namespace(root=self.root, timeout=1))
+        return code, json.loads((self.root/'sources/manifest.json').read_text())
+
+    def test_local_copy_without_network(self):
+        code, manifest = self.run_fetch()
+        self.assertEqual((code, manifest['failures']), (0, []))
+        self.assertEqual(sorted(self.calls), sorted(self.IMPORTS))
+        local = {r['path']: r for r in manifest['files'] if r.get('origin') == 'local'}
+        folder = 'sources/example.org/cg3e/test-ade/1.0/'
+        self.assertEqual(sorted(local), [folder + 'codelists/Building.BuildingClassValue.xml',
+                                         folder + 'codelists/TestADE.EnergyClassValue.xml',
+                                         folder + 'test-ade-meters.xsd', folder + 'test-ade.xsd'])
+        schema_record = local[folder + 'test-ade.xsd']
+        self.assertEqual((schema_record['url'], schema_record['localPath'], schema_record['targetNamespace']),
+                         ('http://example.org/cg3e/test-ade/1.0/test-ade.xsd', 'ade/1.0/test-ade.xsd', 'https://example.org/cg3e/test-ade/1.0'))
+        self.assertEqual(local[folder + 'test-ade-meters.xsd']['requestedBy'], ['http://example.org/cg3e/test-ade/1.0/test-ade.xsd'])
+        self.assertEqual({local[folder + 'codelists/' + n]['role'] for n in ('TestADE.EnergyClassValue.xml', 'Building.BuildingClassValue.xml')},
+                         {'ade-codelist'})
+        self.assertEqual((self.root/folder/'test-ade.xsd').read_bytes(), (self.root/'ade/1.0/test-ade.xsd').read_bytes())
+        self.assertIn('uriStartString="http://example.org/"', (self.root/'sources/xml-catalog.xml').read_text())
+
+    def test_unchanged_copy_keeps_its_record_and_removed_ade_is_deleted(self):
+        _, before = self.run_fetch()
+        _, again = self.run_fetch()
+        local = lambda manifest: [r for r in manifest['files'] if r.get('origin') == 'local']
+        self.assertEqual(local(again), local(before))
+        (self.root/'ade/1.0/test-ade-meters.xsd').write_text((self.root/'ade/1.0/test-ade-meters.xsd').read_text() + '\n')
+        _, changed = self.run_fetch()
+        meters = lambda manifest: next(r for r in manifest['files'] if r['path'].endswith('test-ade-meters.xsd'))
+        self.assertNotEqual(meters(changed)['sha256'], meters(before)['sha256'])
+        del self.config['ades']
+        code, removed = self.run_fetch()
+        self.assertEqual((code, local(removed)), (0, []))
+        self.assertEqual([p for p in (self.root/'sources').rglob('*') if p.is_file() and 'example.org' in p.as_posix()], [])
+
+    def test_missing_local_file_is_a_failure(self):
+        self.config['ades'][0]['codeLists']['files'].append('TestADE.Missing.xml')
+        code, manifest = self.run_fetch()
+        self.assertEqual(code, 1)
+        self.assertEqual([p['url'] for p in manifest['failures']], [ADE_BASE + '1.0/codelists/TestADE.Missing.xml'])
+        self.assertIn('ade/1.0/codelists/TestADE.Missing.xml', manifest['failures'][0]['error'])
+
+    def test_configuration_error_writes_nothing(self):
+        self.config['ades'][0]['name'] = 'Building'
+        (self.root/'config/sources.json').write_text(json.dumps(self.config))
+        self.assertEqual(f.run(Namespace(root=self.root, timeout=1)), 1)
+        self.assertFalse((self.root/'sources').exists())
 
 
 if __name__ == '__main__':

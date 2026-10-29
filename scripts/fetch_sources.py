@@ -15,6 +15,11 @@ il namespace atteso; un documento solo se corrisponde al formato dichiarato.
 Con --reuse-local i file gia presenti in sources/, con lo SHA-256 registrato nel
 manifest, non vengono riscaricati: il manifest ne conserva URL, data di download
 e intestazioni originali. Si scaricano solo i file nuovi o modificati localmente.
+
+Le ADE della sezione "ades" (scripts/ades.py) aggiungono il loro schema e i loro
+dizionari. Un URL sotto local.baseUrl si legge dalla cartella locale, senza rete e
+senza controllare l'host: il record ha origin "local" e localPath, e con lo stesso
+SHA-256 resta quello del manifest precedente.
 """
 from __future__ import annotations
 import argparse
@@ -30,6 +35,7 @@ from urllib.parse import unquote, urljoin, urlparse, urlunparse
 from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener
 import ssl
 from lxml import etree as ET
+import ades as ade_config
 
 ROOT = Path(__file__).resolve().parents[1]
 XS = 'http://www.w3.org/2001/XMLSchema'
@@ -148,13 +154,38 @@ def reusable(root, record):
     return payload if hashlib.sha256(payload).hexdigest() == record['sha256'] else None
 
 
+def read_local(ades, url, previous):
+    """(record, contenuto) di un URL sotto local.baseUrl di un'ADE, letto dalla cartella; None per gli altri URL.
+    Con lo SHA-256 e il percorso del manifest precedente il record resta quello, data compresa."""
+    found = next((hit for hit in (ade.local_file(url) for ade in ades) if hit), None)
+    if found is None:
+        return None
+    path, shown = found
+    if not path.is_file():
+        raise FileNotFoundError(f'File locale non trovato: {shown}')
+    payload = path.read_bytes()
+    digest = hashlib.sha256(payload).hexdigest()
+    old = previous.get(url)
+    if old and old.get('origin') == 'local' and old.get('localPath') == shown and old['sha256'] == digest:
+        return {**old}, payload
+    return {'url': url, 'origin': 'local', 'localPath': shown, 'retrievedAt': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            'sha256': digest, 'bytes': len(payload)}, payload
+
+
 def run(args):
     root = args.root.resolve()
     config = json.loads((root / 'config/sources.json').read_text(encoding='utf-8'))
+    try:
+        ades = ade_config.parse(root, config)
+    except ade_config.ConfigError as exc:
+        print('ERRORE:', exc, file=sys.stderr)
+        return 1
     hosts = set(config['allowedHosts'])
     opener = build_opener(SafeRedirect(hosts), HTTPSHandler(context=tls_context()))
     queue = deque({'url': canonical(u), 'kind': 'xsd', 'namespace': None, 'from': 'config/sources.json'}
                   for u in config['schemas'])
+    queue.extend({'url': canonical(ade.schema), 'kind': 'xsd', 'namespace': ade.namespace, 'from': 'config/sources.json'}
+                 for ade in ades)
     for entry in config['documents']:
         entry = {'url': entry, 'format': 'text'} if isinstance(entry, str) else entry
         queue.append({'url': entry['url'], 'kind': 'document', 'format': entry.get('format', 'text'),
@@ -163,11 +194,15 @@ def run(args):
     for name in (samples or {}).get('files', []):
         queue.append({'url': samples['baseUrl'] + name, 'kind': 'document', 'format': 'gml-dictionary',
                       'role': 'codelist-sample', 'optional': True, 'from': 'config/sources.json'})
+    for ade in ades:
+        for _, _, url in ade.code_lists():
+            queue.append({'url': url, 'kind': 'document', 'format': 'gml-dictionary', 'role': 'ade-codelist',
+                          'from': 'config/sources.json'})
     entries, failures, unavailable, seen = {}, [], [], set()
     previous = root / 'sources/manifest.json'
-    recorded = {}
-    if getattr(args, 'reuse_local', False) and previous.exists():
-        recorded = {r['url']: r for r in json.loads(previous.read_text(encoding='utf-8')).get('files', [])}
+    # The previous manifest keeps the date of a local copy whose content did not change.
+    before = {r['url']: r for r in json.loads(previous.read_text(encoding='utf-8')).get('files', [])} if previous.exists() else {}
+    recorded = before if getattr(args, 'reuse_local', False) else {}
     while queue:
         item = queue.popleft()
         url = item['url']
@@ -177,9 +212,14 @@ def run(args):
             continue
         seen.add(url)
         try:
-            check_host(url, hosts)
-            kept = reusable(root, recorded.get(url))
-            if kept is not None:
+            local = read_local(ades, url, before)
+            if local is None:
+                check_host(url, hosts)
+            kept = None if local is not None else reusable(root, recorded.get(url))
+            if local is not None:
+                record, payload = local
+                record.update(kind=item['kind'], requestedBy=[item['from']], payload=payload)
+            elif kept is not None:
                 payload = kept
                 record = {**recorded[url], 'requestedBy': [item['from']], 'payload': payload}
             else:
@@ -200,7 +240,7 @@ def run(args):
                     record['role'] = item['role']
             record['path'] = local_path(root, url).relative_to(root).as_posix()
             entries[url] = record
-            print('RIUSATO' if kept is not None else 'OK', record['path'], flush=True)
+            print('LOCALE' if local is not None else 'RIUSATO' if kept is not None else 'OK', record['path'], flush=True)
         except Exception as exc:
             problem = {'url': url, 'requestedBy': item['from'], 'error': f'{type(exc).__name__}: {exc}'}
             if item.get('optional'):
