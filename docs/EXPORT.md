@@ -162,7 +162,7 @@ forma CSV non contiene autorità né `codeSpace`. Un campo che contiene `|` o `"
 ## `codeListUse`
 
 Una voce per ogni elemento CityGML concreto (feature, oggetti, tipi di dato;
-esclusi astratti, tipi tecnici e agganci ADE) e per ogni sua proprietà con code
+esclusi astratti, tipi tecnici e ADE hook) e per ogni sua proprietà con code
 list, ereditate comprese. Elementi in ordine di namespace e nome, proprietà
 nell'ordine dell'XML. Nel catalogo attuale: 158 voci, 63 elementi, 136 code list.
 

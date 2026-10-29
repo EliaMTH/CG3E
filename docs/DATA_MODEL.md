@@ -64,7 +64,7 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
     `gml:AbstractGMLType`);
   - `datatype`: nessuna delle due, oppure tipo semplice o tipo `…PropertyType`;
   - `enumeration`: tipo semplice con valori elencati;
-  - `ade`: agganci `ADEOf…`;
+  - `ade`: ADE hook `ADEOf…`;
   - `external`: riferimento senza definizione locale.
 
   Per le classi presenti solo nel modello concettuale vale lo stereotipo UML:

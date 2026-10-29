@@ -47,7 +47,7 @@ l'elenco delle classi concrete che la ereditano.
 I filtri scelgono il gruppo di schemi (CityGML 3.0, schemi importati, tutti), il
 modulo e la categoria (oggetti di primo livello, oggetti di città, spazi,
 superfici di confine, feature, oggetti, tipi di dato, enumerazioni, code list),
-e se includere tipi tecnici, punti ADE e riferimenti esterni o solo le classi
+e se includere tipi tecnici, ADE hook e riferimenti esterni o solo le classi
 concrete. Modulo, categoria e "solo concreti" selezionano le classi e non
 nascondono le proprietà.
 

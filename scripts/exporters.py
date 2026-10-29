@@ -356,7 +356,7 @@ class View:
         return prop['namespace']
 
     def concrete_elements(self):
-        """Elementi CityGML concreti: feature, oggetti e tipi di dato, esclusi astratti, tipi tecnici e agganci ADE."""
+        """Elementi CityGML concreti: feature, oggetti e tipi di dato, esclusi astratti, tipi tecnici e ADE hook."""
         return sorted((n for n in self.nodes.values() if n['family'] == 'CityGML' and '}element:' in n['id'] and not n['abstract']
                        and not n.get('technical') and not n.get('external') and n['kind'] != 'ade'),
                       key=lambda n: (n['namespace'], n['name']))
