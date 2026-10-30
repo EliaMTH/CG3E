@@ -17,7 +17,7 @@ riferimento alla fonte di ogni regola:
 
 | Contenuto | Formato | Origine |
 |---|---|---|
-| Elementi, proprietà, cardinalità | XSD ufficiali | `sources/` |
+| Elementi, proprietà, cardinalità | XSD ufficiali e XSD delle ADE | `sources/` |
 | Code list e valori | `gml:Dictionary`, JSON e CSV di Annex E | dizionario delle code list |
 | Documenti e modello UML | HTML OGC e XMI | `sources/` |
 | Code list usata da ogni proprietà | `codeListUse` | catalogo |
@@ -39,13 +39,19 @@ pagina vanno prima salvate) e `sources/`. Il comando si ferma con un messaggio
   21-006r2, XMI) non coincide con `sources/manifest.json`;
 - un file di `sources/` da copiare non ha lo SHA-256 del manifest;
 - `data/catalog.js` non coincide con `data/catalog.json` (`standard`);
-- il dizionario non è nel formato 1 o non ha le 140 code list del catalogo;
+- il dizionario non è nel formato 1 o non ha esattamente le code list del
+  catalogo (le 140 di CityGML e quelle delle ADE): il messaggio indica
+  `python scripts/build_codelists.py --align`, con `--prune` se il dizionario ha
+  liste di ADE non più configurate;
 - una code list con valori non ha identificatore, `codeSpace` o uno dei
   metadati di Annex E (`dataType`, `namespace`, `language`, `authority`,
   `version`): si completa con `scripts/codespaces.py`;
 - un dizionario GML esportato non valida contro `gml.xsd` e
   `codeListMetaData.xsd` (`generator`, `standard`);
-- due code list esportate hanno lo stesso `codeSpace` (`generator`).
+- due code list esportate hanno lo stesso `codeSpace` (`generator`);
+- con le ADE, `CityGML-ADE.xsd` non si compila con i soli file del pacchetto,
+  per esempio perché un'ADE importa uno schema che il pacchetto non contiene
+  (`generator`).
 
 La validazione usa solo le copie locali degli schemi, risolte con il catalogo
 OASIS XML: un URL che il catalogo non risolve è un errore e non viene
@@ -59,7 +65,9 @@ Gli avvisi (`AVVISO:`) non fermano l'export:
 - segnaposto in una lista con valori, non esportati;
 - codici ripetuti nello stesso `codeSpace` (negli esempi OGC:
   `BuildingFurnitureFunctionValue` e `BuildingFurnitureUsageValue`, codici 1270
-  e 2200).
+  e 2200);
+- in `standard`, voci che un'ADE aggiunge a una code list di CityGML: il CSV di
+  Annex E non riporta il loro `codeSpace`, che il file GML conserva.
 
 A parità di input e di `--exported-at` l'output è identico byte per byte: chiavi,
 liste e file in ordine fisso; negli zip, file in ordine alfabetico con la data
@@ -82,7 +90,13 @@ dei file XML): per JSON e CSV gli export seguono il testo di Annex E.
 Sono esportate le code list con valori reali; i valori segnaposto
 `{example-N}` e i valori senza codice sono esclusi. Nel dizionario attuale: 44
 liste, 2295 valori. Il file di ogni lista si chiama
-`<Modulo>.<CodeList>.<xml|json|csv>`, come negli esempi OGC.
+`<Modulo>.<CodeList>.<xml|json|csv>`, come negli esempi OGC; per una code list di
+un'ADE il modulo è il nome dell'ADE e il nome è senza prefisso
+(`TestADE.EnergyClassValue.xml`, con `gml:id` `EnergyClassValue`):
+un `:` non è ammesso in un `gml:id` né nei nomi dei file su Windows. Le voci che
+un'ADE aggiunge a una code list di CityGML stanno nel file di quella lista, ognuna
+con il `codeSpace` del dizionario dell'ADE; i metadati del file restano quelli
+della lista.
 
 ### GML
 
@@ -161,10 +175,12 @@ forma CSV non contiene autorità né `codeSpace`. Un campo che contiene `|` o `"
 
 ## `codeListUse`
 
-Una voce per ogni elemento CityGML concreto (feature, oggetti, tipi di dato;
-esclusi astratti, tipi tecnici e ADE hook) e per ogni sua proprietà con code
-list, ereditate comprese. Elementi in ordine di namespace e nome, proprietà
-nell'ordine dell'XML. Nel catalogo attuale: 158 voci, 63 elementi, 136 code list.
+Una voce per ogni elemento concreto di CityGML e delle ADE (feature, oggetti,
+tipi di dato; esclusi astratti, tipi tecnici e ADE hook) e per ogni sua proprietà
+con code list, ereditate comprese. Elementi in ordine di namespace e nome,
+proprietà nell'ordine dell'XML. Nel catalogo attuale: 158 voci, 63 elementi, 136
+code list. `codeList` è la chiave della lista nel dizionario: il nome per
+CityGML, il nome qualificato per un'ADE (`tade:EnergyClassValue`).
 
 ```json
 {"element": "TrafficArea", "elementNamespace": "http://www.opengis.net/citygml/transportation/3.0",
@@ -188,17 +204,22 @@ ognuna con nome locale e namespace. `multiplicity` è quella degli schemi.
 | `schemas` | versione degli schemi (`CityGML 3.0.0 (OGC 21-006r2)`) |
 | `dictionary` | `sha256` del dizionario esportato, `edited` (liste modificate), `codeSpacePolicy` (politica dei `codeSpace`, o `null`) |
 | `sources` | `conceptualModel` ed `encoding` (numero, titolo, versione, data di approvazione, URL e SHA-256 dei documenti OGC 20-010 e 21-006r2), `schemaFiles` (numero di XSD), `codeListExamples` (fonte degli esempi OGC) |
+| `ades` | solo con ADE: per ognuna `name`, `prefix`, `namespace`, `version` (attributo `version` dello schema), `url` e `sha256` dello schema, `origin` (`local` per un'ADE non pubblicata, letta da una cartella locale; `remote`) |
+
+`elements` può contenere namespace diversi da quelli di CityGML: quelli delle
+ADE. Senza ADE configurate gli export sono identici a prima, byte per byte.
 
 ## `city3d`
 
 `python scripts/export.py city3d --out citygml-codelists.city3d.json`
 
 Un JSON con l'intestazione, `codeLists` e `codeListUse`. `codeLists` ha una
-voce per ognuna delle 140 code list, in ordine di nome:
+voce per ognuna delle 140 code list e per ogni code list delle ADE, in ordine di
+chiave:
 
 | Campo | Contenuto |
 |---|---|
-| `module` | modulo CityGML |
+| `module` | modulo CityGML, o nome dell'ADE |
 | `state` | `values`, `placeholder` (solo segnaposto), `empty`, `unavailable` (esempio non pubblicato) |
 | `exportedValues` | numero di valori esportati; 0 per una lista `values` senza nessun valore con codice, che non è esportata |
 | `edited` | presente e true per le liste modificate |
@@ -214,18 +235,29 @@ voce per ognuna delle 140 code list, in ordine di nome:
 | `manifest.json` | percorso, SHA-256 e dimensione di ogni file |
 | `citygml-generator.json` | intestazione, `codeLists`, `codeListUse`, `elements`, `rules` |
 | `xml-catalog.xml` | catalogo OASIS XML: URL degli schemi → `schemas/`, `codeSpace` delle liste → `codelists/` |
-| `schemas/<host>/<percorso>` | i 78 XSD di `sources/` (22 CityGML e xAL, 56 importati: GML, ISO 19139, XLink, XML), con lo SHA-256 del manifest, e le avvertenze pubblicate con essi |
+| `schemas/<host>/<percorso>` | i 78 XSD di `sources/` (22 CityGML e xAL, 56 importati: GML, ISO 19139, XLink, XML), con lo SHA-256 del manifest, e le avvertenze pubblicate con essi; con le ADE, anche i loro XSD |
 | `codelists/` | dizionari GML e JSON |
+| `CityGML-ADE.xsd` | solo con ADE: schema generato da CityGML 3.0 Explorer, non ufficiale, che importa `CityGML.xsd` e lo schema di ogni ADE |
 
 `xml-catalog.xml` risolve gli URL `http` e `https` di `schemas.opengis.net` e
-`www.w3.org` e il `codeSpace` di ogni lista esportata. I `codeSpace` propri dei
-valori non sono risolti: negli esempi OGC alcuni sono condivisi fra liste
-diverse (`…/gml/drainage`, `…/gml/unknown`). Lo schema completo è
-`schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd`:
+`www.w3.org`, quelli delle cartelle degli XSD delle ADE (solo quelle, non tutto
+l'host: lo stesso host può ospitare altri file) e il `codeSpace` di ogni lista
+esportata. I `codeSpace` propri dei valori non sono risolti: negli esempi OGC
+alcuni sono condivisi fra liste diverse (`…/gml/drainage`, `…/gml/unknown`). Lo
+schema completo è `schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd`:
 
 ```text
 XML_CATALOG_FILES=xml-catalog.xml xmllint --nonet --noout \
   --schema schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd file.gml
+```
+
+Con `--schema`, xmllint (e lxml) non segue `xsi:schemaLocation`: con il solo
+`CityGML.xsd` gli elementi di un'ADE risultano inattesi. Un documento che usa le
+ADE si valida con `CityGML-ADE.xsd`, che l'export compila prima di scrivere il
+pacchetto:
+
+```text
+XML_CATALOG_FILES=xml-catalog.xml xmllint --nonet --noout --schema CityGML-ADE.xsd file.gml
 ```
 
 ### `codeLists`
@@ -236,7 +268,7 @@ esportate hanno `codeSpace` e `files` (`.xml` e `.json` in `codelists/`).
 ### `elements`
 
 Gli elementi di `codeListUse` (oggi 107: 80 feature, 23 tipi di dato, 4
-oggetti), in ordine di namespace e nome:
+oggetti), con quelli delle ADE, in ordine di namespace e nome:
 
 | Campo | Contenuto |
 |---|---|
@@ -244,7 +276,7 @@ oggetti), in ordine di namespace e nome:
 | `kind` | `feature`, `object`, `datatype` |
 | `type` | tipo XML |
 | `spaceRole` | `space`, `boundary` o `null` |
-| `topLevel` | true per lo stereotipo «TopLevelFeatureType» di OGC 20-010: le feature che rappresentano i componenti principali del modello concettuale e possono essere scomposte in parti |
+| `topLevel` | true per lo stereotipo «TopLevelFeatureType» di OGC 20-010: le feature che rappresentano i componenti principali del modello concettuale e possono essere scomposte in parti; per un'ADE, le feature di `topLevel` nella configurazione |
 | `substitutionGroup` | catena dei `substitutionGroup` fino a GML |
 | `description` | documentazione dello schema |
 | `properties` | tutte le proprietà, ereditate comprese, nell'ordine richiesto dall'XML: prima quelle del tipo base più lontano, poi a scendere; in ogni tipo, l'ordine del modello di contenuto (oggi 3483). Fanno eccezione i membri di un gruppo `xs:choice` ripetuto, che possono comparire alternati (vedi `choiceGroups`) |
@@ -261,12 +293,12 @@ Ogni proprietà:
 | `choices` | gruppi `xs:choice` che contengono la proprietà, come `<dichiarante>/choice:<riga>`; le proprietà con lo stesso identificatore sono alternative a ogni occorrenza del gruppo, descritto in `choiceGroups` dell'elemento |
 | `type` | tipo XML dichiarato (QName), `null` per un tipo anonimo |
 | `targets` | elementi di destinazione; vuoto per le proprietà che sono esse stesse un elemento globale (`xs:element/@ref`) |
-| `candidates` | elementi concreti ammessi dagli schemi al posto delle destinazioni: le destinazioni stesse, se concrete, e gli elementi del loro `substitutionGroup` |
+| `candidates` | elementi concreti ammessi dagli schemi al posto delle destinazioni: le destinazioni stesse, se concrete, e gli elementi del loro `substitutionGroup`, comprese le ADE (per esempio in `bldg:adeOfBuilding`). Ogni candidato di CityGML o di un'ADE ha la sua voce in `elements`; gli elementi GML e xAL (geometrie, `xal:Address`) restano riferimenti esterni |
 | `declaredIn` | elemento che dichiara la proprietà |
 | `description` | documentazione dello schema |
 | `nillable`, `default`, `fixed` | presenti se dichiarati; per un riferimento, quelli della dichiarazione globale (per esempio `gml:boundedBy` è nillable) |
 | `encoding` | `allowsInline`, `allowsReference`: forme di collegamento ammesse dal tipo della proprietà |
-| `codeList` | code list della proprietà |
+| `codeList` | code list della proprietà, con la stessa chiave di `codeListUse` |
 | `uml` | membro corrispondente del modello concettuale: `class`, `member`, `type`, `multiplicity` (del modello UML, come nelle figure di OGC 20-010) e `dictionaryMultiplicity` quando il dizionario dati riporta un valore diverso (per esempio `boundary`: `0..*`, dizionario `1..*`) |
 
 È una vista risolta degli XSD, non una fonte alternativa: la validità si
@@ -280,7 +312,7 @@ il pacchetto non le applica.
 | Chiave | Contenuto | Fonte |
 |---|---|---|
 | `allowedBoundaries` | per ognuno dei 58 spazi con tabella dei confini: `space`, `namespace`, `abstract`, superfici scritte nella tabella (`written`, con `withSubclasses`), superfici concrete risultanti (`concrete`), `ade` (classi da ADE ammesse), `none` (nessuna superficie ammessa) | OGC 20-010, tabelle `/req/<modulo>/boundaries`: `requirement`, `table`, `url` |
-| `topLevel` | i 20 elementi con lo stereotipo «TopLevelFeatureType», i componenti principali del modello concettuale | OGC 20-010, stereotipo `TopLevelFeatureType`: `stereotype`, `url` |
+| `topLevel` | i 20 elementi con lo stereotipo «TopLevelFeatureType», i componenti principali del modello concettuale, e quelli delle ADE indicati dalla configurazione | OGC 20-010, stereotipo `TopLevelFeatureType`: `stereotype`, `url`; per un'ADE `ade` e `configuration` (`config/sources.json`) |
 | `referenceOnly` | le 12 proprietà da scrivere solo come `xlink:href`: `element`, `property` | schemi (`schemas`) e requisiti `/reference` di OGC 21-006r2 (`requirements`, con punto e `url`) |
 | `constraints` | i 12 vincoli OCL: `class` (classe UML), `xsd` (elemento o tipo degli schemi, `null` se la classe non ne ha), `name`, `text` | OGC 20-010, tabelle Metadata: `table`, `url` |
 | `encodingRules` | requisiti, raccomandazioni e classi di requisiti di OGC 21-006r2: `kind`, `title`, `id`, `module`, `text`, `parts`, `notes`, `targetType` e `dependencies` per le classi, `properties` nominate (`element`, `property`, `part`) | OGC 21-006r2: `url` |
@@ -296,7 +328,7 @@ il pacchetto non le applica.
 | `index.html`, `assets/`, `data/catalog.js` | l'explorer e il catalogo |
 | `codelists/codelists.js` | il dizionario esportato |
 | `codelists/codelists.default.js` | lo stato iniziale del dizionario |
-| `sources/` | i file di `sources/manifest.json`, con lo SHA-256 del manifest, `manifest.json` e `xml-catalog.xml` |
+| `sources/` | i file di `sources/manifest.json`, con lo SHA-256 del manifest, `manifest.json` e `xml-catalog.xml`; con le ADE anche i loro schemi e dizionari |
 | `dictionaries/` | dizionari GML e CSV |
 | `README.md`, `LICENSE-app.txt` | descrizione e licenza dell'applicazione |
 
@@ -336,6 +368,11 @@ compilata o modificata nel progetto ne ha uno proprio. Per ogni lista trattata:
 - identificatore e `dataType` diventano il nome della code list, `namespace` il
   namespace del suo modulo negli schemi;
 - la lista è segnata come modificata (`edited`).
+
+Una code list di un'ADE riceve invece il `codeSpace`
+`<codeLists.baseUrl dell'ADE><Modulo>.<CodeList>.xml`, nella cartella dei
+dizionari dell'ADE, e identificatore e `dataType` senza prefisso. Le voci che
+un'ADE aggiunge a una code list di CityGML conservano il loro `codeSpace`.
 
 Una lista senza valori reali non è trattata e il comando lo segnala. `--base`
 è un URI assoluto `https:`, `http:`, `urn:` o `tag:`; un URL termina con `/`.

@@ -111,7 +111,8 @@ class CatalogTests(unittest.TestCase):
         return {self.data['nodes'][i]['name'] for i in ids}
 
     def test_conceptual_model_classes(self):
-        nodes = self.data['nodes']
+        # The CityGML part: the ADEs configured in config/sources.json add their own nodes
+        nodes = {i: n for i, n in self.data['nodes'].items() if n['family'] == 'CityGML'}
         top = {n['name'] for n in nodes.values() if n.get('topLevel')}
         self.assertEqual(top, {'Bridge', 'Building', 'CityFurniture', 'CityObjectGroup', 'GenericLogicalSpace',
                                'GenericOccupiedSpace', 'GenericThematicSurface', 'GenericUnoccupiedSpace', 'LandUse',

@@ -12,14 +12,25 @@ and writes:
 Values are copied as published, including the placeholders ({example-1}, ...)
 that the source provides for many lists. Nothing is fetched (see
 scripts/fetch_sources.py).
+
+The ADEs of config/sources.json (scripts/ades.py) add their code lists, keyed
+by qualified name (tade:EnergyClassValue), and the values of their
+dictionaries for CityGML code lists, each value marked with the name of its ADE
+and keeping its codeSpace. An existing working copy gets them only with
+--align, which adds what is missing and changes nothing else; with --prune it
+also removes the lists and the ADE values that are no longer configured.
 """
 from __future__ import annotations
 import argparse
+import copy
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 from lxml import etree as ET
+import ades as ade_config
+import exporters
 
 ROOT = Path(__file__).resolve().parents[1]
 GML = '{http://www.opengis.net/gml/3.2}'
@@ -32,6 +43,10 @@ LOCAL_HEADER = ('/* Local code list dictionary, edited by the interface (Save) a
 
 def text(el):
     return ' '.join((el.text or '').split()) if el is not None else ''
+
+
+def placeholder_only(values):
+    return bool(values) and all(PLACEHOLDER.match(v['name']) for v in values)
 
 
 def read_dictionary(path):
@@ -52,7 +67,7 @@ def read_dictionary(path):
                        'description': text(definition.find(f'{GML}description'))})
     return {'identifier': text(identifier), 'codeSpace': identifier.get('codeSpace') if identifier is not None else None,
             'description': text(root.find(f'{GML}description')), 'metadata': metadata, 'values': values,
-            'placeholder': bool(values) and all(PLACEHOLDER.match(v['name']) for v in values)}
+            'placeholder': placeholder_only(values)}
 
 
 def build(root):
@@ -73,12 +88,76 @@ def build(root):
         else:
             entry.update(unavailable=True, availableAtSource=url not in unavailable, values=[], placeholder=False)
         lists[name] = entry
+    add_ades(root, ade_config.parse(root, config), manifest, lists)
     return {'format': 1,
             'source': {'title': 'OGC CityGML 3.0 code list examples', 'version': '3.0.0',
                        'reference': 'OGC 21-006r2, Annex E (informative)', 'baseUrl': samples['baseUrl'],
                        'host': urlparse(samples['baseUrl']).hostname,
                        'retrievedAt': max((r['retrievedAt'] for r in records.values()), default=None)},
             'codeLists': lists}
+
+
+def add_ades(root, ades, manifest, lists):
+    """The code lists of the ADEs, keyed <prefix>:<List>, and the values of their dictionaries for CityGML code lists."""
+    records = {r['url']: r for r in manifest['files'] if r.get('role') == 'ade-codelist'}
+
+    def dictionary(url):
+        record = records.get(url)
+        if record and (root/record['path']).exists():
+            return record, read_dictionary(root/record['path'])
+        print(f'AVVISO: {url} non è in sources/: esegui python scripts/fetch_sources.py.')
+        return None, None
+
+    for ade in ades:
+        for name in ade.lists():
+            entry, url = {'module': ade.name, 'ade': ade.name}, ade.dictionary(name)
+            record, content = dictionary(url) if url else (None, None)
+            if url:
+                entry['url'] = url
+            if content:
+                entry.update(path=record['path'], retrievedAt=record['retrievedAt'], sha256=record['sha256'], **content)
+            else:
+                entry.update(values=[], placeholder=False)
+            lists[f'{ade.prefix}:{name}'] = entry
+        for module, name, url in ade.extensions():
+            target = lists.get(name)
+            if target is None or target['module'] != module:
+                raise ade_config.ConfigError(f'ADE {ade.name}: {module}.{name}.xml: {name} non è una code list del modulo {module} di CityGML.')
+            _, content = dictionary(url)
+            for value in (content or {}).get('values', []):
+                target['values'].append({**value, 'codeSpace': value['codeSpace'] or content['codeSpace'], 'ade': ade.name})
+            target['placeholder'] = placeholder_only(target['values'])
+
+
+def align(working, default, prune=False):
+    """The working dictionary with the code lists and the ADE values of the default one that it lacks; with prune,
+    without the code lists and the ADE values that the default one no longer has. Nothing else changes.
+    Returns (dictionary, changes)."""
+    result = copy.deepcopy(working)
+    lists, changes = result.setdefault('codeLists', {}), []
+    key = lambda v: (v.get('ade'), v.get('codeSpace'), v.get('code'))
+    for name, lst in default['codeLists'].items():
+        if name not in lists:
+            lists[name] = copy.deepcopy(lst)
+            changes.append(f'aggiunta la code list {name}')
+            continue
+        present = {key(v) for v in lists[name]['values']}
+        added = [copy.deepcopy(v) for v in lst['values'] if v.get('ade') and key(v) not in present]
+        if added:
+            lists[name]['values'] += added
+            lists[name]['placeholder'] = placeholder_only(lists[name]['values'])
+            changes.append(f'{name}: aggiunte le voci di {", ".join(sorted({v["ade"] for v in added}))} ({len(added)})')
+    if prune:
+        for name in [n for n in lists if n not in default['codeLists']]:
+            del lists[name]
+            changes.append(f'tolta la code list {name}')
+        for name, lst in lists.items():
+            expected = {key(v) for v in default['codeLists'][name]['values'] if v.get('ade')}
+            kept = [v for v in lst['values'] if not v.get('ade') or key(v) in expected]
+            if len(kept) != len(lst['values']):
+                changes.append(f'{name}: tolte le voci di ADE non più configurate ({len(lst["values"]) - len(kept)})')
+                lst['values'], lst['placeholder'] = kept, placeholder_only(kept)
+    return result, changes
 
 
 def serialize(variable, header, data):
@@ -89,9 +168,18 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--root', type=Path, default=ROOT)
     ap.add_argument('--reset', action='store_true', help='Sostituisce anche codelists/codelists.js con lo stato iniziale.')
+    ap.add_argument('--align', action='store_true',
+                    help='Aggiunge a codelists/codelists.js le code list e le voci delle ADE che mancano, senza cambiare il resto.')
+    ap.add_argument('--prune', action='store_true', help='Con --align toglie anche le code list e le voci di ADE non più configurate.')
     args = ap.parse_args()
+    if args.prune and not args.align:
+        ap.error('--prune si usa insieme a --align.')
     root = args.root.resolve()
-    data = build(root)
+    try:
+        data = build(root)
+    except ade_config.ConfigError as exc:
+        print('ERRORE:', exc, file=sys.stderr)
+        raise SystemExit(1)
     folder = root/'codelists'
     folder.mkdir(exist_ok=True)
     (folder/'codelists.default.js').write_text(serialize('CITYGML_CODELISTS_DEFAULT', DEFAULT_HEADER, {**data, 'kind': 'default'}), encoding='utf-8')
@@ -100,7 +188,23 @@ def main():
         working.write_text(serialize('CITYGML_CODELISTS', LOCAL_HEADER, {**data, 'kind': 'local'}), encoding='utf-8')
         print('Scritto codelists/codelists.js (stato iniziale).')
     else:
-        print('codelists/codelists.js esiste gia: non modificato (usa --reset per ripristinarlo).')
+        try:
+            current = exporters.read_json_assignment(working.read_text(encoding='utf-8'), exporters.DICTIONARY_VARIABLE)
+        except exporters.ExportError as exc:
+            if args.align:
+                print(f'ERRORE: codelists/codelists.js: {exc}', file=sys.stderr)
+                raise SystemExit(1)
+            current = None
+        if args.align:
+            aligned, changes = align(current, data, prune=args.prune)
+            if changes:
+                working.write_text(serialize('CITYGML_CODELISTS', LOCAL_HEADER, aligned), encoding='utf-8')
+            print('\n'.join(['Allineato codelists/codelists.js:', *changes]) if changes else 'codelists/codelists.js è già allineato.')
+        else:
+            print('codelists/codelists.js esiste gia: non modificato (usa --reset per ripristinarlo).')
+            if current is not None and align(current, data, prune=True)[1]:
+                print('Il dizionario non è allineato alle code list configurate: allinealo con --align '
+                      '(con --prune toglie anche le liste e le voci di ADE non più configurate).')
     lists = data['codeLists'].values()
     print(json.dumps({'codeLists': len(data['codeLists']),
                       'withValues': sum(1 for l in lists if l['values'] and not l['placeholder']),

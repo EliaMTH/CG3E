@@ -8,7 +8,10 @@ sono generati da `scripts/build_catalog.py` a partire dalle fonti in `sources/`:
 - il documento OGC 20-010 e il modello UML (letti da
   `scripts/conceptual_model.py`) danno le informazioni del modello concettuale;
 - il documento OGC 21-006r2 (letto da `scripts/encoding_document.py`) dà le
-  regole della codifica GML.
+  regole della codifica GML;
+- la sezione `ades` di `config/sources.json` (letta da `scripts/ades.py`) dà le
+  ADE: namespace, code list delle proprietà `gml:CodeType` e primo livello, che
+  gli schemi di un'ADE non dicono.
 
 Il frontend non modifica le fonti né il catalogo: scrive soltanto il dizionario
 delle code list (`codelists/codelists.js`).
@@ -24,8 +27,9 @@ delle code list (`codelists/codelists.js`).
 | `dependencies` | `xs:import`, `xs:include` e `xs:redefine` di ogni schema |
 | `standard` | modello concettuale e codifica: documenti, modello UML, capitoli, requisiti, regole della codifica, rapporto di confronto, copertura; null se mancano le fonti del modello concettuale |
 | `warnings` | problemi di lettura, cicli, file non registrati nel manifest, documenti assenti, tabelle di regole non riconosciute |
-| `stats` | conteggi di nodi, code list, oggetti di primo livello, file, proprietà e import non risolti |
+| `stats` | conteggi di nodi, code list, oggetti di primo livello, file, proprietà e import non risolti; con le ADE anche `adeFiles`, esclusi da `dependencyFiles` |
 | `initialId` | concetto aperto all'avvio (`Building`) |
+| `ades` | solo se `config/sources.json` dichiara ADE: per ognuna `name`, `prefix`, `namespace`, `schema` (`url`, `path`, `version`, `sha256`), `origin` (`local` o `remote`), `files` (XSD in `sources/`), `codeLists` (`baseUrl`, `lists`: le code list dell'ADE, `extends`: le code list di CityGML a cui aggiunge voci, come `Building.BuildingClassValue`), `codeListBindings` e `topLevel` come nella configurazione |
 
 ## Identificatori
 
@@ -33,6 +37,7 @@ delle code list (`codelists/codelists.js`).
 xsd:{http://www.opengis.net/citygml/building/3.0}element:Building
 xsd:{http://www.opengis.net/gml/3.2}type:SolidPropertyType
 uml:Building:RoofTypeValue
+ade:TestADE:EnergyClassValue
 ```
 
 Un elemento XSD e il suo tipo convenzionale `NomeType` sono uniti nella stessa
@@ -40,7 +45,8 @@ scheda soltanto se il collegamento è esplicito e il tipo ha un unico
 utilizzatore fra gli elementi globali; il QName originale del tipo è in
 `xmlType`. Gli identificatori `uml:<package>:<nome>` indicano classi del
 modello concettuale senza elemento XSD (code list, tipi base, unioni e un tipo
-di dato).
+di dato); gli identificatori `ade:<ADE>:<nome>` le code list di un'ADE, dichiarate
+in configurazione.
 
 Una proprietà XSD ha identificatore
 `<identificatore del nodo>/property:<nome>:<riga>`, un membro UML (attributo o
@@ -52,10 +58,12 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
 
 - `id`, `name`, `label`, `qname`, `namespace`, `module`: identificatore, nome
   locale, etichetta, QName con prefisso, namespace e modulo (per CityGML il
-  modulo deriva dal namespace).
+  modulo deriva dal namespace, per un'ADE è il suo nome).
 - `family`: `CityGML` per i namespace CityGML 3.0 e per le classi del modello
-  concettuale, `Supporto` per GML, ISO 19139, xAL, XLink e XML Schema;
-  `support` è true per questi ultimi.
+  concettuale, `ADE` per i namespace delle ADE di `config/sources.json` e per le
+  loro code list, `Supporto` per GML, ISO 19139, xAL, XLink, XML Schema e gli
+  altri schemi; `support` è true per questi ultimi. Il prefisso di un'ADE è quello
+  della configurazione.
 - `kind`: per i concetti degli schemi è una categoria che segue la derivazione
   dei tipi, per `xs:extension` o per `xs:restriction`, mai i nomi:
   - `feature`: deriva da `gml:AbstractFeature`;
@@ -68,7 +76,8 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
   - `external`: riferimento senza definizione locale.
 
   Per le classi presenti solo nel modello concettuale vale lo stereotipo UML:
-  `codelist`, `basictype`, `union`, `datatype`.
+  `codelist`, `basictype`, `union`, `datatype`. Le code list di un'ADE sono
+  `codelist`.
 - `cityObject`: true per le feature che discendono da `core:AbstractCityObject`.
 - `spaceRole`: per gli oggetti di città, `space` se discendono da
   `core:AbstractSpace`, `boundary` se discendono da
@@ -77,10 +86,12 @@ ruolo) `<identificatore della classe>/uml:<nome>`.
   `external` (riferimento senza definizione locale), `builtin` (tipo
   predefinito di XML Schema).
 - `description`: testo di `xs:annotation/xs:documentation`; per le classi solo
-  UML, la definizione del documento.
+  UML, la definizione del documento; per una code list di un'ADE, la
+  `gml:description` del suo dizionario.
 - `topLevel`: true per lo stereotipo «TopLevelFeatureType», che OGC 20-010
   assegna alle feature che rappresentano i componenti principali del modello
-  concettuale e che possono essere scomposte in parti.
+  concettuale e che possono essere scomposte in parti; per un'ADE, per le
+  feature elencate in `topLevel` della configurazione.
 - `cityModelMember`: dove la classe può essere membro diretto di un
   `CityModel`, dalla più specifica:
   - `uml`: gli attributi dell'unione `CityModelMember` del dizionario dati il
@@ -158,7 +169,10 @@ la destinazione) e l'estratto `xml`.
   membro della classe (per esempio `CityModel.cityObjectMember` per
   `cityModelMember`), l'identificatore di quel membro; `umlType` è allora il
   tipo dell'alternativa.
-- `codeList`: nodo della code list, quando il tipo UML è una «CodeList».
+- `codeList`: nodo della code list, quando il tipo UML è una «CodeList»; per una
+  proprietà di un'ADE, la code list indicata in `codeListBindings`. Il
+  collegamento vale per la dichiarazione XSD (`source`, `line`), quindi per
+  l'elemento, per il suo tipo e per gli altri elementi dello stesso tipo.
 - `aggregation`: tipo di aggregazione dell'associazione nel modello UML
   (`composite`, `shared`, `none`), comprese le associazioni che sono association
   class (`TextureAssociation`, `Role`, `CityObjectRelation`).
@@ -305,8 +319,10 @@ del dizionario e del modello).
 
 Ogni voce di `files` riporta `path`, `name`, `namespace`, `citygml` (true per
 gli schemi sotto `schemas.opengis.net/citygml/`), `url` ufficiale,
-`retrievedAt`, `lastModified`, `schemaVersion`, `sha256` e `bytes`. I valori di
-provenienza provengono da `sources/manifest.json`.
+`retrievedAt`, `lastModified`, `schemaVersion`, `sha256` e `bytes`; gli schemi di
+un'ADE hanno anche `ade`, con il nome dell'ADE. I valori di provenienza
+provengono da `sources/manifest.json`, dove la copia di un'ADE locale ha
+`origin: "local"` e `localPath`, il file della cartella dell'ADE.
 
 Ogni voce di `dependencies` riporta `from`, `kind`, `namespace`, l'URL assoluto
 dello schema importato, `status` (`local` o `missing`) e `localPath`. Un import
@@ -327,29 +343,36 @@ stesso oggetto JSON, serializzato con indentazione di uno spazio sia da
 | `format` | versione di questo formato (1) |
 | `kind` | `default` (stato iniziale) o `local` (dizionario locale) |
 | `source` | titolo, versione, riferimento (OGC 21-006r2 Annex E), URL di base, host e data di download degli esempi |
-| `codeLists` | una voce per ognuna delle 140 code list, con chiave il nome della code list |
+| `codeLists` | una voce per ognuna delle 140 code list, con chiave il nome della code list, e per ogni code list delle ADE, con chiave il nome qualificato (`tade:EnergyClassValue`) |
 | `codeSpacePolicy` | presente dopo `scripts/codespaces.py`: `base`, `version`, `authority`, `language` (se indicata), `lists` (liste trattate), `appliedAt` |
 
 Ogni voce di `codeLists`:
 
 | Campo | Contenuto |
 |---|---|
-| `module`, `url` | modulo CityGML e URL dell'esempio OGC |
-| `path`, `retrievedAt`, `sha256` | copia locale dell'esempio in `sources/` (assenti se non pubblicato) |
+| `module`, `url` | modulo CityGML e URL dell'esempio OGC; per una code list di un'ADE, il nome dell'ADE e l'URL del suo dizionario (assente se la lista parte vuota) |
+| `ade` | solo per le code list di un'ADE: il nome dell'ADE |
+| `path`, `retrievedAt`, `sha256` | copia locale dell'esempio o del dizionario in `sources/` (assenti se non pubblicato) |
 | `identifier`, `codeSpace`, `description` | identificatore del dizionario con il suo `codeSpace` e descrizione |
 | `metadata` | `CodeListMetaData` dell'esempio (`dataType`, `namespace`, `language`, `authority`, `version`) e `metadataNamespace` |
-| `values` | valori: `code`, `codeSpace`, `name`, `description` |
+| `values` | valori: `code`, `codeSpace`, `name`, `description`; una voce che un'ADE aggiunge a una code list di CityGML ha anche `ade`, con il `codeSpace` del dizionario dell'ADE |
 | `placeholder` | true se tutti i valori della fonte sono segnaposto `{example-N}` |
 | `unavailable`, `availableAtSource` | presenti quando l'esempio non è pubblicato alla fonte |
 | `edited` | true per le code list modificate dall'interfaccia o trattate da `scripts/codespaces.py` |
 
-Il catalogo collega gli attributi alle code list con `codeList`; il nome del
-nodo della code list è la chiave in `codeLists`.
+Il catalogo collega gli attributi alle code list con `codeList`; il nome
+qualificato (`qname`) del nodo della code list è la chiave in `codeLists`, uguale
+al nome per le code list di CityGML. `scripts/build_codelists.py --align`
+aggiunge a un dizionario esistente le code list e le voci delle ADE che mancano
+(una voce è identificata da ADE, `codeSpace` e codice); con `--prune` toglie
+quelle di ADE non più configurate. Le altre voci restano come sono.
 
 Per ogni lista trattata, `scripts/codespaces.py` scrive in `codeSpace` della
 lista e dei valori `<base><versione>/<Modulo>.<CodeList>.xml`, in `identifier` e
 `metadata.dataType` il nome della code list, in `metadata.namespace` il
 namespace del suo modulo, e in `metadata` autorità, versione e lingua indicate.
+Per una code list di un'ADE il `codeSpace` è `<codeLists.baseUrl><Modulo>.<CodeList>.xml`
+e il nome è senza prefisso; le voci con `ade` conservano il loro `codeSpace`.
 Le esportazioni del dizionario sono descritte in [EXPORT.md](EXPORT.md).
 
 ## Esportazione di una scheda

@@ -44,8 +44,8 @@ proprietà compare una volta, nella classe che la dichiara, anche se astratta; i
 clic apre la scheda di quella classe con i dettagli della proprietà, compreso
 l'elenco delle classi concrete che la ereditano.
 
-I filtri scelgono il gruppo di schemi (CityGML 3.0, schemi importati, tutti), il
-modulo e la categoria (oggetti di primo livello, oggetti di città, spazi,
+I filtri scelgono il gruppo di schemi (CityGML 3.0, le ADE se configurate,
+schemi importati, tutti), il modulo e la categoria (oggetti di primo livello, oggetti di città, spazi,
 superfici di confine, feature, oggetti, tipi di dato, enumerazioni, code list),
 e se includere tipi tecnici, ADE hook e riferimenti esterni o solo le classi
 concrete. Modulo, categoria e "solo concreti" selezionano le classi e non
@@ -273,6 +273,13 @@ Nell'interfaccia:
 - le classi mostrano i valori delle code list dei loro attributi nella sezione
   **Valori delle code list**, e la ricerca trova anche i valori.
 
+Le ADE (vedi [Aggiungere una ADE](#aggiungere-una-ade)) portano le loro code
+list, con chiave qualificata (`tade:EnergyClassValue`) e modulo uguale al
+nome dell'ADE, che partono dai dizionari dell'ADE e si modificano come le altre.
+Un'ADE può anche aggiungere voci a una code list di CityGML: ogni voce porta il
+nome dell'ADE e il `codeSpace` del suo dizionario, è in sola lettura e si può
+togliere dalla lista.
+
 **Salva** scrive `codelists/codelists.js` con la File System Access API (Chrome,
 Edge): la prima volta si sceglie quel file nella cartella del progetto, poi la
 pagina lo ricorda. Durante la scrittura Salva e Reset sono disabilitati; le
@@ -290,7 +297,7 @@ delle code list e fonti.
 | Comando | Uscita | Destinatario |
 |---|---|---|
 | `python scripts/export.py city3d --out citygml-codelists.city3d.json` | JSON: le 140 code list, con i valori nella forma JSON di Annex E, e `codeListUse`, la code list di ogni proprietà di ogni elemento | l'editor degli attributi di City3D |
-| `python scripts/export.py generator --out citygml-generator.zip` | zip: i 78 XSD ufficiali, i dizionari in GML e JSON, `xml-catalog.xml` per l'uso offline, `citygml-generator.json` con struttura risolta degli elementi e regole che gli XSD non esprimono | un generatore di file CityGML |
+| `python scripts/export.py generator --out citygml-generator.zip` | zip: i 78 XSD ufficiali, i dizionari in GML e JSON, `xml-catalog.xml` per l'uso offline, `citygml-generator.json` con struttura risolta degli elementi e regole che gli XSD non esprimono; con le ADE anche i loro XSD e `CityGML-ADE.xsd`, lo schema da usare per validare i documenti che le usano | un generatore di file CityGML |
 | `python scripts/export.py standard --out citygml-explorer.zip` | zip: l'explorer offline con fonti e dizionario, i dizionari in GML e CSV, `EXPORT.md` con versioni e stato del dizionario | una persona che vuole consultare lo standard in uso |
 
 Il formato è quello standard dove esiste: gli XSD ufficiali invariati e, per le
@@ -321,7 +328,10 @@ l'URL del dizionario GML esportato se la cartella dei dizionari è pubblicata
 sotto `<base><versione>/`; autorità, versione e, con `--language`, lingua vanno
 nei metadati. La politica applicata resta nel dizionario (`codeSpacePolicy`).
 `--dry-run` mostra le modifiche senza scriverle. Il file è scritto come lo
-scrive Salva; dopo un Reset il comando va rieseguito.
+scrive Salva; dopo un Reset il comando va rieseguito. Una code list di un'ADE
+riceve invece `<codeLists.baseUrl dell'ADE><Modulo>.<CodeList>.xml`, nella
+cartella dei dizionari dell'ADE; le voci che un'ADE aggiunge a una code list di
+CityGML conservano il loro `codeSpace`.
 
 ## Aggiornare o estendere il catalogo
 
@@ -341,7 +351,7 @@ I comandi seguenti vanno eseguiti con il Python dell'ambiente virtuale.
 | `python scripts/fetch_sources.py --reuse-local` | sì | Come sopra, ma non riscarica i file presenti in `sources/` con lo SHA-256 del manifest, che ne conserva date e intestazioni: scarica solo le fonti mancanti o modificate localmente |
 | `python scripts/build_catalog.py` | no | Rigenera `data/catalog.json` e `data/catalog.js` dalle fonti in `sources/` |
 | `python scripts/build_dark_theme.py` | no | Rigenera `assets/styles-dark.css` trasformando per il tema scuro i colori di `assets/styles.css` |
-| `python scripts/build_codelists.py` | no | Rigenera `codelists/codelists.default.js` dagli esempi OGC in `sources/`; crea `codelists/codelists.js` se manca, oppure lo riporta allo stato iniziale con `--reset` |
+| `python scripts/build_codelists.py` | no | Rigenera `codelists/codelists.default.js` dagli esempi OGC e dai dizionari delle ADE in `sources/`; crea `codelists/codelists.js` se manca, oppure lo riporta allo stato iniziale con `--reset`; con `--align` vi aggiunge code list e voci delle ADE che mancano, con `--align --prune` toglie anche quelle di ADE non più configurate |
 | `python scripts/verify_sources.py` | no | Verifica gli hash di `sources/manifest.json`, l'assenza di XSD non registrati e la presenza locale di ogni import |
 | `python scripts/export.py city3d\|generator\|standard --out PERCORSO` | no | Esporta il vocabolario in uso (vedi [Esportare](#esportare)) |
 | `python scripts/codespaces.py --base URI --version V --authority NOME` | no | Fissa nel dizionario i `codeSpace` delle code list modificate |
@@ -363,11 +373,59 @@ primi due il catalogo contiene solo le informazioni degli schemi; senza il
 terzo non contiene i requisiti di codifica, e il riquadro **Sorgenti** lo
 segnala.
 
-Per aggiungere schemi (per esempio una ADE) si aggiunge l'URL all'elenco
-`schemas` di `config/sources.json`, e l'host ad `allowedHosts` se necessario; poi
-si eseguono `fetch_sources.py` e `build_catalog.py`. Lo stesso procedimento
-aggiorna le fonti quando cambiano: il manifest registra date e hash di ogni
-download.
+Per aggiungere schemi si aggiunge l'URL all'elenco `schemas` di
+`config/sources.json`, e l'host ad `allowedHosts` se necessario; poi si eseguono
+`fetch_sources.py` e `build_catalog.py`. Lo stesso procedimento aggiorna le fonti
+quando cambiano: il manifest registra date e hash di ogni download. Uno schema
+aggiunto così è letto come schema importato; una ADE si dichiara invece nella
+sezione `ades`.
+
+### Aggiungere una ADE
+
+Una ADE (Application Domain Extension) dichiarata nella sezione `ades` di
+`config/sources.json` forma nel catalogo la famiglia **ADE**, con modulo uguale
+al suo nome. Per l'ADE di prova dei test (`tests/fixtures/ade`):
+
+```json
+"ades": [{
+  "name": "TestADE", "prefix": "tade",
+  "namespace": "https://example.org/cg3e/test-ade/1.0",
+  "schema": "https://example.org/cg3e/test-ade/1.0/test-ade.xsd",
+  "local": {"baseUrl": "https://example.org/cg3e/test-ade/", "folder": "tests/fixtures/ade"},
+  "codeLists": {"baseUrl": "https://example.org/cg3e/test-ade/1.0/codelists/",
+                "files": ["TestADE.EnergyClassValue.xml", "Building.BuildingClassValue.xml"]},
+  "codeListBindings": {"tade:BuildingProperties/tade:energyClass": "EnergyClassValue"},
+  "topLevel": ["tade:Kiosk"]
+}]
+```
+
+| Campo | Significato |
+|---|---|
+| `name`, `prefix`, `namespace` | nome (il modulo nel catalogo e nei nomi dei file), prefisso e namespace dell'ADE; non possono coincidere con quelli di CityGML, degli schemi importati o di un'altra ADE |
+| `schema` | URL canonico dello schema, quello che i documenti citano in `schemaLocation` |
+| `local` | facoltativo: un URL che inizia con `baseUrl` si legge da `folder` (relativa alla radice del progetto o assoluta), senza rete e senza bisogno che l'host sia in `allowedHosts`. Serve per un'ADE non ancora pubblicata: quando lo è, basta togliere `local` |
+| `codeLists` | facoltativo: dizionari `<Modulo>.<Lista>.xml` (OGC 21-006r2, Annex E) sotto `baseUrl`. Con il nome dell'ADE come modulo sono code list dell'ADE; con un modulo di CityGML sono voci per quella code list di CityGML |
+| `codeListBindings` | la code list dell'ADE di ogni proprietà `gml:CodeType`, che lo schema non dice: `"prefisso:Proprietario/prefisso:proprietà": "Lista"`, dove il proprietario è un elemento o un tipo dell'ADE. Una lista citata qui senza dizionario parte vuota |
+| `topLevel` | facoltativo: le feature dell'ADE di primo livello |
+
+La cartella `local` è quella dell'ADE, fuori da `sources/`: `fetch_sources.py`
+ne copia i file in `sources/<host>/<percorso>` (manifest con `origin: "local"`) e
+cancella le copie quando l'ADE esce dalla configurazione. Poi:
+
+```bash
+python scripts/fetch_sources.py --reuse-local
+python scripts/verify_sources.py
+python scripts/build_catalog.py
+python scripts/build_codelists.py --align
+```
+
+`build_catalog.py` segnala le proprietà `gml:CodeType` dell'ADE senza code list e
+i collegamenti a proprietà che non esistono. `build_codelists.py --align` aggiunge
+al dizionario le code list e le voci dell'ADE senza toccare il resto; finché il
+dizionario non è allineato, `export.py` si ferma e indica il comando. Gli export
+contengono gli elementi dell'ADE in `elements`, le sue code list in `codeLists` e
+`codeListUse` e l'ADE nell'intestazione (`ades`); il pacchetto `generator`
+contiene anche i suoi XSD e `CityGML-ADE.xsd`.
 
 ## Struttura del repository
 
@@ -379,10 +437,10 @@ data/catalog.js        catalogo caricato dalla pagina (window.CITYGML_CATALOG)
 data/catalog.json      stesso catalogo in JSON
 codelists/             dizionario locale delle code list e suo stato iniziale
 sources/               fonti ufficiali e manifest
-config/sources.json    URL, host ammessi, ruoli delle fonti, esempi di code list
-scripts/               download, lettura dei documenti OGC, generazione, verifica
-                       ed esportazione
-tests/                 test automatici
+config/sources.json    URL, host ammessi, ruoli delle fonti, esempi di code list, ADE
+scripts/               download, lettura dei documenti OGC e delle ADE, generazione,
+                       verifica ed esportazione
+tests/                 test automatici; tests/fixtures/ade è l'ADE di prova
 docs/                  modello dati del catalogo, esportazioni, test, schermate
 ```
 
@@ -400,6 +458,7 @@ I test nel browser richiedono Playwright e Chromium
 ```bash
 python tests/browser_smoke.py
 python tests/browser_export.py
+python tests/browser_ade.py
 ```
 
 Dettagli in [docs/TESTING.md](docs/TESTING.md).
@@ -442,6 +501,14 @@ Dettagli in [docs/TESTING.md](docs/TESTING.md).
 - Le regole esportate in `citygml-generator.json` (superfici ammesse, primo
   livello, proprietà solo per riferimento, vincoli OCL, regole di codifica)
   sono dati da leggere: l'export non le applica.
+- Di un'ADE il catalogo legge gli schemi XSD, non il modello UML (XMI): code
+  list delle proprietà `gml:CodeType` e primo livello vengono dalla
+  configurazione, le definizioni da `xs:documentation`; la conformità ai
+  requisiti `/req/ade/*` di OGC 20-010 non è verificata.
+- Le voci che un'ADE aggiunge a una code list di CityGML entrano nella stessa
+  lista: il `gml:Dictionary` esportato ha i metadati (autorità, versione) della
+  lista, mentre ogni voce conserva il `codeSpace` del dizionario dell'ADE, che il
+  CSV di Annex E non riporta.
 - Non è un parser di file CityGML `.gml` né un validatore XML.
 
 ## Strumenti simili

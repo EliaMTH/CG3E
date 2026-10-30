@@ -31,6 +31,10 @@ XSI_NS = 'http://www.w3.org/2001/XMLSchema-instance'
 CATALOG_NS = 'urn:oasis:names:tc:entity:xmlns:xml:catalog'
 GML_XSD = 'http://schemas.opengis.net/gml/3.2.1/gml.xsd'
 CMD_XSD = 'http://schemas.opengis.net/citygml/codelistmetadata/3.0/codeListMetaData.xsd'
+PROFILE_NS = 'http://www.opengis.net/citygml/profiles/base/3.0'
+PROFILE_XSD = 'http://schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd'
+XS_NS = 'http://www.w3.org/2001/XMLSchema'
+DRIVER = 'CityGML-ADE.xsd'
 PLACEHOLDER = re.compile(r'^\{example-\d+\}$')
 METADATA = ('dataType', 'namespace', 'language', 'authority', 'version')
 SCHEMA_HOSTS = ('schemas.opengis.net', 'www.w3.org')
@@ -73,6 +77,12 @@ def read_json_assignment(text, variable):
         raise ExportError(f'window.{variable}: JSON non valido ({exc}).') from exc
 
 
+def code_list_key(node):
+    """Chiave di una code list nel dizionario: il nome qualificato, uguale al nome per le liste di CityGML
+    (tade:EnergyClassValue per una lista di un'ADE)."""
+    return node.get('qname') or node['name']
+
+
 def load(root=ROOT, codelists=None):
     """Legge e controlla gli input. Solleva ExportError se catalogo, fonti o dizionario non sono coerenti."""
     root = Path(root).resolve()
@@ -93,13 +103,14 @@ def load(root=ROOT, codelists=None):
     dictionary = read_json_assignment(raw.decode('utf-8'), DICTIONARY_VARIABLE)
     if dictionary.get('format') != 1 or not isinstance(dictionary.get('codeLists'), dict):
         raise ExportError(f'{path}: il dizionario non è nel formato 1.')
-    expected = {n['name'] for n in catalog['nodes'].values() if n['kind'] == 'codelist'}
+    expected = {code_list_key(n) for n in catalog['nodes'].values() if n['kind'] == 'codelist'}
     found = set(dictionary['codeLists'])
     if found != expected:
         differences = [f'mancano {", ".join(sorted(expected - found))}' if expected - found else '',
                        f'non nel catalogo: {", ".join(sorted(found - expected))}' if found - expected else '']
         raise ExportError(f'{path}: le code list non corrispondono a quelle del catalogo ('
-                          + '; '.join(d for d in differences if d) + ').')
+                          + '; '.join(d for d in differences if d) + '). Allinea il dizionario con python scripts/build_codelists.py --align'
+                          + (' --prune' if found - expected else '') + '.')
     default_path = root/'codelists/codelists.default.js'
     default = (read_json_assignment(default_path.read_text(encoding='utf-8'), DICTIONARY_VARIABLE + '_DEFAULT')
                if default_path.exists() else None)
@@ -148,7 +159,8 @@ def list_state(lst):
 
 
 def dictionary_records(dictionary):
-    """{nome: contenuto Annex E} per ogni code list con valori reali, in ordine di nome."""
+    """{chiave: contenuto Annex E} per ogni code list con valori reali, in ordine di chiave. gml:id e nome del file
+    usano il nome senza prefisso: un ':' non è ammesso in un xs:ID né nei nomi dei file su Windows."""
     records, problems = {}, []
     for name in sorted(dictionary['codeLists']):
         lst = dictionary['codeLists'][name]
@@ -161,7 +173,7 @@ def dictionary_records(dictionary):
             problems.append(f'{name} ({", ".join(missing)})')
             continue
         records[name] = {
-            'id': name, 'module': lst['module'], 'metadata': {k: meta[k] for k in METADATA},
+            'id': name.rsplit(':', 1)[-1], 'module': lst['module'], 'metadata': {k: meta[k] for k in METADATA},
             'description': lst.get('description') or '', 'identifier': lst['identifier'], 'codeSpace': lst['codeSpace'],
             'entries': [{'id': f'id{i}', 'description': v.get('description') or '', 'code': v['code'],
                          'codeSpace': v.get('codeSpace') or lst['codeSpace'], 'name': v.get('name') or ''}
@@ -230,8 +242,8 @@ def to_csv(record):
     return out.getvalue().encode('utf-8')
 
 
-def dictionary_warnings(inputs, records):
-    """Avvisi che non fermano l'export."""
+def dictionary_warnings(inputs, records, csv=False):
+    """Avvisi che non fermano l'export. Con csv, anche quelli sui file CSV."""
     warnings = []
     default = (inputs.default_dictionary or {}).get('codeLists', {})
     for name, lst in sorted(inputs.dictionary['codeLists'].items()):
@@ -252,19 +264,25 @@ def dictionary_warnings(inputs, records):
             (repeated if key in seen else seen).add(key)
         if repeated:
             warnings.append(f'{name}: codici ripetuti nello stesso codeSpace: ' + ', '.join(sorted(c for _, c in repeated)) + '.')
+        ades = sorted({v['ade'] for v in inputs.dictionary['codeLists'][name]['values'] if v.get('ade') and is_real(v)})
+        if csv and ades:
+            warnings.append(f'{name}: il CSV di Annex E non riporta il codeSpace delle voci di {", ".join(ades)}; '
+                            'il file GML lo conserva.')
     return warnings
 
 
 # ---------------------------------------------------------------- validazione offline
 
 class XmlCatalog(ET.Resolver):
-    """Risolve URL con un catalogo OASIS XML (uri, system, rewriteURI, rewriteSystem), senza rete."""
+    """Risolve URL con un catalogo OASIS XML (uri, system, rewriteURI, rewriteSystem), senza rete. Con files
+    ({percorso: byte}, il contenuto di un pacchetto) catalogo e documenti si leggono da lì, non dal disco."""
 
-    def __init__(self, path):
+    def __init__(self, path, files=None):
         super().__init__()
-        self.base = Path(path).resolve().parent
+        self.files = files
+        self.base = Path(path).resolve().parent if files is None else None
         self.exact, self.prefixes, self.unresolved = {}, [], []
-        for entry in ET.parse(str(path)).getroot():
+        for entry in (ET.parse(str(path)).getroot() if files is None else ET.fromstring(files[str(path)])):
             tag = ET.QName(entry).localname
             if tag == 'uri':
                 self.exact[entry.get('name')] = entry.get('uri')
@@ -274,19 +292,27 @@ class XmlCatalog(ET.Resolver):
                 self.prefixes.append((entry.get('uriStartString') or entry.get('systemIdStartString'), entry.get('rewritePrefix')))
         self.prefixes.sort(key=lambda p: -len(p[0]))
 
-    def lookup(self, url):
-        """Percorso locale di un URL, o None se il catalogo non lo risolve."""
+    def target(self, url):
+        """Percorso di un URL relativo al catalogo, o None se il catalogo non lo risolve."""
         if url in self.exact:
-            return self.base/self.exact[url]
+            return self.exact[url]
         for start, prefix in self.prefixes:
             if url.startswith(start):
-                return self.base/(prefix + url[len(start):])
+                return prefix + url[len(start):]
         return None
 
+    def lookup(self, url):
+        """Percorso locale di un URL, o None se il catalogo non lo risolve."""
+        target = self.target(url)
+        return self.base/target if target is not None else None
+
     def resolve(self, url, pubid, context):
-        local = self.lookup(url)
-        if local:
-            return self.resolve_filename(str(local), context)
+        target = self.target(url)
+        if target is not None and self.files is None:
+            return self.resolve_filename(str(self.base/target), context)
+        if target in (self.files or {}):
+            # L'URL resta la base del documento: anche i suoi import relativi passano dal catalogo.
+            return self.resolve_string(self.files[target], context, base_url=url)
         if url.startswith(('http://', 'https://')):
             # Un documento vuoto al posto del download: la compilazione fallisce senza usare la rete.
             self.unresolved.append(url)
@@ -294,9 +320,10 @@ class XmlCatalog(ET.Resolver):
         return None
 
 
-def compile_schema(catalog_path, imports):
-    """XMLSchema che importa (namespace, URL) risolti con il catalogo OASIS indicato, senza rete."""
-    catalog = XmlCatalog(catalog_path)
+def compile_schema(catalog_path, imports, files=None):
+    """XMLSchema che importa (namespace, URL) risolti con il catalogo OASIS indicato, senza rete. Con files
+    catalogo e schemi sono quelli di un pacchetto in memoria (catalog_path è il percorso nel pacchetto)."""
+    catalog = XmlCatalog(catalog_path, files)
     parser = ET.XMLParser(no_network=True, resolve_entities=False)
     parser.resolvers.add(catalog)
     body = ''.join(f'<xs:import namespace="{ns}" schemaLocation="{url}"/>' for ns, url in imports)
@@ -356,8 +383,8 @@ class View:
         return prop['namespace']
 
     def concrete_elements(self):
-        """Elementi CityGML concreti: feature, oggetti e tipi di dato, esclusi astratti, tipi tecnici e ADE hook."""
-        return sorted((n for n in self.nodes.values() if n['family'] == 'CityGML' and '}element:' in n['id'] and not n['abstract']
+        """Elementi concreti di CityGML e delle ADE: feature, oggetti e tipi di dato, esclusi astratti, tipi tecnici e ADE hook."""
+        return sorted((n for n in self.nodes.values() if n['family'] in ('CityGML', 'ADE') and '}element:' in n['id'] and not n['abstract']
                        and not n.get('technical') and not n.get('external') and n['kind'] != 'ade'),
                       key=lambda n: (n['namespace'], n['name']))
 
@@ -406,7 +433,7 @@ def code_list_use(view):
                 declared = view.nodes[prop['declaredIn']]
                 entries.append({'element': node['name'], 'elementNamespace': node['namespace'],
                                 'property': prop['name'], 'propertyNamespace': view.namespace(prop),
-                                'codeList': view.nodes[prop['codeList']]['name'],
+                                'codeList': code_list_key(view.nodes[prop['codeList']]),
                                 'declaredIn': declared['name'], 'declaredInNamespace': declared['namespace'],
                                 'multiplicity': prop['multiplicity']})
     return entries
@@ -430,7 +457,7 @@ def property_entry(view, prop):
     if prop.get('encoding'):
         entry['encoding'] = prop['encoding']
     if prop.get('codeList'):
-        entry['codeList'] = view.nodes[prop['codeList']]['name']
+        entry['codeList'] = code_list_key(view.nodes[prop['codeList']])
     uml = view.uml_of(prop)
     if uml:
         entry['uml'] = uml
@@ -494,9 +521,14 @@ def rules(view):
                                'source': {'document': document_label(model), 'requirement': ab['requirement'], 'table': ab['table'],
                                           'url': f'{model["url"]}#{ab["anchor"]}'}})
 
-    top = [{'element': view.qname(n['id']), 'namespace': n['namespace'],
-            'source': {'document': document_label(model), 'stereotype': n['uml']['stereotype'],
-                       'url': f'{model["url"]}#{n["uml"]["anchor"]}' if n['uml'].get('anchor') else model['url']}}
+    def top_source(n):
+        # Per un'ADE il primo livello viene dalla configurazione, non dal modello UML di OGC 20-010.
+        if n['family'] == 'ADE':
+            return {'ade': n['module'], 'configuration': 'config/sources.json'}
+        return {'document': document_label(model), 'stereotype': n['uml']['stereotype'],
+                'url': f'{model["url"]}#{n["uml"]["anchor"]}' if n['uml'].get('anchor') else model['url']}
+
+    top = [{'element': view.qname(n['id']), 'namespace': n['namespace'], 'source': top_source(n)}
            for n in nodes.values() if n.get('topLevel')]
 
     def requirement_refs(prop):
@@ -541,15 +573,26 @@ def document_reference(document):
 def header(inputs, kind, when):
     catalog, dictionary = inputs.catalog, inputs.dictionary
     standard = catalog['standard']
-    return {'format': f'citygml-explorer/{kind}', 'formatVersion': FORMAT_VERSION, 'exportedAt': when.isoformat(),
-            'schemas': catalog['sourceVersion'],
-            'dictionary': {'sha256': sha256(inputs.dictionary_bytes),
-                           'edited': sorted(n for n, l in dictionary['codeLists'].items() if l.get('edited')),
-                           'codeSpacePolicy': dictionary.get('codeSpacePolicy')},
-            'sources': {'conceptualModel': document_reference(standard['document']),
-                        'encoding': document_reference(standard['encoding']['document']),
-                        'schemaFiles': len(catalog['files']),
-                        'codeListExamples': dictionary.get('source')}}
+    result = {'format': f'citygml-explorer/{kind}', 'formatVersion': FORMAT_VERSION, 'exportedAt': when.isoformat(),
+              'schemas': catalog['sourceVersion'],
+              'dictionary': {'sha256': sha256(inputs.dictionary_bytes),
+                             'edited': sorted(n for n, l in dictionary['codeLists'].items() if l.get('edited')),
+                             'codeSpacePolicy': dictionary.get('codeSpacePolicy')},
+              'sources': {'conceptualModel': document_reference(standard['document']),
+                          'encoding': document_reference(standard['encoding']['document']),
+                          'schemaFiles': len(catalog['files']),
+                          'codeListExamples': dictionary.get('source')}}
+    # Solo con ADE: senza, l'intestazione resta quella di prima, byte per byte.
+    if catalog.get('ades'):
+        result['ades'] = [{'name': a['name'], 'prefix': a['prefix'], 'namespace': a['namespace'], 'version': a['schema']['version'],
+                           'url': a['schema']['url'], 'sha256': a['schema']['sha256'], 'origin': a['origin']} for a in catalog['ades']]
+    return result
+
+
+def ade_label(ade):
+    """Versione, schema e origine di un'ADE, per i README dei pacchetti."""
+    origin = 'non pubblicata: copia locale' if ade['origin'] == 'local' else 'pubblicata'
+    return f"versione {ade['schema']['version'] or '—'}, schema `{ade['schema']['url']}`, {origin}"
 
 
 def dumps(obj):
@@ -596,26 +639,39 @@ def folder_extensions(folder):
     return ('xml', 'json') if folder == 'codelists' else ('xml', 'csv')
 
 
+def ade_schema_files(inputs):
+    """XSD delle ADE del catalogo, scelti per percorso: l'host di un'ADE può ospitare anche altri file."""
+    return {path for ade in inputs.catalog.get('ades', []) for path in ade['files']}
+
+
 def schema_files(inputs):
-    """XSD ufficiali e avvertenze pubblicate con essi, dagli host degli schemi."""
+    """XSD ufficiali e avvertenze pubblicate con essi, dagli host degli schemi, e XSD delle ADE."""
+    ade = ade_schema_files(inputs)
     return [r['path'] for r in sorted(inputs.manifest['files'], key=lambda r: r['path'])
-            if r['path'].split('/')[1] in SCHEMA_HOSTS]
+            if r['path'].split('/')[1] in SCHEMA_HOSTS or r['path'] in ade]
 
 
-def package_catalog(records, hosts):
+def ade_folders(inputs):
+    """Cartelle (host e percorso) degli XSD delle ADE, dagli URL del manifest."""
+    ade = ade_schema_files(inputs)
+    return sorted({r['url'].split('://', 1)[1].rsplit('/', 1)[0] + '/' for r in inputs.manifest['files'] if r['path'] in ade})
+
+
+def package_catalog(records, hosts, folders=()):
     """xml-catalog.xml del pacchetto: URL degli schemi -> schemas/, codeSpace delle liste -> codelists/.
 
+    Per un'ADE riscrive solo le cartelle dei suoi XSD (folders), non tutto il suo host.
     Risolve il codeSpace della lista, che per Annex E identifica la code list. I codeSpace
     propri dei singoli valori non sono risolti: negli esempi OGC alcuni sono condivisi fra liste.
     """
     root = ET.Element('{%s}catalog' % CATALOG_NS, nsmap={None: CATALOG_NS})
-    for host in hosts:
+    for start in [f'{host}/' for host in hosts] + list(folders):
         for scheme in ('http', 'https'):
-            ET.SubElement(root, '{%s}rewriteURI' % CATALOG_NS, uriStartString=f'{scheme}://{host}/', rewritePrefix=f'schemas/{host}/')
-            ET.SubElement(root, '{%s}rewriteSystem' % CATALOG_NS, systemIdStartString=f'{scheme}://{host}/', rewritePrefix=f'schemas/{host}/')
+            ET.SubElement(root, '{%s}rewriteURI' % CATALOG_NS, uriStartString=f'{scheme}://{start}', rewritePrefix=f'schemas/{start}')
+            ET.SubElement(root, '{%s}rewriteSystem' % CATALOG_NS, systemIdStartString=f'{scheme}://{start}', rewritePrefix=f'schemas/{start}')
     owners = {}
-    for record in records.values():
-        owners.setdefault(record['codeSpace'], []).append(record['id'])
+    for name, record in records.items():
+        owners.setdefault(record['codeSpace'], []).append(name)
     shared = {s: o for s, o in owners.items() if len(o) > 1}
     if shared:
         raise ExportError('Code list con lo stesso codeSpace: '
@@ -623,6 +679,24 @@ def package_catalog(records, hosts):
                           + '. Il codeSpace identifica la code list (OGC 21-006r2, Annex E).')
     for space, (name,) in sorted(owners.items()):
         ET.SubElement(root, '{%s}uri' % CATALOG_NS, name=space, uri=f'codelists/{file_name(records[name], "xml")}')
+    return ET.tostring(root, xml_declaration=True, encoding='UTF-8', pretty_print=True)
+
+
+def driver_imports(inputs):
+    """(namespace, URL) che lo schema driver importa: CityGML.xsd e lo schema di ogni ADE."""
+    return [(PROFILE_NS, PROFILE_XSD)] + [(a['namespace'], a['schema']['url']) for a in inputs.catalog.get('ades', [])]
+
+
+def driver_schema(imports):
+    """CityGML-ADE.xsd, generato da CG3E e non ufficiale. Con --schema, xmllint e lxml non seguono
+    xsi:schemaLocation: un documento con elementi delle ADE si valida con uno schema che le importa."""
+    xs = '{%s}' % XS_NS
+    root = ET.Element(xs + 'schema', nsmap={'xs': XS_NS})
+    ET.SubElement(ET.SubElement(root, xs + 'annotation'), xs + 'documentation').text = (
+        'Generato da CityGML 3.0 Explorer, non ufficiale: importa CityGML 3.0 e le ADE del pacchetto, '
+        'per validare i documenti che le usano.')
+    for namespace, url in imports:
+        ET.SubElement(root, xs + 'import', namespace=namespace, schemaLocation=url)
     return ET.tostring(root, xml_declaration=True, encoding='UTF-8', pretty_print=True)
 
 
@@ -654,7 +728,7 @@ Esportato da CityGML 3.0 Explorer il {date}.
 | Percorso | Contenuto | Formato |
 | --- | --- | --- |
 | `schemas/` | {schemas} XSD ufficiali di CityGML 3.0 e degli schemi importati (GML 3.2.1, ISO 19139, XLink, XML), invariati, con le avvertenze pubblicate insieme | XSD |
-| `codelists/` | {lists} code list con valori, in GML e in JSON | OGC 21-006r2, Annex E |
+{ade_rows}| `codelists/` | {lists} code list con valori, in GML e in JSON | OGC 21-006r2, Annex E |
 | `xml-catalog.xml` | URL degli schemi -> `schemas/`; `codeSpace` delle code list -> `codelists/` | catalogo OASIS XML |
 | `citygml-generator.json` | `codeLists`, `codeListUse`, `elements` (struttura risolta degli XSD), `rules` (regole che gli XSD non esprimono, con la fonte) | `citygml-explorer/generator` |
 | `manifest.json` | percorso e SHA-256 di ogni file | JSON |
@@ -665,20 +739,29 @@ Esportato da CityGML 3.0 Explorer il {date}.
 - Modello concettuale: {model} ({model_title}), approvato il {model_date}.
 - Codifica GML: {encoding} ({encoding_title}), approvata il {encoding_date}.
 - Dizionario delle code list: SHA-256 `{dictionary_sha}`; liste modificate rispetto agli esempi OGC: {edited}.
-
+{ade_versions}
 ## Validare offline
 
-Lo schema completo di CityGML 3.0 è `schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd`.
+{validation}
+
+La validità di un file si verifica sempre contro `schemas/`: `citygml-generator.json` ne è una
+vista risolta. Le regole in `rules` sono dati da leggere e non sono applicate dalla validazione XSD.
+'''
+VALIDATE_CITYGML = '''Lo schema completo di CityGML 3.0 è `schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd`.
 Gli import usano gli URL ufficiali, che `xml-catalog.xml` riconduce alle copie locali.
 
 ```text
 XML_CATALOG_FILES=xml-catalog.xml xmllint --nonet --noout \\
   --schema schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd file.gml
-```
+```'''
+VALIDATE_ADE = '''Un documento con le ADE si valida con `CityGML-ADE.xsd`, che importa lo schema completo di CityGML 3.0
+(`schemas/schemas.opengis.net/citygml/profiles/base/3.0/CityGML.xsd`) e gli schemi delle ADE. Con `--schema`
+xmllint non segue `xsi:schemaLocation`: con il solo `CityGML.xsd` gli elementi delle ADE risultano inattesi.
+Gli import usano gli URL ufficiali e quelli delle ADE, che `xml-catalog.xml` riconduce alle copie locali.
 
-La validità di un file si verifica sempre contro `schemas/`: `citygml-generator.json` ne è una
-vista risolta. Le regole in `rules` sono dati da leggere e non sono applicate dalla validazione XSD.
-'''
+```text
+XML_CATALOG_FILES=xml-catalog.xml xmllint --nonet --noout --schema CityGML-ADE.xsd file.gml
+```'''
 
 
 def export_generator(inputs, when):
@@ -686,7 +769,7 @@ def export_generator(inputs, when):
     view = View(inputs.catalog)
     records = dictionary_records(inputs.dictionary)
     files = {}
-    paths = schema_files(inputs)
+    paths, ade_paths, ades = schema_files(inputs), ade_schema_files(inputs), inputs.catalog.get('ades', [])
     for path in paths:
         files['schemas/' + path.removeprefix('sources/')] = source_file(inputs, path)
     gml = {}
@@ -694,7 +777,11 @@ def export_generator(inputs, when):
         gml[name] = files[f'codelists/{file_name(record, "xml")}'] = to_gml(record)
         files[f'codelists/{file_name(record, "json")}'] = dumps(to_json(record))
     validate_dictionaries(inputs, gml)
-    files['xml-catalog.xml'] = package_catalog(records, sorted({p.split('/')[1] for p in paths}))
+    files['xml-catalog.xml'] = package_catalog(records, sorted({p.split('/')[1] for p in paths if p not in ade_paths}), ade_folders(inputs))
+    if ades:
+        # Il driver deve compilare con i soli file del pacchetto: un import fuori dal pacchetto è un errore qui.
+        files[DRIVER] = driver_schema(driver_imports(inputs))
+        compile_schema('xml-catalog.xml', driver_imports(inputs), files)
     items = elements(view)
     use = code_list_use(view)
     files['citygml-generator.json'] = dumps({**header(inputs, 'generator', when),
@@ -703,17 +790,24 @@ def export_generator(inputs, when):
     standard = inputs.catalog['standard']
     model, encoding = standard['document'], standard['encoding']['document']
     edited = [n for n, l in sorted(inputs.dictionary['codeLists'].items()) if l.get('edited')]
+    ade_rows = ''.join(f"| `schemas/{folder}` | XSD dell'ADE {a['name']}, invariati | XSD |\n"
+                       for a in ades for folder in sorted({p.removeprefix('sources/').rsplit('/', 1)[0] + '/' for p in a['files']}))
+    if ades:
+        ade_rows += f'| `{DRIVER}` | schema generato da CityGML 3.0 Explorer, non ufficiale: importa `CityGML.xsd` e gli schemi delle ADE | XSD |\n'
     files['README.md'] = GENERATOR_README.format(
-        date=when.isoformat(), schemas=sum(p.endswith('.xsd') for p in paths), lists=len(records),
+        date=when.isoformat(), schemas=sum(p.endswith('.xsd') and p not in ade_paths for p in paths), lists=len(records),
         schemas_version=inputs.catalog['sourceVersion'], model=document_label(model), model_title=model['title'],
         model_date=model['approvalDate'], encoding=document_label(encoding), encoding_title=encoding['title'],
         encoding_date=encoding['approvalDate'], dictionary_sha=sha256(inputs.dictionary_bytes),
-        edited=', '.join(edited) if edited else 'nessuna').encode('utf-8')
+        edited=', '.join(edited) if edited else 'nessuna', ade_rows=ade_rows,
+        ade_versions=''.join(f"- ADE {a['name']}: {ade_label(a)}, namespace `{a['namespace']}`.\n" for a in ades),
+        validation=VALIDATE_ADE if ades else VALIDATE_CITYGML).encode('utf-8')
     with_manifest(files, 'generator', when)
-    return Result(zip_bytes(files, when),
-                  {'files': len(files), 'schemas': sum(p.endswith('.xsd') for p in paths), 'codeLists': len(records),
-                   'elements': len(items), 'properties': sum(len(e['properties']) for e in items), 'codeListUse': len(use)},
-                  dictionary_warnings(inputs, records))
+    summary = {'files': len(files), 'schemas': sum(p.endswith('.xsd') for p in paths), 'codeLists': len(records),
+               'elements': len(items), 'properties': sum(len(e['properties']) for e in items), 'codeListUse': len(use)}
+    if ades:
+        summary['ades'] = len(ades)
+    return Result(zip_bytes(files, when), summary, dictionary_warnings(inputs, records))
 
 
 EXPORT_README = '''# CityGML 3.0: lo standard in uso
@@ -731,7 +825,7 @@ offline, senza installare nulla. I collegamenti ai documenti OGC aprono le copie
 | --- | --- |
 | `index.html`, `assets/`, `data/catalog.js` | l'explorer e il catalogo |
 | `codelists/codelists.js` | il dizionario delle code list in uso |
-| `codelists/codelists.default.js` | lo stato iniziale del dizionario: gli esempi OGC |
+| `codelists/codelists.default.js` | lo stato iniziale del dizionario: gli esempi OGC{default_ades} |
 | `sources/` | le fonti ufficiali invariate, con `sources/manifest.json` (URL, data di download, SHA-256) |
 | `dictionaries/` | le {lists} code list con valori come `gml:Dictionary` (`.xml`) e in CSV (`.csv`), nelle forme di OGC 21-006r2, Annex E |
 | `manifest.json` | percorso e SHA-256 di ogni file del pacchetto |
@@ -745,7 +839,7 @@ offline, senza installare nulla. I collegamenti ai documenti OGC aprono le copie
 | Codifica GML | {encoding}, {encoding_title}, versione {encoding_version}, approvata il {encoding_date} |
 | Download delle fonti | {retrieved} |
 | Esempi OGC delle code list | {examples} |
-
+{ade_rows}
 ## Dizionario delle code list
 
 I valori delle code list non fanno parte dello standard: vanno definiti esternamente, e
@@ -798,9 +892,11 @@ def export_standard(inputs, when):
         edited=', '.join(edited) if edited else 'nessuna',
         policy=(f'base `{policy["base"]}`, versione {policy["version"]}, autorità {policy["authority"]}, '
                 f'applicata il {policy["appliedAt"]} a {", ".join(policy["lists"])}') if policy else 'non applicata: i codeSpace sono quelli degli esempi OGC',
+        default_ades=' e i dizionari delle ADE' if inputs.catalog.get('ades') else '',
+        ade_rows=''.join(f"| ADE {a['name']} | {ade_label(a)}, namespace `{a['namespace']}` |\n" for a in inputs.catalog.get('ades', [])),
     ).encode('utf-8')
     with_manifest(files, 'standard', when)
-    return Result(zip_bytes(files, when), {'files': len(files), 'codeLists': len(records)}, dictionary_warnings(inputs, records))
+    return Result(zip_bytes(files, when), {'files': len(files), 'codeLists': len(records)}, dictionary_warnings(inputs, records, csv=True))
 
 
 EXPORTERS = {'city3d': export_city3d, 'generator': export_generator, 'standard': export_standard}

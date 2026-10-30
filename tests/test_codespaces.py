@@ -99,6 +99,32 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(replaced['codeSpacePolicy']['lists'], ['BuildingFunctionValue'])
         self.assertEqual(replaced['codeLists']['RoofTypeValue']['codeSpace'], BASE + '1.0/Building.RoofTypeValue.xml')
 
+    def test_ade_list_and_ade_values(self):
+        data, folder, tade = dictionary(), 'https://example.org/cg3e/test-ade/1.0/codelists/', 'https://example.org/cg3e/test-ade/1.0'
+        space = folder + 'TestADE.EnergyClassValue.xml'
+        data['codeLists']['tade:EnergyClassValue'] = {
+            'module': 'TestADE', 'ade': 'TestADE', 'identifier': 'EnergyClassValue', 'codeSpace': space, 'description': '', 'edited': True,
+            'metadata': {'dataType': 'EnergyClassValue', 'namespace': tade, 'language': 'en', 'authority': 'CG3E tests', 'version': '1.0'},
+            'values': [{'code': 'A', 'codeSpace': space, 'name': 'class A edited', 'description': ''}]}
+        roof_ade = {'code': 'R1', 'codeSpace': folder + 'Building.RoofTypeValue.xml', 'name': 'roof R1', 'description': '', 'ade': 'TestADE'}
+        data['codeLists']['RoofTypeValue']['values'].append(dict(roof_ade))
+        catalog = {'nodes': {**CATALOG['nodes'], 'a': {'id': 'xsd:{%s}element:BuildingProperties' % tade, 'family': 'ADE',
+                                                       'module': 'TestADE', 'namespace': tade}},
+                   'ades': [{'name': 'TestADE', 'codeLists': {'baseUrl': folder}}]}
+        result, treated, _ = cs.apply(data, catalog, BASE, '1.0', 'Comune', 'it', None, WHEN)
+        self.assertEqual(treated, ['HollowSpaceUsageValue', 'RoofTypeValue', 'tade:EnergyClassValue'])
+        energy = result['codeLists']['tade:EnergyClassValue']
+        # The codeSpace of an ADE list follows the folder of the ADE dictionaries, not --base
+        self.assertEqual((energy['identifier'], energy['codeSpace'], energy['values'][0]['codeSpace']), ('EnergyClassValue', space, space))
+        self.assertEqual({k: energy['metadata'][k] for k in ex.METADATA},
+                         {'dataType': 'EnergyClassValue', 'namespace': tade, 'language': 'it', 'authority': 'Comune', 'version': '1.0'})
+        # A value that the ADE adds to a CityGML list keeps its codeSpace
+        roof = result['codeLists']['RoofTypeValue']['values']
+        self.assertEqual([v['codeSpace'] for v in roof], [BASE + '1.0/Building.RoofTypeValue.xml'] * 2 + [roof_ade['codeSpace']])
+        self.assertEqual(roof[-1], roof_ade)
+        record = ex.dictionary_records(result)['tade:EnergyClassValue']
+        self.assertEqual((record['id'], ex.file_name(record, 'xml')), ('EnergyClassValue', 'TestADE.EnergyClassValue.xml'))
+
     def test_arguments(self):
         for base, message in (('example.org/', 'URI assoluto'), ('https://example.org/x', 'terminare con "/"'),
                               ('ftp://example.org/', 'URI assoluto')):

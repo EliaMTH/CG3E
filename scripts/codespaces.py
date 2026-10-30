@@ -8,6 +8,10 @@ Per ogni lista trattata (senza --lists: le liste modificate, edited):
   metadati authority e version          dai parametri; language da --language, se indicata
   identifier, dataType e namespace      nome della code list e namespace del suo modulo (data/catalog.json)
 
+Una code list di un'ADE (chiave tade:EnergyClassValue) prende il codeSpace
+<codeLists.baseUrl dell'ADE><Modulo>.<CodeList>.xml, dalla configurazione dell'ADE.
+Le voci che un'ADE aggiunge a una code list di CityGML conservano il loro codeSpace.
+
 Le liste usate come sono pubblicate conservano il codeSpace della fonte. La politica
 applicata è registrata in codeSpacePolicy. Il file è scritto con la serializzazione
 di Salva nell'interfaccia; rieseguito con gli stessi argomenti non cambia nulla.
@@ -30,10 +34,10 @@ class PolicyError(Exception):
 
 
 def module_namespaces(catalog):
-    """Namespace di ogni modulo CityGML, dagli elementi degli schemi."""
+    """Namespace di ogni modulo CityGML e di ogni ADE, dagli elementi degli schemi."""
     found = {}
     for node in catalog['nodes'].values():
-        if node['family'] == 'CityGML' and '}element:' in node['id'] and node.get('namespace'):
+        if node['family'] in ('CityGML', 'ADE') and '}element:' in node['id'] and node.get('namespace'):
             found.setdefault(node['module'], node['namespace'])
     return found
 
@@ -60,6 +64,7 @@ def apply(dictionary, catalog, base, version, authority, language=None, lists=No
         raise PolicyError('Code list non presenti nel dizionario: ' + ', '.join(unknown) + '.')
     selected = sorted(lists) if lists else sorted(n for n, l in code_lists.items() if l.get('edited'))
     namespaces = module_namespaces(catalog)
+    ade_bases = {a['name']: (a.get('codeLists') or {}).get('baseUrl') for a in catalog.get('ades', [])}
     treated, skipped, problems = [], [], []
     for name in selected:
         lst = code_lists[name]
@@ -73,13 +78,15 @@ def apply(dictionary, catalog, base, version, authority, language=None, lists=No
         if lst['module'] not in namespaces:
             problems.append(f'{name}: namespace del modulo {lst["module"]} non trovato nel catalogo')
             continue
-        space = f'{base}{version}/{lst["module"]}.{name}.xml'
-        lst['identifier'] = name
+        bare, ade_base = name.rsplit(':', 1)[-1], ade_bases.get(lst.get('ade'))
+        space = f'{ade_base}{lst["module"]}.{bare}.xml' if ade_base else f'{base}{version}/{lst["module"]}.{bare}.xml'
+        lst['identifier'] = bare
         lst['codeSpace'] = space
         for value in lst['values']:
-            value['codeSpace'] = space
+            if not value.get('ade'):
+                value['codeSpace'] = space
         metadata = lst.setdefault('metadata', {})
-        metadata.update(dataType=name, namespace=namespaces[lst['module']], language=lang, authority=authority, version=version)
+        metadata.update(dataType=bare, namespace=namespaces[lst['module']], language=lang, authority=authority, version=version)
         lst['edited'] = True
         treated.append(name)
     if problems:

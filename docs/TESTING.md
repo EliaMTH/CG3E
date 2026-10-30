@@ -13,6 +13,13 @@ eseguire `python scripts/fetch_sources.py`.
 
 `python -m unittest discover -s tests -v`
 
+I conteggi sui dati del progetto (140 code list, 107 elementi, 158 voci di
+`codeListUse`…) riguardano la parte CityGML: restano validi anche con ADE
+dichiarate in `config/sources.json`, che aggiungono elementi, code list e voci.
+I test nel browser `browser_smoke.py` e `browser_export.py` presuppongono invece
+il progetto senza ADE (per esempio il contatore `44/140` e le tre opzioni del
+filtro degli schemi).
+
 ### `tests/test_catalog.py`
 
 Sul catalogo generato verifica:
@@ -118,7 +125,8 @@ Sui dati del progetto verifica:
   (il comando esce con errore e non scrive il file), dizionario in un altro
   formato o con code list diverse da quelle del catalogo, file di `sources/`
   alterato, data dell'export senza fuso orario; uno schema che il catalogo XML
-  non risolve è un errore e non viene scaricato;
+  non risolve è un errore e non viene scaricato; la chiave qualificata di una
+  code list di un'ADE e il messaggio che indica `build_codelists.py --align`;
 - **dati sintetici**: `codeSpace` del valore o della lista, esclusione di
   segnaposto e valori senza codice, lista senza metadati di Annex E, testo non
   rappresentabile in XML, avvisi; i valori senza codice segnalati sempre, anche
@@ -130,6 +138,8 @@ Sui dati del progetto verifica:
 - **`codeListUse`**: 158 voci su 63 elementi e 136 code list, coppie
   (elemento, proprietà) uniche, le voci di `TrafficArea`/`function` e
   `Building`/`roofType`, uguaglianza fra `city3d` e `generator`;
+- **candidati**: ogni candidato CityGML (o di un'ADE) ha la sua voce in
+  `elements`; quelli senza voce sono soltanto elementi GML e xAL;
 - **`generator`**: 78 XSD con lo SHA-256 del manifest, avvertenze, 88 file di
   code list, `manifest.json`; 107 elementi e 3483 proprietà, ordine delle
   proprietà di `Building`, campo `uml` di `boundary` con la molteplicità del
@@ -164,7 +174,40 @@ estensione e sostituzione della politica, controllo di `--base` e `--version`,
 serializzazione con l'intestazione di `assets/app.js` e righe LF. Da riga di
 comando, su una copia del dizionario: `--dry-run` non scrive, la scrittura
 cambia solo la lista trattata, la seconda esecuzione non cambia nulla, un errore
-non scrive nulla.
+non scrive nulla. Per le ADE: il `codeSpace` di una code list dell'ADE nella
+cartella dei suoi dizionari, con identificatore e nome del file senza prefisso,
+e le voci di un'ADE in una lista di CityGML che conservano il loro `codeSpace`.
+
+### `tests/test_ade.py`
+
+Un'ADE dalla configurazione agli export, sulle fonti reali e sull'ADE di prova
+di `tests/fixtures/ade`: un'ADE sintetica scritta sui casi della Test ADE di
+OGC 21-006r2, Annex B (hook su `bldg:ADEOfAbstractBuilding`, una feature
+derivata da `core:AbstractOccupiedSpace` di primo livello, un tipo usato da due
+elementi, un `xs:include`, un'enumerazione, due code list con dizionario e una
+senza, voci per `BuildingClassValue`) e un documento d'esempio. Gli input del
+progetto sono copiati in una cartella temporanea; `fetch_sources.py` gira con la
+rete disattivata, riusa `sources/` e legge l'ADE dalla sua cartella locale.
+Verifica:
+
+- **fonti**: copie locali con `origin: "local"`, nessun download,
+  `verify_sources.py` senza errori, le altre fonti invariate;
+- **catalogo**: famiglia `ADE`, modulo e prefisso dalla configurazione; nodi
+  delle code list con la descrizione del dizionario; collegamenti applicati
+  anche agli elementi del tipo condiviso; avviso per la proprietà
+  `gml:CodeType` senza code list; primo livello e appartenenza al `CityModel`;
+  sezione `ades` e statistiche; parte CityGML invariata, spazio dell'ADE fuori da
+  `spacesWithoutBoundaryTable`;
+- **dizionario**: `build_codelists.py --align` aggiunge le code list dell'ADE e
+  le sue voci per `BuildingClassValue` dopo quelle SIG3D; record di Annex E con
+  `gml:id` e file senza prefisso, validi contro gli schemi; avviso sul CSV;
+- **export**: elementi dell'ADE in `elements`, candidati di `adeOfAbstractBuilding`
+  e `cityObjectMember`, nessun candidato CityGML o ADE senza voce in `elements`;
+  `codeListUse` con le liste dell'ADE; intestazione `ades`; primo livello da
+  configurazione in `rules`; XSD dell'ADE e riscrittura della sola loro cartella
+  in `xml-catalog.xml`; `CityGML-ADE.xsd` con cui il documento d'esempio valida
+  offline nel pacchetto estratto, mentre con il solo `CityGML.xsd` non valida;
+  README dei pacchetti; determinismo.
 
 ### Altri test
 
@@ -189,7 +232,12 @@ non scrive nulla.
   (`http://www.opengis.net/citygml/codelistmetadata/3.0` e
   `http://www.opengis.net/citygml/codelist-metadata`), il riconoscimento dei
   segnaposto e delle liste non disponibili, e che `codelists/codelists.js` non
-  venga sovrascritto senza `--reset`; sul dizionario fornito verifica le 140
+  venga sovrascritto senza `--reset`; per le ADE, le code list con chiave
+  qualificata (con dizionario e vuote), le voci per una code list di CityGML con
+  il loro `codeSpace`, l'errore per una lista che non è del modulo indicato,
+  `--align` che aggiunge solo ciò che manca (e ripristina una voce dell'ADE
+  tolta a mano) e `--prune` che toglie liste e voci di ADE non più configurate,
+  il comando che senza `--align` non scrive e lo segnala; sul dizionario fornito verifica le 140
   code list (44 con valori, 95 segnaposto, 1 non disponibile), la
   corrispondenza con le code list del catalogo e la struttura di ogni valore.
 - `tests/test_assets.py` verifica che `assets/styles-dark.css` coincida con
@@ -203,7 +251,16 @@ non scrive nulla.
   import relativi, scrittura del manifest, segnalazione dei file non acquisiti,
   esempi di code list non pubblicati registrati come `unavailable` e
   `--reuse-local`, che riscarica solo i file mancanti o modificati localmente.
-  Non usa la rete.
+  Per un'ADE locale: copia dalla cartella senza rete e con un host non ammesso,
+  `xs:include` seguito, record conservato a contenuto invariato, copie
+  cancellate quando l'ADE esce dalla configurazione, file locale mancante
+  segnalato, configurazione non valida che non scrive nulla. Non usa la rete.
+- `tests/test_ade_config.py` verifica la lettura della sezione `ades`
+  (`scripts/ades.py`): campi, code list con e senza dizionario, voci per code
+  list di CityGML, file locali per URL `http` e `https`, e gli errori (nome di un
+  modulo CityGML, prefisso o namespace riservati, URL fuori da `local.baseUrl`,
+  nomi dei dizionari, collegamenti e `topLevel` non validi, nomi, prefissi e
+  namespace ripetuti).
 
 ## Test nel browser
 
@@ -284,3 +341,13 @@ il riquadro Sorgenti con i collegamenti ai file locali (compresi i documenti OGC
 20-010 e 21-006r2), la pagina di `RoofTypeValue` con il nuovo `codeSpace`
 nell'editor, nell'esempio d'uso e l'autorità nei metadati, e che Salva scriva
 gli stessi byte di `scripts/codespaces.py`; l'assenza di errori JavaScript.
+
+`python tests/browser_ade.py` costruisce, in una cartella temporanea, il catalogo
+e il dizionario con l'ADE di prova di `tests/fixtures/ade` (come
+`tests/test_ade.py`, senza rete) e li carica in Chromium. Verifica l'opzione ADE
+del filtro degli schemi, la scheda di un elemento dell'ADE con il badge e la
+scheda Standard (ADE di provenienza, primo livello, code list dalla
+configurazione), i candidati dell'ADE in `adeOfAbstractBuilding`, la pagina di
+una code list dell'ADE con il suo dizionario e un valore modificato e salvato,
+le voci dell'ADE in `BuildingClassValue` in sola lettura ed eliminabili, il
+riquadro Sorgenti con la sezione dell'ADE; l'assenza di errori JavaScript.

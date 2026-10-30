@@ -61,6 +61,19 @@ def value(code, name, code_space=None, description=''):
     return {'code': code, 'codeSpace': code_space, 'name': name, 'description': description}
 
 
+def own_values(dictionary):
+    """{lista: valori reali propri} delle code list di CityGML: senza le liste e le voci delle ADE configurate."""
+    lists = {n: [v for v in l['values'] if ex.is_real(v) and not v.get('ade')]
+             for n, l in dictionary['codeLists'].items() if not l.get('ade')}
+    return {n: values for n, values in lists.items() if values}
+
+
+def own_files(inputs, folder, extensions):
+    """File esportati per le code list di CityGML con valori propri."""
+    lists = inputs.dictionary['codeLists']
+    return {f'{folder}/{lists[n]["module"]}.{n}.{ext}' for n in own_values(inputs.dictionary) for ext in extensions}
+
+
 class DictionaryTests(unittest.TestCase):
     """Serializzazione delle code list nelle forme di Annex E."""
 
@@ -72,8 +85,11 @@ class DictionaryTests(unittest.TestCase):
 
     def test_lists_with_real_values(self):
         lists = self.inputs.dictionary['codeLists']
-        self.assertEqual(len(self.records), 44)
-        self.assertEqual(sum(len(r['entries']) for r in self.records.values()), 2295)
+        # The CityGML lists with values of their own; an ADE adds its lists and can add values to other lists
+        own = own_values(self.inputs.dictionary)
+        self.assertEqual(len(own), 44)
+        self.assertEqual(sum(len(values) for values in own.values()), 2295)
+        self.assertTrue(set(own) <= set(self.records))
         self.assertNotIn('DoorClassValue', self.records)  # solo segnaposto
         self.assertNotIn('HollowSpaceUsageValue', self.records)  # non pubblicata alla fonte
         self.assertEqual(ex.list_state(lists['DoorClassValue']), 'placeholder')
@@ -220,6 +236,20 @@ class InputTests(unittest.TestCase):
             with self.assertRaisesRegex(ex.ExportError, 'non nel catalogo: Nuova'):
                 ex.load(root)
 
+    def test_ade_code_lists_are_keyed_by_qualified_name(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self.fake_root(tmp)
+            catalog = json.loads((root/'data/catalog.json').read_text())
+            catalog['nodes'] = {'ade:TestADE:EnergyClassValue': {'kind': 'codelist', 'name': 'EnergyClassValue', 'qname': 'tade:EnergyClassValue'}}
+            (root/'data/catalog.json').write_text(json.dumps(catalog))
+            working = root/'codelists/codelists.js'
+            working.write_text('window.CITYGML_CODELISTS = {"format": 1, "codeLists": {"tade:EnergyClassValue": {}}};', encoding='utf-8')
+            ex.load(root)
+            working.write_text('window.CITYGML_CODELISTS = {"format": 1, "codeLists": {"EnergyClassValue": {}}};', encoding='utf-8')
+            with self.assertRaisesRegex(ex.ExportError, r'mancano tade:EnergyClassValue; non nel catalogo: EnergyClassValue\)\. '
+                                                        r'Allinea il dizionario con python scripts/build_codelists\.py --align --prune\.'):
+                ex.load(root)
+
     def test_source_file_must_match_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = self.fake_root(tmp)
@@ -251,9 +281,11 @@ class City3dAndGeneratorTests(unittest.TestCase):
         doc = self.city3d
         self.assertEqual((doc['format'], doc['formatVersion'], doc['exportedAt']), ('citygml-explorer/city3d', 1, '2026-10-19T12:00:00+00:00'))
         self.assertEqual(doc['schemas'], 'CityGML 3.0.0 (OGC 21-006r2)')
-        self.assertEqual(len(doc['codeLists']), 140)
+        # The lists of the ADEs are keyed prefix:Name
+        self.assertEqual(len([n for n in doc['codeLists'] if ':' not in n]), 140)
         with_values = {n: l for n, l in doc['codeLists'].items() if 'Dictionary' in l}
-        self.assertEqual(len(with_values), 44)
+        self.assertEqual(len(own_values(self.inputs.dictionary)), 44)
+        self.assertTrue(set(own_values(self.inputs.dictionary)) <= set(with_values))
         self.assertEqual(doc['codeLists']['DoorClassValue'], {'module': 'Construction', 'state': 'placeholder', 'exportedValues': 0})
         self.assertEqual(doc['codeLists']['HollowSpaceUsageValue'], {'module': 'Tunnel', 'state': 'unavailable', 'exportedValues': 0})
         roof = doc['codeLists']['RoofTypeValue']
@@ -265,7 +297,7 @@ class City3dAndGeneratorTests(unittest.TestCase):
         self.assertNotIn('{example-', self.city3d_result.data.decode('utf-8'))
 
     def test_code_list_use(self):
-        use = self.city3d['codeListUse']
+        use = [u for u in self.city3d['codeListUse'] if 'opengis.net/citygml/' in u['elementNamespace']]
         self.assertEqual(len(use), 158)
         self.assertEqual(len({(u['element'], u['elementNamespace']) for u in use}), 63)
         self.assertEqual(len({u['codeList'] for u in use}), 136)
@@ -277,29 +309,41 @@ class City3dAndGeneratorTests(unittest.TestCase):
         self.assertIn({'element': 'Building', 'elementNamespace': BLDG, 'property': 'roofType', 'propertyNamespace': BLDG,
                        'codeList': 'RoofTypeValue', 'declaredIn': 'AbstractBuilding', 'declaredInNamespace': BLDG,
                        'multiplicity': '0..1'}, use)
-        self.assertEqual(self.generator['codeListUse'], use)
+        self.assertEqual(self.generator['codeListUse'], self.city3d['codeListUse'])
 
     def test_deterministic(self):
         self.assertEqual(ex.export_city3d(self.inputs, WHEN).data, self.city3d_result.data)
         self.assertEqual(ex.export_generator(self.inputs, WHEN).data, self.generator_result.data)
 
+    def test_every_citygml_candidate_is_an_element(self):
+        """Candidati CityGML o ADE di una proprietà descritti in elements; GML e xAL restano riferimenti esterni."""
+        families = {n['qname']: n['family'] for n in self.inputs.catalog['nodes'].values() if '}element:' in n['id']}
+        names = {e['qname'] for e in self.generator['elements']}
+        candidates = {c for e in self.generator['elements'] for p in e['properties'] for c in p['candidates']}
+        self.assertEqual({c for c in candidates - names if families.get(c) in ('CityGML', 'ADE')}, set())
+        self.assertEqual({families[c] for c in candidates - names}, {'Supporto'})
+        self.assertEqual({c.split(':')[0] for c in candidates - names}, {'gml', 'xal'})
+
     def test_generator_files(self):
         package = self.package
         for name in ('README.md', 'manifest.json', 'citygml-generator.json', 'xml-catalog.xml'):
             self.assertIn(name, package)
-        schemas = [n for n in package if n.startswith('schemas/') and n.endswith('.xsd')]
+        ade = {'schemas/' + p.removeprefix('sources/') for a in self.inputs.catalog.get('ades', []) for p in a['files']}
+        schemas = [n for n in package if n.startswith('schemas/') and n.endswith('.xsd') and n not in ade]
         self.assertEqual(len(schemas), 78)
         for name in (n for n in package if n.startswith('schemas/')):
             self.assertEqual(hashlib.sha256(package[name]).hexdigest(), self.manifest['sources/' + name.removeprefix('schemas/')]['sha256'])
         self.assertIn('schemas/schemas.opengis.net/citygml/xAL/3.0/OASIS_COPYRIGHT_NOTICE.txt', package)
-        self.assertEqual(len([n for n in package if n.startswith('codelists/')]), 88)
+        files = own_files(self.inputs, 'codelists', ('xml', 'json'))
+        self.assertEqual(len(files), 88)
+        self.assertTrue(files <= set(package))
         manifest = json.loads(package['manifest.json'])
         self.assertEqual({e['path'] for e in manifest['files']}, set(package) - {'manifest.json'})
         for entry in manifest['files']:
             self.assertEqual(entry['sha256'], hashlib.sha256(package[entry['path']]).hexdigest())
 
     def test_generator_elements(self):
-        items = {e['qname']: e for e in self.generator['elements']}
+        items = {e['qname']: e for e in self.generator['elements'] if 'opengis.net/citygml/' in e['namespace']}
         self.assertEqual(len(items), 107)
         self.assertEqual(sum(len(e['properties']) for e in items.values()), 3483)
         building = items['bldg:Building']
@@ -355,7 +399,8 @@ class City3dAndGeneratorTests(unittest.TestCase):
                 if 'codeSpace' in entry:
                     local = catalog.lookup(entry['codeSpace'])
                     self.assertEqual(local, Path(tmp)/entry['files'][0])
-                    self.assertEqual(ET.parse(str(local)).getroot().get('{%s}id' % GML), name)
+                    # gml:id is the name without the prefix of an ADE list
+                    self.assertEqual(ET.parse(str(local)).getroot().get('{%s}id' % GML), name.rsplit(':', 1)[-1])
 
     def test_building_built_from_the_package_validates_offline(self):
         """Un CityModel con un Building costruito con le sole informazioni del pacchetto."""
@@ -432,7 +477,9 @@ class StandardTests(unittest.TestCase):
         self.assertEqual(package['codelists/codelists.js'], self.inputs.dictionary_bytes)
         for excluded in ('scripts/', 'tests/', 'config/', 'docs/', 'tickets/', 'data/catalog.json'):
             self.assertFalse(any(n.startswith(excluded) for n in package), excluded)
-        self.assertEqual(len([n for n in package if n.startswith('dictionaries/')]), 88)
+        files = own_files(self.inputs, 'dictionaries', ('xml', 'csv'))
+        self.assertEqual(len(files), 88)
+        self.assertTrue(files <= set(package))
 
     def test_dictionaries_validate_with_the_package_catalog(self):
         with tempfile.TemporaryDirectory() as tmp:
