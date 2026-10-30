@@ -20,8 +20,24 @@ riferimento alla fonte di ogni regola:
 | Elementi, proprietà, cardinalità | XSD ufficiali e XSD delle ADE | `sources/` |
 | Code list e valori | `gml:Dictionary`, JSON e CSV di Annex E | dizionario delle code list |
 | Documenti e modello UML | HTML OGC e XMI | `sources/` |
-| Code list usata da ogni proprietà | `codeListUse` | catalogo |
-| Struttura risolta degli XSD, regole che gli XSD non esprimono | `elements`, `rules` di `citygml-generator.json` | catalogo |
+| Code list usata da ogni proprietà | `codeListUse` | tipi degli attributi nel modello concettuale (OGC 20-010); per un'ADE, `codeListBindings` di `config/sources.json` |
+| Struttura risolta degli XSD, regole che gli XSD non esprimono | `elements`, `rules` di `citygml-generator.json` | XSD di `sources/`, con informazioni di OGC 20-010; regole di OGC 20-010 e OGC 21-006r2, ognuna con la sua fonte |
+
+Il catalogo (`data/catalog.json`) raccoglie queste fonti; gli exporter leggono il catalogo.
+
+## Termini
+
+Le chiavi dei JSON sono nomi di CityGML 3.0 Explorer: `codeListUse`, `elements`,
+`candidates` e `rules` non sono termini dello standard. Corrispondono a questi
+concetti:
+
+| Termine dell'export | Nello standard |
+|---|---|
+| `codeLists`, `Dictionary` | code list (stereotipo «CodeList» di OGC 20-010) e `gml:Dictionary`, nelle forme di OGC 21-006r2, Annex E |
+| `codeListUse` | il tipo «CodeList» degli attributi nel modello concettuale (OGC 20-010), per esempio `AbstractBuilding.roofType: RoofTypeValue`; nella codifica GML l'attributo è un `gml:CodeType`. Per un'ADE il collegamento viene dalla configurazione, perché lo schema dell'ADE non lo dice |
+| `elements` | gli elementi globali degli XSD e i loro property element (codifica GML, OGC 21-006r2), con alcune informazioni del modello concettuale (`uml`, `topLevel`) |
+| `candidates` | i membri concreti del `substitutionGroup` della destinazione di una proprietà, compresi quelli delle ADE negli ADE hook |
+| `rules` | requisiti e regole che gli XSD non esprimono: tabelle delle superfici ammesse, stereotipo «TopLevelFeatureType», vincoli OCL (OGC 20-010), requisiti della codifica (OGC 21-006r2) |
 
 ## Comando
 
