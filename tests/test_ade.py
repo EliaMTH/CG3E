@@ -217,6 +217,15 @@ class AdeBuildTests(unittest.TestCase):
         self.assertEqual({c for c in candidates - set(items) if families.get(c) in ('CityGML', 'ADE')}, set())
         self.assertEqual({families[c] for c in candidates - set(items)}, {'Supporto'})
 
+    def test_enumerations(self):
+        enums = self.generator['enumerations']
+        # The values come from the XSD of the ADE, which has no UML model
+        self.assertEqual(enums['tade:RefurbishmentKindType'], {
+            'name': 'RefurbishmentKindType', 'namespace': NS, 'description': '',
+            'values': [{'value': 'Insulation', 'description': ''}, {'value': 'Glazing', 'description': ''}]})
+        self.assertEqual(len(enums), 13 + 1)
+        self.assertEqual((self.city3d['elements'], self.city3d['enumerations']), (self.generator['elements'], enums))
+
     def test_code_list_use(self):
         use = self.city3d['codeListUse']
         self.assertEqual(sorted((u['element'], u['property'], u['codeList']) for u in use if u['elementNamespace'] == NS), [

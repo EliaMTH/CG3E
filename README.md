@@ -296,8 +296,8 @@ delle code list e fonti.
 
 | Comando | Uscita | Destinatario |
 |---|---|---|
-| `python scripts/export.py city3d --out citygml-codelists.city3d.json` | JSON: le 140 code list, con i valori nella forma JSON di Annex E, e `codeListUse`, la code list di ogni proprietà di ogni elemento | l'editor degli attributi di City3D |
-| `python scripts/export.py generator --out citygml-generator.zip` | zip: i 78 XSD ufficiali, i dizionari in GML e JSON, `xml-catalog.xml` per l'uso offline, `citygml-generator.json` con struttura risolta degli elementi e regole che gli XSD non esprimono; con le ADE anche i loro XSD e `CityGML-ADE.xsd`, lo schema da usare per validare i documenti che le usano | un generatore di file CityGML |
+| `python scripts/export.py city3d --out citygml-codelists.city3d.json` | JSON: le 140 code list, con i valori nella forma JSON di Annex E; `codeListUse`, la code list di ogni proprietà di ogni elemento; `elements`, le proprietà ammesse da ogni elemento; `enumerations`, i valori dei tipi enumeration | l'editor degli attributi di City3D |
+| `python scripts/export.py generator --out citygml-generator.zip` | zip: i 78 XSD ufficiali, i dizionari in GML e JSON, `xml-catalog.xml` per l'uso offline, `citygml-generator.json` con struttura risolta degli elementi, valori dei tipi enumeration e regole che gli XSD non esprimono; con le ADE anche i loro XSD e `CityGML-ADE.xsd`, lo schema da usare per validare i documenti che le usano | un generatore di file CityGML |
 | `python scripts/export.py standard --out citygml-explorer.zip` | zip: l'explorer offline con fonti e dizionario, i dizionari in GML e CSV, `EXPORT.md` con versioni e stato del dizionario | una persona che vuole consultare lo standard in uso |
 
 Il formato è quello standard dove esiste: gli XSD ufficiali invariati e, per le
@@ -423,8 +423,9 @@ python scripts/build_codelists.py --align
 i collegamenti a proprietà che non esistono. `build_codelists.py --align` aggiunge
 al dizionario le code list e le voci dell'ADE senza toccare il resto; finché il
 dizionario non è allineato, `export.py` si ferma e indica il comando. Gli export
-contengono gli elementi dell'ADE in `elements`, le sue code list in `codeLists` e
-`codeListUse` e l'ADE nell'intestazione (`ades`); il pacchetto `generator`
+contengono gli elementi dell'ADE in `elements`, i suoi tipi enumeration in
+`enumerations`, le sue code list in `codeLists` e `codeListUse` e l'ADE
+nell'intestazione (`ades`); il pacchetto `generator`
 contiene anche i suoi XSD e `CityGML-ADE.xsd`.
 
 ## Struttura del repository

@@ -134,7 +134,8 @@ Sui dati del progetto verifica:
   (`exportedValues` 0), mentre i segnaposto degli esempi OGC non producono
   avvisi;
 - **`city3d`**: intestazione, 140 code list (44 con `Dictionary`), stati,
-  valori esportati, struttura di Annex E;
+  valori esportati, struttura di Annex E; `elements` ed `enumerations` uguali a
+  quelli di `generator`;
 - **`codeListUse`**: 158 voci su 63 elementi e 136 code list, coppie
   (elemento, proprietà) uniche, le voci di `TrafficArea`/`function` e
   `Building`/`roofType`, uguaglianza fra `city3d` e `generator`;
@@ -145,7 +146,10 @@ Sui dati del progetto verifica:
   proprietà di `Building`, campo `uml` di `boundary` con la molteplicità del
   modello e quella del dizionario, `gml:boundedBy` nillable, attributi non
   qualificati di `TexCoordGen`, `choices` e `choiceGroups` di `CityModel`
-  (unico elemento con gruppi `xs:choice`); regole (10 superfici di
+  (unico elemento con gruppi `xs:choice`); 13 tipi enumeration, uno per ogni
+  tipo enumeration delle proprietà di `elements`, i valori di
+  `RelativeToTerrainType` con le descrizioni, valori uguali a quelli del modello
+  concettuale; regole (10 superfici di
   `Building`, nessuna per `PlantCover`, 20 oggetti di primo livello, 12
   proprietà solo per riferimento, 12 vincoli, 65 regole di codifica);
   `xml-catalog.xml` che riconduce ogni `codeSpace` al suo file;
@@ -203,6 +207,7 @@ Verifica:
   `gml:id` e file senza prefisso, validi contro gli schemi; avviso sul CSV;
 - **export**: elementi dell'ADE in `elements`, candidati di `adeOfAbstractBuilding`
   e `cityObjectMember`, nessun candidato CityGML o ADE senza voce in `elements`;
+  il tipo enumeration dell'ADE in `enumerations`, con i valori del suo XSD;
   `codeListUse` con le liste dell'ADE; intestazione `ades`; primo livello da
   configurazione in `rules`; XSD dell'ADE e riscrittura della sola loro cartella
   in `xml-catalog.xml`; `CityGML-ADE.xsd` con cui il documento d'esempio valida

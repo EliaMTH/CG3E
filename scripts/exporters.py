@@ -4,7 +4,8 @@
 Input: data/catalog.json, il dizionario delle code list salvato
 (codelists/codelists.js) e sources/. Nessun accesso alla rete.
 
-  city3d     JSON con le code list (Annex E di OGC 21-006r2) e codeListUse
+  city3d     JSON con le code list (Annex E di OGC 21-006r2), codeListUse,
+             elements ed enumerations
   generator  zip con XSD ufficiali, dizionari GML e JSON, xml-catalog.xml e
              citygml-generator.json (struttura risolta e regole)
   standard   zip con l'explorer offline, le fonti e i dizionari GML e CSV
@@ -498,6 +499,21 @@ def elements(view):
     return result
 
 
+def enumerations(view):
+    """Tipi enumeration con nome usati dalle proprietà di elements, con chiave il type delle proprietà.
+    I valori sono le faccette xs:enumeration degli schemi: ci sono anche per le ADE, che non hanno un modello UML."""
+    used = {}
+    for node in view.concrete_elements():
+        for prop in view.xml_properties(node):
+            type_ = view.nodes.get(prop.get('typeId'))
+            if type_ and type_['kind'] == 'enumeration':
+                used[prop['typeName']] = type_
+    return {name: {'name': t['name'], 'namespace': t['namespace'], 'description': t.get('description') or '',
+                   'values': [{'value': c['value'], 'description': c.get('description') or ''}
+                              for c in t['constraints'] if c['kind'] == 'enumeration']}
+            for name, t in sorted(used.items())}
+
+
 def document_label(document):
     return 'OGC ' + document['documentNumber']
 
@@ -703,7 +719,7 @@ def driver_schema(imports):
 # ---------------------------------------------------------------- exporter
 
 def export_city3d(inputs, when):
-    """EXP-001: un JSON con le code list (Annex E) e codeListUse."""
+    """EXP-001: un JSON con le code list (Annex E), codeListUse, elements ed enumerations."""
     view = View(inputs.catalog)
     records = dictionary_records(inputs.dictionary)
     code_lists = code_list_index(inputs, records, 'codelists')
@@ -713,9 +729,14 @@ def export_city3d(inputs, when):
         if name in records:
             entry['Dictionary'] = to_json(records[name])['Dictionary']
     use = code_list_use(view)
-    data = dumps({**header(inputs, 'city3d', when), 'codeLists': code_lists, 'codeListUse': use})
+    items = elements(view)
+    enums = enumerations(view)
+    data = dumps({**header(inputs, 'city3d', when), 'codeLists': code_lists, 'codeListUse': use,
+                  'elements': items, 'enumerations': enums})
     return Result(data, {'codeLists': len(code_lists), 'withValues': len(records),
-                         'values': sum(len(r['entries']) for r in records.values()), 'codeListUse': len(use)},
+                         'values': sum(len(r['entries']) for r in records.values()), 'codeListUse': len(use),
+                         'elements': len(items), 'properties': sum(len(e['properties']) for e in items),
+                         'enumerations': len(enums)},
                   dictionary_warnings(inputs, records))
 
 
@@ -730,7 +751,7 @@ Esportato da CityGML 3.0 Explorer il {date}.
 | `schemas/` | {schemas} XSD ufficiali di CityGML 3.0 e degli schemi importati (GML 3.2.1, ISO 19139, XLink, XML), invariati, con le avvertenze pubblicate insieme | XSD |
 {ade_rows}| `codelists/` | {lists} code list con valori, in GML e in JSON | OGC 21-006r2, Annex E |
 | `xml-catalog.xml` | URL degli schemi -> `schemas/`; `codeSpace` delle code list -> `codelists/` | catalogo OASIS XML |
-| `citygml-generator.json` | `codeLists`, `codeListUse`, `elements` (struttura risolta degli XSD), `rules` (regole che gli XSD non esprimono, con la fonte) | `citygml-explorer/generator` |
+| `citygml-generator.json` | `codeLists`, `codeListUse`, `elements` (struttura risolta degli XSD), `enumerations` (valori dei tipi enumeration), `rules` (regole che gli XSD non esprimono, con la fonte) | `citygml-explorer/generator` |
 | `manifest.json` | percorso e SHA-256 di ogni file | JSON |
 
 ## Versioni
@@ -783,10 +804,11 @@ def export_generator(inputs, when):
         files[DRIVER] = driver_schema(driver_imports(inputs))
         compile_schema('xml-catalog.xml', driver_imports(inputs), files)
     items = elements(view)
+    enums = enumerations(view)
     use = code_list_use(view)
     files['citygml-generator.json'] = dumps({**header(inputs, 'generator', when),
                                              'codeLists': code_list_index(inputs, records, 'codelists'),
-                                             'codeListUse': use, 'elements': items, 'rules': rules(view)})
+                                             'codeListUse': use, 'elements': items, 'enumerations': enums, 'rules': rules(view)})
     standard = inputs.catalog['standard']
     model, encoding = standard['document'], standard['encoding']['document']
     edited = [n for n, l in sorted(inputs.dictionary['codeLists'].items()) if l.get('edited')]
@@ -804,7 +826,8 @@ def export_generator(inputs, when):
         validation=VALIDATE_ADE if ades else VALIDATE_CITYGML).encode('utf-8')
     with_manifest(files, 'generator', when)
     summary = {'files': len(files), 'schemas': sum(p.endswith('.xsd') for p in paths), 'codeLists': len(records),
-               'elements': len(items), 'properties': sum(len(e['properties']) for e in items), 'codeListUse': len(use)}
+               'elements': len(items), 'properties': sum(len(e['properties']) for e in items), 'enumerations': len(enums),
+               'codeListUse': len(use)}
     if ades:
         summary['ades'] = len(ades)
     return Result(zip_bytes(files, when), summary, dictionary_warnings(inputs, records))

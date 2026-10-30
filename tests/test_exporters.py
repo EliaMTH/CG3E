@@ -295,6 +295,8 @@ class City3dAndGeneratorTests(unittest.TestCase):
         traffic = doc['codeLists']['TrafficAreaFunctionValue']['Dictionary']['dictionaryEntry']
         self.assertTrue(all(e['Definition']['identifier']['@codeSpace'].startswith('https://ogc.org/citygml/3.0/codelists/gml/') for e in traffic))
         self.assertNotIn('{example-', self.city3d_result.data.decode('utf-8'))
+        # The attributes that each element admits, for the attribute editor: the same structure as the generator
+        self.assertEqual((doc['elements'], doc['enumerations']), (self.generator['elements'], self.generator['enumerations']))
 
     def test_code_list_use(self):
         use = [u for u in self.city3d['codeListUse'] if 'opengis.net/citygml/' in u['elementNamespace']]
@@ -373,6 +375,24 @@ class City3dAndGeneratorTests(unittest.TestCase):
         self.assertEqual(city_model['choiceGroups'], {'core:CityModel/choice:936': {
             'minOccurs': 0, 'maxOccurs': 'unbounded', 'members': [p['qname'] for p in members]}})
         self.assertEqual(sum('choiceGroups' in e for e in items.values()), 1)
+
+    def test_enumerations(self):
+        enums = self.generator['enumerations']
+        citygml = {k: e for k, e in enums.items() if 'opengis.net/citygml/' in e['namespace']}
+        self.assertEqual(len(citygml), 13)
+        # One entry for every enumeration type of the properties of elements, and no other
+        types = {n['qname']: n for n in self.inputs.catalog['nodes'].values() if '}type:' in n['id'] and not n.get('anonymous')}
+        used = {p['type'] for e in self.generator['elements'] for p in e['properties'] if p['type'] in types}
+        self.assertEqual(set(enums), {t for t in used if types[t]['kind'] == 'enumeration'})
+        terrain = enums['core:RelativeToTerrainType']
+        self.assertEqual((terrain['name'], terrain['namespace'], terrain['description']),
+                         ('RelativeToTerrainType', CORE, 'RelativeToTerrain enumerates the spatial relations of a city object relative to terrain in a qualitative way.'))
+        self.assertEqual([v['value'] for v in terrain['values']], ['entirelyAboveTerrain', 'substantiallyAboveTerrain',
+                                                                 'substantiallyAboveAndBelowTerrain', 'substantiallyBelowTerrain', 'entirelyBelowTerrain'])
+        self.assertEqual(terrain['values'][0]['description'], 'Indicates that the city object is located entirely above the terrain.')
+        # The values of the schemas are those of the conceptual model (OGC 20-010)
+        self.assertEqual({k: [v['value'] for v in e['values']] for k, e in citygml.items()},
+                         {k: [l['value'] for l in types[k]['literals']] for k in citygml})
 
     def test_generator_rules(self):
         rules = self.generator['rules']

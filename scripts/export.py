@@ -5,7 +5,8 @@
   python scripts/export.py generator --out citygml-generator.zip
   python scripts/export.py standard  --out citygml-explorer.zip
 
-city3d     code list (OGC 21-006r2, Annex E) e codeListUse, per l'editor di City3D
+city3d     code list (OGC 21-006r2, Annex E), codeListUse, elements ed enumerations,
+           per l'editor di City3D
 generator  XSD ufficiali, dizionari GML e JSON, xml-catalog.xml e
            citygml-generator.json, per costruire file CityGML
 standard   explorer offline con fonti e dizionari GML e CSV, da consegnare a una persona

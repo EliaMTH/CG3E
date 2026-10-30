@@ -21,7 +21,8 @@ riferimento alla fonte di ogni regola:
 | Code list e valori | `gml:Dictionary`, JSON e CSV di Annex E | dizionario delle code list |
 | Documenti e modello UML | HTML OGC e XMI | `sources/` |
 | Code list usata da ogni proprietà | `codeListUse` | tipi degli attributi nel modello concettuale (OGC 20-010); per un'ADE, `codeListBindings` di `config/sources.json` |
-| Struttura risolta degli XSD, regole che gli XSD non esprimono | `elements`, `rules` di `citygml-generator.json` | XSD di `sources/`, con informazioni di OGC 20-010; regole di OGC 20-010 e OGC 21-006r2, ognuna con la sua fonte |
+| Struttura risolta degli XSD, valori dei tipi enumeration | `elements`, `enumerations` | XSD di `sources/`, con informazioni di OGC 20-010 |
+| Regole che gli XSD non esprimono | `rules` di `citygml-generator.json` | OGC 20-010 e OGC 21-006r2, ognuna con la sua fonte |
 
 Il catalogo (`data/catalog.json`) raccoglie queste fonti; gli exporter leggono il catalogo.
 
@@ -36,6 +37,7 @@ concetti:
 | `codeLists`, `Dictionary` | code list (stereotipo «CodeList» di OGC 20-010) e `gml:Dictionary`, nelle forme di OGC 21-006r2, Annex E |
 | `codeListUse` | il tipo «CodeList» degli attributi nel modello concettuale (OGC 20-010), per esempio `AbstractBuilding.roofType: RoofTypeValue`; nella codifica GML l'attributo è un `gml:CodeType`. Per un'ADE il collegamento viene dalla configurazione, perché lo schema dell'ADE non lo dice |
 | `elements` | gli elementi globali degli XSD e i loro property element (codifica GML, OGC 21-006r2), con alcune informazioni del modello concettuale (`uml`, `topLevel`) |
+| `enumerations` | i tipi «Enumeration» del modello concettuale (OGC 20-010), per esempio `RelativeToTerrain`; nella codifica GML un `xs:simpleType` con faccette `xs:enumeration` (`core:RelativeToTerrainType`) |
 | `candidates` | i membri concreti del `substitutionGroup` della destinazione di una proprietà, compresi quelli delle ADE negli ADE hook |
 | `rules` | requisiti e regole che gli XSD non esprimono: tabelle delle superfici ammesse, stereotipo «TopLevelFeatureType», vincoli OCL (OGC 20-010), requisiti della codifica (OGC 21-006r2) |
 
@@ -222,16 +224,17 @@ ognuna con nome locale e namespace. `multiplicity` è quella degli schemi.
 | `sources` | `conceptualModel` ed `encoding` (numero, titolo, versione, data di approvazione, URL e SHA-256 dei documenti OGC 20-010 e 21-006r2), `schemaFiles` (numero di XSD), `codeListExamples` (fonte degli esempi OGC) |
 | `ades` | solo con ADE: per ognuna `name`, `prefix`, `namespace`, `version` (attributo `version` dello schema), `url` e `sha256` dello schema, `origin` (`local` per un'ADE non pubblicata, letta da una cartella locale; `remote`) |
 
-`elements` può contenere namespace diversi da quelli di CityGML: quelli delle
-ADE. Senza ADE configurate gli export sono identici a prima, byte per byte.
+`elements` ed `enumerations` possono contenere namespace diversi da quelli di
+CityGML: quelli delle ADE. Senza ADE configurate gli export non contengono
+nulla delle ADE, nemmeno il campo `ades`.
 
 ## `city3d`
 
 `python scripts/export.py city3d --out citygml-codelists.city3d.json`
 
-Un JSON con l'intestazione, `codeLists` e `codeListUse`. `codeLists` ha una
-voce per ognuna delle 140 code list e per ogni code list delle ADE, in ordine di
-chiave:
+Un JSON con l'intestazione, `codeLists`, `codeListUse`, `elements` ed
+`enumerations`. `codeLists` ha una voce per ognuna delle 140 code list e per
+ogni code list delle ADE, in ordine di chiave:
 
 | Campo | Contenuto |
 |---|---|
@@ -241,6 +244,13 @@ chiave:
 | `edited` | presente e true per le liste modificate |
 | `Dictionary` | il contenuto della forma JSON di Annex E, solo per le liste con valori reali |
 
+`elements` ed `enumerations` sono gli stessi di `citygml-generator.json`,
+descritti sotto: per ogni elemento le proprietà ammesse, ereditate comprese, con
+cardinalità, tipo e code list, e i valori di ogni tipo enumeration. Le proprietà
+di un'ADE si raggiungono dagli ADE hook: per esempio i `candidates` di
+`bldg:adeOfBuilding` sono gli elementi delle ADE, ognuno con la sua voce in
+`elements`.
+
 ## `generator`
 
 `python scripts/export.py generator --out citygml-generator.zip`
@@ -249,7 +259,7 @@ chiave:
 |---|---|
 | `README.md` | contenuto, versioni, validazione offline |
 | `manifest.json` | percorso, SHA-256 e dimensione di ogni file |
-| `citygml-generator.json` | intestazione, `codeLists`, `codeListUse`, `elements`, `rules` |
+| `citygml-generator.json` | intestazione, `codeLists`, `codeListUse`, `elements`, `enumerations`, `rules` |
 | `xml-catalog.xml` | catalogo OASIS XML: URL degli schemi → `schemas/`, `codeSpace` delle liste → `codelists/` |
 | `schemas/<host>/<percorso>` | i 78 XSD di `sources/` (22 CityGML e xAL, 56 importati: GML, ISO 19139, XLink, XML), con lo SHA-256 del manifest, e le avvertenze pubblicate con essi; con le ADE, anche i loro XSD |
 | `codelists/` | dizionari GML e JSON |
@@ -307,7 +317,7 @@ Ogni proprietà:
 | `group` | `attribute`, `xmlAttribute`, `association`, `geometry`, `ade` |
 | `minOccurs`, `maxOccurs` | cardinalità degli schemi (`maxOccurs` intero o `unbounded`) |
 | `choices` | gruppi `xs:choice` che contengono la proprietà, come `<dichiarante>/choice:<riga>`; le proprietà con lo stesso identificatore sono alternative a ogni occorrenza del gruppo, descritto in `choiceGroups` dell'elemento |
-| `type` | tipo XML dichiarato (QName), `null` per un tipo anonimo |
+| `type` | tipo XML dichiarato (QName), `null` per un tipo anonimo; per un tipo enumeration è la chiave in `enumerations` |
 | `targets` | elementi di destinazione; vuoto per le proprietà che sono esse stesse un elemento globale (`xs:element/@ref`) |
 | `candidates` | elementi concreti ammessi dagli schemi al posto delle destinazioni: le destinazioni stesse, se concrete, e gli elementi del loro `substitutionGroup`, comprese le ADE (per esempio in `bldg:adeOfBuilding`). Ogni candidato di CityGML o di un'ADE ha la sua voce in `elements`; gli elementi GML e xAL (geometrie, `xal:Address`) restano riferimenti esterni |
 | `declaredIn` | elemento che dichiara la proprietà |
@@ -319,6 +329,26 @@ Ogni proprietà:
 
 È una vista risolta degli XSD, non una fonte alternativa: la validità si
 verifica contro `schemas/`.
+
+### `enumerations`
+
+I tipi enumeration con nome usati dalle proprietà di `elements` (oggi 13), con
+chiave il `type` della proprietà, in ordine di chiave:
+
+| Campo | Contenuto |
+|---|---|
+| `name`, `namespace` | nome e namespace del tipo XML |
+| `description` | documentazione dello schema |
+| `values` | valori ammessi, nell'ordine dello schema: `value` e `description` (documentazione dello schema) |
+
+I valori sono le faccette `xs:enumeration` degli XSD, quindi ci sono anche per
+le ADE; per CityGML coincidono con quelli del modello concettuale (OGC 20-010).
+
+```json
+"core:RelativeToTerrainType": {"name": "RelativeToTerrainType", "namespace": "http://www.opengis.net/citygml/3.0",
+ "description": "RelativeToTerrain enumerates the spatial relations of a city object relative to terrain in a qualitative way.",
+ "values": [{"value": "entirelyAboveTerrain", "description": "Indicates that the city object is located entirely above the terrain."}, …]}
+```
 
 ### `rules`
 
